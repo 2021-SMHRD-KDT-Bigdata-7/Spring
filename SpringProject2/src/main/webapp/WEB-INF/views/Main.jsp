@@ -8,12 +8,12 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/cssfile.css" type="text/css" media="screen" />
-<title>Insert title here</title>
+<title>불이야</title>
 </head>
 <body>
 	<div id = "background">
 		<div id="symbol">
-			<img src="/SpringProject2/src/main/webapp/resources/logo.png">
+			<img src="resources/images/logo.png" src="">
 		</div>
 		<div id="logo">
 			<h1> 불이야 </h1>
