@@ -12,12 +12,27 @@
 </head>
 <body>
 	<div id = "background">
+		<div class="top">
+			<img id="setting" src="resources/images/setting2.png">
+		</div>
 		<div id="symbol">
-			<img src="resources/images/logo.png" src="">
+			<img id="mainlogo" src="resources/images/119.png">
 		</div>
-		<div id="logo">
-			<h1> 불이야 </h1>
+		
+		<!-- 로그인 전 main -->
+		
+		<div id="btn-login-main">
+			<div style="height: 50%"></div>
+			<div id="login"><p id="login-text">로그인</p></div>
+			<div id="join"><p id="join-text">회원가입</p></div>
 		</div>
+		
+		<!-- 일반 사용자 로그인 후 -->
+		<!-- <div id="btn-main">
+			<div style="height: 50%"></div>
+			<img id="report" src="resources/images/report.png">
+		</div> -->
+		
 	</div>
 </body>
 </html>
