@@ -25,21 +25,24 @@
 	font-family: 'SBAggroB';
 }
 
+#background{
+}
+
 .top{
-	height: 30%;
+	height: 20%;
 	text-align: right;
 }
 
 #setting{
 	width : inherit;
-	max-width: 10%;
+	max-width: 5%;
 	height: auto;
 	margin: 2%;
 }
 
 #setting:hover{
 	width : inherit;
-	max-width: 11%;
+	max-width: 6%;
 	height: auto;
 	margin: 1.5%;
 	cursor: pointer;
@@ -48,13 +51,27 @@
 #symbol{
 	display: inline-block;
 	width : 100%;
-	height : auto;
+	height : 50%;
 }
 
 #mainlogo{
 	width : inherit;
-	max-width: 60%;
+	max-width: 30%;
 	height: auto;
+}
+
+#title{
+	height: auto;
+}
+
+#title-text{
+	display: inline-block;
+	font-size: 7vw;
+	width: auto;
+	height: auto;
+	color: #C8252B;
+	margin: 3%;
+	text-shadow: 1px 1px 5px #777676;
 }
 
 #btn-main{
@@ -86,8 +103,10 @@
 
 #login-text{
 	display: inline-block;
-	font-size: 7vw;
+	font-size: 3vw;
 	height: auto;
+	margin-top: 5%;
+	margin-bottom: 5%;
 }
 
 #login-text:hover{
@@ -98,10 +117,9 @@
 #login{
 	display: inline-table;
 	vertical-align: middle;
-	max-width: 40%;
+	max-width: 20%;
 	background-color: #F2F2F2;
 	height: auto;
-	font-size: 5vw;
 	border-radius: 0.5em;
 	box-shadow: 5px 5px 10px #777676;
 }
@@ -110,14 +128,18 @@
 	cursor: pointer;
 }
 
+#join{
+	height: auto;
+}
+
 #join-text{
 	display: inline-block;
-	font-size: 4vw;
+	font-size: 2vw;
 	width: auto;
 	height: auto;
 }
 
 #join-text:hover{
-	font-size: 5vw;
+	font-size: 2.2vw;
 	cursor: pointer;	
 }
