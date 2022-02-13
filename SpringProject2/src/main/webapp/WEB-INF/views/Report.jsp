@@ -9,12 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	
-	<!-- 신고유형, 신고자유형, 신고 내용 텍스트 상자
-		if 신고자유형이 내부 : 위치 전송
-		else (신고자유형이 외부) : ajax로 지도 띄우고 클릭 위치전송-->
-		
-	<form action="EmergencyController" method="get">
+	<form action="ReportController" method="POST">
 		<table border="1px">
 		  <tr>
 		    <td>신고자유형 *</td>
@@ -54,14 +49,6 @@
 	</form>
 	
 	
-	
-	
-		
-		
-	<script type="text/javascript">
-	
-	</script>
-
 
 </body>
 </html>
