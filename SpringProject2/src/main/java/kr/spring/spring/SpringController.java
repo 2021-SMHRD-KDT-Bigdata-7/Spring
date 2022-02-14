@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.spring.domain.Member;
 import kr.spring.service.SpringService;
-import kr.spring.domain.Report;
 
 @Controller
 public class SpringController {
