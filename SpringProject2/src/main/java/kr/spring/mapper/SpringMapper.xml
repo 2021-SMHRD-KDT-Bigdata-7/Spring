@@ -2,10 +2,13 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="kr.spring.mapper.ReportMapper"> 
+<mapper namespace="kr.spring.mapper.SpringMapper"> 
     
 	<insert id="ReportlatInsert" parameterType="kr.spring.domain.Report"> <!--vo로 묶어서 온 것(컨트롤러insert)-->
 	    insert into t_report(re_content, re_latitude, re_longitude) values(#{con},#{lat},#{lon})
 	</insert>
+	
+	
+	
 	
 </mapper>

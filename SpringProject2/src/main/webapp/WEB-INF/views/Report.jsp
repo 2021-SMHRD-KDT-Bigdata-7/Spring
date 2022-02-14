@@ -42,10 +42,11 @@
 		  </tr>
 		  <tr align="center">
 		    <td colspan="2">
-		      <input type="submit" value="신고접수" >
+		      <input type="submit" value="신고하기" >
 		    </td>
 		  </tr>
 		</table>
+		
 	</form>
 	
 	
