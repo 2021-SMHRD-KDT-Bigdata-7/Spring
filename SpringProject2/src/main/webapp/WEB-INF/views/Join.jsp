@@ -101,7 +101,7 @@
             </ul>
         </form>
 	
-	<form action="" method="POST"> 
+	<form action="JoinUser.do" method="POST"> 
 		<!-- 일반회원 로그인 -->
 		<div class="input-box"> 
 			<input id="m_name" type="text" name="m_name" placeholder="이름"> 
@@ -118,14 +118,14 @@
 			<label for="m_id">아이디</label> 
 		</div>
 		<div class="input-box"> 
-			<input id="m_pw" type="password" name="password" placeholder="비밀번호"> 
+			<input id="m_pw" type="password" name="m_pw" placeholder="비밀번호"> 
 			<label for="m_pw">비밀번호</label> 
 		</div> 
 		<div class="input-box"> 
 			<input id="m_phone" type="tel" name="m_phone" placeholder="전화번호" maxlength="11"> 
 			<label for="m_phone">전화번호</label> 
 		</div> 
-		<div class="input-box"> 
+		<!-- <div class="input-box"> 
 			<input id="add1" type="text" name="add1" placeholder="우편번호" readonly="readonly" style="width:50%;">
 			<label for="add1">우편번호</label>
 		</div> 
@@ -136,7 +136,7 @@
 		<div class="input-box"> 
 			<input id="add3" type="text" name="add3" placeholder="상세주소">
 			<label for="add3">상세주소</label> 
-		</div> 
+		</div>  -->
 		<div id="btn-login-main">
 			<input type="submit" id="btn-submit" value="가입완료">
 		</div>

@@ -18,12 +18,12 @@
 	
 	<insert id="JoinUser">
 	    insert into t_member(m_id, m_pw, m_name, m_phone, m_type, m_joindate, admin_yn) 
-	    values (m_id, m_pw, m_name, m_phone, "U", sysdate, "N")
+	    values (#{m_id}, #{m_pw}, #{m_name}, #{m_phone}, 'U', sysdate, 'N')
 	</insert>
 	
 	<insert id="JoinFire">
 	    insert into t_member(m_id, m_pw, m_name, m_phone, m_type, m_joindate, admin_yn) 
-	    values (m_id, m_pw, m_name, m_phone, "F", sysdate, "N")
+	    values (#{m_id}, #{m_pw}, #{m_name}, #{m_phone}, 'F', sysdate, 'N')
 	</insert>
 	
 </mapper>
