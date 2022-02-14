@@ -394,9 +394,10 @@
 	
 	#join-text{
 		display: inline-block;
-		font-size: 2vw;
+		font-size: 1.5vw;
 		width: auto;
 		height: auto;
+		margin-top: 1%;
 	}
 	
 	#join-text:hover{
