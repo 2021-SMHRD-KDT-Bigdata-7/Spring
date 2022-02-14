@@ -25,7 +25,7 @@
 		
 		<div id="btn-login-main">
 			<div class="top"></div>
-			<div id="login"><a href="Login.do" id="login-text">로그인</a></div>
+			<button href="location.href='Login.jsp'" id="btn-login">로그인</button>
 			<div id="join"><p id="join-text">회원가입</p></div>
 		</div>
 		

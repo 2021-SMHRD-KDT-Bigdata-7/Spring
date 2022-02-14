@@ -52,10 +52,11 @@
 @media (max-width: 768px){
 	
 	#setting{
-	width : inherit;
-	max-width: 13%;
-	height: auto;
-	margin: 10%;
+		width : inherit;
+		max-width: 13%;
+		height: auto;
+		margin: 10%;
+		margin-top: 15%;
 	}
 	
 	#setting:hover{
@@ -63,6 +64,7 @@
 		max-width: 14%;
 		height: auto;
 		margin: 9.5%;
+		margin-top: 14.5%;
 		cursor: pointer;
 	}
 	
@@ -119,31 +121,25 @@
 		cursor: pointer;
 	}
 	
-	#login-text{
+	#btn-login{
 		display: inline-block;
 		font-size: 7vw;
-		height: auto;
-		margin-top: 5%;
-		margin-bottom: 5%;
-	}
-	
-	#login-text:hover{
-		display: inline-block;
-		height: auto;
-	}
-	
-	#login{
-		display: inline-table;
+		border: none;
 		vertical-align: middle;
 		max-width: 50%;
+		height: 30%;
 		background-color: #F2F2F2;
-		height: auto;
-		border-radius: 0.5em;
+		border-radius: 0.3em;
 		box-shadow: 5px 5px 10px #777676;
 	}
-	
-	#login:hover{
+		
+	#btn-login:hover{
+		display: inline-block;
 		cursor: pointer;
+	}
+	
+	#btn-login:active{
+		box-shadow: none;
 	}
 	
 	#join{
@@ -299,37 +295,26 @@
 		cursor: pointer;
 	}
 	
-	#login-text{
+	#btn-login{
 		display: inline-block;
 		font-size: 3vw;
-		height: auto;
 		margin-top: 5%;
-		margin-bottom: 5%;
-		text-decoration: none;
-	}
-	
-	#login-text:visited{
-		color: black;
-		text-decoration: none;
-	}
-	
-	#login-text:hover{
-		display: inline-block;
-		height: auto;
-	}
-	
-	#login{
-		display: inline-table;
+		border: none;
 		vertical-align: middle;
 		max-width: 20%;
+		height: 30%;
 		background-color: #F2F2F2;
-		height: auto;
-		border-radius: 0.5em;
+		border-radius: 0.3em;
 		box-shadow: 5px 5px 10px #777676;
 	}
-	
-	#login:hover{
+		
+	#btn-login:hover{
+		display: inline-block;
 		cursor: pointer;
+	}
+	
+	#btn-login:active{
+		box-shadow: none;
 	}
 	
 	#join{
