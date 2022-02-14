@@ -20,7 +20,9 @@ public class SpringService {
 	
 	//회원가입-일반사용자
 	public void JoinUser(Member member) {
+//////////확인용	
 		System.out.println("ser"+member);
+		
 		mapper.JoinUser(member);
 	}
 	//회원가입-소방서
@@ -50,15 +52,15 @@ public class SpringService {
 
 		return rlist;
 	}
-	   
-    //method db에서 멤버리스트를 갖고오는 메소드 컨트롤러야 db에서 멤버리스트 갖고와
-    //회원테이블조회
-    public List<Member> MemberList() {
-       List<Member> mlist =mapper.MemberList();
-       return mlist;
-    }
-
 	
+	// ReportTaking의 신고접수화면에서 신고상세내용 가져오기
+	public List<Report> ReportDetail(){
+		List<Report> rlist = mapper.ReportDetail();
+//////확인용
+		System.out.println("ReportDetail서비스 "+rlist);
+		
+		return rlist;
+	}
 	
 	
 }

@@ -47,12 +47,12 @@ public class SpringController {
 		return "Report";
 	}
 
-	
 	 //회원가입-일반사용자
-	 
 	 @RequestMapping(value = "/JoinUser.do", method = RequestMethod.POST) public
 	 String JoinUser(Member member) {
+//////////확인용   
 		 System.out.println("con"+member);
+		 
 		 service.JoinUser(member); 
 		 return "Main"; }
 	
@@ -63,17 +63,8 @@ public class SpringController {
 		service.JoinFire(member);
 		return "Main";
 	}
+
 	
-
-	// 회원테이블조회
-	@RequestMapping("/MemberList.do")
-	public String MemberList(Model model) {
-		List<Member> mlist = service.MemberList();
-		// 객체바인딩
-		model.addAttribute("mlist", mlist);
-		return "MemberList";// jsp 이름(jsp*jstl+el)
-	}
-
 	// Report의 내용 insert 메소드
 	@RequestMapping(value = "/ReportInsert.do", method = RequestMethod.POST)
 	public String ReportInsert(@RequestParam String re_type, @RequestParam String re_content, Model model) {
@@ -126,4 +117,20 @@ public class SpringController {
 
 		return "ReportTaking";
 	}
+	
+	// ReportTaking(신고접수화면)에서 클릭 시 세부정보 표현
+	@RequestMapping("/ReportDetail.do")
+	public String ReportDetail(Model model){
+		
+		List<Report> rlist = service.ReportDetail();
+//////확인용
+		System.out.println("ReportDetail컨트롤러 "+ rlist);
+		
+		model.addAttribute("rlist", rlist);
+		
+		return "ReportDetail";
+		
+	}
+	
+	
 }

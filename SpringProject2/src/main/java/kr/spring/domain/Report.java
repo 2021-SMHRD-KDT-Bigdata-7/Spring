@@ -7,6 +7,7 @@ import lombok.Data;
 @Data
 public class Report {
 	
+	private String m_id;
 	private String re_loc;
 	private String re_type;
 	private Date re_date;

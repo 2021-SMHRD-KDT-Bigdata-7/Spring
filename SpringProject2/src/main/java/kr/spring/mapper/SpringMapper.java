@@ -9,12 +9,12 @@ import kr.spring.domain.Report;
 
 public interface SpringMapper {
 	
-	public List<Member> MemberList();
-	public void ReportlatInsert(Model model);
-	public void ReportInsert(Model model);
-	public List<Report> ReportTaking();
 	public void JoinUser(Member member);
 	public void JoinFire(Member member);
 	
+	public void ReportlatInsert(Model model);
+	public void ReportInsert(Model model);
 	
+	public List<Report> ReportTaking();
+	public List<Report> ReportDetail();
 }
