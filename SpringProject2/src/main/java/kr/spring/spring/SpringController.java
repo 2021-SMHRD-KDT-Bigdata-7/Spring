@@ -23,6 +23,11 @@ public class SpringController {
 		return "Main";
 	}
 	
+	@RequestMapping("/Login.do")
+	public String Login() {
+		return "Login";
+	}
+	
 	@RequestMapping("/ReportMap.do")
 	public String ReportMap() {
 
@@ -37,11 +42,14 @@ public class SpringController {
 
 	// ReportMap에서 받아온 위치좌표를 insert하기 위한 메소드
 	@RequestMapping(value = "/ReportlatInsert.do", method = RequestMethod.POST)
-	public String ReportlatInsert(Report rvo) {
+	public String ReportlatInsert(Model model, int re_latitude, int re_longitude, String re_content) {
 		
-		System.out.println(rvo);
+		model.addAttribute(re_latitude);
+		model.addAttribute(re_longitude);
+		model.addAttribute(re_content);
+		System.out.println(model);
 		
-		return "Report";
+		return "";
 	}
 	
 	//회원테이블조회

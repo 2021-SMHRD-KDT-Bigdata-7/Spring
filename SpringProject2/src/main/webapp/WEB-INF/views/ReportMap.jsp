@@ -87,25 +87,14 @@
 		            var tcon = document.getElementById("con");
 		            tcon.value = content;
 
-/* 		            // Report페이지로 데이터 보내기
-//수정////////////////****latlng==null이 안들음*****            
+ 		            // Report페이지로 주소 보내기
 		            if(latlng==null){
 ///////////// 확인용	
-		            	console.log(lat);
-		            	console.log(lon);
-		            	console.log(latlat);
-						var cast = { "lat" : lat, "lon" : lat, "con" : "현재위치입니다."};
-			            localStorage.setItem("cast", JSON.stringify(cast));
+			            localStorage.setItem("con", "현재위치");
 		            }
 		            else{
-						var cast = { "lat" : latlat, "lon" : latlon, "con" : content};
-			            localStorage.setItem("cast", JSON.stringify(cast));
+			            localStorage.setItem("con", content);
 		            	}
-		
-///////////// 확인용					
-					console.log(cast);
- */		  	    
- 
 		  	    }; 
 		  	};
 		  	geocoder.coord2Address(coord.getLng(), coord.getLat(), callback);
@@ -119,9 +108,9 @@
 </script>
 
 <form action="ReportlatInsert.do" id="form" method="post">
-	<input type="text" id="lat" name="lat">
-	<input type="text" id="lon" name="lon">
-	<input type="text" id="con" name="con">
+	<input type="text" id="lat" name="re_latitude">
+	<input type="text" id="lon" name="re_longitude">
+	<input type="text" id="con" name="re_content">
 	<input type="submit" value="다음">
 </form>
 
