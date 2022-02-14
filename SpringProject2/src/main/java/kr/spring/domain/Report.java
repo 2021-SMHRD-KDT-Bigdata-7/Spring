@@ -4,7 +4,9 @@ import lombok.Data;
 
 @Data
 public class Report {
-	private int re_latitude;
-	private int re_longitude;
+	private String re_loc;
+	private String re_type;
 	private String re_content;
+	private double re_latitude;
+//	private double re_longitude;
 }

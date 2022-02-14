@@ -9,29 +9,32 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<script type="text/javascript">
-		console.log(localStorage.getItem("con"));
-		var con = document.getElementById("con");
-		console.log(con);
-		con.value = "gg";
-		console.log(con);
-		
-	</script>
-
-	<form action="SpringController" method="POST">
+	<form action="${cpath}/ReportInsert.do" method="POST">
+		<h2>신고인 정보</h2>
 		<table border="1px">
 		  <tr>
-		    <td>신고유형 </td>
+		    <td>이름</td>
+		    <td>회원정보에서이름가져오기</td>
+		  </tr>
+		  <tr>
+		    <td>번호</td>
+		    <td>회원정보에서번호가져오기</td>
+		  </tr>
+		</table>
+
+		<h2>신고내용</h2>
+		<table border="1px">
+		  <tr>
+		    <td>유형 </td>
 			<td>
-			  <select>
-			    <optgroup label="선택해주세요">
-				  <option>선택</option>
-				  <option>화재</option>
-				  <option>구조</option>
-				  <option>긴급</option>
-				  <option>교통사고</option>
-				  <option>재해</option>
-				  <option>기타</option>
+			  <select name="re_type">
+				  <option selected disabled>선택해주세요.</option>
+				  <option value="화재">화재</option>
+				  <option value="구조">구조</option>
+				  <option value="긴급">긴급</option>
+				  <option value="교통사고">교통사고</option>
+				  <option value="재해">재해</option>
+				  <option value="화재">기타</option>
 				 </optgroup>
 			  </select>
 			</td>
@@ -39,15 +42,22 @@
 		  <tr>
 		    <td>장소</td>
 		    <td>
-		      <input type="text" id="con">
+		      <input type="text" id="loc">
 		    </td>
 		  </tr>
 		  <tr>
-		    <td>신고내용</td>
+		    <td>내용</td>
 			<td>
-	    	  <textarea rows="20" cols="50"></textarea>
+	    	  <textarea name="re_content" rows="20" cols="50"></textarea>
 			</td>
 		  </tr>
+		  <tr>
+		    <td>파일첨부</td>
+			<td>
+			  <input type="file">
+			</td>
+		  </tr>
+		  
 		  <tr align="center">
 		    <td colspan="2">
 		      <input type="submit" value="신고하기" >
