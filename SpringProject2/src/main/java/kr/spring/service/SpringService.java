@@ -10,12 +10,23 @@ import kr.spring.domain.Member;
 import kr.spring.domain.Report;
 import kr.spring.mapper.SpringMapper;
 
+
 @Service
 public class SpringService {
 	
 	@Autowired
 	SpringMapper mapper;
+
 	
+	//회원가입-일반사용자
+	public void JoinUser(Member member) {
+		System.out.println("ser"+member);
+		mapper.JoinUser(member);
+	}
+	//회원가입-소방서
+	public void JoinFire(Member member) {
+		mapper.JoinFire(member);
+	}
 	// ReportMap에서 좌표 DB저장
 	public void ReportlatInsert(Model model) {
 		mapper.ReportlatInsert(model);
@@ -46,6 +57,8 @@ public class SpringService {
        List<Member> mlist =mapper.MemberList();
        return mlist;
     }
+
+	
 	
 	
 }

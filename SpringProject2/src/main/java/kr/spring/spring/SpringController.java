@@ -13,6 +13,8 @@ import kr.spring.domain.Member;
 import kr.spring.service.SpringService;
 import kr.spring.domain.Report;
 
+
+
 @Controller
 public class SpringController {
 
@@ -36,7 +38,6 @@ public class SpringController {
 	
 	@RequestMapping("/ReportMap.do")
 	public String ReportMap() {
-
 		return "ReportMap";
 	}
 
@@ -45,6 +46,24 @@ public class SpringController {
 
 		return "Report";
 	}
+
+	
+	 //회원가입-일반사용자
+	 
+	 @RequestMapping(value = "/JoinUser.do", method = RequestMethod.POST) public
+	 String JoinUser(Member member) {
+		 System.out.println("con"+member);
+		 service.JoinUser(member); 
+		 return "Main"; }
+	
+	
+	//회원가입-소방서
+	@RequestMapping(value = "/JoinFire.do", method = RequestMethod.POST)
+	public String JoinFire(Member member) {
+		service.JoinFire(member);
+		return "Main";
+	}
+	
 
 	// 회원테이블조회
 	@RequestMapping("/MemberList.do")

@@ -15,5 +15,4 @@ public class Member {
 	private Date m_joindate;
 	private String admin_yn;
 
-	
 }
