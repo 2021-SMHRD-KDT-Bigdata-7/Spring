@@ -28,7 +28,12 @@ public class SpringController {
 	public String Login() {
 		return "Login";
 	}
-
+	
+	@RequestMapping("/Join.do")
+	public String Join() {
+		return "Join";
+	}
+	
 	@RequestMapping("/ReportMap.do")
 	public String ReportMap() {
 
