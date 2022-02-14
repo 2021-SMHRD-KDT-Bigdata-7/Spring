@@ -38,7 +38,7 @@
         // 초기 위치를 body 내용에 넣기
         document.getElementById("lat").value = lat;
         document.getElementById("lon").value = lon;
-        document.getElementById("con").value = "현재위치입니다.";
+        document.getElementById("con");
         
         var locPosition = new kakao.maps.LatLng(lat, lon);  // 위경도를 저장
         
@@ -46,7 +46,7 @@
             map: map,
             position: new kakao.maps.LatLng(lat, lon)  // 위경도에 마커표시
         });
-       
+        
         map.setCenter(locPosition);  // 지도 위치 이동  
 ///////////// 확인용	      
         console.log(latlng);
@@ -73,27 +73,28 @@
 			  	        position: new kakao.maps.LatLng(latlat, latlon),
 		  	        });
 		  	        
-		  	        content = result[0].address.address_name;
+		  	        loc = result[0].address.address_name;
 		  	        
-		  	        // 인포윈도우 표시 
+		  	        /* // 인포윈도우 표시 
 ///수정//////////////// *******닫히지 않음 ******
-				  	infowindow.setContent(content);
-		            infowindow.open(map, marker);
+				  	infowindow.setContent(loc);
+		            infowindow.open(map, marker); */
 		            // 위치 변경 될 때마다 body안에 내용 바꾸기
 		            var tlat = document.getElementById("lat");
 		            tlat.value = latlat;
 		            var tlon = document.getElementById("lon");
 		            tlon.value = latlon;
-		            var tcon = document.getElementById("con");
-		            tcon.value = content;
-
+		            var tloc = document.getElementById("loc");
+		            tloc.value = loc;
+		            
+		        	var inputlat =  document.getElementById("lat");
+		            
  		            // Report페이지로 주소 보내기
 		            if(latlng==null){
-///////////// 확인용	
 			            localStorage.setItem("con", "현재위치");
 		            }
 		            else{
-			            localStorage.setItem("con", content);
+			            localStorage.setItem("con", loc);
 		            	}
 		  	    }; 
 		  	};
@@ -104,13 +105,14 @@
         console.log(latlng.getLat(), latlng.getLng());
   	 });
   	 });
-      
+  
+	
 </script>
 
-<form action="ReportlatInsert.do" id="form" method="post">
+<form action="${cpath}/ReportlatInsert.do" id="form" method="post">
 	<input type="text" id="lat" name="re_latitude">
 	<input type="text" id="lon" name="re_longitude">
-	<input type="text" id="con" name="re_content">
+	<input type="text" id="loc" name="re_loc">
 	<input type="submit" value="다음">
 </form>
 
