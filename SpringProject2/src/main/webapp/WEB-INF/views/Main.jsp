@@ -23,9 +23,8 @@
 		
 		<!-- 로그인 전 main -->
 		
-		<div id="btn-login-main">
-			<div class="top"></div>
-			<button href="location.href='Login.jsp'" id="btn-login">로그인</button>
+		<div id="btn-submit-main">
+			<button onclick="location.href='Login.do'" id="btn-submit">로그인</button>
 			<div id="join"><p id="join-text">회원가입</p></div>
 		</div>
 		
