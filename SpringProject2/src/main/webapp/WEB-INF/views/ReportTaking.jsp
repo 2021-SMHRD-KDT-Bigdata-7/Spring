@@ -16,9 +16,13 @@
 	<c:forEach var="rvo" items="${rlist}">
 	  <tr>
 	    <td>
-	    ${rvo.re_loc}&nbsp;${rvo.re_type}발생
+	    ${rvo.re_loc}&nbsp;${rvo.re_type}발생 
 	    <br>
 	    ${rvo.re_date}&nbsp;${rvo.re_type}
+	    <br>
+	    </td>
+	    <td>
+	      <button value="접수" onclick="location.href='ReportDetail.do'">접수</button>
 	    </td>
 	  </tr>		
 	</c:forEach>
