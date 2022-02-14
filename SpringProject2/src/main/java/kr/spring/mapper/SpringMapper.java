@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.ui.Model;
 
 import kr.spring.domain.Member;
+import kr.spring.domain.Report;
 
 public interface SpringMapper {
 	
@@ -12,6 +13,7 @@ public interface SpringMapper {
 	
 	public void ReportlatInsert(Model model);
 	public void ReportInsert(Model model);
+	public List<Report> ReportTaking();
 	
 	
 }

@@ -25,7 +25,7 @@
 		
 		<div id="btn-submit-main">
 			<button onclick="location.href='Login.do'" id="btn-submit">로그인</button>
-			<div id="join"><p id="join-text">회원가입</p></div>
+			<div id="join"><p id="join-text" onclick="location.href='Join.do'">회원가입</p></div>
 		</div>
 		
 		<!-- 일반 사용자 로그인 후 -->
