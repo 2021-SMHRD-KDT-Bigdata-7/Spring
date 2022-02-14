@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/cssfile.css" type="text/css" media="screen" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>불이야</title>
 </head>
 <body>
@@ -24,14 +25,14 @@
 		
 		<div id="btn-login-main">
 			<div class="top"></div>
-			<div id="login"><h1 id="login-text">로그인</h1></div>
+			<div id="login"><a href="Login.do" id="login-text">로그인</a></div>
 			<div id="join"><p id="join-text">회원가입</p></div>
 		</div>
 		
 		<!-- 일반 사용자 로그인 후 -->
 		
 		<!-- <div id="btn-main">
-			<div style="height: 50%"></div>
+			<div style="height: 30%"></div>
 			<img id="report" src="resources/images/report.png">
 		</div> -->
 		

@@ -18,6 +18,20 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'SBAggroM';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroM.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SBAggroL';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroL.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 *{
 	width: 100%;
 	height: 100%;
@@ -29,117 +43,372 @@
 }
 
 .top{
-	height: 20%;
+	height: 30%;
 	text-align: right;
 }
 
-#setting{
+/* 모바일 화면 css */
+
+@media (max-width: 768px){
+	
+	#setting{
 	width : inherit;
-	max-width: 5%;
+	max-width: 13%;
 	height: auto;
-	margin: 2%;
+	margin: 10%;
+	}
+	
+	#setting:hover{
+		width : inherit;
+		max-width: 14%;
+		height: auto;
+		margin: 9.5%;
+		cursor: pointer;
+	}
+	
+	#symbol{
+		display: inline-block;
+		width : 100%;
+		height : 40%;
+	}
+	
+	#mainlogo{
+		width : inherit;
+		max-width: 60%;
+		height: auto;
+	}
+	
+	#title{
+		height: auto;
+	}
+	
+	#title-text{
+		display: inline-block;
+		font-size: 13vw;
+		width: auto;
+		height: auto;
+		color: #C8252B;
+		margin: 3%;
+		text-shadow: 1px 1px 5px #777676;
+	}
+	
+	#btn-main{
+		text-align: right;
+		vertical-align: bottom;
+		height: 30%;
+	}
+	
+	#btn-login-main{
+		text-align: center;
+		vertical-align: bottom;
+		height: 20%;
+	}
+	
+	#report{
+		display: inline-block;
+		max-width : 25%;
+		height: auto;
+		margin-right: 10%;
+	}
+	
+	#report:hover{
+		display: inline-block;
+		max-width: 26%;
+		height: auto;
+		margin-right: 9.5%;
+		cursor: pointer;
+	}
+	
+	#login-text{
+		display: inline-block;
+		font-size: 7vw;
+		height: auto;
+		margin-top: 5%;
+		margin-bottom: 5%;
+	}
+	
+	#login-text:hover{
+		display: inline-block;
+		height: auto;
+	}
+	
+	#login{
+		display: inline-table;
+		vertical-align: middle;
+		max-width: 50%;
+		background-color: #F2F2F2;
+		height: auto;
+		border-radius: 0.5em;
+		box-shadow: 5px 5px 10px #777676;
+	}
+	
+	#login:hover{
+		cursor: pointer;
+	}
+	
+	#join{
+		height: auto;
+	}
+	
+	#join-text{
+		display: inline-block;
+		font-size: 4vw;
+		width: auto;
+		height: auto;
+	}
+	
+	#join-text:hover{
+		font-size: 4.2vw;
+		cursor: pointer;	
+	}
+	
+	/* 로그인페이지 */
+	
+	header{
+        display:flex;
+        justify-content: center;
+        height: auto;
+    }
+    form{
+    	display: inline-block;
+        padding:10px;
+        height: auto;
+        width: 50%;
+    }
+    .input-box{
+        position:relative;
+        margin:10px 0;
+        height: auto;
+    }
+    .input-box > input{
+        background:transparent;
+        border:none;
+        border-bottom: solid 1px #ccc;
+        padding:20px 0px 5px 0px;
+        font-size:14pt;
+        width:100%;
+        height: auto;
+    }
+    input::placeholder{
+        color:transparent;
+    }
+    input:placeholder-shown + label{
+        color:#aaa;
+        font-size:14pt;
+        top:15px;
+
+    }
+    input:focus + label, label{
+        color:#8aa1a1;
+        font-size:10pt;
+        pointer-events: none;
+        position: absolute;
+        left:0px;
+        top:0px;
+        transition: all 0.2s ease ;
+        -webkit-transition: all 0.2s ease;
+        -moz-transition: all 0.2s ease;
+        -o-transition: all 0.2s ease;
+    }
+
+    input:focus, input:not(:placeholder-shown){
+        border-bottom: solid 1px #8aa1a1;
+        outline:none;
+    }
+    input[type=submit]{
+        background-color: #8aa1a1;
+        border:none;
+        color:white;
+        border-radius: 5px;
+        width:100%;
+        height:35px;
+        font-size: 14pt;
+        margin-top:100px;
+    }
+	
 }
 
-#setting:hover{
-	width : inherit;
-	max-width: 6%;
-	height: auto;
-	margin: 1.5%;
-	cursor: pointer;
-}
+/* 웹 화면 css */
 
-#symbol{
-	display: inline-block;
-	width : 100%;
-	height : 50%;
-}
+@media (min-width: 768px){
+	#setting{
+		width : inherit;
+		max-width: 5%;
+		height: auto;
+		margin: 2%;
+	}
+	
+	#setting:hover{
+		width : inherit;
+		max-width: 6%;
+		height: auto;
+		margin: 1.5%;
+		cursor: pointer;
+	}
+	
+	#symbol{
+		display: inline-block;
+		width : 100%;
+		height : 55%;
+	}
+	
+	#mainlogo{
+		width : inherit;
+		max-width: 30%;
+		height: auto;
+	}
+	
+	#title{
+		height: auto;
+	}
+	
+	#title-text{
+		display: inline-block;
+		font-size: 7vw;
+		width: auto;
+		height: auto;
+		color: #C8252B;
+		margin: 3%;
+		text-shadow: 1px 1px 5px #777676;
+	}
+	
+	#btn-main{
+		text-align: right;
+		vertical-align: bottom;
+		height: 30%;
+	}
+	
+	#btn-login-main{
+		text-align: center;
+		vertical-align: bottom;
+		height: 30%;
+	}
+	
+	#report{
+		display: inline-block;
+		max-width : 10%;
+		height: auto;
+		margin-right: 10%;
+	}
+	
+	#report:hover{
+		display: inline-block;
+		max-width: 11%;
+		height: auto;
+		margin-right: 9.5%;
+		cursor: pointer;
+	}
+	
+	#login-text{
+		display: inline-block;
+		font-size: 3vw;
+		height: auto;
+		margin-top: 5%;
+		margin-bottom: 5%;
+		text-decoration: none;
+	}
+	
+	#login-text:visited{
+		color: black;
+		text-decoration: none;
+	}
+	
+	#login-text:hover{
+		display: inline-block;
+		height: auto;
+	}
+	
+	#login{
+		display: inline-table;
+		vertical-align: middle;
+		max-width: 20%;
+		background-color: #F2F2F2;
+		height: auto;
+		border-radius: 0.5em;
+		box-shadow: 5px 5px 10px #777676;
+	}
+	
+	#login:hover{
+		cursor: pointer;
+	}
+	
+	#join{
+		height: auto;
+	}
+	
+	#join-text{
+		display: inline-block;
+		font-size: 2vw;
+		width: auto;
+		height: auto;
+	}
+	
+	#join-text:hover{
+		font-size: 2.2vw;
+		cursor: pointer;	
+	}
+	
+	/* 로그인페이지 */
+	
+	header{
+        display:flex;
+        justify-content: center;
+        height: auto;
+    }
+    form{
+    	display: inline-block;
+        padding:10px;
+        height: auto;
+        width: 50%;
+    }
+    .input-box{
+        position:relative;
+        margin:10px 0;
+        height: auto;
+    }
+    .input-box > input{
+        background:transparent;
+        border:none;
+        border-bottom: solid 1px #ccc;
+        padding:20px 0px 5px 0px;
+        font-size:14pt;
+        width:100%;
+        height: auto;
+    }
+    input::placeholder{
+        color:transparent;
+    }
+    input:placeholder-shown + label{
+        color:#aaa;
+        font-size:14pt;
+        top:15px;
 
-#mainlogo{
-	width : inherit;
-	max-width: 30%;
-	height: auto;
-}
+    }
+    input:focus + label, label{
+        color:#8aa1a1;
+        font-size:10pt;
+        pointer-events: none;
+        position: absolute;
+        left:0px;
+        top:0px;
+        transition: all 0.2s ease ;
+        -webkit-transition: all 0.2s ease;
+        -moz-transition: all 0.2s ease;
+        -o-transition: all 0.2s ease;
+    }
 
-#title{
-	height: auto;
-}
-
-#title-text{
-	display: inline-block;
-	font-size: 7vw;
-	width: auto;
-	height: auto;
-	color: #C8252B;
-	margin: 3%;
-	text-shadow: 1px 1px 5px #777676;
-}
-
-#btn-main{
-	text-align: right;
-	vertical-align: bottom;
-	height: 30%;
-}
-
-#btn-login-main{
-	text-align: center;
-	vertical-align: bottom;
-	height: 30%;
-}
-
-#report{
-	display: inline-block;
-	max-width : 20%;
-	height: auto;
-	margin-right: 10%;
-}
-
-#report:hover{
-	display: inline-block;
-	max-width: 21%;
-	height: auto;
-	margin-right: 9.5%;
-	cursor: pointer;
-}
-
-#login-text{
-	display: inline-block;
-	font-size: 3vw;
-	height: auto;
-	margin-top: 5%;
-	margin-bottom: 5%;
-}
-
-#login-text:hover{
-	display: inline-block;
-	height: auto;
-}
-
-#login{
-	display: inline-table;
-	vertical-align: middle;
-	max-width: 20%;
-	background-color: #F2F2F2;
-	height: auto;
-	border-radius: 0.5em;
-	box-shadow: 5px 5px 10px #777676;
-}
-
-#login:hover{
-	cursor: pointer;
-}
-
-#join{
-	height: auto;
-}
-
-#join-text{
-	display: inline-block;
-	font-size: 2vw;
-	width: auto;
-	height: auto;
-}
-
-#join-text:hover{
-	font-size: 2.2vw;
-	cursor: pointer;	
+    input:focus, input:not(:placeholder-shown){
+        border-bottom: solid 1px #8aa1a1;
+        outline:none;
+    }
+    input[type=submit]{
+        background-color: #8aa1a1;
+        border:none;
+        color:white;
+        border-radius: 5px;
+        width:100%;
+        height:35px;
+        font-size: 14pt;
+        margin-top:100px;
+    }
 }
