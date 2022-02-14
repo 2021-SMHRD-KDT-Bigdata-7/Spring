@@ -22,7 +22,7 @@
 		</div> 
 		<div id="btn-login-main">
 			<input type="submit" id="btn-submit" value="로그인">
-			<div id="join"><p id="join-text">회원가입</p></div>
+			<div id="join"><p id="join-text" onclick="location.href='Join.do'">회원가입</p></div>
 		</div>
 	</form>
 	
