@@ -9,17 +9,19 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="ReportController" method="POST">
+	<script type="text/javascript">
+		console.log(localStorage.getItem("con"));
+		var con = document.getElementById("con");
+		console.log(con);
+		con.value = "gg";
+		console.log(con);
+		
+	</script>
+
+	<form action="SpringController" method="POST">
 		<table border="1px">
 		  <tr>
-		    <td>신고자유형 *</td>
-		    <td>
-			  <input type="radio" name="m_type" checked="checked" value="1">나    <!-- 현재위치신고자 -->
-			  <input type="radio" name="m_type" value="2">다른곳                                       <!-- 특정위치신고자 -->
-			</td>
-		  </tr>
-		  <tr>
-		    <td>신고유형 *</td>
+		    <td>신고유형 </td>
 			<td>
 			  <select>
 			    <optgroup label="선택해주세요">
@@ -35,6 +37,12 @@
 			</td>
 		  </tr>
 		  <tr>
+		    <td>장소</td>
+		    <td>
+		      <input type="text" id="con">
+		    </td>
+		  </tr>
+		  <tr>
 		    <td>신고내용</td>
 			<td>
 	    	  <textarea rows="20" cols="50"></textarea>
@@ -46,7 +54,6 @@
 		    </td>
 		  </tr>
 		</table>
-		
 	</form>
 	
 	
