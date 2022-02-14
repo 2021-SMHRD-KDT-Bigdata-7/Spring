@@ -35,7 +35,6 @@ public class SpringController {
 	
 	@RequestMapping("/ReportMap.do")
 	public String ReportMap() {
-
 		return "ReportMap";
 	}
 
