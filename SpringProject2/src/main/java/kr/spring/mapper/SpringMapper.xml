@@ -5,11 +5,15 @@
 <mapper namespace="kr.spring.mapper.SpringMapper"> 
     
 	<insert id="ReportlatInsert">
-	    insert into t_report(re_loc, re_date, re_latitude, re_longitude) values(#{re_loc}, sysdate, #{re_latitude},#{re_longitude})
+	    insert into t_report(re_loc, re_date, re_latitude, re_longitude) values(#{re_loc}, sysdate, #{re_latitude}, #{re_longitude})
 	</insert>
 
 	<update id="ReportInsert">
 	    update t_report set re_type = #{re_type}, re_content = #{re_content} where m_id = 
 	</update>
+	
+	<select id="ReportTaking" resultType="kr.spring.domain.Report">
+	    select re_loc, re_type, re_date, re_content, re_latitude, re_longitude from t_report
+	</select>
 	
 </mapper>

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import kr.spring.domain.Member;
+import kr.spring.domain.Report;
 import kr.spring.mapper.SpringMapper;
 
 @Service
@@ -28,6 +29,15 @@ public class SpringService {
 		mapper.ReportInsert(model);
 //////////확인용   		
 		System.out.println("ReportInsert서비스"+model);
+	}
+	
+	// 접수자 ReportTaking화면 목록 가져오기
+	public List<Report> ReportTaking(){
+		List<Report> rlist = mapper.ReportTaking();
+///////확인용
+		System.out.println("ReportTaking서비스 "+rlist);
+
+		return rlist;
 	}
 	   
     //method db에서 멤버리스트를 갖고오는 메소드 컨트롤러야 db에서 멤버리스트 갖고와

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.spring.domain.Member;
 import kr.spring.service.SpringService;
+import kr.spring.domain.Report;
 
 @Controller
 public class SpringController {
@@ -90,5 +91,20 @@ public class SpringController {
 		service.ReportlatInsert(model);
 
 		return "Report";
+	}
+	
+	// ReportTaking페이지에 나올 ReportList 메소드
+	@RequestMapping("/ReportTaking.do")
+	public String ReportTaking(Model model){
+		
+		List<Report> rlist = service.ReportTaking();
+//////확인용
+		System.out.println("ReportTaking컨트롤러 서비스에서 받아온거  "+rlist);
+		
+		model.addAttribute("rlist", rlist);
+//////확인용
+		System.out.println("ReportTaking컨트롤러 model에 넣은거 "+rlist);
+
+		return "ReportTaking";
 	}
 }
