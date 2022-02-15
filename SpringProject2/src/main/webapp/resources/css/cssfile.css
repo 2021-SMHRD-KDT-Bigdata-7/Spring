@@ -329,13 +329,34 @@ span{
 		background-color: transparent;
 	}
 	
-	#form-report>#btn-report{
+	#btn-report{
 		width:80%;
 		background-color: red;
 		font-family: 'SBAggroM';
 		text-align: center;
 		margin-top: 5%
 	}
+	
+	/* 신고정보페이지 */
+	
+	#form-report-info{
+		width: 100%;
+		height: auto;
+		font-family: 'SBAggroL';
+	}
+	
+	#tbl-report{
+		font-family: 'SBAggroL';		
+	}
+	
+	#tbl-title{
+		width:30%;
+	}
+
+	#tbl-content{
+		width:70%;
+	}
+	
 }
 
 /* 웹 화면 css */
