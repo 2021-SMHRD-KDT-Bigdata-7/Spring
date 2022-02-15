@@ -53,8 +53,8 @@
 
 			var callback = function(result, status) {
 				if (status === kakao.maps.services.Status.OK) {
-					var loc = result[0].address.address_name;
-					console.log(result[0].address.address_name);
+					var loc = !!result[0].road_address?result[0].road_address.address_name:result[0].address.address_name;
+					console.log(loc);
 	//현재위치의 위도 경도와 주소를 input에 삽입
 					document.getElementById("lat").value = lat;
 					document.getElementById("lon").value = lon;
@@ -97,8 +97,8 @@
 						coord = new kakao.maps.LatLng(latlng.getLat(), latlng.getLng());
 						callback = function(result, status) {
 							if (status === kakao.maps.services.Status.OK) {
-								var loc = result[0].address.address_name;
-								console.log(result[0].address.address_name);
+								var loc = !!result[0].road_address?result[0].road_address.address_name:result[0].address.address_name;
+								console.log(loc);
 
 								// 재설정 된 좌표와 주소를 input태그 내용 삽입
 								document.getElementById("lat").value = latlng.getLat();
