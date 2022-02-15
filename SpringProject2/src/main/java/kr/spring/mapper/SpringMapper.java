@@ -11,11 +11,13 @@ public interface SpringMapper {
 	
 	public void JoinUser(Member member);
 	public void JoinFire(Member member);
+	public Member Login(Member member);
 	
 	public void ReportlatInsert(Model model);
 	public void ReportInsert(Model model);
 	public void ReportlatDelete();
 	
 	public List<Report> ReportTaking();
+
 	public Report ReportDetail(int re_seq);
 }

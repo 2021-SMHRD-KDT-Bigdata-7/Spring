@@ -11,7 +11,7 @@
 <body>
 <div class="top"></div>
 	<header> <h2>Login</h2> </header> 
-	<form action="" method="POST"> 
+	<form action="Login.do" method="POST"> 
 		<div class="input-box"> 
 			<input id="m_id" type="text" name="m_id" placeholder="아이디"> 
 			<label for="m_id">아이디</label> 
