@@ -44,7 +44,7 @@
 		  <tr>
 		    <td>장소</td>
 		    <td>
-		      <input type="text" id="loc">
+		      <input type="text" id="loc">로그인하고 m_id 일치하는 report테이블에서 주소 가져오기
 		    </td>
 		  </tr>
 		  <tr>
@@ -54,7 +54,7 @@
 			</td>
 		  </tr>
 		  <tr>
-		    <td>파일첨부</td>
+		    <td>파일첨부(컬럼이 없음)</td>
 			<td>
 			  <input type="file">
 			</td>
@@ -63,6 +63,9 @@
 		  <tr align="center">
 		    <td colspan="2">
 		      <input type="submit" value="신고하기" >
+		    </td>
+		    <td>
+		      <a href="/ReportlatDelete.do?m_id=${mvo.m_id}">처음으로</a>
 		    </td>
 		  </tr>
 		</table>

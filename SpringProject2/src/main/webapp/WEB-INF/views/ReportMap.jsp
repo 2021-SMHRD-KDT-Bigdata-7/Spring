@@ -1,122 +1,113 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> <!-- JSTL -->
-    <c:set var="cpath" value="${pageContext.request.contextPath}"/> <!-- context path -->
+	pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!-- JSTL -->
+<c:set var="cpath" value="${pageContext.request.contextPath}" />
+<!-- context path -->
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/cssfile.css" type="text/css" media="screen" />
+<%-- <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/cssfile.css" type="text/css" media="screen" /> --%>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>신고위치</title>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=104f90e3976f1820f120da408f94509c&libraries=services"></script>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=104f90e3976f1820f120da408f94509c&libraries=LIBRARY"></script>
+<script type="text/javascript"
+	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=104f90e3976f1820f120da408f94509c&libraries=services"></script>
+<script type="text/javascript"
+	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=104f90e3976f1820f120da408f94509c&libraries=LIBRARY"></script>
 </head>
 <body>
+	신고위치를 찍어주세요
+	<div id="map" style="width: 900px; height: 500px;"></div>
 
-신고위치를 찍어주세요
+	<script>
+	//초기 지도
+		var container = document.getElementById('map');
 
-<div id="map" style="width:900px;height:500px;"></div>
-	
-<script>
+		var options = {
+			center : new kakao.maps.LatLng(33.450701, 126.570667),
+			level : 1
+		};
+		var map = new kakao.maps.Map(container, options);
+	//초기 변수
+		var maker = null;
+		var lat = null;
+		var lon = null;
+	//위성지도로 변환
+		map.setMapTypeId(kakao.maps.MapTypeId.HYBRID); 
+	//페이지 시작 시 현재 위치
+		navigator.geolocation.getCurrentPosition(function(position) {
+			lat = position.coords.latitude; // 위도
+			lon = position.coords.longitude; // 경도
+	//페이지 시작 시 현재위치의 주소
+			var geocoder = new kakao.maps.services.Geocoder();
+			var coord = new kakao.maps.LatLng(lat, lon);
 
-	// 초기 지도 설정
-	var container = document.getElementById('map');
-	
-	var options = {
-		center: new kakao.maps.LatLng(33.450701, 126.570667),
-		level: 1
-	};
+			var callback = function(result, status) {
+				if (status === kakao.maps.services.Status.OK) {
+					var loc = result[0].address.address_name;
+					console.log(result[0].address.address_name);
+	//현재위치의 위도 경도와 주소를 input에 삽입
+					document.getElementById("lat").value = lat;
+					document.getElementById("lon").value = lon;
+					document.getElementById("loc").value = loc;
+				}
+			};
+			geocoder.coord2Address(coord.getLng(), coord.getLat(), callback);
+	//현재 위치 마커
+			var locPosition = new kakao.maps.LatLng(lat, lon)
 
-	var map = new kakao.maps.Map(container, options);
+			marker = new kakao.maps.Marker({
+				map : map,
+				position : locPosition
 
-	map.setMapTypeId(kakao.maps.MapTypeId.HYBRID); //위성지도로 변환
-	
-	// 현재 위치 가져오기
-    navigator.geolocation.getCurrentPosition(function(position) {
-    	var latlng = null;
-        var lat = position.coords.latitude; // 위도
-        var lon = position.coords.longitude; // 경도
-        // 초기 위치를 body 내용에 넣기
-        document.getElementById("lat").value = lat;
-        document.getElementById("lon").value = lon;
-        document.getElementById("con");
-        
-        var locPosition = new kakao.maps.LatLng(lat, lon);  // 위경도를 저장
-        
-        var marker = new kakao.maps.Marker({
-            map: map,
-            position: new kakao.maps.LatLng(lat, lon)  // 위경도에 마커표시
-        });
-        
-        map.setCenter(locPosition);  // 지도 위치 이동  
-///////////// 확인용	      
-        console.log(latlng);
-        // 지도 클릭 시 마커 표시
-        kakao.maps.event.addListener(map, 'click', function(mouseEvent) {        
-	        
-		  	latlng = mouseEvent.latLng;  // 클릭한 위도, 경도 
-		  	
-		  	// 위도 경도를 따로따로 저장
-		  	var latlat = latlng.getLat();
-		  	var latlon = latlng.getLng();
-		  	
-		  	marker.setPosition(latlng);  // 마커 표시
-		  	   	  
-			// 좌표를 주소로 나타내기		  
-		  	var geocoder = new kakao.maps.services.Geocoder();
-		
-		  	var coord = new kakao.maps.LatLng(latlat, latlon);
-		  	var callback = function(result, status) {
-		  	    if (status === kakao.maps.services.Status.OK) {
-		  	        console.log(result[0].address.address_name);
-		  	        
-		  	        infowindow = new kakao.maps.InfoWindow({
-			  	        position: new kakao.maps.LatLng(latlat, latlon),
-		  	        });
-		  	        
-		  	        loc = result[0].address.address_name;
-		  	        
-		  	        /* // 인포윈도우 표시 
-///수정//////////////// *******닫히지 않음 ******
-				  	infowindow.setContent(loc);
-		            infowindow.open(map, marker); */
-		            // 위치 변경 될 때마다 body안에 내용 바꾸기
-		            var tlat = document.getElementById("lat");
-		            tlat.value = latlat;
-		            var tlon = document.getElementById("lon");
-		            tlon.value = latlon;
-		            var tloc = document.getElementById("loc");
-		            tloc.value = loc;
-		            
-		        	var inputlat =  document.getElementById("lat");
-		            
- 		            // Report페이지로 주소 보내기
-		            if(latlng==null){
-			            localStorage.setItem("con", "현재위치");
-		            }
-		            else{
-			            localStorage.setItem("con", loc);
-		            	}
-		  	    }; 
-		  	};
-		  	geocoder.coord2Address(coord.getLng(), coord.getLat(), callback);
-		  	
-///////////// 확인용
-        console.log(lat,lon);
-        console.log(latlng.getLat(), latlng.getLng());
-  	 });
-  	 });
-  
-	
-</script>
+			});
+	//현재 위치로 지도 이동
+			map.setCenter(new kakao.maps.LatLng(lat, lon));
+	//지도를 움직이면 위도 경도 주소 변경
+			kakao.maps.event.addListener(map, 'center_changed', function() {
+						marker.setMap(null);  // 이전 마커 삭제
+						latlng = map.getCenter();  // 지도 중심 좌표 저장
+						
+////////////////////////확인용
+						console.log(latlng);
+						
+						// 지도 중심으로 마커 재설정
+						markerPosition = new kakao.maps.LatLng(latlng.getLat(), latlng.getLng());
+						
+////////////////////////확인용	
+						console.log(latlng.getLat());
+						console.log(latlng.getLng());
 
-<form action="${cpath}/ReportlatInsert.do" id="form" method="post">
-	<input type="text" id="lat" name="re_latitude">
-	<input type="text" id="lon" name="re_longitude">
-	<input type="text" id="loc" name="re_loc">
-	<input type="submit" value="다음">
-</form>
+						marker = new kakao.maps.Marker({
+							position : markerPosition
+						});
+
+						marker.setMap(map);
+
+						// 마커위치가 이동한 지도 중심좌표를 주소로 재변환
+						coord = new kakao.maps.LatLng(latlng.getLat(), latlng.getLng());
+						callback = function(result, status) {
+							if (status === kakao.maps.services.Status.OK) {
+								var loc = result[0].address.address_name;
+								console.log(result[0].address.address_name);
+
+								// 재설정 된 좌표와 주소를 input태그 내용 삽입
+								document.getElementById("lat").value = latlng.getLat();
+								document.getElementById("lon").value = latlng.getLng();
+								document.getElementById("loc").value = loc;
+							}
+						};
+						geocoder.coord2Address(coord.getLng(), coord.getLat(), callback);
+					});
+		});
+	</script>
+
+	<form action="${cpath}/ReportlatInsert.do" id="form" method="post">
+		<input type="text" id="lat" name="re_latitude"> <input
+			type="text" id="lon" name="re_longitude"> <input type="text"
+			id="loc" name="re_loc"> <input type="submit" value="다음">
+	</form>
 
 </body>
 </html>
