@@ -41,6 +41,15 @@
 	margin: 0 auto;
 }
 
+p{
+	height:auto;
+}
+
+span{
+	font-family: 'SBAggroM';
+	height:auto;
+}
+
 #background{
 }
 
@@ -292,6 +301,41 @@
 	.fpmgBt1{background-color: #fff;color:#888}
 	.fpmgBt2{background-color: lightsalmon;color: #fff}
 
+	/* report 페이지 */
+
+	#map{
+		width: 100%; 
+		height: 80%;
+	}
+
+	#map>div{
+		width:auto;
+	}
+	
+	#report-btn-form{
+		height:7%;
+		font-size: 5vw;
+	}
+	
+	#form-report{
+		width: 100%;
+		height: 100%
+	}
+	
+	#form-report>input{
+		border: none;
+		font-size: 5vw;
+		font-family: 'SBAggroM';
+		background-color: transparent;
+	}
+	
+	#form-report>#btn-report{
+		width:80%;
+		background-color: red;
+		font-family: 'SBAggroM';
+		text-align: center;
+		margin-top: 5%
+	}
 }
 
 /* 웹 화면 css */
@@ -536,5 +580,43 @@
 	.footBtwrap>li>button{display: block; width: 100%;height: 100%; font-size: 20px;text-align: center;line-height: 60px;}
 	.fpmgBt1{background-color: #fff;color:#888}
 	.fpmgBt2{background-color: lightsalmon;color: #fff}
+	
+	/* report 페이지 */
+	/* report 페이지 */
+
+	#map{
+		width: 100%; 
+		height: 80%;
+	}
+
+	#map>div{
+		width:auto;
+	}
+	
+	#report-btn-form{
+		height:7%;
+		font-size: 2vw;
+	}
+	
+	#form-report{
+		width: 100%;
+		height: 100%
+	}
+	
+	#form-report>input{
+		border: none;
+		font-size: 2vw;
+		font-family: 'SBAggroM';
+		background-color: transparent;
+	}
+	
+	#form-report>#btn-report{
+		width:30%;
+		height: 50px;
+		background-color: red;
+		font-family: 'SBAggroM';
+		text-align: center;
+		margin-top: 1%;
+	}
 	
 }
