@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<%-- <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/cssfile.css" type="text/css" media="screen" /> --%>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/cssfile.css" type="text/css" media="screen" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>신고위치</title>
 <script type="text/javascript"
@@ -16,10 +16,18 @@
 <script type="text/javascript"
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=104f90e3976f1820f120da408f94509c&libraries=LIBRARY"></script>
 </head>
-<body>
-	신고위치를 찍어주세요
-	<div id="map" style="width: 900px; height: 500px;"></div>
+<body style="background-color: #F2F2F2">
+	<div id="map"></div>
 
+	<div id="report-btn-form">
+		<form action="${cpath}/ReportlatInsert.do" id="form-report" method="post">
+			<input type="hidden" id="lat" name="re_latitude" readonly="readonly"> 
+			<input type="hidden" id="lon" name="re_longitude" readonly="readonly"> 
+			<span>- 선택한 주소 -</span><input type="text" id="loc" name="re_loc" readonly="readonly"> 
+			<input type="submit" id="btn-report" value="이 위치로 신고하기">
+		</form>
+	</div>
+	
 	<script>
 	//초기 지도
 		var container = document.getElementById('map');
@@ -45,8 +53,8 @@
 
 			var callback = function(result, status) {
 				if (status === kakao.maps.services.Status.OK) {
-					var loc = result[0].address.address_name;
-					console.log(result[0].address.address_name);
+					var loc = !!result[0].road_address?result[0].road_address.address_name:result[0].address.address_name;
+					console.log(loc);
 	//현재위치의 위도 경도와 주소를 input에 삽입
 					document.getElementById("lat").value = lat;
 					document.getElementById("lon").value = lon;
@@ -89,8 +97,8 @@
 						coord = new kakao.maps.LatLng(latlng.getLat(), latlng.getLng());
 						callback = function(result, status) {
 							if (status === kakao.maps.services.Status.OK) {
-								var loc = result[0].address.address_name;
-								console.log(result[0].address.address_name);
+								var loc = !!result[0].road_address?result[0].road_address.address_name:result[0].address.address_name;
+								console.log(loc);
 
 								// 재설정 된 좌표와 주소를 input태그 내용 삽입
 								document.getElementById("lat").value = latlng.getLat();
@@ -102,12 +110,6 @@
 					});
 		});
 	</script>
-
-	<form action="${cpath}/ReportlatInsert.do" id="form" method="post">
-		<input type="text" id="lat" name="re_latitude"> <input
-			type="text" id="lon" name="re_longitude"> <input type="text"
-			id="loc" name="re_loc"> <input type="submit" value="다음">
-	</form>
 
 </body>
 </html>

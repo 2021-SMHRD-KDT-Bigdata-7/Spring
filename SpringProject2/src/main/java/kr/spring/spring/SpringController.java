@@ -53,7 +53,8 @@ public class SpringController {
 		 System.out.println("JoinUser con "+member);
 		 
 		 service.JoinUser(member); 
-		 return "Main"; }
+		 return "Main"; 
+		 }
 	 
 	//회원가입-소방서
 	@RequestMapping(value = "/JoinFire.do", method = RequestMethod.POST)
@@ -117,7 +118,7 @@ public class SpringController {
 			return "Main";
 		}
 		
-	// Report(신고 페이지)에서 처음으로 버튼을 클릭 했을 때
+	// Report(신고 페이지)에서 처음으로 버튼을 클릭 했을 때 좌표값 DB에서 지워야함
 		@RequestMapping("/ReportlatDelete.do")
 		public String ReportlatDelete() {
 			service.ReportlatDelete();
@@ -141,13 +142,13 @@ public class SpringController {
 	
 	// ReportTaking(신고접수페이지)에서 버튼 클릭 시 세부정보 출력
 	@RequestMapping("/ReportDetail.do")
-	public String ReportDetail(Model model){
+	public String ReportDetail(@RequestParam int re_seq, Model model){
 		
-		List<Report> rlist = service.ReportDetail();
+		Report rvo = service.ReportDetail(re_seq);
 //////확인용
-		System.out.println("ReportDetail컨트롤러 "+ rlist);
-		
-		model.addAttribute("rlist", rlist);
+		System.out.println("ReportDetail컨트롤러 "+ rvo);
+		System.out.println("ReportDetail컨트롤러 re_sqe : "+ re_seq);
+		model.addAttribute("rvo", rvo);
 		
 		return "ReportDetail";
 		

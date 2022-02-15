@@ -31,11 +31,9 @@ public class SpringService {
 	}
 	//로그인
 	public Member Login(Member member) {
-		/*
-		 * System.out.println("m_id2 " +m_id); System.out.println("m_pw2 " +m_pw);
-		 */
-		Member mvo = mapper.Login(member);
-		return mvo;
+		
+		return mapper.Login(member);
+		 
 	}
 	
 
@@ -67,19 +65,19 @@ public class SpringService {
 	public List<Report> ReportTaking(){
 		List<Report> rlist = mapper.ReportTaking();
 ///////확인용
-		System.out.println("ReportTakin date "+rlist.get(2));
+		System.out.println("ReportTaking date "+rlist.get(2));
 		System.out.println("ReportTaking서비스 "+rlist);
 
 		return rlist;
 	}
 	
 	// ReportTaking(신고접수화면)에서 신고상세내용 가져오기
-	public List<Report> ReportDetail(){
-		List<Report> rlist = mapper.ReportDetail();
+	public Report ReportDetail(int re_seq){
+		Report rvo = mapper.ReportDetail(re_seq);
 //////확인용
-		System.out.println("ReportDetail서비스 "+rlist);
+		System.out.println("ReportDetail서비스 "+rvo);
 		
-		return rlist;
+		return rvo;
 	}
 	
 	
