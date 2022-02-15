@@ -351,10 +351,55 @@ span{
 	
 	#tbl-title{
 		width:30%;
+		height: 40px;
+		font-family: 'SBAggroL';
+		background-color: #F2F2F2;
 	}
 
 	#tbl-content{
 		width:70%;
+		font-family: 'SBAggroL';
+		background-color: #F2F2F2;
+	}
+	
+	.select{
+		font-family: 'SBAggroL';
+		background-color: transparent;
+		border: none;
+	}
+	
+	.select>option{
+		font-family: 'SBAggroL';
+	}
+		
+	#report-input{
+		border:none;
+		font-family: 'SBAggroL';
+		background-color: transparent;
+		font-size: 3.5vw;
+	}
+	#report-textarea{
+		height: 200px;
+		font-family: 'SBAggroL';
+		font-size: 3.5vw;
+		text-align: left;
+		background-color: transparent;
+		border: none;
+	}
+	
+	.return-text{
+		font-family: 'SBAggroM';
+		font-size: 4vw;
+		color:black;
+	}
+	.return-text:visited{
+		color:black;
+	}
+	
+	#form-report-info>h2{
+		width: 100%;
+		margin-top: 10%;
+		text-align: left;
 	}
 	
 }

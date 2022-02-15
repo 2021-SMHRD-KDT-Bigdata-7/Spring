@@ -30,7 +30,7 @@
 		  <tr>
 		    <td id="tbl-title">유형 </td>
 			<td id="tbl-content">
-			  <select name="re_type">
+			  <select class="select" name="re_type">
 				  <option selected disabled>선택해주세요.</option>
 				  <option value="화재">화재</option>
 				  <option value="구조">구조</option>
@@ -44,19 +44,21 @@
 		  <tr>
 		    <td id="tbl-title">장소</td>
 		    <td id="tbl-content">
-		      <input type="text" id="loc">로그인하고 m_id 일치하는 report테이블에서 주소 가져오기
+		      <input id="report-input" type="text" id="loc" value="주소" readonly="readonly"><!-- 로그인하고 m_id 일치하는 report테이블에서 주소 가져오기 -->
 		    </td>
 		  </tr>
 		  <tr>
 		    <td id="tbl-title">내용</td>
 			<td id="tbl-content">
-	    	  <textarea name="re_content" rows="20" cols="50"></textarea>
+	    	  <textarea id="report-textarea" name="re_content" rows="20" cols="50" placeholder="내용 입력"></textarea>
 			</td>
 		  </tr>
 		  <tr>
-		    <td id="tbl-title">파일첨부(컬럼이 없음)</td>
+		    <td id="tbl-title">파일첨부</td><!-- (컬럼이 없음) -->
 			<td id="tbl-content">
-			  <input type="file">
+				<div>
+				  <input id="report-input" type="file">
+				</div>		  
 			</td>
 		  </tr>
 		  
@@ -64,9 +66,11 @@
 		    <td colspan="2">
 		      <input id="btn-report" type="submit" value="신고하기" >
 		    </td>
-		    <td>
-		      <a href="/ReportlatDelete.do?m_id=${mvo.m_id}">처음으로</a>
-		    </td>
+		  </tr>
+		  <tr>
+		  	<td colspan="2">
+		      <a class="return-text" href="/ReportlatDelete.do?m_id=${mvo.m_id}">처음으로</a>
+		  	</td>
 		  </tr>
 		</table>
 	</form>
