@@ -2,6 +2,8 @@ package kr.spring.spring;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,21 +22,18 @@ public class SpringController {
 
 	@Autowired
 	SpringService service;
+	
 
 	@RequestMapping("/Main.do")
 	public String Main() {
 		return "Main";
 	}
 
-	@RequestMapping("/Login.do")
-	public String Login() {
-		return "Login";
-	}
 	
-	@RequestMapping("/Join.do")
-	public String Join() {
-		return "Join";
-	}
+	@RequestMapping("/Login.do") public String Login() { return "Login"; }
+	  
+	@RequestMapping("/Join.do") public String Join() { return "Join"; }
+	 
 	
 	@RequestMapping("/ReportMap.do")
 	public String ReportMap() {
@@ -63,7 +62,23 @@ public class SpringController {
 		return "Main";
 	}
 	
-	
+	//로그인
+	 @RequestMapping(value = "/Login.do", method = RequestMethod.POST)
+	  public String Login(Member member, HttpSession session)  { 
+			
+		Member mvo = service.Login(member);
+		if(mvo!=null) {
+			  session.setAttribute("mvo",mvo);
+		  }
+		return "Report";
+	  }
+
+	  // 로그아웃
+	  @RequestMapping("/Logout.do")
+	   public String Logout(HttpSession session) {
+		  session.invalidate(); 
+		  return "Logout";
+	  }
 //**********************************************************************신고페이지 메소드
 	 // ReportMap(신고 시 위치제공페이지)에서 받아온 좌표를 insert하기 위한 메소드
 	@RequestMapping(value = "/ReportlatInsert.do", method = RequestMethod.POST)

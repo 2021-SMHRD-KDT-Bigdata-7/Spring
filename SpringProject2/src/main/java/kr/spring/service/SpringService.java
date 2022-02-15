@@ -29,6 +29,16 @@ public class SpringService {
 	public void JoinFire(Member member) {
 		mapper.JoinFire(member);
 	}
+	//로그인
+	public Member Login(Member member) {
+		/*
+		 * System.out.println("m_id2 " +m_id); System.out.println("m_pw2 " +m_pw);
+		 */
+		Member mvo = mapper.Login(member);
+		return mvo;
+	}
+	
+
 	
 //**************************************************************신고  페이지
 	// ReportMap(사고위치제공페이지)에서 좌표 DB저장
@@ -71,6 +81,8 @@ public class SpringService {
 		
 		return rlist;
 	}
+	
+	
 	
 	
 }

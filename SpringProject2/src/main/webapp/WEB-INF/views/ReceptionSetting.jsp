@@ -13,29 +13,45 @@
 </head>
 
 <body>
-<h2>로그인 정보</h2>
-로그아웃
-  <table>
-		<tr>
-		  <td>아이디</td>
-		  <td>이름</td>
-		  <td>연락처</td>
-		</tr>      
-		<c:forEach var="mvo" items="${mlist}">
-		  <tr>
-		    <td>${mvo.m_id}</td>
-		    <td>${mvo.m_name}</td>
-		    <td>${mvo.m_phone}</td>
-		  </tr>      
-		</c:forEach>
-      </table>
-<h2>알림 설정</h2>
-      <table>
-		<tr>
-		  <td>알림수신여부</td>
-		  <td>거주지 위치로 알림</td>
-		  <td>현재 위치로 알림</td>
-		</tr>      
-      </table>
+
+	<div>
+		<ul>
+			<li>로그인 정보</li>
+			<li><a href="/Logout">로그아웃</a></li>
+		</ul>
+	</div>
+
+	<div>
+		<table>
+			<tr>
+				<td>아이디</td>
+				<td>이름</td>
+			</tr>
+			<c:forEach var="mvo" items="${mlist}">
+				<tr>
+					<td>${mvo.m_id}</td>
+					<td>${mvo.m_name}</td>
+				</tr>
+			</c:forEach>
+		</table>
+	</div>
+
+	<div>
+		<ul>
+			<li>차량등록</li>
+		</ul>
+		<table>
+			<tr>
+				<td><select name=carreg>
+						<option value="">차량1</option>
+						<option value="">차량2</option>
+						<option value="">차량3</option>
+				</select></td>
+				<td ><button onclick="goDelete(${vo.idx})">삭제</button></td>
+			</tr>
+		</table>
+	</div>
+
+
 </body>
 </html>
