@@ -17,5 +17,5 @@ public interface SpringMapper {
 	public void ReportlatDelete();
 	
 	public List<Report> ReportTaking();
-	public List<Report> ReportDetail();
+	public Report ReportDetail(int re_seq);
 }
