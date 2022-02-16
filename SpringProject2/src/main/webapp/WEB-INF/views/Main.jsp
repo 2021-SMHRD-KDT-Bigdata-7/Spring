@@ -27,7 +27,7 @@ ${mvo.m_type}
 			<!-- 로그인 전 main -->
 			<div id="btn-submit-main">
 				<button onclick="location.href='Login.do'" id="btn-submit">로그인</button>
-				<div id="join"><p id="join-text" onclick="location.href='Join.do'">회원가입</p></div>
+				<div id="join"><p id="join-text" onclick="location.href='JoinSelect.do'">회원가입</p></div>
 			</div>
 		</div>
 	  </c:when>
