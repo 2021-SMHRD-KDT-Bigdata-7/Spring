@@ -83,6 +83,7 @@ span{
 		display: inline-block;
 		width : 100%;
 		height : 40%;
+		margin-top: 30%;
 	}
 	
 	#mainlogo{
@@ -156,6 +157,7 @@ span{
 	
 	#join{
 		height: auto;
+		margin-top: 3%;
 	}
 	
 	#join-text{
@@ -500,11 +502,12 @@ span{
 	
 	#join{
 		height: auto;
+		margin-top: 2%;
 	}
 	
 	#join-text{
 		display: inline-block;
-		font-size: 1.5vw;
+		font-size: 30px;
 		width: auto;
 		height: auto;
 		margin-top: 1%;
@@ -683,6 +686,71 @@ span{
 		font-family: 'SBAggroM';
 		text-align: center;
 		margin-top: 1%;
+	}
+	
+	/* 신고정보페이지 */
+	
+	#form-report-info{
+		width: 100%;
+		height: auto;
+		font-family: 'SBAggroL';
+	}
+	
+	#tbl-report{
+		font-family: 'SBAggroL';		
+	}
+	
+	#tbl-title{
+		width:30%;
+		height: 40px;
+		font-family: 'SBAggroL';
+		background-color: #F2F2F2;
+	}
+
+	#tbl-content{
+		width:70%;
+		font-family: 'SBAggroL';
+		background-color: #F2F2F2;
+	}
+	
+	.select{
+		font-family: 'SBAggroL';
+		background-color: transparent;
+		border: none;
+	}
+	
+	.select>option{
+		font-family: 'SBAggroL';
+	}
+		
+	#report-input{
+		border:none;
+		font-family: 'SBAggroL';
+		background-color: transparent;
+		font-size: 3.5vw;
+	}
+	#report-textarea{
+		height: 200px;
+		font-family: 'SBAggroL';
+		font-size: 3.5vw;
+		text-align: left;
+		background-color: transparent;
+		border: none;
+	}
+	
+	.return-text{
+		font-family: 'SBAggroM';
+		font-size: 4vw;
+		color:black;
+	}
+	.return-text:visited{
+		color:black;
+	}
+	
+	#form-report-info>h2{
+		width: 100%;
+		margin-top: 10%;
+		text-align: left;
 	}
 	
 }
