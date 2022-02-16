@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.SystemEnvironmentPropertySource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -105,25 +106,29 @@ public class SpringController {
 		System.out.println("latinsert컨트롤" + model);
 
 		service.ReportlatInsert(model);
-
+		
 		return "Report";
 	}
 	
 	// Report(신고페이지)의 내용 insert 메소드
 		@RequestMapping(value = "/ReportInsert.do", method = RequestMethod.POST)
-		public String ReportInsert(@RequestParam String re_type, @RequestParam String re_content, Model model) {
+		public String ReportInsert(@RequestParam String re_type, @RequestParam String re_content, Model model, HttpSession session) {
+			
+			Member mvo = (Member) session.getAttribute("mvo");
+			String m_id = mvo.getM_id();
 			
 			model.addAttribute("re_type", re_type);
 			model.addAttribute("re_content", re_content);
-			
+			model.addAttribute("m_id", m_id);
+
 //////////확인용   
-			
-			System.out.println("신고내용타입 "+ re_type);
-			System.out.println("신고내용내용 "+ re_content);
-			System.out.println("신고내용 "+model);
-			
+
+			System.out.println("신고내용타입 " + re_type);
+			System.out.println("신고내용내용 " + re_content);
+			System.out.println("신고내용 " + model);
+
 			service.ReportInsert(model);
-			
+
 			return "Main";
 		}
 		

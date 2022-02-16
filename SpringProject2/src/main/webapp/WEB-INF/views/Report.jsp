@@ -45,7 +45,7 @@ ${mvo.m_id}
 		  <tr>
 		    <td id="tbl-title">장소</td>
 		    <td id="tbl-content">
-		      <input id="report-input" type="text" id="loc" value="주소" readonly="readonly"><!-- 로그인하고 m_id 일치하는 report테이블에서 주소 가져오기 -->
+		      <input id="report-input" type="text" id="loc" value="${re_loc}" readonly="readonly">
 		    </td>
 		  </tr>
 		  <tr>
