@@ -18,11 +18,8 @@ ${mvo.m_type}
 <c:set var="m_type" value="${mvo.m_type}"/>
 	<c:choose>
 	  <c:when test="${empty m_id}">
-
+	  <div class="top"></div>
 	  <div id = "background">
-			<div class="top">
-				<img id="setting" src="resources/images/setting2.png">
-			</div>
 			<div id="symbol">
 				<img id="mainlogo" src="resources/images/119.png">
 				<div id="title"><p id="title-text">불이야</p></div>
@@ -49,13 +46,15 @@ ${mvo.m_type}
 			<c:when test="${m_type eq 'u'}">
 			 <div id="btn-main">
 				<div style="height: 30%"></div>
-				<img id="report" src="resources/images/report.png">
+				<a href="Report.do">
+					<img id="report" src="resources/images/report.png">
+				</a>
 			</div> 
 			</c:when>
 			<c:otherwise>
-				<div id="btn-main">
-					<div style="height: 30%"></div>
-					<img id="report" src="resources/images/report.png">
+				<div id="btn-main" style="text-align: center;">
+						<button id="btn-map">지도보기</button><br>
+						<button id="btn-report-list">신고현황</button>
 				</div> 
 			</c:otherwise>
 			</c:choose>

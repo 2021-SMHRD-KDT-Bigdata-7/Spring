@@ -84,6 +84,7 @@ span{
 		width : 100%;
 		height : 40%;
 		margin-top: 30%;
+		margin-bottom: 20%;
 	}
 	
 	#mainlogo{
@@ -170,6 +171,33 @@ span{
 	#join-text:hover{
 		font-size: 4.2vw;
 		cursor: pointer;	
+	}
+	
+	#btn-report-list{
+		width:80%;
+		height: 40px;
+		background-color: #C8252B;
+		font-family: 'SBAggroM';
+		font-size: 25px;
+		color: white;
+		text-align: center;
+		margin-top: 5%;
+		box-shadow: 1px 1px 5px #777676;
+		border:none;
+		border-radius: 5px;
+	}
+	
+	#btn-map{
+		width:80%;
+		height: 40px;
+		background-color: #777676;
+		font-family: 'SBAggroM';
+		font-size: 25px;
+		color: white;
+		text-align: center;
+		box-shadow: 1px 1px 5px #777676;
+		border:none;
+		border-radius: 5px;
 	}
 	
 	/* 로그인페이지 */
@@ -523,6 +551,34 @@ span{
 	#join-text:hover{
 		font-size: 2.2vw;
 		cursor: pointer;	
+	}
+	
+	#btn-report-list{
+		width:30%;
+		height: 40px;
+		background-color: #C8252B;
+		font-family: 'SBAggroM';
+		font-size: 25px;
+		color: white;
+		text-align: center;
+		margin-top: 2%;
+		box-shadow: 1px 1px 5px #777676;
+		border:none;
+		border-radius: 5px;
+	}
+	
+	#btn-map{
+		width:30%;
+		height: 40px;
+		background-color: #777676;
+		font-family: 'SBAggroM';
+		font-size: 25px;
+		color: white;
+		text-align: center;
+		margin-top: 5%;
+		box-shadow: 1px 1px 5px #777676;
+		border:none;
+		border-radius: 5px;
 	}
 	
 	/* 로그인페이지 */
