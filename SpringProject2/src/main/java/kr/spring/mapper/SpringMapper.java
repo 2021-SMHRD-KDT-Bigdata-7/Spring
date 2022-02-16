@@ -15,7 +15,7 @@ public interface SpringMapper {
 	
 	public void ReportlatInsert(Model model);
 	public void ReportInsert(Model model);
-	public void ReportlatDelete();
+	public void ReportlatDelete(String m_id);
 	
 	public List<Report> ReportTaking();
 

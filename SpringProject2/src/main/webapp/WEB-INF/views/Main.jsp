@@ -54,8 +54,10 @@ ${mvo.m_type}
 			</c:when>
 			<c:otherwise>
 				<div id="btn-main">
-					<div style="height: 30%"></div>
-					<img id="report" src="resources/images/report.png">
+				  <div style="height: 30%"></div>
+				    <a href="${cpath}/ReportMap.do">
+					  <img id="report" src="resources/images/report.png">
+				    </a>
 				</div> 
 			</c:otherwise>
 			</c:choose>

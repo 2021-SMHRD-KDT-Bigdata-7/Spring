@@ -86,16 +86,22 @@ public class SpringController {
 	 // ReportMap(신고 시 위치제공페이지)에서 받아온 좌표를 insert하기 위한 메소드
 	@RequestMapping(value = "/ReportlatInsert.do", method = RequestMethod.POST)
 	public String ReportlatInsert(@RequestParam double re_latitude, @RequestParam double re_longitude,
-			@RequestParam String re_loc, Model model) {
-
+			@RequestParam String re_loc, Model model, HttpSession session) {
+		
+		Member mvo = (Member) session.getAttribute("mvo");
+		String m_id = mvo.getM_id();
+		
 		model.addAttribute("re_latitude", re_latitude);
 		model.addAttribute("re_longitude", re_longitude);
 		model.addAttribute("re_loc", re_loc);
+		model.addAttribute("m_id", m_id);
 
 //////////확인용   
-		System.out.println("컨트롤러에 위도 " + re_latitude);
-		System.out.println("컨트롤러에 경도 " + re_longitude);
-		System.out.println("컨트롤러에 주소 " + re_loc);
+		System.out.println("ReportlatInsert.do컨트롤러의 세션값 : "+mvo);
+		System.out.println("ReportlatInsert컨트롤러 위도 : " + re_latitude);
+		System.out.println("ReportlatInsert컨트롤러 경도 : " + re_longitude);
+		System.out.println("ReportlatInsert컨트롤러 주소  : " + re_loc);
+		System.out.println("ReportlatInsert컨트롤러 세션m_id : " +m_id);
 		System.out.println("latinsert컨트롤" + model);
 
 		service.ReportlatInsert(model);
@@ -111,6 +117,7 @@ public class SpringController {
 			model.addAttribute("re_content", re_content);
 			
 //////////확인용   
+			
 			System.out.println("신고내용타입 "+ re_type);
 			System.out.println("신고내용내용 "+ re_content);
 			System.out.println("신고내용 "+model);
@@ -122,9 +129,14 @@ public class SpringController {
 		
 	// Report(신고 페이지)에서 처음으로 버튼을 클릭 했을 때 좌표값 DB에서 지워야함
 		@RequestMapping("/ReportlatDelete.do")
-		public String ReportlatDelete() {
-			service.ReportlatDelete();
-			return "Main";
+		public String ReportlatDelete(HttpSession session) {
+			
+			Member mvo = (Member)session.getAttribute("mvo");
+			String m_id = mvo.getM_id();
+//////////확인용			
+			System.out.println("ReportlatDelete.do의 세션값 :"+mvo);
+			service.ReportlatDelete(m_id);
+			return "redirect:/Main.do";
 		}
 		
 //*****************************************************************신고접수페이지 메소드
