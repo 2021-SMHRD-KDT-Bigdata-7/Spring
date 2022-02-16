@@ -11,17 +11,18 @@
 <title>불이야-신고</title>
 </head>
 <body>
+${mvo.m_id}
 	<div class="top"></div>
 	<form id="form-report-info" action="${cpath}/ReportInsert.do" method="POST">
 		<h2>신고인 정보</h2>
 		<table id="tbl-report">
 		  <tr>
 		    <td id="tbl-title">이름</td>
-		    <td id="tbl-content">회원정보에서이름가져오기</td>
+		    <td id="tbl-content">${mvo.m_name}</td>
 		  </tr>
 		  <tr>
 		    <td id="tbl-title">번호</td>
-		    <td id="tbl-content">회원정보에서번호가져오기</td>
+		    <td id="tbl-content">${mvo.m_phone}</td>
 		  </tr>
 		</table>
 
@@ -69,7 +70,7 @@
 		  </tr>
 		  <tr>
 		  	<td colspan="2">
-		      <a class="return-text" href="/ReportlatDelete.do?m_id=${mvo.m_id}">처음으로</a>
+		      <a class="return-text" href="${cpath}/ReportlatDelete.do?">처음으로</a>
 		  	</td>
 		  </tr>
 		</table>

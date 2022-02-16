@@ -2,6 +2,8 @@ package kr.spring.service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
@@ -52,11 +54,12 @@ public class SpringService {
 		mapper.ReportInsert(model);
 //////////확인용   		
 		System.out.println("ReportInsert서비스"+model);
+		
 	}
 	
 	// Report(신고페이지)에서 처음으로 버튼 클릭 시
-	public void ReportlatDelete() {
-		mapper.ReportlatDelete();
+	public void ReportlatDelete(String m_id) {
+		mapper.ReportlatDelete(m_id);
 	}
 	
 	

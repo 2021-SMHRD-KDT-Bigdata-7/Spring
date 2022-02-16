@@ -27,7 +27,7 @@
 			<input type="submit" id="btn-report" value="이 위치로 신고하기">
 		</form>
 	</div>
-	
+	${mvo.m_id}
 	<script>
 	//초기 지도
 		var container = document.getElementById('map');

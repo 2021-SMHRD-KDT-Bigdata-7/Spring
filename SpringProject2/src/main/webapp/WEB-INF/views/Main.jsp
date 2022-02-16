@@ -18,11 +18,8 @@ ${mvo.m_type}
 <c:set var="m_type" value="${mvo.m_type}"/>
 	<c:choose>
 	  <c:when test="${empty m_id}">
-
+	  <div class="top"></div>
 	  <div id = "background">
-			<div class="top">
-				<img id="setting" src="resources/images/setting2.png">
-			</div>
 			<div id="symbol">
 				<img id="mainlogo" src="resources/images/119.png">
 				<div id="title"><p id="title-text">불이야</p></div>
@@ -61,8 +58,10 @@ ${mvo.m_type}
 					<a href="ReceptionSetting"><img id="setting" src="resources/images/setting2.png"></a>
 				</div>
 				<div id="btn-main">
-					<div style="height: 30%"></div>
-					<img id="report" src="resources/images/report.png">
+				  <div style="height: 30%"></div>
+				    <a href="${cpath}/ReportMap.do">
+					  <img id="report" src="resources/images/report.png">
+				    </a>
 				</div> 
 			</c:otherwise>
 			</c:choose>
