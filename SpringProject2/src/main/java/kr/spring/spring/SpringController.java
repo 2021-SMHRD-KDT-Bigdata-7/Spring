@@ -71,7 +71,7 @@ public class SpringController {
 		if(mvo!=null) {
 			  session.setAttribute("mvo",mvo);
 		  }
-		return "Report";
+		return "Main";
 	  }
 
 	  // 로그아웃

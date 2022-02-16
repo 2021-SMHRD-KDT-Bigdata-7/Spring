@@ -1,3 +1,4 @@
+<%@page import="kr.spring.domain.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -19,21 +20,28 @@
 			<img id="mainlogo" src="resources/images/119.png">
 			<div id="title"><p id="title-text">불이야</p></div>
 		</div>
-		
 		<!-- 로그인 전 main -->
 		
 		<div id="btn-submit-main">
 			<button onclick="location.href='Login.do'" id="btn-submit">로그인</button>
 			<div id="join"><p id="join-text" onclick="location.href='Join.do'">회원가입</p></div>
 		</div>
-		
+<!-- 로그인 시 메인화면 다르게 보이기 위해 vo가져오기  -->
+<% 
+	Member mvo = (Member)session.getAttribute("member");
+
+	if(mvo.getM_id()!=null){
+		  if(mvo.getM_type().equals("U")){%>
 		<!-- 일반 사용자 로그인 후 -->
-		
-		<!-- <div id="btn-main">
+		 <div id="btn-main">
 			<div style="height: 30%"></div>
 			<img id="report" src="resources/images/report.png">
-		</div> -->
-		
+		</div> 
+			<%} else { %>
+		<!-- 소방 사용자 로그인 후 -->
+			<%} 
+	} 
+	%>
 	</div>
 </body>
 </html>

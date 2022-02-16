@@ -31,7 +31,7 @@ public class SpringService {
 	}
 	//로그인
 	public Member Login(Member member) {
-		
+		System.out.println("member" + member);
 		return mapper.Login(member);
 		 
 	}
