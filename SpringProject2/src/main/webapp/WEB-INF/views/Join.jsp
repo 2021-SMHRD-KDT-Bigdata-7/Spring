@@ -9,6 +9,9 @@
 <title>불이야-회원가입</title>
 </head>
 <body>
+
+
+	
 	<div class="top"></div>
 	<header> <h2>Join Us</h2> </header> 
 	
@@ -102,17 +105,19 @@
         </form>
 	
 	<form action="JoinUser.do" method="POST"> 
-		<!-- 일반회원 로그인 -->
+	
+	
+  		 <!-- 일반회원 회원가입 -->
 		<div class="input-box"> 
 			<input id="m_name" type="text" name="m_name" placeholder="이름"> 
 			<label for="m_name">이름</label> 
 		</div>
-		<!-- 소방서 로그인 --> 
-		<!-- <div class="input-box"> 
+		<!-- 소방서 회원가입 --> 
+		<div class="input-box"> 
 			<input id="m_name" type="text" name="m_name" placeholder="센터명"> 
 			<label for="m_name">센터명</label> 
-		</div> -->
-		
+		</div>
+
 		<div class="input-box"> 
 			<input id="m_id" type="text" name="m_id" placeholder="아이디"> 
 			<label for="m_id">아이디</label> 

@@ -16,7 +16,7 @@
 	</insert>
 	
 	<select id ="Login" resultType="kr.spring.domain.Member" parameterType="String">
-	    select m_id from t_member where m_id=#{m_id} and m_pw=#{m_pw} 
+	    select * from t_member where m_id=#{m_id} and m_pw=#{m_pw} 
 	</select>
 	
 <!-- 신고페이지 -->
