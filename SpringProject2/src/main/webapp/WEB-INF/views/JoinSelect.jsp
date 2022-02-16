@@ -10,7 +10,7 @@
 </head>
 <body>
 	<div class="top"></div>
-	<header> <h2>Join Us</h2> </header>
+	<header> <h2 class="title">Join Us</h2> </header>
 	<div class="top"></div>
 	<div style="height: 70%;">
 		<img id="img-select" src="resources/images/user_select.png" onclick="location.href='Join.do?m_type='+'U'">

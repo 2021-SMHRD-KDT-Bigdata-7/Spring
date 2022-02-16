@@ -44,6 +44,8 @@ public class SpringController {
 	@RequestMapping("/UserSetting.do") public String UserSetting() { return "UserSetting"; }
 	 
 	@RequestMapping("/JoinSelect.do") public String JoinSelect() { return "JoinSelect"; }
+
+	@RequestMapping("/Setting.do") public String Setting() { return "Setting"; }
 	
 	@RequestMapping("/ReportMap.do")
 	public String ReportMap() {
@@ -86,10 +88,10 @@ public class SpringController {
 	  }
 
 	  // 로그아웃
-	  @RequestMapping("/Logout.do")
+	  @RequestMapping(value ="/Logout.do" , method = RequestMethod.POST)
 	   public String Logout(HttpSession session) {
 		  session.invalidate(); 
-		  return "Logout";
+		  return "redirect:/Main.do";
 	  }
 
 //**********************************************************************신고페이지 메소드
@@ -181,6 +183,5 @@ public class SpringController {
 		return "ReportDetail";
 		
 	}
-	
 	
 }
