@@ -2,6 +2,7 @@ package kr.spring.spring;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,13 +66,14 @@ public class SpringController {
 	
 	//로그인
 	 @RequestMapping(value = "/Login.do", method = RequestMethod.POST)
-	  public String Login(Member member, HttpSession session)  { 
+	  public String Login(Member member, HttpServletRequest request)  { 
 			
 		Member mvo = service.Login(member);
-		if(mvo!=null) {
-			  session.setAttribute("mvo",mvo);
-		  }
-		return "Main";
+		HttpSession session = request.getSession();
+		session.setAttribute("mvo", mvo);
+		System.out.println("컨트롤러 세션 "+session);
+		
+		return "redirect:/Main.do";
 	  }
 
 	  // 로그아웃
