@@ -50,6 +50,10 @@ span{
 	height:auto;
 }
 
+h3{
+	height:auto;
+}
+
 #background{
 }
 
@@ -285,6 +289,12 @@ span{
 	}
 	
 	/* 회원가입 */
+	
+	#img-select{
+		width: auto;
+		height: auto;
+	}
+
 	#add-text{
 		text-align: left;
 	    font-size: 14pt;
@@ -667,6 +677,15 @@ span{
 	}
 	
 	/* 회원가입 */
+	
+	#img-select{
+		width: auto;
+		height: auto;
+	}
+		
+	#img-select:hover{
+		cursor: pointer;
+	}
 	
 	#add-text{
 		text-align: left;

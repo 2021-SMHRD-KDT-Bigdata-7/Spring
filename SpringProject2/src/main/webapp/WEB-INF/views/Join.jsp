@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    <c:set var="cpath" value="${pageContext.request.contextPath}"/>   
 <!DOCTYPE html>
 <html>
 <head>
@@ -105,19 +107,18 @@
         </form>
 	
 	<form action="JoinUser.do" method="POST"> 
-	
-	
   		 <!-- 일반회원 회원가입 -->
 		<div class="input-box"> 
 			<input id="m_name" type="text" name="m_name" placeholder="이름"> 
 			<label for="m_name">이름</label> 
 		</div>
+		  <c:if test="${m_type eq 'F'}">
 		<!-- 소방서 회원가입 --> 
-		<div class="input-box"> 
-			<input id="m_name" type="text" name="m_name" placeholder="센터명"> 
-			<label for="m_name">센터명</label> 
-		</div>
-
+			<div class="input-box"> 
+				<input id="m_name" type="text" name="m_name" placeholder="센터명"> 
+				<label for="m_name">센터명</label> 
+			</div>
+		  </c:if>
 		<div class="input-box"> 
 			<input id="m_id" type="text" name="m_id" placeholder="아이디"> 
 			<label for="m_id">아이디</label> 

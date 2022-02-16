@@ -70,7 +70,7 @@ ${mvo.m_id}
 		  </tr>
 		  <tr>
 		  	<td colspan="2">
-		      <a class="return-text" href="${cpath}/ReportlatDelete.do?">처음으로</a>
+		      <a class="return-text" href="${cpath}/ReportlatDelete.do">처음으로</a>
 		  	</td>
 		  </tr>
 		</table>

@@ -34,8 +34,15 @@ public class SpringController {
 	
 	@RequestMapping("/Login.do") public String Login() { return "Login"; }
 	  
-	@RequestMapping("/Join.do") public String Join() { return "Join"; }
+	@RequestMapping("/Join.do") 
+	public String Join(@RequestParam String m_type, Model model) { 
+		model.addAttribute("m_type",m_type);
+////////확인용
+		System.out.println("JoinSelect의 m_type : "+m_type);
+		return "Join"; 
+	}
 	 
+	@RequestMapping("/JoinSelect.do") public String JoinSelect() { return "JoinSelect"; }
 	
 	@RequestMapping("/ReportMap.do")
 	public String ReportMap() {
