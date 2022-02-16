@@ -1,7 +1,7 @@
 <%@page import="kr.spring.domain.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
     <c:set var="cpath" value="${pageContext.request.contextPath}"/>   
 <!DOCTYPE html>
 <html lang="en">
@@ -31,16 +31,16 @@ ${mvo.m_type}
 			</div>
 		</div>
 	  </c:when>
-	  <!-- 모든 사용자 로그인 시 적용되는 화면 -->
+	  <%-- 모든 사용자 로그인 시 적용되는 화면 --%>
 	  <c:otherwise>
 	  <div id = "background">
 			<div id="symbol">
 				<img id="mainlogo" src="resources/images/119.png">
 				<div id="title"><p id="title-text">불이야</p></div>
 			</div>
-		<!-- 일반 사용자 로그인 후 -->
+		<%-- 일반 사용자 로그인 후 --%>
 			<c:choose>
-			<c:when test="${m_type eq 'u'}">
+			  <c:when test="${m_type eq 'u'}">
 				<div class="top">
 					<a href="${cpath}UserSetting.do">
 					  <img id="setting" src="resources/images/setting2.png">
@@ -51,9 +51,9 @@ ${mvo.m_type}
 					<img id="report" src="resources/images/report.png">
 					<a href="/Logout">로그아웃</a>
 				</div> 
-			</c:when>
-		<!-- 소방서 사용자 로그인 후 -->
-			<c:otherwise>
+			  </c:when>
+		<%-- 소방서 사용자 로그인 후 --%>
+			  <c:otherwise>
 				<div class="top">
 					<a href="ReceptionSetting"><img id="setting" src="resources/images/setting2.png"></a>
 				</div>
@@ -63,7 +63,7 @@ ${mvo.m_type}
 					  <img id="report" src="resources/images/report.png">
 				    </a>
 				</div> 
-			</c:otherwise>
+			  </c:otherwise>
 			</c:choose>
 		</div>
 	  </c:otherwise>
