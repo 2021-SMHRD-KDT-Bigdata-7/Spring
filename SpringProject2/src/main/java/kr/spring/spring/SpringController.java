@@ -36,6 +36,8 @@ public class SpringController {
 	@RequestMapping("/Join.do") public String Join() { return "Join"; }
 	 
 	@RequestMapping("/JoinSelect.do") public String JoinSelect() { return "JoinSelect"; }
+
+	@RequestMapping("/Setting.do") public String Setting() { return "Setting"; }
 	
 	@RequestMapping("/ReportMap.do")
 	public String ReportMap() {
