@@ -11,6 +11,7 @@
 <title>불이야-신고</title>
 </head>
 <body>
+${mvo.m_id}
 	<div class="top"></div>
 	<form id="form-report-info" action="${cpath}/ReportInsert.do" method="POST">
 		<h2>신고인 정보</h2>
