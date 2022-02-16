@@ -31,9 +31,10 @@ public class SpringController {
 	}
 
 	
-	@RequestMapping("/Login.do") public String Login() { return "Login"; }
+//	@RequestMapping("/Login.do") public String Login() { return "Login"; }
 	  
 	@RequestMapping("/Join.do") public String Join() { return "Join"; }
+	@RequestMapping("/UserSetting.do") public String UserSetting() { return "UserSetting"; }
 	 
 	
 	@RequestMapping("/ReportMap.do")
@@ -82,6 +83,7 @@ public class SpringController {
 		  session.invalidate(); 
 		  return "Logout";
 	  }
+
 //**********************************************************************신고페이지 메소드
 	 // ReportMap(신고 시 위치제공페이지)에서 받아온 좌표를 insert하기 위한 메소드
 	@RequestMapping(value = "/ReportlatInsert.do", method = RequestMethod.POST)

@@ -34,25 +34,32 @@ ${mvo.m_type}
 			</div>
 		</div>
 	  </c:when>
+	  <!-- 모든 사용자 로그인 시 적용되는 화면 -->
 	  <c:otherwise>
 	  <div id = "background">
-			<div class="top">
-				<img id="setting" src="resources/images/setting2.png">
-			</div>
 			<div id="symbol">
 				<img id="mainlogo" src="resources/images/119.png">
 				<div id="title"><p id="title-text">불이야</p></div>
 			</div>
-<!-- 로그인 시 메인화면 다르게 보이기 위해 vo가져오기  -->
 		<!-- 일반 사용자 로그인 후 -->
 			<c:choose>
 			<c:when test="${m_type eq 'u'}">
-			 <div id="btn-main">
-				<div style="height: 30%"></div>
-				<img id="report" src="resources/images/report.png">
-			</div> 
+				<div class="top">
+					<a href="${cpath}UserSetting.do">
+					  <img id="setting" src="resources/images/setting2.png">
+					</a>
+				</div>
+				 <div id="btn-main">
+					<div style="height: 30%"></div>
+					<img id="report" src="resources/images/report.png">
+					<a href="/Logout">로그아웃</a>
+				</div> 
 			</c:when>
+		<!-- 소방서 사용자 로그인 후 -->
 			<c:otherwise>
+				<div class="top">
+					<a href="ReceptionSetting"><img id="setting" src="resources/images/setting2.png"></a>
+				</div>
 				<div id="btn-main">
 					<div style="height: 30%"></div>
 					<img id="report" src="resources/images/report.png">
