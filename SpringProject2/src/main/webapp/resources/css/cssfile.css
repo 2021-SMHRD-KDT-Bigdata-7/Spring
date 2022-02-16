@@ -83,6 +83,7 @@ span{
 		display: inline-block;
 		width : 100%;
 		height : 40%;
+		margin-top: 30%;
 	}
 	
 	#mainlogo{
@@ -156,6 +157,7 @@ span{
 	
 	#join{
 		height: auto;
+		margin-top: 5%;
 	}
 	
 	#join-text{
@@ -245,8 +247,8 @@ span{
     }
     	
 	form #btn-submit{
-		font-size: 4vw;
-		height: 40px;
+		font-size: 5vw;
+		min-height: 40px;
 		color: black;
 		margin-top: 15%;
 		max-width: 70%;
@@ -329,12 +331,19 @@ span{
 		background-color: transparent;
 	}
 	
-	#btn-report{
-		width:80%;
+	#btn-report:hover{
+		box-shadow: none;
+	}
+	
+	input#btn-report{
+		width:100%;
+		height: 40px;
 		background-color: red;
 		font-family: 'SBAggroM';
+		font-size: 25px;
 		text-align: center;
-		margin-top: 5%
+		margin-top: 5%;
+		box-shadow: 1px 1px 5px #777676;
 	}
 	
 	/* 신고정보페이지 */
@@ -500,11 +509,12 @@ span{
 	
 	#join{
 		height: auto;
+		margin-top: 2%;
 	}
 	
 	#join-text{
 		display: inline-block;
-		font-size: 1.5vw;
+		font-size: 30px;
 		width: auto;
 		height: auto;
 		margin-top: 1%;
@@ -590,7 +600,8 @@ span{
     }
     
 	form #btn-submit{
-		font-size: 2vw;
+		font-size: 40px;
+		min-width: 300px;
 		height: 60px;
 		color: black;
 		margin-top: 10%;
@@ -676,13 +687,91 @@ span{
 		background-color: transparent;
 	}
 	
-	#form-report>#btn-report{
-		width:30%;
-		height: 50px;
+	#btn-report:hover{
+		cursor: pointer;
+		box-shadow: none;
+	}
+	
+	input#btn-report{
+		width:100%;
+		height: 40px;
 		background-color: red;
 		font-family: 'SBAggroM';
+		font-size: 25px;
 		text-align: center;
-		margin-top: 1%;
+		margin-top: 5%;
+		box-shadow: 1px 1px 5px #777676;
+	}
+	
+	/* 신고정보페이지 */
+	
+	#form-report-info{
+		width: 50%;
+		height: auto;
+		font-family: 'SBAggroL';
+		font-size: 20px;
+	}
+	
+	#tbl-report{
+		font-family: 'SBAggroL';		
+	}
+	
+	#tbl-title{
+		width:30%;
+		height: 40px;
+		font-family: 'SBAggroL';
+		background-color: #F2F2F2;
+	}
+
+	#tbl-content{
+		width:70%;
+		font-family: 'SBAggroL';
+		background-color: #F2F2F2;
+	}
+	
+	.select{
+		font-family: 'SBAggroL';
+		background-color: transparent;
+		border: none;
+		font-size: 20px;
+	}
+	
+	.select>option{
+		font-family: 'SBAggroL';
+	}
+		
+	#report-input{
+		border:none;
+		font-family: 'SBAggroL';
+		background-color: transparent;
+		font-size: 20px;
+	}
+	
+	#report-textarea{
+		height: 200px;
+		font-family: 'SBAggroL';
+		font-size: 20px;
+		text-align: left;
+		background-color: transparent;
+		border: none;
+	}
+	
+	.return-text{
+		font-family: 'SBAggroM';
+		font-size: 20px;
+		color:black;
+	}
+	.return-text:hover{
+		font-size: 18px;
+	}
+	.return-text:visited{
+		color:black;
+	}
+	
+	#form-report-info>h2{
+		width: 100%;
+		margin-top: 10%;
+		text-align: left;
 	}
 	
 }

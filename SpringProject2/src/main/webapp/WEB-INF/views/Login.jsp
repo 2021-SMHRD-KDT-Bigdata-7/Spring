@@ -10,6 +10,7 @@
 </head>
 <body>
 <div class="top"></div>
+<div class="top"></div>
 	<header> <h2>Login</h2> </header> 
 	<form action="Login.do" method="POST"> 
 		<div class="input-box"> 
