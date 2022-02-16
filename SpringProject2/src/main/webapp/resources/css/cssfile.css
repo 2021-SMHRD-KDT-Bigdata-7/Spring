@@ -48,6 +48,11 @@ h2{
 	text-align: left;
 }
 
+.title{
+	width: 100%;
+	text-align: center;
+}
+
 p{
 	height:auto;
 }

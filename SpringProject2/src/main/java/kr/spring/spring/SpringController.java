@@ -32,7 +32,7 @@ public class SpringController {
 	}
 
 	
-//	@RequestMapping("/Login.do") public String Login() { return "Login"; }
+	@RequestMapping("/Login.do") public String Login() { return "Login"; }
 	  
 	@RequestMapping("/Join.do") 
 	public String Join(@RequestParam String m_type, Model model) { 

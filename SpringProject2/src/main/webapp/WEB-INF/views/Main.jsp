@@ -42,7 +42,7 @@ ${mvo.m_type}
 			<c:choose>
 			  <c:when test="${m_type eq 'u'}">
 				<div class="top">
-					<a href="${cpath}UserSetting.do">
+					<a href="Setting.do">
 					  <img id="setting" src="resources/images/setting2.png">
 					</a>
 				</div>
@@ -55,7 +55,7 @@ ${mvo.m_type}
 		<%-- 소방서 사용자 로그인 후 --%>
 			  <c:otherwise>
 				<div class="top">
-					<a href="ReceptionSetting"><img id="setting" src="resources/images/setting2.png"></a>
+					<a href="Setting.do"><img id="setting" src="resources/images/setting2.png"></a>
 				</div>
 				<div id="btn-main">
 				  <div style="height: 30%"></div>
