@@ -15,7 +15,7 @@
 
 	
 	<div class="top"></div>
-	<header> <h2>Join Us</h2> </header> 
+	<header> <h2 class="title">Join Us</h2> </header> 
 	
 	<form action="" id="agree">
             <ul class="agree_box">

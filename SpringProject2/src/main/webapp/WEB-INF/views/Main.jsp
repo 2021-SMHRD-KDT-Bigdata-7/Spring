@@ -40,28 +40,33 @@ ${mvo.m_type}
 			</div>
 		<%-- 일반 사용자 로그인 후 --%>
 			<c:choose>
-			  <c:when test="${m_type eq 'u'}">
+			  <c:when test="${m_type eq 'U'}">
 				<div class="top">
-					<a href="${cpath}UserSetting.do">
+					<a href="Setting.do">
 					  <img id="setting" src="resources/images/setting2.png">
 					</a>
 				</div>
 				 <div id="btn-main">
 					<div style="height: 30%"></div>
-					<img id="report" src="resources/images/report.png">
-					<a href="/Logout">로그아웃</a>
+					    <a href="${cpath}/ReportMap.do">
+							<img id="report" src="resources/images/report.png">  
+						</a>
 				</div> 
 			  </c:when>
 		<%-- 소방서 사용자 로그인 후 --%>
 			  <c:otherwise>
 				<div class="top">
-					<a href="ReceptionSetting"><img id="setting" src="resources/images/setting2.png"></a>
+					<a href="Setting.do"><img id="setting" src="resources/images/setting2.png"></a>
 				</div>
 				<div id="btn-main">
-				  <div style="height: 30%"></div>
-				    <a href="${cpath}/ReportMap.do">
-					  <img id="report" src="resources/images/report.png">
-				    </a>
+				  <div style="height: 30%">
+					  <div id="">
+					  	<a href="${cpath}/ReportMap.do">지도보기</a>
+					  </div>
+					  <div id="">
+					  	<a href="${cpath}/ReportTaking.do">신고현황</a>
+					  </div>
+				  </div>
 				</div> 
 			  </c:otherwise>
 			</c:choose>
