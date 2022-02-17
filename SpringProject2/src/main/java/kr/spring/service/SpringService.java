@@ -1,6 +1,7 @@
 package kr.spring.service;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -55,12 +56,17 @@ public class SpringService {
 		mapper.ReportInsert(model);
 //////////확인용   		
 		System.out.println("ReportInsert서비스"+model);
-		
+	}
+	
+	public int ReportSelectSeq(String m_id) {
+		int re_seq = mapper.ReportSelectSeq(m_id);
+		return re_seq;
 	}
 	
 	// Report(신고페이지)에서 처음으로 버튼 클릭 시
-	public void ReportlatDelete(String m_id) {
-		mapper.ReportlatDelete(m_id);
+	public void ReportlatDelete(String re_seq) {
+		System.out.println("ReportlatDelete서비스 re_seq값 : " + re_seq);
+		mapper.ReportlatDelete(re_seq);
 	}
 	
 //**************************************************************신고접수 페이지
@@ -82,6 +88,7 @@ public class SpringService {
 		
 		return rvo;
 	}
+
 	
 	
 	

@@ -69,7 +69,7 @@ public class SpringController {
 	}
 //**************************************************************로그인 및 회원가입 메소드
 	
-	 //회원가입-일반/소방 나누어서 컨트롤러에 주기
+	 //회원가입-일반/소방 
 	 @RequestMapping("/JoinAll.do") 
 	 public String JoinAll(@RequestParam Map<String, Object> map, ModelMap model) {
 //////////확인용   
@@ -86,19 +86,6 @@ public class SpringController {
 			}
 
 		}
-	 
-	 //회원가입-일반사용자
-		/*
-		 * @RequestMapping(value = "/JoinUser.do", method=RequestMethod.GET) public
-		 * String JoinUser(Member member) { service.JoinUser(member); //////////확인용
-		 * System.out.println("JoinUser : "+member); return "Main"; }
-		 * 
-		 * //회원가입-소방서
-		 * 
-		 * @RequestMapping(value = "/JoinFire.do", method=RequestMethod.GET) public
-		 * String JoinFire(Member member) { service.JoinFire(member); //////////확인용
-		 * System.out.println("JoinFire : "+member); return "Main"; }
-		 */
 	
 	//로그인
 	 @RequestMapping(value = "/Login.do", method = RequestMethod.POST)
@@ -113,17 +100,17 @@ public class SpringController {
 	  }
 
 	  // 로그아웃
-	  @RequestMapping(value ="/Logout.do" , method = RequestMethod.POST)
+	  @RequestMapping(value ="/Logout.do" , method = RequestMethod.GET)
 	   public String Logout(HttpSession session) {
 		  session.invalidate(); 
 		  return "redirect:/Main.do";
 	  }
 
 //**********************************************************************신고페이지 메소드
-	 // ReportMap(신고 시 위치제공페이지)에서 받아온 좌표를 insert하기 위한 메소드
+	 // ReportMap(신고 시 위치제공페이지)의 좌표 넣기 / re_seq빼내기
 	@RequestMapping(value = "/ReportlatInsert.do", method = RequestMethod.POST)
 	public String ReportlatInsert(@RequestParam double re_latitude, @RequestParam double re_longitude,
-			@RequestParam String re_loc, Model model, Report report, HttpSession session) {
+			@RequestParam String re_loc, Model model, HttpSession session) {
 		
 		Member mvo = (Member) session.getAttribute("mvo");
 		String m_id = mvo.getM_id();
@@ -142,13 +129,21 @@ public class SpringController {
 		System.out.println("latinsert컨트롤" + model);
 
 		service.ReportlatInsert(model);
-		
+//		 List<Map> map = service.ReportSelectSeq(m_id);
+//		 System.out.println(map);
+//		 System.out.println(map.getClass()); 
+//		 System.out.println(map.get(map.size() - 1)); 
+//		 int re_seq = (int) map.get(map.size() - 1);
+		int re_seq = service.ReportSelectSeq(m_id);
+		System.out.println(re_seq);
+		model.addAttribute("re_seq", re_seq);
+		System.out.println("latinsert컨트롤2" + model);
 		return "Report";
 	}
 	
 	// Report(신고페이지)의 내용 insert 메소드
 		@RequestMapping(value = "/ReportInsert.do", method = RequestMethod.POST)
-		public String ReportInsert(@RequestParam String re_type, @RequestParam String re_content, Model model, HttpSession session) {
+		public String ReportInsert(@RequestParam String re_type, @RequestParam String re_content, @RequestParam String re_seq, Model model, HttpSession session) {
 			
 			Member mvo = (Member) session.getAttribute("mvo");
 			String m_id = mvo.getM_id();
@@ -156,11 +151,13 @@ public class SpringController {
 			model.addAttribute("re_type", re_type);
 			model.addAttribute("re_content", re_content);
 			model.addAttribute("m_id", m_id);
+			model.addAttribute("re_seq", re_seq);
 
 //////////확인용   
 
 			System.out.println("신고내용타입 " + re_type);
 			System.out.println("신고내용내용 " + re_content);
+			System.out.println("신고내용내용 " + re_seq);
 			System.out.println("신고내용 " + model);
 
 			service.ReportInsert(model);
@@ -170,13 +167,12 @@ public class SpringController {
 		
 	// Report(신고 페이지)에서 처음으로 버튼을 클릭 했을 때 좌표값 DB에서 지워야함
 		@RequestMapping("/ReportlatDelete.do")
-		public String ReportlatDelete(HttpSession session) {
+		public String ReportlatDelete(@RequestParam String re_seq) {
 			
-			Member mvo = (Member)session.getAttribute("mvo");
-			String m_id = mvo.getM_id();
 //////////확인용			
-			System.out.println("ReportlatDelete.do의 세션값 :"+mvo);
-			service.ReportlatDelete(m_id);
+			System.out.println("ReportlatDelete.do의 seq값 :"+re_seq);
+			service.ReportlatDelete(re_seq);
+			
 			return "redirect:/Main.do";
 		}
 		

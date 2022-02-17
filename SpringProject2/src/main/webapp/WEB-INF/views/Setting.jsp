@@ -35,8 +35,8 @@
 				  </tr>
 				<%-- </c:forEach> --%>
 				</table>
-			<form action="${cpath}/Logout.do" method="post" style="width: 100%; text-align: right;">
-				<a href="${cpath}/Main.do">로그아웃</a>
+			<form action="${cpath}/Logout.do" method="GET" style="width: 100%; text-align: right;">
+				<a href="${cpath}/Logout.do">로그아웃</a>
 			</form>
 			
 			<div>
@@ -84,8 +84,8 @@
 			<%-- </c:forEach> --%>
 			</table>
 		
-			<form action="${cpath}/Logout.do" method="post" style="width: 100%; text-align: right;">
-				<a href="${cpath}/Main.do">로그아웃</a>
+			<form action="${cpath}/Logout.do" method="GET" style="width: 100%; text-align: right;">
+				<a href="${cpath}/Logout.do">로그아웃</a>
 			</form>
  		
 				<div style="text-align: right;">

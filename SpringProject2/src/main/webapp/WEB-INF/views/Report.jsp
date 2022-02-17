@@ -12,8 +12,10 @@
 </head>
 <body>
 ${mvo.m_id}
+${re_seq}
 	<div class="top"></div>
 	<form id="form-report-info" action="${cpath}/ReportInsert.do" method="POST">
+	<input type="hidden" name="re_seq" value="${re_seq}">
 		<h2>신고인 정보</h2>
 		<table id="tbl-report">
 		  <tr>
@@ -70,7 +72,7 @@ ${mvo.m_id}
 		  </tr>
 		  <tr>
 		  	<td colspan="2">
-		      <a class="return-text" href="${cpath}/ReportlatDelete.do">처음으로</a>
+		      <a class="return-text" href="${cpath}/ReportlatDelete.do?re_seq=${re_seq}">처음으로</a>
 		  	</td>
 		  </tr>
 		</table>

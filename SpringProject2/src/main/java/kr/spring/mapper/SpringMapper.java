@@ -15,8 +15,9 @@ public interface SpringMapper {
 	public Member Login(Member member);
 	
 	public void ReportlatInsert(Model model);
+	public int ReportSelectSeq(String m_id);
 	public void ReportInsert(Model model);
-	public void ReportlatDelete(String m_id);
+	public void ReportlatDelete(String re_seq);
 	
 	public List<Report> ReportTaking();
 
