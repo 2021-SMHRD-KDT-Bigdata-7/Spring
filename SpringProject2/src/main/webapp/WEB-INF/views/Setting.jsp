@@ -35,9 +35,9 @@
 				  </tr>
 				<%-- </c:forEach> --%>
 				</table>
-			<div style="text-align: right;">
-				<a href="/Logout">로그아웃</a>
-			</div>
+			<form action="${cpath}/Logout.do" method="post" style="width: 100%; text-align: right;">
+				<a href="${cpath}/Main.do">로그아웃</a>
+			</form>
 			
 			<div>
 			<h2>차량등록</h2>
@@ -84,9 +84,9 @@
 			<%-- </c:forEach> --%>
 			</table>
 		
-			<div style="text-align: right;">
-				<a href="/Logout">로그아웃</a>
-			</div>
+			<form action="${cpath}/Logout.do" method="post" style="width: 100%; text-align: right;">
+				<a href="${cpath}/Main.do">로그아웃</a>
+			</form>
  		
 				<div style="text-align: right;">
 				</div>
@@ -102,14 +102,11 @@
 				</tr>
 			</table>
 		</div>
-<<<<<<< HEAD
 		</c:otherwise>
 		</c:choose>
-=======
 			<h3 style="margin-top: 5%;">
 				알림을 설정하면 현재 위치 기준으로<br>긴급상황 알림을 받을 수 있습니다. 
 			</h3>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-Bigdata-7/Spring.git
 	</div>
 
 </body>
