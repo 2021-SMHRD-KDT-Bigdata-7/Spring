@@ -33,21 +33,20 @@ ${mvo.m_type}
 	  </c:when>
 	  <%-- 모든 사용자 로그인 시 적용되는 화면 --%>
 	  <c:otherwise>
-	  <div id = "background">
-			<div id="symbol">
-				<img id="mainlogo" src="resources/images/119.png">
-				<div id="title"><p id="title-text">불이야</p></div>
-			</div>
+		<div id = "background">
 		<%-- 일반 사용자 로그인 후 --%>
 			<c:choose>
 			  <c:when test="${m_type eq 'U'}">
 				<div class="top">
-					<a href="Setting.do">
+					<a href="${cpath}/Setting.do">
 					  <img id="setting" src="resources/images/setting2.png">
 					</a>
 				</div>
+				<div id="symbol">
+					<img id="mainlogo" src="resources/images/119.png">
+					<div id="title"><p id="title-text">불이야</p></div>
+				</div>
 				 <div id="btn-main">
-					<div style="height: 30%"></div>
 					    <a href="${cpath}/ReportMap.do">
 							<img id="report" src="resources/images/report.png">  
 						</a>
@@ -56,15 +55,21 @@ ${mvo.m_type}
 		<%-- 소방서 사용자 로그인 후 --%>
 			  <c:otherwise>
 				<div class="top">
-					<a href="Setting.do"><img id="setting" src="resources/images/setting2.png"></a>
+					<a href="${cpath}/Setting.do">
+					  <img id="setting" src="resources/images/setting2.png">
+					</a>
+				</div>
+				<div id="symbol">
+					<img id="mainlogo" src="resources/images/119.png">
+					<div id="title"><p id="title-text">불이야</p></div>
 				</div>
 				<div id="btn-main">
 				  <div style="height: 30%">
-					  <div id="">
-					  	<a href="${cpath}/ReportMap.do">지도보기</a>
+					  <div>
+					  	<button id="btn-map" onclick="location.href='${cpath}/Map.do'">지도보기</button>
 					  </div>
-					  <div id="">
-					  	<a href="${cpath}/ReportTaking.do">신고현황</a>
+					  <div>
+					  	<button id="btn-report-list" onclick="location.href='${cpath}/ReportTaking.do'">신고현황</button>
 					  </div>
 				  </div>
 				</div> 

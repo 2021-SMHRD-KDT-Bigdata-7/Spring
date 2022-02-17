@@ -197,7 +197,6 @@ h3{
 		font-size: 25px;
 		color: white;
 		text-align: center;
-		margin-top: 5%;
 		box-shadow: 1px 1px 5px #777676;
 		border:none;
 		border-radius: 5px;
@@ -411,16 +410,18 @@ h3{
 	
 	#tbl-title{
 		width:30%;
-		height: 40px;
+		height: 50px;
 		font-family: 'SBAggroL';
+		font-size: 20px;
 		background-color: #F2F2F2;
 	}
 
 	#tbl-content{
 		width:70%;
+		height: 50px;
 		font-family: 'SBAggroL';
-		background-color: #F2F2F2;
 		font-size: 20px;
+		background-color: #F2F2F2;
 	}
 	
 	.select{
@@ -461,6 +462,30 @@ h3{
 		width: 100%;
 		margin-top: 10%;
 		text-align: left;
+	}
+	
+	/* 설정페이지 */
+	
+	h2>a{
+		font-family: 'SBAggroM';
+		font-size:15px;
+	}
+	
+	#setting-form{
+		width: 90%;
+		height: auto;
+		margin-top: 30%;
+	}
+	
+	#btn-select{
+		height: 30px;
+		font-family: 'SBAggroL';
+		font-size: 20px;
+	}
+	
+	input#radio{
+		width: 30px;
+		vertical-align: middle;
 	}
 	
 }
@@ -818,6 +843,7 @@ h3{
 		font-family: 'SBAggroL';
 		background-color: #F2F2F2;
 		font-size: 20px;
+		height: 50px;
 	}
 	
 	.select{
@@ -875,6 +901,11 @@ h3{
 		height: 30px;
 		font-family: 'SBAggroL';
 		font-size: 20px;
+	}
+	
+	input#radio{
+		width: 30px;
+		vertical-align: middle;
 	}
 	
 }
