@@ -531,6 +531,22 @@ h3{
 		font-size: 15px;
 	}
 	
+	/* detail 페이지 */
+	
+	#btn-detail{
+		width:49%;
+		height: 40px;
+		background-color: red;
+		font-family: 'SBAggroM';
+		font-size: 25px;
+		color: white;
+		text-align: center;
+		margin-top: 5%;
+		box-shadow: 1px 1px 2px #777676;
+		border: none;
+		border-radius: 5px;
+	}
+	
 }
 
 /* 웹 화면 css */
@@ -976,6 +992,22 @@ h3{
 	
 	#btn-report{
 		width:100%;
+		height: 40px;
+		background-color: red;
+		font-family: 'SBAggroM';
+		font-size: 25px;
+		color: white;
+		text-align: center;
+		margin-top: 5%;
+		box-shadow: 1px 1px 2px #777676;
+		border: none;
+		border-radius: 5px;
+	}
+	
+	/* detail 페이지 */
+	
+	#btn-detail{
+		width:49%;
 		height: 40px;
 		background-color: red;
 		font-family: 'SBAggroM';
