@@ -12,6 +12,8 @@
 <title>불이야</title>
 </head>
 <body>
-신고가 접수되었습니다.
+	<div>
+		<img id="img-select" src="resources/images/firecar.png">
+	</div>
 </body>
 </html>
