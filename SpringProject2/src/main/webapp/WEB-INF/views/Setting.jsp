@@ -83,9 +83,13 @@
 			  </tr>
 			<%-- </c:forEach> --%>
 			</table>
-		<div style="text-align: right;">
-			<a href="/Logout">로그아웃</a>
-		</div>
+		
+			<div style="text-align: right;">
+				<a href="/Logout">로그아웃</a>
+			</div>
+ 		
+				<div style="text-align: right;">
+				</div>
 			<h3 style="margin-top: 5%;">
 				신고 접수 시 상기 정보가 함께 전송됩니다.
 			</h3>
