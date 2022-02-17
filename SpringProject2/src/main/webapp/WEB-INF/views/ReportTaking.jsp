@@ -11,12 +11,12 @@
 <title>불이야-신고현황</title>
 </head>
 <body>
+<header><h2>신고 내역</h2></header>
 <div class="top"></div>
 <div id="setting-form">
-	<h1>신고 내역</h1>
   <table id="tbl-report">
 	<c:forEach var="rvo" items="${rlist}">
-	  <tr>
+	  <tr onclick="location.href='/spring/ReportDetail.do?re_seq=${rvo.re_seq}'">
 	    <td id="report-content">
 	    ${rvo.re_seq}
 	    ${rvo.re_loc}&nbsp;${rvo.re_type}발생 
@@ -26,11 +26,6 @@
 	    </td>
 	  </tr>
 	</c:forEach>
-	  <tr>
-	    <td>
-	      <button id="btn-report" value="접수" onclick="location.href='/spring/ReportDetail.do?re_seq=${rvo.re_seq}'">접수</button>
-	    </td>
-	  </tr>
   </table>
 </div>
 </body>

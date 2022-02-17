@@ -150,7 +150,7 @@ public class SpringController {
 
 			service.ReportInsert(model);
 
-			return "Main";
+			return "ReportCheck";
 		}
 		
 	// Report(신고 페이지)에서 처음으로 버튼을 클릭 했을 때 좌표값 DB에서 지워야함
@@ -187,7 +187,6 @@ public class SpringController {
 		Report rvo = service.ReportDetail(re_seq);
 //////확인용
 		System.out.println("ReportDetail컨트롤러 "+ rvo);
-		System.out.println("ReportDetail컨트롤러 re_sqe : "+ re_seq);
 		System.out.println("ReportDetail컨트롤러 re_sqe : "+ re_seq);
 		model.addAttribute("rvo", rvo);
 		
