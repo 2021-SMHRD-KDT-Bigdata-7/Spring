@@ -189,7 +189,6 @@ public class SpringController {
 		System.out.println("ReportDetail컨트롤러 "+ rvo);
 		System.out.println("ReportDetail컨트롤러 re_sqe : "+ re_seq);
 		System.out.println("ReportDetail컨트롤러 re_sqe : "+ re_seq);
-		System.out.println("ReportDetail컨트롤러 re_sqe : "+ re_seq);
 		model.addAttribute("rvo", rvo);
 		
 		return "ReportDetail";
