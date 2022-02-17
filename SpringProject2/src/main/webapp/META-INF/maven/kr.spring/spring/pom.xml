@@ -210,7 +210,7 @@
 	</dependencies>
 	
     <build>
-    <finalName>Project_Spring</finalName>
+    <finalName>SpringProject2</finalName>
     <pluginManagement>
 		    <plugins>
 			    <!-- 서버 배포 셋팅 -->
