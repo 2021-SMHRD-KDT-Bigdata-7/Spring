@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 
 import kr.spring.domain.Member;
 import kr.spring.domain.Report;
@@ -21,15 +22,15 @@ public class SpringService {
 
 //**************************************************************로그인 및 회원가입
 	//회원가입-일반사용자
-	public void JoinUser(Member member) {
+	public void JoinUser(ModelMap model) {
 //////////확인용	
-		System.out.println("JoinUser serv "+member);
+		System.out.println("JoinUser serv "+model);
 		
-		mapper.JoinUser(member);
+		mapper.JoinUser(model);
 	}
 	//회원가입-소방서
-	public void JoinFire(Member member) {
-		mapper.JoinFire(member);
+	public void JoinFire(ModelMap model) {
+		mapper.JoinFire(model);
 	}
 	//로그인
 	public Member Login(Member member) {

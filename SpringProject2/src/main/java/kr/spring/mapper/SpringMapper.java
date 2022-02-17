@@ -3,14 +3,15 @@ package kr.spring.mapper;
 import java.util.List;
 
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 
 import kr.spring.domain.Member;
 import kr.spring.domain.Report;
 
 public interface SpringMapper {
 	
-	public void JoinUser(Member member);
-	public void JoinFire(Member member);
+	public void JoinUser(ModelMap model);
+	public void JoinFire(ModelMap model);
 	public Member Login(Member member);
 	
 	public void ReportlatInsert(Model model);

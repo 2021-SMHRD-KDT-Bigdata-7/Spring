@@ -106,20 +106,20 @@
             </ul>
 		${m_type}
         </form>
-		 <form action="JoinUser.do" method="POST"> 
+		 <form action="JoinAll.do" method="POST"> 
   		 <c:choose>
   		 <c:when test="${m_type eq 'U'}">
   		 <%-- 일반회원 회원가입 --%>
-			 <input type="hidden" name="${m_type}">
 			 <div class="input-box"> 
+				 <input type="hidden" name="m_type" value="${m_type}"> 
 				 <input id="m_name" type="text" name="m_name" placeholder="이름"> 
 				 <label for="m_name">이름</label> 
 			 </div>
 		 </c:when>
 		 <c:otherwise>
 		<%-- 소방서 회원가입 --%>
-		 	 <input type="hidden" name="${m_type}" > 
 			 <div class="input-box"> 
+			 	<input type="hidden" name="m_type" value="${m_type}"> 
 			 	<input id="m_name" type="text" name="m_name" placeholder="센터명"> 
 			 	<label for="m_name">센터명</label> 
 			 </div>

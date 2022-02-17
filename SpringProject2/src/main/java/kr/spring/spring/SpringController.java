@@ -1,6 +1,7 @@
 package kr.spring.spring;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.core.env.SystemEnvironmentPropertySource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,7 +26,6 @@ public class SpringController {
 
 	@Autowired
 	SpringService service;
-	
 
 	@RequestMapping("/Main.do")
 	public String Main() {
@@ -40,6 +41,7 @@ public class SpringController {
 		model.addAttribute("m_type",m_type);
 ////////확인용
 		System.out.println("JoinSelect의 m_type : "+m_type);
+		System.out.println("JoinSelect의 m_type : "+m_type.getClass());
 		return "Join"; 
 	}
 	@RequestMapping("/UserSetting.do") public String UserSetting() { return "UserSetting"; }
@@ -66,24 +68,37 @@ public class SpringController {
 		return "Report";
 	}
 //**************************************************************로그인 및 회원가입 메소드
-	 //회원가입-일반사용자
-	 @RequestMapping(value = "/JoinUser.do", method = RequestMethod.POST) 
-	 public String JoinUser(@RequestParam Model m_type, Member member) {
+	
+	 //회원가입-일반/소방 나누어서 컨트롤러에 주기
+	 @RequestMapping("/JoinAll.do") 
+	 public String JoinAll(@RequestParam Map<String, Object> map, ModelMap model) {
 //////////확인용   
-		 System.out.println("JoinUser con "+member);
-		 System.out.println("JoinUser con : "+m_type);
-		 
-		 service.JoinUser(member);
-		 
-		 return "Main"; 
-		 }
+		 model.addAllAttributes(map);
+		 System.out.println("JoinAll : "+model);
+		 System.out.println("JoinAll : "+model.get("m_type"));
+
+			if (model.get("m_type").equals("U")) {
+				service.JoinUser(model);
+				return "Main";
+			} else {
+				service.JoinFire(model);
+				return "Main";
+			}
+
+		}
 	 
-	//회원가입-소방서
-	@RequestMapping(value = "/JoinFire.do", method = RequestMethod.POST)
-	public String JoinFire(Member member) {
-		service.JoinFire(member);
-		return "Main";
-	}
+	 //회원가입-일반사용자
+		/*
+		 * @RequestMapping(value = "/JoinUser.do", method=RequestMethod.GET) public
+		 * String JoinUser(Member member) { service.JoinUser(member); //////////확인용
+		 * System.out.println("JoinUser : "+member); return "Main"; }
+		 * 
+		 * //회원가입-소방서
+		 * 
+		 * @RequestMapping(value = "/JoinFire.do", method=RequestMethod.GET) public
+		 * String JoinFire(Member member) { service.JoinFire(member); //////////확인용
+		 * System.out.println("JoinFire : "+member); return "Main"; }
+		 */
 	
 	//로그인
 	 @RequestMapping(value = "/Login.do", method = RequestMethod.POST)
