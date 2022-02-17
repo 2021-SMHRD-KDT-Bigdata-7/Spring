@@ -12,20 +12,17 @@
 </head>
 <body>
 <header><h2>신고 내역</h2></header>
-  <table>
+  <table border=1>
 	<c:forEach var="rvo" items="${rlist}">
-	  <tr>
-	    <td>
-	    ${rvo.re_seq}
-	    ${rvo.re_loc}&nbsp;${rvo.re_type}발생 
-	    <br>
-	    ${rvo.re_date}&nbsp;${rvo.re_type}
-	    <br>
-	    </td>
-	    <td>
-	      <button value="접수" onclick="location.href='/spring/ReportDetail.do?re_seq=${rvo.re_seq}'">접수</button>
-	    </td>
-	  </tr>		
+	    <tr onclick="location.href='/spring/ReportDetail.do?re_seq=${rvo.re_seq}'">
+	      <td>
+	      ${rvo.re_seq}
+	      ${rvo.re_loc}&nbsp;${rvo.re_type}발생 
+	      <br>
+	      ${rvo.re_date}&nbsp;${rvo.re_type}
+	      <br>
+	      </td>
+	    </tr>
 	</c:forEach>
   </table>
 </body>
