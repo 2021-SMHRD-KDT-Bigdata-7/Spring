@@ -31,6 +31,7 @@ public class SpringController {
 		return "Main";
 	}
 
+	@RequestMapping("/ReportCheck.do") public String ReportCheck() { return "ReportCheck"; }
 	
 	@RequestMapping("/Login.do") public String Login() { return "Login"; }
 	  
