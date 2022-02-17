@@ -41,6 +41,11 @@
 	margin: 0 auto;
 }
 
+@keyframes blink-effect { 50% { opacity: 0; } }
+
+.blink{
+	animation: blink-effect 1s step-end infinite;
+}
 	
 h2{
 	width: 100%;
@@ -394,6 +399,12 @@ h3{
 		text-align: center;
 		margin-top: 5%;
 		box-shadow: 1px 1px 5px #777676;
+	}
+	
+	/* 신고체크페이지 */
+	#img-car{
+		width: 50%;
+		height: auto;
 	}
 	
 	/* 신고정보페이지 */
@@ -776,7 +787,6 @@ h3{
 	.fpmgBt2{background-color: lightsalmon;color: #fff}
 	
 	/* report 페이지 */
-	/* report 페이지 */
 
 	#map{
 		width: 100%; 
@@ -818,6 +828,12 @@ h3{
 		text-align: center;
 		margin-top: 5%;
 		box-shadow: 1px 1px 5px #777676;
+	}
+	
+	/* 신고체크페이지 */
+	#img-car{
+		width: 30%;
+		height: auto;
 	}
 	
 	/* 신고정보페이지 */

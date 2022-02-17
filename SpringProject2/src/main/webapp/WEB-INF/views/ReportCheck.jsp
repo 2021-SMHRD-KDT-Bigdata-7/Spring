@@ -12,8 +12,13 @@
 <title>불이야</title>
 </head>
 <body>
-	<div>
-		<img id="img-select" src="resources/images/firecar.png">
+	<div class="top"></div>
+	<div id="symbol">
+		<div>
+			<img id="img-car" src="resources/images/firecar.png">
+			<h1 class="blink">신고 접수 중입니다.</h1>
+			<!-- <h1>신고가 접수되었습니다.</h1> -->
+		</div>
 	</div>
 </body>
 </html>
