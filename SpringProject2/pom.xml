@@ -191,16 +191,45 @@
 			<scope>provided</scope> 
 		</dependency>
 	
-	
 		<!-- Test -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.7</version>
 			<scope>test</scope>
-		</dependency>        
+		</dependency>      
+		  
+	<!-- 톰캣 통합서버 -->
+	<!-- https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-servlet-api -->
+	<dependency>
+	    <groupId>org.apache.tomcat</groupId>
+	    <artifactId>tomcat-servlet-api</artifactId>
+	    <version>8.5.39</version>
+	</dependency>
+	
 	</dependencies>
+	
     <build>
+    <finalName>Project_Spring</finalName>
+    <pluginManagement>
+		    <plugins>
+			    <!-- 서버 배포 셋팅 -->
+			    <plugin>
+			    <groupId>org.apache.tomcat.maven</groupId>
+			    <artifactId>tomcat7-maven-plugin</artifactId>
+			    <version>2.2</version>
+			    <configuration>
+			        <server>github</server>
+			        <path>/${project.build.finalName}</path>
+			        <url>${my.url}</url>
+			        <username>${my.username}</username>
+			        <password>${my.password}</password>
+			        <update>true</update>
+			    </configuration>
+			    </plugin>
+		    </plugins>
+	    </pluginManagement>
+        
         <plugins>
             <plugin>
                 <artifactId>maven-eclipse-plugin</artifactId>
@@ -237,5 +266,8 @@
                 </configuration>
             </plugin>
         </plugins>
+        
+        
+        
     </build>
 </project>

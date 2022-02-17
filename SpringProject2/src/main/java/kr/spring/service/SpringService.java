@@ -67,7 +67,7 @@ public class SpringService {
 	public List<Report> ReportTaking(){
 		List<Report> rlist = mapper.ReportTaking();
 ///////확인용
-		System.out.println("ReportTaking date "+rlist.get(2));
+//		System.out.println("ReportTaking date "+rlist.get(2));
 		System.out.println("ReportTaking서비스 "+rlist);
 
 		return rlist;
