@@ -102,14 +102,11 @@
 				</tr>
 			</table>
 		</div>
-<<<<<<< HEAD
 		</c:otherwise>
 		</c:choose>
-=======
 			<h3 style="margin-top: 5%;">
 				알림을 설정하면 현재 위치 기준으로<br>긴급상황 알림을 받을 수 있습니다. 
 			</h3>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-Bigdata-7/Spring.git
 	</div>
 
 </body>
