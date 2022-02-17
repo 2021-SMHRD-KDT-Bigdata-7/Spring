@@ -48,18 +48,18 @@
 								<option value="">차량2</option>
 								<option value="">차량3</option>
 						</select></td>
-						<td><button id="btn-select">등록</button></td>
+						<td id="tbl-content"><button id="btn-select">등록</button></td>
 					</tr>
 					<tr>
 						<td id="tbl-title" colspan="2"><h3>등록된 차량</h3></td>
 					</tr>
 					<tr>
 						<td id="tbl-content">차량1</td>
-						<td><button id="btn-select" onclick="goDelete(${vo.idx})">삭제</button></td>
+						<td id="tbl-content"><button id="btn-select" onclick="goDelete(${vo.idx})">삭제</button></td>
 					</tr>
 					<tr>
 						<td id="tbl-content">차량2</td>
-						<td><button id="btn-select" onclick="goDelete(${vo.idx})">삭제</button></td>
+						<td id="tbl-content"><button id="btn-select" onclick="goDelete(${vo.idx})">삭제</button></td>
 					</tr>
 				</table>
 			</div>

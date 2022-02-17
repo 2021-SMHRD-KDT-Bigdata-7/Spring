@@ -481,6 +481,8 @@ h3{
 		height: 30px;
 		font-family: 'SBAggroL';
 		font-size: 20px;
+		border: none;
+		background-color: transparent;
 	}
 	
 	input#radio{
@@ -901,6 +903,8 @@ h3{
 		height: 30px;
 		font-family: 'SBAggroL';
 		font-size: 20px;
+		border: none;
+		background-color: transparent;
 	}
 	
 	input#radio{
