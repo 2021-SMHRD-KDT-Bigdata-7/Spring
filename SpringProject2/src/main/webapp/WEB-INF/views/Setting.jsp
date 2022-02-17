@@ -16,56 +16,56 @@
 	<div id="setting-form">
 		
 		<!-- 소방 접속  -->
-		<!-- 
-		<h2>로그인 정보</h2>
-			<table id="tbl-report">
-			<%-- <c:forEach var="mvo" items="${mlist}"> --%>
-			  <tr>
-			    <td id="tbl-title">아이디</td>
-			    <td id="tbl-content">${mvo.m_id}</td>
-			  </tr>
-			  <tr>
-			    <td id="tbl-title">센터명</td>
-			    <td id="tbl-content">${mvo.m_name}</td>
-			  </tr>
-			  <tr>
-			    <td id="tbl-title">번호</td>
-			    <td id="tbl-content">${mvo.m_phone}</td>
-			  </tr>
-			<%-- </c:forEach> --%>
-			</table>
-		<div style="text-align: right;">
-			<a href="/Logout">로그아웃</a>
-		</div>
-		
-		<div>
-		<h2>차량등록</h2>
-			<table id="tbl-report">
-				<tr>
-					<td id="tbl-content"><select class="select" name=carreg>
-							<option value="">차량1</option>
-							<option value="">차량2</option>
-							<option value="">차량3</option>
-					</select></td>
-					<td><button id="btn-select">등록</button></td>
-				</tr>
-				<tr>
-					<td id="tbl-title" colspan="2"><h3>등록된 차량</h3></td>
-				</tr>
-				<tr>
-					<td id="tbl-content">차량1</td>
-					<td><button id="btn-select" onclick="goDelete(${vo.idx})">삭제</button></td>
-				</tr>
-				<tr>
-					<td id="tbl-content">차량2</td>
-					<td><button id="btn-select" onclick="goDelete(${vo.idx})">삭제</button></td>
-				</tr>
-			</table>
-		</div>
-		 -->
-		 
-		<!-- 일반 접속 --> 
-		
+		 세션 확인용 ${mvo.m_type}
+		<c:choose>
+		<c:when test="${mvo.m_type eq 'F'}">
+			<h2>로그인 정보</h2>
+				<table id="tbl-report">
+				  <tr>
+				    <td id="tbl-title">아이디</td>
+				    <td id="tbl-content">${mvo.m_id}</td>
+				  </tr>
+				  <tr>
+				    <td id="tbl-title">센터명</td>
+				    <td id="tbl-content">${mvo.m_name}</td>
+				  </tr>
+				  <tr>
+				    <td id="tbl-title">번호</td>
+				    <td id="tbl-content">${mvo.m_phone}</td>
+				  </tr>
+				<%-- </c:forEach> --%>
+				</table>
+			<div style="text-align: right;">
+				<a href="/Logout">로그아웃</a>
+			</div>
+			
+			<div>
+			<h2>차량등록</h2>
+				<table id="tbl-report">
+					<tr>
+						<td id="tbl-content"><select class="select" name=carreg>
+								<option value="">차량1</option>
+								<option value="">차량2</option>
+								<option value="">차량3</option>
+						</select></td>
+						<td><button id="btn-select">등록</button></td>
+					</tr>
+					<tr>
+						<td id="tbl-title" colspan="2"><h3>등록된 차량</h3></td>
+					</tr>
+					<tr>
+						<td id="tbl-content">차량1</td>
+						<td><button id="btn-select" onclick="goDelete(${vo.idx})">삭제</button></td>
+					</tr>
+					<tr>
+						<td id="tbl-content">차량2</td>
+						<td><button id="btn-select" onclick="goDelete(${vo.idx})">삭제</button></td>
+					</tr>
+				</table>
+			</div>
+		</c:when>
+		<c:otherwise>		 
+		<%-- 일반 접속 --%> 
 		<h2>로그인 정보</h2>
 			<table id="tbl-report">
 			<%-- <c:forEach var="mvo" items="${mlist}"> --%>
@@ -118,7 +118,8 @@
 				</tr>
 			</table>
 		</div>
-		
+		</c:otherwise>
+		</c:choose>
 	</div>
 
 </body>

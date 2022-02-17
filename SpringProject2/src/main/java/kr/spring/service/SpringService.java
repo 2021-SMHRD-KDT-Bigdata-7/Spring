@@ -44,9 +44,9 @@ public class SpringService {
 	// ReportMap(사고위치제공페이지)에서 좌표 DB저장
 	public void ReportlatInsert(Model model) {
 		mapper.ReportlatInsert(model);
-		
 //////////확인용   		
 		System.out.println("ReportlatInsert서비스"+model);
+		
 	}
 	
 	// Report(신고페이지)에서 신고내용 저장
@@ -61,7 +61,6 @@ public class SpringService {
 	public void ReportlatDelete(String m_id) {
 		mapper.ReportlatDelete(m_id);
 	}
-	
 	
 //**************************************************************신고접수 페이지
 	//ReportTaking(신고접수)화면 목록 가져오기

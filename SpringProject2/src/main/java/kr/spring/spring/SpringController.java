@@ -44,8 +44,15 @@ public class SpringController {
 	@RequestMapping("/UserSetting.do") public String UserSetting() { return "UserSetting"; }
 	 
 	@RequestMapping("/JoinSelect.do") public String JoinSelect() { return "JoinSelect"; }
-
-	@RequestMapping("/Setting.do") public String Setting() { return "Setting"; }
+	
+	// 설정버튼 누르면 로그인세션과 함께 설정페이지로 이동
+	@RequestMapping("/Setting.do") 
+	public String Setting(HttpSession session, Member member) { 
+		
+		Member mvo = (Member) session.getAttribute("mvo");
+		
+		return "Setting"; 
+		}
 	
 	@RequestMapping("/ReportMap.do")
 	public String ReportMap() {
@@ -59,12 +66,14 @@ public class SpringController {
 	}
 //**************************************************************로그인 및 회원가입 메소드
 	 //회원가입-일반사용자
-	 @RequestMapping(value = "/JoinUser.do", method = RequestMethod.POST) public
-	 String JoinUser(Member member) {
+	 @RequestMapping(value = "/JoinUser.do", method = RequestMethod.POST) 
+	 public String JoinUser(@RequestParam Model m_type, Member member) {
 //////////확인용   
 		 System.out.println("JoinUser con "+member);
+		 System.out.println("JoinUser con : "+m_type);
 		 
-		 service.JoinUser(member); 
+		 service.JoinUser(member);
+		 
 		 return "Main"; 
 		 }
 	 
@@ -98,7 +107,7 @@ public class SpringController {
 	 // ReportMap(신고 시 위치제공페이지)에서 받아온 좌표를 insert하기 위한 메소드
 	@RequestMapping(value = "/ReportlatInsert.do", method = RequestMethod.POST)
 	public String ReportlatInsert(@RequestParam double re_latitude, @RequestParam double re_longitude,
-			@RequestParam String re_loc, Model model, HttpSession session) {
+			@RequestParam String re_loc, Model model, Report report, HttpSession session) {
 		
 		Member mvo = (Member) session.getAttribute("mvo");
 		String m_id = mvo.getM_id();

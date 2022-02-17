@@ -106,49 +106,42 @@
             </ul>
         </form>
 	
-	<form action="JoinUser.do" method="POST"> 
-  		 <!-- 일반회원 회원가입 -->
-		<div class="input-box"> 
-			<input id="m_name" type="text" name="m_name" placeholder="이름"> 
-			<label for="m_name">이름</label> 
-		</div>
-		  <c:if test="${m_type eq 'F'}">
-		<!-- 소방서 회원가입 --> 
+		 <form action="JoinUser.do" method="POST"> 
+  		 <c:choose>
+  		 <c:when test="${m_type eq 'U'}">
+  		 <%-- 일반회원 회원가입 --%>
+			 <input type="hidden" name="${m_type}">
+			 <div class="input-box"> 
+				 <input id="m_name" type="text" name="m_name" placeholder="이름"> 
+				 <label for="m_name">이름</label> 
+			 </div>
+		 </c:when>
+		 <c:otherwise>
+		<%-- 소방서 회원가입 --%>
+		 	 <input type="hidden" name="${m_type}" > 
+			 <div class="input-box"> 
+			 	<input id="m_name" type="text" name="m_name" placeholder="센터명"> 
+			 	<label for="m_name">센터명</label> 
+			 </div>
+		 </c:otherwise>
+	 	 </c:choose>
 			<div class="input-box"> 
-				<input id="m_name" type="text" name="m_name" placeholder="센터명"> 
-				<label for="m_name">센터명</label> 
+				<input id="m_id" type="text" name="m_id" placeholder="아이디"> 
+				<label for="m_id">아이디</label> 
 			</div>
-		  </c:if>
-		<div class="input-box"> 
-			<input id="m_id" type="text" name="m_id" placeholder="아이디"> 
-			<label for="m_id">아이디</label> 
-		</div>
-		<div class="input-box"> 
-			<input id="m_pw" type="password" name="m_pw" placeholder="비밀번호"> 
-			<label for="m_pw">비밀번호</label> 
-		</div> 
-		<div class="input-box"> 
-			<input id="m_phone" type="tel" name="m_phone" placeholder="전화번호" maxlength="11"> 
-			<label for="m_phone">전화번호</label> 
-		</div> 
-		<!-- <div class="input-box"> 
-			<input id="add1" type="text" name="add1" placeholder="우편번호" readonly="readonly" style="width:50%;">
-			<label for="add1">우편번호</label>
-		</div> 
-		<div class="input-box"> 
-			<input id="add2" type="text" name="add2" placeholder="도로명주소" readonly="readonly">
-			<label for="add2">도로명주소</label>
-		</div> 
-		<div class="input-box"> 
-			<input id="add3" type="text" name="add3" placeholder="상세주소">
-			<label for="add3">상세주소</label> 
-		</div>  -->
-		<div id="btn-login-main">
-			<input type="submit" id="btn-submit" value="가입완료">
-		</div>
-        
-	</form>
-
+			<div class="input-box"> 
+				<input id="m_pw" type="password" name="m_pw" placeholder="비밀번호"> 
+				<label for="m_pw">비밀번호</label> 
+			</div> 
+			<div class="input-box"> 
+				<input id="m_phone" type="tel" name="m_phone" placeholder="전화번호" maxlength="11"> 
+				<label for="m_phone">전화번호</label> 
+			</div> 
+			<div id="btn-login-main">
+				<input type="submit" id="btn-submit" value="가입완료">
+			</div>
+		</form>
+		
 <!-- 출처: https://ddorang-d.tistory.com/9 [도라미도라미] -->
 	
 	<!-- 스크립트 -->
