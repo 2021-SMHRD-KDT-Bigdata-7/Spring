@@ -438,7 +438,7 @@ h3{
 	}
 		
 	#tbl-title{
-		width:30%;
+		width:35%;
 		height: 50px;
 		font-family: 'SBAggroL';
 		font-size: 20px;
@@ -457,6 +457,9 @@ h3{
 		font-family: 'SBAggroL';
 		background-color: transparent;
 		border: none;
+		font-size: 20px;
+		height: auto;
+		width: 80%;
 	}
 	
 	.select>option{
@@ -549,6 +552,12 @@ h3{
 		box-shadow: 1px 1px 2px #777676;
 		border: none;
 		border-radius: 5px;
+	}
+	
+	/* map 페이지 */
+	
+	#select-form{
+		height: 20%;
 	}
 	
 }
@@ -903,6 +912,7 @@ h3{
 		width:30%;
 		height: 40px;
 		font-family: 'SBAggroL';
+		font-size: 20px;
 		background-color: #F2F2F2;
 	}
 
@@ -1022,6 +1032,12 @@ h3{
 		box-shadow: 1px 1px 2px #777676;
 		border: none;
 		border-radius: 5px;
+	}
+	
+	/* map 페이지 */
+	
+	#select-form{
+		height: 20%;
 	}
 	
 }
