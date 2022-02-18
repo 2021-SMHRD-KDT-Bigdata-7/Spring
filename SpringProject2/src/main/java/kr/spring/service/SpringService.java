@@ -1,12 +1,14 @@
 package kr.spring.service;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 
 import kr.spring.domain.Member;
 import kr.spring.domain.Report;
@@ -21,15 +23,15 @@ public class SpringService {
 
 //**************************************************************로그인 및 회원가입
 	//회원가입-일반사용자
-	public void JoinUser(Member member) {
+	public void JoinUser(ModelMap model) {
 //////////확인용	
-		System.out.println("JoinUser serv "+member);
+		System.out.println("JoinUser serv "+model);
 		
-		mapper.JoinUser(member);
+		mapper.JoinUser(model);
 	}
 	//회원가입-소방서
-	public void JoinFire(Member member) {
-		mapper.JoinFire(member);
+	public void JoinFire(ModelMap model) {
+		mapper.JoinFire(model);
 	}
 	//로그인
 	public Member Login(Member member) {
@@ -54,12 +56,17 @@ public class SpringService {
 		mapper.ReportInsert(model);
 //////////확인용   		
 		System.out.println("ReportInsert서비스"+model);
-		
+	}
+	
+	public int ReportSelectSeq(String m_id) {
+		int re_seq = mapper.ReportSelectSeq(m_id);
+		return re_seq;
 	}
 	
 	// Report(신고페이지)에서 처음으로 버튼 클릭 시
-	public void ReportlatDelete(String m_id) {
-		mapper.ReportlatDelete(m_id);
+	public void ReportlatDelete(String re_seq) {
+		System.out.println("ReportlatDelete서비스 re_seq값 : " + re_seq);
+		mapper.ReportlatDelete(re_seq);
 	}
 	
 //**************************************************************신고접수 페이지
@@ -81,5 +88,6 @@ public class SpringService {
 		
 		return rvo;
 	}
+
 	
 }
