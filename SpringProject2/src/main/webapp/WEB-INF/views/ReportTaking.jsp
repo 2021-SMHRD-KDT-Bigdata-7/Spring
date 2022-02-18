@@ -12,8 +12,9 @@
 <title>불이야-신고현황</title>
 </head>
 <body>
-
 <div class="top"></div>
+<p class="return-text" onclick="location.href='Main.do'">< 뒤로가기</p>
+
 <div id="setting-form">
 <h1 style="text-align: left;">신고 내역</h1>
   <table id="tbl-report">
@@ -29,6 +30,7 @@
 	  </tr>
 	</c:forEach>
   </table>
+  
 </div>
 </body>
 </html>

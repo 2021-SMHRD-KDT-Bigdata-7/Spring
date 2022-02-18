@@ -12,6 +12,7 @@
 </head>
 <body>
 <div class="top"></div>
+<p class="return-text" onclick="location.href='ReportTaking.do'">< 뒤로가기</p>
 	<form id="form-report-info" action="" method="POST">
 		<h2>신고인 정보</h2>
 		<table id="tbl-report">
