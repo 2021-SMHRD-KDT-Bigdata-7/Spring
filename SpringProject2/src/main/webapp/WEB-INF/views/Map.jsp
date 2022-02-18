@@ -34,6 +34,7 @@
 				  <option value="">차량3</option>
 				  <option value="">차량4</option>
 				  <option value="">차량5</option>
+				  <option value="">차량6</option>
 			</select>
 			</td>
 		</tr>
