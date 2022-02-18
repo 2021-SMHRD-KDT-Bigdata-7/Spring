@@ -67,6 +67,12 @@ public class SpringController {
 
 		return "Report";
 	}
+	
+	@RequestMapping("/Map.do")
+	public String Map() {
+
+		return "Map";
+	}
 //**************************************************************로그인 및 회원가입 메소드
 	
 	 //회원가입-일반/소방 
@@ -129,11 +135,6 @@ public class SpringController {
 		System.out.println("latinsert컨트롤" + model);
 
 		service.ReportlatInsert(model);
-//		 List<Map> map = service.ReportSelectSeq(m_id);
-//		 System.out.println(map);
-//		 System.out.println(map.getClass()); 
-//		 System.out.println(map.get(map.size() - 1)); 
-//		 int re_seq = (int) map.get(map.size() - 1);
 		int re_seq = service.ReportSelectSeq(m_id);
 		System.out.println(re_seq);
 		model.addAttribute("re_seq", re_seq);
@@ -196,6 +197,7 @@ public class SpringController {
 	public String ReportDetail(@RequestParam int re_seq, Model model){
 		
 		Report rvo = service.ReportDetail(re_seq);
+		
 //////확인용
 		System.out.println("ReportDetail컨트롤러 "+ rvo);
 		System.out.println("ReportDetail컨트롤러 re_sqe : "+ re_seq);
