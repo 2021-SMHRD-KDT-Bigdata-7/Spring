@@ -10,7 +10,7 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/cssfile.css" type="text/css" media="screen" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>신고위치</title>
+<title>불이야-신고위치</title>
 <script type="text/javascript"
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=104f90e3976f1820f120da408f94509c&libraries=services"></script>
 <script type="text/javascript"

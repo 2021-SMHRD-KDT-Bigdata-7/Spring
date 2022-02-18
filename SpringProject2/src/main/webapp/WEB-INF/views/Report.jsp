@@ -8,8 +8,24 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/cssfile.css" type="text/css" media="screen" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <title>불이야-신고</title>
 </head>
+	<script type="text/javascript">
+		function goShareMap(){
+			$.ajax({
+				url : "${cpath}/ShareMap",
+				type : "get",
+				data : {"re_latitude" : ${re_latitude},
+					"re_longitude" : ${re_longitude}},
+				success : function (data) {
+					
+		            alert("데이터 전송이 성공적으로 끝났을 때 실행");
+		        }
+			});
+		};
+	</script>
+	
 <body>
 ${mvo.m_id}
 ${re_seq}
@@ -67,7 +83,7 @@ ${re_seq}
 		  
 		  <tr align="center">
 		    <td colspan="2">
-		      <input id="btn-report" type="submit" value="신고하기" >
+		      <input id="btn-report" type="submit" onClick="goShareMap()" value="신고하기" >
 		    </td>
 		  </tr>
 		  <tr>

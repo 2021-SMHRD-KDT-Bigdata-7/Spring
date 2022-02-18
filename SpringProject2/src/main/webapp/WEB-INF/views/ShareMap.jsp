@@ -27,12 +27,14 @@
 			level : 1
 		};
 		var map = new kakao.maps.Map(container, options);
+		
 	//초기 변수
 		var lat_U = null;
 		var lon_U = null;
 		
 		var lat2_F = null;
 		var lon2_F = null;
+		
 	//위성지도로 변환
 		map.setMapTypeId(kakao.maps.MapTypeId.HYBRID); 
 	
@@ -40,16 +42,16 @@
 		var makerPosition_F = new kakao.maps.LatLng(lat2, lon2)
 		
 		// 신고자 위치마커
-		new marker_U = new kakao.maps.Marker){
+		new marker_U = new kakao.maps.Marker({
 			map : map;
 			position : makerPosition_U
-		};
+		});
 		marker_U.setMap(map);
 		// 소방서 위치마커
-		new marker_F = new kakao.maps.Marker){
+		new marker_F = new kakao.maps.Marker({
 			map : map;
 			position : makerPosition_F
-		};
+		});
 		
 		marker_F.setMap(map);
 		
