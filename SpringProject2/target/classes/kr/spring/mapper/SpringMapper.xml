@@ -24,7 +24,7 @@
 	<insert id="ReportlatInsert">
 	    insert into t_report(m_id, re_loc, re_date, re_latitude, re_longitude) values(#{m_id}, #{re_loc}, sysdate, #{re_latitude}, #{re_longitude})
 	</insert>
-
+	
 		<update id="ReportInsert">
 	    update t_report set re_type = #{re_type}, re_content = #{re_content} where m_id = #{m_id}
 	</update>

@@ -150,7 +150,7 @@ public class SpringController {
 
 			service.ReportInsert(model);
 
-			return "Main";
+			return "ReportCheck";
 		}
 		
 	// Report(신고 페이지)에서 처음으로 버튼을 클릭 했을 때 좌표값 DB에서 지워야함
@@ -193,5 +193,6 @@ public class SpringController {
 		return "ReportDetail";
 		
 	}
+	
 	
 }

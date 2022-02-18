@@ -76,7 +76,6 @@ ${mvo.m_id}
 		</table>
 	</form>
 	
-	
 
 </body>
 </html>

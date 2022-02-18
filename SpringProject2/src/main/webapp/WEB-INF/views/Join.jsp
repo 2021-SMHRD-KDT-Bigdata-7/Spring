@@ -104,8 +104,8 @@
 </textarea>
                 </li>
             </ul>
+		${m_type}
         </form>
-	
 		 <form action="JoinUser.do" method="POST"> 
   		 <c:choose>
   		 <c:when test="${m_type eq 'U'}">

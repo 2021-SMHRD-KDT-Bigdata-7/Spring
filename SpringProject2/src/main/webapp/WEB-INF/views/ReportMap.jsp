@@ -17,29 +17,18 @@
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=104f90e3976f1820f120da408f94509c&libraries=LIBRARY"></script>
 </head>
 <body style="background-color: #F2F2F2">
-	
-	 <!-- m_type에 따른 신고하기 버튼 표시여부 -->
-	<c:set var="m_type" value="${mvo.m_type}"/>
-	<c:choose>
-		<c:when test="${m_type eq 'F'}">
-		</c:when>
-		<c:otherwise>
-		</c:otherwise>
-	</c:choose>
-	
-			
+
 	<div id="map"></div>
-		<div id="report-btn-form">
-				<form action="${cpath}/ReportlatInsert.do" id="form-report" method="post">
-					<input type="hidden" id="lat" name="re_latitude" readonly="readonly"> 
-					<input type="hidden" id="lon" name="re_longitude" readonly="readonly"> 
-					<span>- 선택한 주소 -</span><input type="text" id="loc" name="re_loc" readonly="readonly"> 
-					<input type="submit" id="btn-report" value="이 위치로 신고하기">
-				</form>
-			</div>
-			
-				  
-		
+	<div id="report-btn-form">
+		<form action="${cpath}/ReportlatInsert.do" id="form-report" method="post">
+			<input type="hidden" id="lat" name="re_latitude" readonly="readonly"> 
+			<input type="hidden" id="lon" name="re_longitude" readonly="readonly"> 
+			<span>- 선택한 주소 -</span><input type="text" id="loc" name="re_loc" readonly="readonly"> 
+			<input type="submit" id="btn-report" value="이 위치로 신고하기">
+
+		</form>
+	</div>
+
 	${mvo.m_id}
 	<script>
 	//초기 지도
@@ -124,6 +113,6 @@
 		});
 
 	</script>
-	
+
 </body>
 </html>

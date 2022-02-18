@@ -85,7 +85,7 @@
 			</table>
 		
 			<form action="${cpath}/Logout.do" method="post" style="width: 100%; text-align: right;">
-				<a href="${cpath}/Main.do">로그아웃</a>
+				<button onclick = "location.href ='Logout.do'">로그아웃</button>
 			</form>
  		
 				<div style="text-align: right;">

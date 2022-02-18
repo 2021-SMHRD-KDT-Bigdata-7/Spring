@@ -8,25 +8,25 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/cssfile.css" type="text/css" media="screen" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Insert title here</title>
+<title>불이야-신고현황</title>
 </head>
 <body>
 <header><h2>신고 내역</h2></header>
-  <table>
+<div class="top"></div>
+<div id="setting-form">
+  <table id="tbl-report">
 	<c:forEach var="rvo" items="${rlist}">
-	  <tr>
-	    <td>
+	  <tr onclick="location.href='/spring/ReportDetail.do?re_seq=${rvo.re_seq}'">
+	    <td id="report-content">
 	    ${rvo.re_seq}
 	    ${rvo.re_loc}&nbsp;${rvo.re_type}발생 
 	    <br>
-	    ${rvo.re_date}&nbsp;${rvo.re_type}
+	    <span id="report-info">${rvo.re_date}&nbsp;| ${rvo.re_type}</span>
 	    <br>
 	    </td>
-	    <td>
-	      <button value="접수" onclick="location.href='/spring/ReportDetail.do?re_seq=${rvo.re_seq}'">접수</button>
-	    </td>
-	  </tr>		
+	  </tr>
 	</c:forEach>
   </table>
+</div>
 </body>
 </html>
