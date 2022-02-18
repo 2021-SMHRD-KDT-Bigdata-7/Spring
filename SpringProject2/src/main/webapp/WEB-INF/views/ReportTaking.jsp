@@ -11,9 +11,9 @@
 <title>불이야-신고현황</title>
 </head>
 <body>
-<header><h2>신고 내역</h2></header>
 <div class="top"></div>
 <div id="setting-form">
+<h1 style="text-align: left;">신고 내역</h1>
   <table id="tbl-report">
 	<c:forEach var="rvo" items="${rlist}">
 	  <tr onclick="location.href='/spring/ReportDetail.do?re_seq=${rvo.re_seq}'">
