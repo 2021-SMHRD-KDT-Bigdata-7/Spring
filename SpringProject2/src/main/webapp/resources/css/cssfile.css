@@ -220,6 +220,10 @@ h3{
 		border-radius: 5px;
 	}
 	
+	#btn-map, #btn-report-list: hover{
+		box-shadow: none;
+	}
+	
 	/* 로그인페이지 */
 	
 	header{
