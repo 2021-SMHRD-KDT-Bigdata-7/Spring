@@ -17,11 +17,11 @@
 		<table id="tbl-report">
 			<tr>
 				<td id="tbl-title">이름</td>
-				<td id="tbl-content">${mvo.m_name}</td>
+				<td id="tbl-content"></td>
 			</tr>
 			<tr>
 				<td id="tbl-title">번호</td>
-				<td id="tbl-content">${mvo.m_phone}</td>
+				<td id="tbl-content"></td>
 			</tr>
 		</table>
 
