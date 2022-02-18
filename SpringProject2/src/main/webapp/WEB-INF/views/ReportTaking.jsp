@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
     <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
     <c:set var="cpath" value="${pageContext.request.contextPath}"/>  
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,6 +12,7 @@
 <title>불이야-신고현황</title>
 </head>
 <body>
+
 <div class="top"></div>
 <div id="setting-form">
 <h1 style="text-align: left;">신고 내역</h1>
@@ -21,7 +23,7 @@
 	    ${rvo.re_seq}
 	    ${rvo.re_loc}&nbsp;${rvo.re_type}발생 
 	    <br>
-	    <span id="report-info">${rvo.re_date}&nbsp;| ${rvo.re_type}</span>
+	    <span id="report-info"><fmt:formatDate value="${rvo.re_date}" pattern="yyyy-MM-dd hh:mm"/>&nbsp;&nbsp;| ${rvo.re_type}</span>
 	    <br>
 	    </td>
 	  </tr>

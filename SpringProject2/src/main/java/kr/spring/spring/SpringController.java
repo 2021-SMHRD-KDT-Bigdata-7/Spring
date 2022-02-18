@@ -197,7 +197,7 @@ public class SpringController {
 		
 		Report rvo = service.ReportDetail(re_seq);
 		Member mvo = service.ReportSelectNP(re_seq);
-		
+
 		model.addAttribute("rvo",rvo);
 		model.addAttribute("mvo",mvo);
 		

@@ -17,4 +17,5 @@ public class Report {
 	private double re_longitude;
 	private int fs_seq;
 	
+	
 }
