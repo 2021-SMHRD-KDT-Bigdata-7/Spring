@@ -17,6 +17,7 @@
 		
 		<!-- 소방 접속  -->
 		 세션 확인용 ${mvo.m_type}
+		 <p class="return-text" onclick="location.href='Main.do'">< 뒤로가기</p>
 		<c:choose>
 		<c:when test="${mvo.m_type eq 'F'}">
 			<h2>로그인 정보</h2>
@@ -63,9 +64,23 @@
 							<td id="tbl-content"><button type="submit" id="btn-select" >등록</button></td>
 						</tr>
 					<tr>
-						<td id="tbl-title" colspan="2"><h3>등록된 차량${cvo.vehicle_name}</h3></td>
+						<td id="tbl-title" colspan="2"><h3>등록된 차량</h3></td>
 					</tr>
-					
+					<c:forEach var="cvo" items="${list}">
+						<tr>
+						<td>${vo.idx}</td>
+						<td><a href = "${cpath}/boardContent.do/${vo.idx}">${vo.title}</a></td>
+						<td>${vo.writer}</td>
+						<td>${vo.indate}</td>
+						<td>${vo.count}</td>
+						</tr>
+
+					</c:forEach>
+				
+					<tr>
+						<td id="tbl-title" colspan="2"><h3>${cvo.vehicle_name}</h3></td>
+					</tr>
+					<%-- </c:forEach> --%>
 					<tr>
 						<td id="tbl-content"></td>
 					</tr>

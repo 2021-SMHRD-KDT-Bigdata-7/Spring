@@ -1,7 +1,7 @@
 package kr.spring.mapper;
 
-import java.util.List;
 
+import java.util.List;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 
@@ -29,5 +29,6 @@ public interface SpringMapper {
 	public FireStation Map(String m_id);
 	
 	public Car CarSelect(String vehicle_name);
+	public List<Car> CarList(String vehicle_name);
 
 }

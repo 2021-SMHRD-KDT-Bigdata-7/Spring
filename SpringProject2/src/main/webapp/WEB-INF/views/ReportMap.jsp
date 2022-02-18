@@ -17,7 +17,16 @@
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=104f90e3976f1820f120da408f94509c&libraries=LIBRARY"></script>
 </head>
 <body style="background-color: #F2F2F2">
-
+	
+	 <!-- m_type에 따른 신고하기 버튼 표시여부 -->
+	<c:set var="m_type" value="${mvo.m_type}"/>
+	<c:choose>
+		<c:when test="${m_type eq 'F'}">
+		</c:when>
+		<c:otherwise>
+		</c:otherwise>
+	</c:choose>
+			
 	<div id="map"></div>
 	<div id="report-btn-form">
 		<form action="${cpath}/ReportlatInsert.do" id="form-report" method="post">

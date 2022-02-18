@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import kr.board.domain.Board;
 import kr.spring.domain.Car;
 import kr.spring.domain.FireStation;
 import kr.spring.domain.Member;
@@ -230,6 +231,7 @@ public class SpringController {
 		
 		return "Map";
 	}
+	// 설정페이지 차량 등록시 차량 선택 
 	@RequestMapping("/Car_Reg.do")
 	public String CarSelect(@RequestParam String vehicle_name, Model model) {
 		System.out.println("CarSelect parameter"+ vehicle_name);
@@ -237,6 +239,17 @@ public class SpringController {
 		model.addAttribute("cvo", cvo);
 		System.out.println("CarSelect cvo "+ cvo);
 		return "Setting";
+	}
+	
+	// 등록한 차량 정보 리스트
+	@RequestMapping("/CarList.do")
+	public String CarList(Model model) { //-> 모델로 객체바인딩
+	
+	List<Car> clist = service.CarList();
+	model.addAttribute("clist", clist); //-> 모델로 변경하면 add를 사용함
+	
+	//	뷰의 논리적인 이름 --ViewResolver---> 뷰의 물리적인 이름(경로)
+		return "CarList";//->/WEB-INF/views/boardList.jsp
 	}
 	
 	

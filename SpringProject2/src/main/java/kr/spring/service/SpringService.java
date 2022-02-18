@@ -112,6 +112,12 @@ public class SpringService {
 		return cvo;
 		
 	}
+	
+	public List<Car> CarList(String vehicle_name) {
+		List<Car> cvolist = mapper.CarList(vehicle_name);
+		return null;
+	}
+
 
 
 	
