@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 
+import kr.spring.domain.Car;
 import kr.spring.domain.FireStation;
 import kr.spring.domain.Member;
 import kr.spring.domain.Report;
@@ -104,10 +105,14 @@ public class SpringService {
 		System.out.println("Map서비스 fsvo : "+fsvo);
 		return fsvo;
 	}
+	public Car CarSelect(String vehicle_name) {
+		System.out.println("CarSelectSer "+vehicle_name);
+		Car cvo = mapper.CarSelect(vehicle_name);
+		System.out.println("CarSelectSer cvo "+cvo);
+		return cvo;
+		
+	}
 
-	
-	
-	
-	
+
 	
 }

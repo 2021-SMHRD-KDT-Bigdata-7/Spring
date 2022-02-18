@@ -485,6 +485,8 @@ h3{
 		font-family: 'SBAggroM';
 		font-size: 4vw;
 		color:black;
+		text-align: left;
+		text-indent: 10px;
 	}
 	.return-text:visited{
 		color:black;
@@ -557,6 +559,10 @@ h3{
 	
 	#select-form{
 		height: 20%;
+	}
+	
+	tr{
+		height: 50px;
 	}
 	
 }
@@ -954,6 +960,8 @@ h3{
 		font-family: 'SBAggroM';
 		font-size: 20px;
 		color:black;
+		text-align: left;
+		text-indent: 10px;
 	}
 	.return-text:hover{
 		font-size: 18px;
@@ -1037,6 +1045,10 @@ h3{
 	
 	#select-form{
 		height: 20%;
+	}
+	
+	tr{
+		height: 50px;
 	}
 	
 }

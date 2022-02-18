@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import kr.spring.domain.Car;
 import kr.spring.domain.FireStation;
 import kr.spring.domain.Member;
 import kr.spring.service.SpringService;
@@ -207,7 +208,7 @@ public class SpringController {
 		
 	}
 //*****************************************************************지도
-	
+
 	// 접수자 메인에서 지도보기 클릭 시
 	@RequestMapping("/Map.do")
 	public String Map(Model model, HttpSession session) {
@@ -229,4 +230,14 @@ public class SpringController {
 		
 		return "Map";
 	}
+	@RequestMapping("/Car_Reg.do")
+	public String CarSelect(@RequestParam String vehicle_name, Model model) {
+		System.out.println("CarSelect parameter"+ vehicle_name);
+		Car cvo = service.CarSelect(vehicle_name);
+		model.addAttribute("cvo", cvo);
+		System.out.println("CarSelect cvo "+ cvo);
+		return "Setting";
+	}
+	
+	
 }

@@ -78,7 +78,6 @@ ${re_seq}
 		</table>
 	</form>
 	
-	
 
 </body>
 </html>

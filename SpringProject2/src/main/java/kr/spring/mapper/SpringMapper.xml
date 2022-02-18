@@ -25,7 +25,7 @@
 	<insert id="ReportlatInsert">
 	    insert into t_report( m_id, re_loc, re_date, re_latitude, re_longitude) values( #{m_id}, #{re_loc}, sysdate, #{re_latitude}, #{re_longitude})
 	</insert>
-	
+
 	<!-- 신고내용적는 페이지에서 처음으로 눌렀을 때 해당 좌표 삭제를 위한 시퀀스 select -->
 	<select id="ReportSelectSeq"  resultType="Integer" parameterType="String">
 	    SELECT re_seq FROM t_report WHERE re_seq = (SELECT max(re_seq) FROM t_report) and m_id = #{m_id}
@@ -63,4 +63,9 @@
 		select * from t_fire_station where m_id = #{m_id}
 	</select>
 	
+	<!--설정페이지 차량등록 -->
+	<select id="CarSelect" resultType="kr.spring.domain.Car" parameterType="String">
+	    select * from t_car_info where vehicle_name = #{vehicle_name}
+	</select>
+
 </mapper>

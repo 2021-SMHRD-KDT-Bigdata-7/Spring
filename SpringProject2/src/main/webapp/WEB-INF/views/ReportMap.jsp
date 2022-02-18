@@ -28,15 +28,16 @@
 	</c:choose>
 			
 	<div id="map"></div>
-		<div id="report-btn-form">
-				<form action="${cpath}/ReportlatInsert.do" id="form-report" method="post">
-					<input type="hidden" id="lat" name="re_latitude" readonly="readonly"> 
-					<input type="hidden" id="lon" name="re_longitude" readonly="readonly"> 
-					<span>- 선택한 주소 -</span><input type="text" id="loc" name="re_loc" readonly="readonly"> 
-					<input type="submit" id="btn-report" value="이 위치로 신고하기">
-				</form>
-			</div>
-		
+	<div id="report-btn-form">
+		<form action="${cpath}/ReportlatInsert.do" id="form-report" method="post">
+			<input type="hidden" id="lat" name="re_latitude" readonly="readonly"> 
+			<input type="hidden" id="lon" name="re_longitude" readonly="readonly"> 
+			<span>- 선택한 주소 -</span><input type="text" id="loc" name="re_loc" readonly="readonly"> 
+			<input type="submit" id="btn-report" value="이 위치로 신고하기">
+
+		</form>
+	</div>
+
 	${mvo.m_id}
 	<script>
 	//초기 지도
@@ -121,6 +122,6 @@
 		});
 
 	</script>
-	
+
 </body>
 </html>
