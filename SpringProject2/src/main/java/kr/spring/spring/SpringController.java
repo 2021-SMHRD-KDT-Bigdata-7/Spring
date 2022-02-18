@@ -239,5 +239,10 @@ public class SpringController {
 		return "Setting";
 	}
 	
+	@RequestMapping("/ShareMap.do")
+	public String ShareMap() {
+		
+		return "ShareMap";
+	}
 	
 }

@@ -12,7 +12,7 @@
 </head>
 <body>
 <div class="top"></div>
-	<form id="form-report-info" action="" method="POST">
+	<form id="form-report-info" action="${cpath}/ShareMap.do" method="POST">
 		<h2>신고인 정보</h2>
 		<table id="tbl-report">
 			<tr>
@@ -43,7 +43,7 @@
 			<tr align="center">
 				<td colspan="2">
 						<button id="btn-detail">전화하기</button>
-						<button type="submit" id="btn-detail" onclick="location.href ='${cpath}/ReportMap.do?m_id=${mvo.m_id}'">신고접수</button>
+						<button type="submit" id="btn-detail">신고접수</button>
 				</td>
 			</tr>
 		</table>
