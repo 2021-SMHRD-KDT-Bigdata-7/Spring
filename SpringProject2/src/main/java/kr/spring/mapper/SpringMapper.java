@@ -22,4 +22,5 @@ public interface SpringMapper {
 	public List<Report> ReportTaking();
 
 	public Report ReportDetail(int re_seq);
+	public Member ReportSelectNP(int re_seq);
 }

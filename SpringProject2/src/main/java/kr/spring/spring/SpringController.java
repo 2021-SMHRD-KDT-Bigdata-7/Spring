@@ -155,7 +155,6 @@ public class SpringController {
 			model.addAttribute("re_seq", re_seq);
 
 //////////확인용   
-
 			System.out.println("신고내용타입 " + re_type);
 			System.out.println("신고내용내용 " + re_content);
 			System.out.println("신고내용내용 " + re_seq);
@@ -197,11 +196,16 @@ public class SpringController {
 	public String ReportDetail(@RequestParam int re_seq, Model model){
 		
 		Report rvo = service.ReportDetail(re_seq);
+		Member mvo = service.ReportSelectNP(re_seq);
+		
+		model.addAttribute("rvo",rvo);
+		model.addAttribute("mvo",mvo);
 		
 //////확인용
 		System.out.println("ReportDetail컨트롤러 "+ rvo);
-		System.out.println("ReportDetail컨트롤러 re_sqe : "+ re_seq);
-		model.addAttribute("rvo", rvo);
+		System.out.println("ReportDetail컨트롤러 "+ mvo);
+		System.out.println("ReportDetail컨트롤러 "+ model);
+		System.out.println("ReportDetail의 re_sqe : "+ re_seq);
 		
 		return "ReportDetail";
 		
