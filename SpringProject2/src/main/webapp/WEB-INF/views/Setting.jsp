@@ -39,16 +39,14 @@
 			<form action="${cpath}/Logout.do" method="GET" style="width: 100%; text-align: right;">
 				<a href="${cpath}/Logout.do">로그아웃</a>
 			</form>
-			
-			<div>
-			
+			<!-- <div>
 			<h2>차량등록</h2>
-			
 			<form action="Car_Reg.do">
 				<table id="tbl-report">
 						<tr>
 							<td id="tbl-content">
 								<select class="select" name=vehicle_name>
+									<option value="선택">선택</option>
 									<option value="mini">소형 소방펌프차</option>
 									<option value="middle">중형 소방펌프차</option>
 									<option value="large">대형 소방펌프차</option>
@@ -63,30 +61,9 @@
 							</td>
 							<td id="tbl-content"><button type="submit" id="btn-select" >등록</button></td>
 						</tr>
-					<tr>
-						<td id="tbl-title" colspan="2"><h3>등록된 차량</h3></td>
-					</tr>
-					<c:forEach var="cvo" items="${list}">
-						<tr>
-						<td>${vo.idx}</td>
-						<td><a href = "${cpath}/boardContent.do/${vo.idx}">${vo.title}</a></td>
-						<td>${vo.writer}</td>
-						<td>${vo.indate}</td>
-						<td>${vo.count}</td>
-						</tr>
-
-					</c:forEach>
-				
-					<tr>
-						<td id="tbl-title" colspan="2"><h3>${cvo.vehicle_name}</h3></td>
-					</tr>
-					<%-- </c:forEach> --%>
-					<tr>
-						<td id="tbl-content"></td>
-					</tr>
 				</table>
 				</form>
-			</div>
+			</div> -->
 		</c:when>
 		<c:otherwise>		 
 		<%-- 일반 접속 --%> 
@@ -129,11 +106,11 @@
 				</tr>
 			</table>
 		</div>
-		</c:otherwise>
-		</c:choose>
 			<h3 style="margin-top: 5%;">
 				알림을 설정하면 현재 위치 기준으로<br>긴급상황 알림을 받을 수 있습니다. 
 			</h3>
+		</c:otherwise>
+		</c:choose>
 	</div>
 
 </body>
