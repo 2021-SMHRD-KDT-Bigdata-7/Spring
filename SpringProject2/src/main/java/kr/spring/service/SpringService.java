@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 
+import kr.spring.domain.FireStation;
 import kr.spring.domain.Member;
 import kr.spring.domain.Report;
 import kr.spring.mapper.SpringMapper;
@@ -88,12 +89,20 @@ public class SpringService {
 		return rvo;
 	}
 	
+	// ReportTaking(신고접수페이지)에서 버튼 클릭 시 세부정보 출력을 위해 신고자 정보 가져오기
 	public Member ReportSelectNP(int re_seq){
 		Member mvo = mapper.ReportSelectNP(re_seq);
 //////확인용
 		System.out.println("ReportSelectNP서비스 "+mvo);
 		
 		return mvo;
+	}
+	
+	// 소방메인페이지에서 지도보기 클릭 시 소방서 정보 가져오기
+	public FireStation Map(String m_id) {
+		FireStation fsvo = mapper.Map(m_id);
+		System.out.println("Map서비스 fsvo : "+fsvo);
+		return fsvo;
 	}
 
 	

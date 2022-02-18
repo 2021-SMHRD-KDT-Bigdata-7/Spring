@@ -57,4 +57,10 @@
 	<select id="ReportSelectNP" resultType="kr.spring.domain.Member">
 		select * from t_member where m_id = (select m_id from t_report where re_seq = #{re_seq})
 	</select>
+	
+	<!-- 소방메인페이지에서 지도보기 클릭 시 소방서 정보 가져오기 -->
+	<select id="Map" resultType="kr.spring.domain.FireStation" parameterType="String">
+		select * from t_fire_station where m_id = #{m_id}
+	</select>
+	
 </mapper>

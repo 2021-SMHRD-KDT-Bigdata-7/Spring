@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import kr.spring.domain.FireStation;
 import kr.spring.domain.Member;
 import kr.spring.service.SpringService;
 import kr.spring.domain.Report;
@@ -67,12 +68,7 @@ public class SpringController {
 
 		return "Report";
 	}
-	
-	@RequestMapping("/Map.do")
-	public String Map() {
 
-		return "Map";
-	}
 //**************************************************************로그인 및 회원가입 메소드
 	
 	 //회원가입-일반/소방 
@@ -210,5 +206,27 @@ public class SpringController {
 		return "ReportDetail";
 		
 	}
+//*****************************************************************지도
 	
+	// 접수자 메인에서 지도보기 클릭 시
+	@RequestMapping("/Map.do")
+	public String Map(Model model, HttpSession session) {
+		
+		Member mvo = (Member) session.getAttribute("mvo");
+		String m_id = mvo.getM_id();
+		
+//////확인용
+		System.out.println("Map컨트롤러의 m_id : "+m_id);
+		FireStation fsvo = service.Map(m_id);
+		
+//////확인용
+		System.out.println("Map컨트롤러의 fsvo : "+fsvo);
+		
+		model.addAttribute("fsvo", fsvo);
+		
+//////확인용
+		System.out.println("Map컨트롤러의 model : "+model);
+		
+		return "Map";
+	}
 }
