@@ -17,39 +17,41 @@
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=104f90e3976f1820f120da408f94509c&libraries=LIBRARY"></script>
 </head>
 <body style="background-color: #F2F2F2">
-	
+	<div id="map"></div>
 	<script>
 	//초기 지도
 		var container = document.getElementById('map');
 
+		var lat2_F = ${fsvo.fs_latitude};
+		var lon2_F = ${fsvo.fs_longitude};
+		
 		var options = {
-			center : new kakao.maps.LatLng(33.450701, 126.570667),
-			level : 1
+			center : new kakao.maps.LatLng(lat2_F, lon2_F),
+			level : 3
 		};
 		var map = new kakao.maps.Map(container, options);
 		
 	//초기 변수
-		var lat_U = null;
-		var lon_U = null;
+		/* var lat_U = null;
+		var lon_U = null; */
 		
-		var lat2_F = null;
-		var lon2_F = null;
 		
 	//위성지도로 변환
 		map.setMapTypeId(kakao.maps.MapTypeId.HYBRID); 
 	
-		var makerPosition_U = new kakao.maps.LatLng(lat1, lon1)
-		var makerPosition_F = new kakao.maps.LatLng(lat2, lon2)
+//		var makerPosition_U = new kakao.maps.LatLng(lat1, lon1)
+		var makerPosition_F = new kakao.maps.LatLng(lat2_F, lon2_F)
 		
 		// 신고자 위치마커
-		new marker_U = new kakao.maps.Marker({
+		/* new marker_U = new kakao.maps.Marker({
 			map : map;
 			position : makerPosition_U
 		});
-		marker_U.setMap(map);
+		marker_U.setMap(map); */
+		
 		// 소방서 위치마커
-		new marker_F = new kakao.maps.Marker({
-			map : map;
+		var marker_F = new kakao.maps.Marker({
+			map : map,
 			position : makerPosition_F
 		});
 		

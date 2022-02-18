@@ -10,21 +10,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <title>불이야-신고</title>
-</head>
 	<script type="text/javascript">
+	console.log(${re_latitude});
+	console.log(${re_longitude});
 		function goShareMap(){
 			$.ajax({
-				url : "${cpath}/ShareMap",
+				url : "/ShareMap.do",
 				type : "get",
 				data : {"re_latitude" : ${re_latitude},
 					"re_longitude" : ${re_longitude}},
 				success : function (data) {
-					
+					console.log(${re_latitude});
+					console.log(${re_longitude});
 		            alert("데이터 전송이 성공적으로 끝났을 때 실행");
 		        }
 			});
 		};
 	</script>
+</head>
 	
 <body>
 ${mvo.m_id}
@@ -63,7 +66,7 @@ ${re_seq}
 		  <tr>
 		    <td id="tbl-title">장소</td>
 		    <td id="tbl-content">
-		      <input id="report-input" type="text" id="loc" value="${re_loc}" readonly="readonly">
+		      ${re_loc}
 		    </td>
 		  </tr>
 		  <tr>
@@ -75,7 +78,7 @@ ${re_seq}
 		  <tr>
 		    <td id="tbl-title">파일첨부</td><!-- (컬럼이 없음) -->
 			<td id="tbl-content">
-				<div>
+				<div style="display: table-cell">
 				  <input id="report-input" type="file">
 				</div>		  
 			</td>

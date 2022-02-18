@@ -1,11 +1,10 @@
 package kr.spring.mapper;
 
-import java.util.List;
 
+import java.util.List;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 
-import kr.spring.domain.Car;
 import kr.spring.domain.FireStation;
 import kr.spring.domain.Member;
 import kr.spring.domain.Report;
@@ -27,7 +26,5 @@ public interface SpringMapper {
 
 	public Member ReportSelectNP(int re_seq);
 	public FireStation Map(String m_id);
-	
-	public Car CarSelect(String vehicle_name);
 
 }

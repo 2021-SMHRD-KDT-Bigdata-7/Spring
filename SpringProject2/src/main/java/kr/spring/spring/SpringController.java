@@ -7,21 +7,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.core.env.SystemEnvironmentPropertySource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import kr.spring.domain.Car;
 import kr.spring.domain.FireStation;
 import kr.spring.domain.Member;
 import kr.spring.service.SpringService;
 import kr.spring.domain.Report;
-
-
 
 @Controller
 public class SpringController {
@@ -152,9 +149,6 @@ public class SpringController {
 			model.addAttribute("re_seq", re_seq);
 
 //////////확인용   
-			System.out.println("신고내용타입 " + re_type);
-			System.out.println("신고내용내용 " + re_content);
-			System.out.println("신고내용내용 " + re_seq);
 			System.out.println("신고내용 " + model);
 
 			service.ReportInsert(model);
@@ -193,14 +187,14 @@ public class SpringController {
 	public String ReportDetail(@RequestParam int re_seq, Model model){
 		
 		Report rvo = service.ReportDetail(re_seq);
-		Member mvo = service.ReportSelectNP(re_seq);
+		Member mvo1 = service.ReportSelectNP(re_seq);
 
 		model.addAttribute("rvo",rvo);
-		model.addAttribute("mvo",mvo);
+		model.addAttribute("mvo1",mvo1);
 		
 //////확인용
 		System.out.println("ReportDetail컨트롤러 "+ rvo);
-		System.out.println("ReportDetail컨트롤러 "+ mvo);
+		System.out.println("ReportDetail컨트롤러 "+ mvo1);
 		System.out.println("ReportDetail컨트롤러 "+ model);
 		System.out.println("ReportDetail의 re_sqe : "+ re_seq);
 		
@@ -230,19 +224,26 @@ public class SpringController {
 		
 		return "Map";
 	}
-	@RequestMapping("/Car_Reg.do")
-	public String CarSelect(@RequestParam String vehicle_name, Model model) {
-		System.out.println("CarSelect parameter"+ vehicle_name);
-		Car cvo = service.CarSelect(vehicle_name);
-		model.addAttribute("cvo", cvo);
-		System.out.println("CarSelect cvo "+ cvo);
-		return "Setting";
-	}
 	
+// ReportDetail에서 접수버튼 누르면 나오는 위치 공유 지도
 	@RequestMapping("/ShareMap.do")
-	public String ShareMap() {
+	public String ShareMap(@RequestParam String m_id, Model model) {
 		
+//////확인용
+		System.out.println("ShareMap컨트롤러의 m_id : "+m_id);
+		
+		FireStation fsvo = service.Map(m_id);
+		
+//////확인용
+		System.out.println("ShareMap컨트롤러의 fsvo : "+fsvo);
+		
+		model.addAttribute("fsvo", fsvo);
+		
+//////확인용
+		System.out.println("ShareMap컨트롤러의 model : "+model);
+			
 		return "ShareMap";
 	}
 	
 }
+	

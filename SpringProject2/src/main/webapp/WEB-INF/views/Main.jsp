@@ -66,7 +66,7 @@ ${mvo.m_type}
 				<div id="btn-main">
 				  <div style="height: 30%">
 					  <div>
-					  	<button id="btn-map" onclick="location.href='${cpath}/Map.do?'">지도보기</button>
+					  	<button id="btn-map" onclick="location.href='${cpath}/Map.do'">지도보기</button>
 					  </div>
 					  <div>
 					  	<button id="btn-report-list" onclick="location.href='${cpath}/ReportTaking.do'">신고현황</button>
