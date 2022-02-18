@@ -87,6 +87,14 @@ public class SpringService {
 		
 		return rvo;
 	}
+	
+	public Member ReportSelectNP(int re_seq){
+		Member mvo = mapper.ReportSelectNP(re_seq);
+//////확인용
+		System.out.println("ReportSelectNP서비스 "+mvo);
+		
+		return mvo;
+	}
 
 	
 	
