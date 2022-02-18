@@ -35,33 +35,42 @@
 				  </tr>
 				<%-- </c:forEach> --%>
 				</table>
-			<form action="${cpath}/Logout.do" method="post" style="width: 100%; text-align: right;">
-				<a href="${cpath}/Main.do">로그아웃</a>
+			<form action="${cpath}/Logout.do" method="GET" style="width: 100%; text-align: right;">
+				<a href="${cpath}/Logout.do">로그아웃</a>
 			</form>
 			
 			<div>
+			
 			<h2>차량등록</h2>
+			
+			<form action="Car_Reg.do">
 				<table id="tbl-report">
+						<tr>
+							<td id="tbl-content">
+								<select class="select" name=vehicle_name>
+									<option value="mini">소형 소방펌프차</option>
+									<option value="middle">중형 소방펌프차</option>
+									<option value="large">대형 소방펌프차</option>
+									<option value="18m">18m 굴절차</option>
+									<option value="27m">27m 굴절차</option>
+									<option value="35m">35m 굴절차</option>
+									<option value="61.5m">61.5m 굴절차</option>
+									<option value="32m">32m 고가사다리차</option>
+									<option value="46m">46m 고가사다리차</option>
+									<option value="52m">52m 고가사다리차</option>
+								</select>
+							</td>
+							<td id="tbl-content"><button type="submit" id="btn-select" >등록</button></td>
+						</tr>
 					<tr>
-						<td id="tbl-content"><select class="select" name=carreg>
-								<option value="">차량1</option>
-								<option value="">차량2</option>
-								<option value="">차량3</option>
-						</select></td>
-						<td id="tbl-content"><button id="btn-select">등록</button></td>
+						<td id="tbl-title" colspan="2"><h3>등록된 차량${cvo.vehicle_name}</h3></td>
 					</tr>
+					
 					<tr>
-						<td id="tbl-title" colspan="2"><h3>등록된 차량</h3></td>
-					</tr>
-					<tr>
-						<td id="tbl-content">차량1</td>
-						<td id="tbl-content"><button id="btn-select" onclick="goDelete(${vo.idx})">삭제</button></td>
-					</tr>
-					<tr>
-						<td id="tbl-content">차량2</td>
-						<td id="tbl-content"><button id="btn-select" onclick="goDelete(${vo.idx})">삭제</button></td>
+						<td id="tbl-content"></td>
 					</tr>
 				</table>
+				</form>
 			</div>
 		</c:when>
 		<c:otherwise>		 
@@ -83,9 +92,12 @@
 			  </tr>
 			<%-- </c:forEach> --%>
 			</table>
-		
-			<form action="${cpath}/Logout.do" method="post" style="width: 100%; text-align: right;">
-				<button onclick = "location.href ='Logout.do'">로그아웃</button>
+
+			<%-- <form action="${cpath}/Logout.do" method="post" style="width: 100%; text-align: right;">
+				<button onclick = "location.href ='Logout.do'">로그아웃</button> --%>
+
+			<form action="${cpath}/Logout.do" method="GET" style="width: 100%; text-align: right;">
+				<a href="${cpath}/Logout.do">로그아웃</a>
 			</form>
  		
 				<div style="text-align: right;">

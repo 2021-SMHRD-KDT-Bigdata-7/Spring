@@ -5,10 +5,9 @@ import lombok.Data;
 @Data
 public class Car {
 	
-	private String vehicle_seq;
+	private int vehicle_seq;
 	private String vehicle_name;
-	private String vehicle_length;
-	private String vehicle_width;
-	
+	private double vehicle_length;
+	private double vehicle_width;
 	
 }
