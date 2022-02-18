@@ -21,21 +21,24 @@
 	<div id="select-form">
 	<table>
 		<tr>
-			<td id="tbl-title">차량선택</td>
+			<td>
+				<p class="return-text" onclick="location.href='Main.do'">< 뒤로가기</p>
+			</td>
+		</tr>
+		<tr>
 			<td>
 			<select class="select" name="car_type">
-				  <option selected disabled>선택해주세요.</option>
+				  <option selected disabled>차량을 선택해주세요.</option>
 				  <option value="">차량1</option>
 				  <option value="">차량2</option>
 				  <option value="">차량3</option>
 				  <option value="">차량4</option>
 				  <option value="">차량5</option>
-				  <option value="">차량6</option>
 			</select>
 			</td>
 		</tr>
 		<tr>
-			<td style="font-family: 'SBAggroM'" colspan="2">차량을 선택하면 진입불가지역을 확인할 수 있습니다.</td>
+			<td style="font-family: 'SBAggroM'">차량을 선택하면 진입불가지역을 확인할 수 있습니다.</td>
 		</tr>
 	</table>
 	</div>
