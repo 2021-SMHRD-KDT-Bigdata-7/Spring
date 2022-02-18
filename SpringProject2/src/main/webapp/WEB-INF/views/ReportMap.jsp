@@ -26,7 +26,6 @@
 		<c:otherwise>
 		</c:otherwise>
 	</c:choose>
-	
 			
 	<div id="map"></div>
 		<div id="report-btn-form">
@@ -37,8 +36,6 @@
 					<input type="submit" id="btn-report" value="이 위치로 신고하기">
 				</form>
 			</div>
-			
-				  
 		
 	${mvo.m_id}
 	<script>

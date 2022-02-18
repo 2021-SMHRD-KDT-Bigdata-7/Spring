@@ -43,7 +43,7 @@
 			<tr align="center">
 				<td colspan="2">
 						<button id="btn-detail">전화하기</button>
-						<button id="btn-detail" onclick="location.href ='${cpath}/ReportMap.do'">신고접수</button>
+						<button type="submit" id="btn-detail" onclick="location.href ='${cpath}/ReportMap.do?m_id=${mvo.m_id}'">신고접수</button>
 				</td>
 			</tr>
 		</table>

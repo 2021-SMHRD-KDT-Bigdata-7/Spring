@@ -18,7 +18,7 @@
 <h1 style="text-align: left;">신고 내역</h1>
   <table id="tbl-report">
 	<c:forEach var="rvo" items="${rlist}">
-	  <tr onclick="location.href='/spring/ReportDetail.do?re_seq=${rvo.re_seq}'">
+	  <tr onclick="location.href='${cpath}/ReportDetail.do?re_seq=${rvo.re_seq}'">
 	    <td id="report-content">
 	    ${rvo.re_seq}
 	    ${rvo.re_loc}&nbsp;${rvo.re_type}발생 
