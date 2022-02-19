@@ -54,7 +54,7 @@ ${mvo.m_id}
 	</form>
 </section>
 <footer class="footer">
-	<img id="logo" onclick="location.href='${cpath}/Main.do'" src="resources/images/header.png">
+	<img id="logo" onclick="location.href='${cpath}/Map.do'" src="resources/images/header.png">
 </footer>
 </div>
 </body>

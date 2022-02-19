@@ -11,25 +11,38 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>불이야</title>
 </head>
-<body>
+<body id="background">
 ${mvo.m_id}
 ${mvo.m_type}
 <c:set var="m_id" value="${mvo.m_id}"/>
 <c:set var="m_type" value="${mvo.m_type}"/>
 	<c:choose>
 	  <c:when test="${empty m_id}">
+	  <div class="empty"></div><div class="empty"></div><div class="empty"></div>
+		<div id="symbol">
+			<img id="mainlogo" src="resources/images/logo-white.png">
+			<div id="title"><p id="title-text">불이야</p></div>
+		</div>
 	  <div class="empty"></div>
-	  <div class="empty"></div>
-	  <div id = "background">
-			<div id="symbol">
-				<img id="mainlogo" src="resources/images/119.png">
-				<div id="title"><p id="title-text">불이야</p></div>
-			</div>
-			<!-- 로그인 전 main -->
-			<div id="btn-submit-main">
-				<button onclick="location.href='Login.do'" id="btn-submit">로그인</button>
-				<div id="join"><p id="join-text" onclick="location.href='JoinSelect.do'">회원가입</p></div>
-			</div>
+<form action="Login.do" method="POST"> 
+	<div class="input-box"> 
+		<input id="m_id" type="text" name="m_id" placeholder="아이디"> 
+		<label for="m_id">아이디</label> 
+	</div> 
+	<div class="input-box"> 
+		<input id="m_pw" type="password" name="m_pw" placeholder="비밀번호"> 
+		<label for="m_pw">비밀번호</label> 
+	</div> 
+	<div id="btn-login-main">
+		<input type="submit" id="btn-submit" value="로그인">
+		<input type="button" id="btn-submit" value="회원가입" readonly="readonly" onclick="location.href='JoinSelect.do'">
+	</div>
+</form>
+		<!-- 로그인 전 main -->
+		<!-- <div id="btn-submit-main">
+			<button onclick="location.href='Login.do'" id="btn-submit">로그인</button>
+			<div id="join"><p id="join-text" onclick="location.href='JoinSelect.do'">회원가입</p></div>
+		</div> -->
 		</div>
 	  </c:when>
 	  <%-- 모든 사용자 로그인 시 적용되는 화면 --%>
@@ -43,9 +56,9 @@ ${mvo.m_type}
 					  <img id="setting" src="resources/images/setting2.png">
 					</a>
 				</div>
-				<div class="empty"></div>
+				<div class="empty"></div><div class="empty"></div><div class="empty"></div><div class="empty"></div>
 				<div id="symbol">
-					<img id="mainlogo" src="resources/images/119.png">
+					<img id="mainlogo" src="resources/images/logo-white.png">
 					<div id="title"><p id="title-text">불이야</p></div>
 				</div>
 				 <div id="btn-main">
@@ -61,20 +74,16 @@ ${mvo.m_type}
 					  <img id="setting" src="resources/images/setting2.png">
 					</a>
 				</div>
-				<div class="empty"></div>
+				<div class="empty"></div><div class="empty"></div><div class="empty"></div><div class="empty"></div>
 				<div id="symbol">
-					<img id="mainlogo" src="resources/images/119.png">
+					<img id="mainlogo" src="resources/images/logo-white.png">
 					<div id="title"><p id="title-text">불이야</p></div>
 				</div>
 				<div id="btn-main">
-				  <div style="height: 30%">
-					  <div>
+				<div style="height: auto;">
 					  	<button id="btn-map" onclick="location.href='${cpath}/Map.do'">지도보기</button>
-					  </div>
-					  <div>
 					  	<button id="btn-report-list" onclick="location.href='${cpath}/ReportTaking.do'">신고현황</button>
-					  </div>
-				  </div>
+				</div>
 				</div> 
 			  </c:otherwise>
 			</c:choose>

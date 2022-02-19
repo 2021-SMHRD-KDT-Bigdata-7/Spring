@@ -10,7 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>불이야-회원가입</title>
 </head>
-<body>
+<body id="background">
 <div id="wrap" style="height: auto;">
 <section>
 	<div class="empty"></div>
@@ -143,7 +143,7 @@
 </section>
 <footer class="footer">
 <div style="display: contents;">
-	<img id="logo" onclick="location.href='${cpath}/Main.do'" src="resources/images/header.png">
+	<img id="logo" onclick="location.href='${cpath}/Main.do'" src="resources/images/footer.png">
 </div>
 </footer>
 </div>	

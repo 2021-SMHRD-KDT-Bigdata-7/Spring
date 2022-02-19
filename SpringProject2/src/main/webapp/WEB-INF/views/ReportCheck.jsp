@@ -12,7 +12,7 @@
 <title>불이야</title>
 </head>
 <body>
-	<div class="empty"></div>
+	<div style="height: 30%"></div>
 	<div id="symbol">
 		<div>
 			<img id="img-car" src="resources/images/firecar.png">
