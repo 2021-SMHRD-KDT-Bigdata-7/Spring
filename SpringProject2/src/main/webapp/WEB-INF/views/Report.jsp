@@ -30,9 +30,11 @@
 </head>
 	
 <body>
+<div id="wrap">
+<section>
 ${mvo.m_id}
 ${re_seq}
-	<div class="top"></div>
+	<div class="empty"></div>
 	<form id="form-report-info" action="${cpath}/ReportInsert.do" method="POST">
 	<input type="hidden" name="re_seq" value="${re_seq}">
 		<h2>신고인 정보</h2>
@@ -89,14 +91,12 @@ ${re_seq}
 		      <input id="btn-report" type="submit" onClick="goShareMap()" value="신고하기" >
 		    </td>
 		  </tr>
-		  <tr>
-		  	<td colspan="2">
-		      <a class="return-text" href="${cpath}/ReportlatDelete.do?re_seq=${re_seq}">처음으로</a>
-		  	</td>
-		  </tr>
 		</table>
 	</form>
-	
-
+</section>
+<footer class="footer">
+	<img id="logo" onclick="location.href='${cpath}/Main.do'" src="resources/images/header.png">
+</footer>	
+</div>
 </body>
 </html>

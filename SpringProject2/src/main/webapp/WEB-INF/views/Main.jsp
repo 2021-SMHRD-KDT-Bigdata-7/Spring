@@ -18,7 +18,8 @@ ${mvo.m_type}
 <c:set var="m_type" value="${mvo.m_type}"/>
 	<c:choose>
 	  <c:when test="${empty m_id}">
-	  <div class="top"></div>
+	  <div class="empty"></div>
+	  <div class="empty"></div>
 	  <div id = "background">
 			<div id="symbol">
 				<img id="mainlogo" src="resources/images/119.png">
@@ -37,11 +38,12 @@ ${mvo.m_type}
 		<%-- 일반 사용자 로그인 후 --%>
 			<c:choose>
 			  <c:when test="${m_type eq 'U'}">
-				<div class="top">
+				<div class="empty">
 					<a href="${cpath}/Setting.do">
 					  <img id="setting" src="resources/images/setting2.png">
 					</a>
 				</div>
+				<div class="empty"></div>
 				<div id="symbol">
 					<img id="mainlogo" src="resources/images/119.png">
 					<div id="title"><p id="title-text">불이야</p></div>
@@ -54,11 +56,12 @@ ${mvo.m_type}
 			  </c:when>
 		<%-- 소방서 사용자 로그인 후 --%>
 			  <c:otherwise>
-				<div class="top">
+				<div class="empty">
 					<a href="${cpath}/Setting.do">
 					  <img id="setting" src="resources/images/setting2.png">
 					</a>
 				</div>
+				<div class="empty"></div>
 				<div id="symbol">
 					<img id="mainlogo" src="resources/images/119.png">
 					<div id="title"><p id="title-text">불이야</p></div>
