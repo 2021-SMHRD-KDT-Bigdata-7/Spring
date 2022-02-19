@@ -17,13 +17,16 @@
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=104f90e3976f1820f120da408f94509c&libraries=LIBRARY"></script>
 </head>
 <body style="background-color: #F2F2F2">
-	
+	<div class="empty">
+	<form action="${cpath}/Logout.do" method="GET" style="width: 100%; text-align: right;">
+		<a href="${cpath}/Logout.do" style="font-size: 13px;">로그아웃</a>
+		<%-- <img src="resources/images/logout.png" onclick="location.href='${cpath}/Logout.do'" style="width:30px"> --%>
+	</form>
+	</div>
 	<div id="select-form">
 	<table>
 		<tr>
-			<td>
-				<p class="return-text" onclick="location.href='Main.do'">< 뒤로가기</p>
-			</td>
+			<td style="font-family: 'SBAggroL'">차량을 선택하면 진입불가지역을 확인할 수 있습니다.</td>
 		</tr>
 		<tr>
 			<td>
@@ -38,15 +41,13 @@
 			</select>
 			</td>
 		</tr>
-		<tr>
-			<td style="font-family: 'SBAggroM'">차량을 선택하면 진입불가지역을 확인할 수 있습니다.</td>
-		</tr>
 	</table>
 	</div>
 	<div id="map"></div>
-	${fsvo.fs_latitude}
+	<button id="btn-report-list" onclick="location.href='${cpath}/ReportTaking.do'">신고현황</button>
+	<%-- ${fsvo.fs_latitude}
 	${fsvo.fs_longitude}
-	${mvo.m_id}
+	${mvo.m_id} --%>
 	<script>
 	//초기 지도
 		var container = document.getElementById('map');

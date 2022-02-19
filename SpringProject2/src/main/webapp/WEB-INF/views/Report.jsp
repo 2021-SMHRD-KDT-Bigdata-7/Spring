@@ -8,12 +8,33 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/cssfile.css" type="text/css" media="screen" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <title>불이야-신고</title>
+	<script type="text/javascript">
+	console.log(${re_latitude});
+	console.log(${re_longitude});
+		function goShareMap(){
+			$.ajax({
+				url : "/ShareMap.do",
+				type : "get",
+				data : {"re_latitude" : ${re_latitude},
+					"re_longitude" : ${re_longitude}},
+				success : function (data) {
+					console.log(${re_latitude});
+					console.log(${re_longitude});
+		            alert("데이터 전송이 성공적으로 끝났을 때 실행");
+		        }
+			});
+		};
+	</script>
 </head>
+	
 <body>
+<div id="wrap">
+<section>
 ${mvo.m_id}
 ${re_seq}
-	<div class="top"></div>
+	<div class="empty"></div>
 	<form id="form-report-info" action="${cpath}/ReportInsert.do" method="POST">
 	<input type="hidden" name="re_seq" value="${re_seq}">
 		<h2>신고인 정보</h2>
@@ -47,7 +68,7 @@ ${re_seq}
 		  <tr>
 		    <td id="tbl-title">장소</td>
 		    <td id="tbl-content">
-		      <input id="report-input" type="text" id="loc" value="${re_loc}" readonly="readonly">
+		      ${re_loc}
 		    </td>
 		  </tr>
 		  <tr>
@@ -59,7 +80,7 @@ ${re_seq}
 		  <tr>
 		    <td id="tbl-title">파일첨부</td><!-- (컬럼이 없음) -->
 			<td id="tbl-content">
-				<div>
+				<div style="display: table-cell">
 				  <input id="report-input" type="file">
 				</div>		  
 			</td>
@@ -67,17 +88,15 @@ ${re_seq}
 		  
 		  <tr align="center">
 		    <td colspan="2">
-		      <input id="btn-report" type="submit" value="신고하기" >
+		      <input id="btn-report" type="submit" onClick="goShareMap()" value="신고하기" >
 		    </td>
-		  </tr>
-		  <tr>
-		  	<td colspan="2">
-		      <a class="return-text" href="${cpath}/ReportlatDelete.do?re_seq=${re_seq}">처음으로</a>
-		  	</td>
 		  </tr>
 		</table>
 	</form>
-	
-
+</section>
+<footer class="footer">
+	<img id="logo" onclick="location.href='${cpath}/Main.do'" src="resources/images/header.png">
+</footer>	
+</div>
 </body>
 </html>

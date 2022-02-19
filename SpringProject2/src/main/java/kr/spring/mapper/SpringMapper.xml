@@ -69,6 +69,4 @@
 		select * from t_fire_station where m_id = #{m_id}
 	</select>
 	
-	
-
 </mapper>

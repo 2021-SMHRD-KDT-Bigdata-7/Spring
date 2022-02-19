@@ -1,9 +1,6 @@
 package kr.spring.service;
 
 import java.util.List;
-import java.util.Map;
-
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -110,6 +107,13 @@ public class SpringService {
 		return fsvo;
 	}
 	
+
+	public FireStation ShareMap(String m_id) {
+		FireStation fsvo = mapper.Map(m_id);
+		System.out.println("ShareMap서비스 fsvo : "+fsvo);
+		return fsvo;
+	}
+
 	
 
 

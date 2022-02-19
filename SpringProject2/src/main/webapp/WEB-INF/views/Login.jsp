@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+	<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+	<c:set var="cpath" value="${pageContext.request.contextPath}"/>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,9 +11,11 @@
 <title>불이야-로그인</title>
 </head>
 <body>
-<div class="top"></div>
-<div class="top"></div>
+<div id="wrap">
+<section>
+<div class="empty"></div><div class="empty"></div><div class="empty"></div>
 	<header> <h2 class="title">Login</h2> </header> 
+<div class="empty"></div>
 	<form action="Login.do" method="POST"> 
 		<div class="input-box"> 
 			<input id="m_id" type="text" name="m_id" placeholder="아이디"> 
@@ -26,7 +30,10 @@
 			<div id="join"><p id="join-text" onclick="location.href='JoinSelect.do'">회원가입</p></div>
 		</div>
 	</form>
-	
-
+</section>
+<footer class="footer">
+	<img id="logo" onclick="location.href='${cpath}/Main.do'" src="resources/images/header.png">
+</footer>
+</div>
 </body>
 </html>

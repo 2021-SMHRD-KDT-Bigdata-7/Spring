@@ -2,8 +2,8 @@
 
 /* Theme Color 
 	
-	Gray : #777676
-	Red : #C8252B
+	Gray : black
+	firebrick : #C8252B
 	Yellow : #FDD000
 	WhiteGray : #F2F2F2
 
@@ -36,6 +36,7 @@
 	width: 100%;
 	height: 100%;
 	text-align: center;
+	vertical-align: middle;
 	font-family: 'SBAggroB';
 	box-sizing: border-box;
 	margin: 0 auto;
@@ -71,17 +72,57 @@ h3{
 	height:auto;
 }
 
-#background{
+#wrap{
+	min-height: 100vh;
+	position: relative;
+	width: 100%;
 }
 
-.top{
-	height: 10%;
+footer{
+	width: 100%;
+	height: 60px;
+	text-align: right;
+	bottom: 30px;
+	right: 5%;
+	position: absolute;
+}
+
+section{
+	padding-bottom: 120px;
+}
+
+html, body{
+	margin:0;
+	padding:0;
+}
+
+.empty{
+	height: 5%;
 	text-align: right;
 }
 
+#background{
+	background-color: firebrick;
+	color: white;
+}
+
+#logo{
+	width: auto;
+	height: 100%;
+	image-rendering: -webkit-optimize-contrast;
+}
 /* 모바일 화면 css */
 
 @media (max-width: 768px){
+	#logo-text{
+		display: inline-block;
+		font-family: 'SBAggroB';
+		font-size: 6vw;
+		width: auto;
+		height: auto;
+		color: #C8252B;
+		text-shadow: 1px 1px 2px black;
+	}
 	
 	#setting{
 		width : inherit;
@@ -103,9 +144,7 @@ h3{
 	#symbol{
 		display: inline-block;
 		width : 100%;
-		height : 40%;
-		margin-top: 30%;
-		margin-bottom: 20%;
+		height : auto;
 	}
 	
 	#mainlogo{
@@ -123,15 +162,13 @@ h3{
 		font-size: 13vw;
 		width: auto;
 		height: auto;
-		color: #C8252B;
 		margin: 3%;
-		text-shadow: 1px 1px 2px #777676;
+		text-shadow: 3px 2px black;
 	}
 	
 	#btn-main{
 		text-align: right;
-		vertical-align: bottom;
-		height: 30%;
+		margin-top: 50%;
 	}
 	
 	#btn-submit-main{
@@ -164,7 +201,7 @@ h3{
 		height: 30%;
 		background-color: #F2F2F2;
 		border-radius: 0.3em;
-		box-shadow: 2px 2px 5px #777676;
+		box-shadow: 2px 2px 5px black;
 		color: black;
 	}
 		
@@ -195,28 +232,29 @@ h3{
 	}
 	
 	#btn-report-list{
-		width:80%;
+		width:100%;
 		height: 40px;
-		background-color: #C8252B;
+		background-color: firebrick;
 		font-family: 'SBAggroM';
 		font-size: 25px;
 		color: white;
 		text-align: center;
-		box-shadow: 1px 1px 5px #777676;
-		border:none;
+		box-shadow: 3px 2px black;
+		border: 1px solid black;
 		border-radius: 5px;
+		margin-top: 5%;
 	}
 	
 	#btn-map{
 		width:80%;
 		height: 40px;
-		background-color: #777676;
+		background-color: white;
 		font-family: 'SBAggroM';
 		font-size: 25px;
-		color: white;
+		color: black;
 		text-align: center;
-		box-shadow: 1px 1px 5px #777676;
-		border:none;
+		box-shadow: 3px 2px black;
+		border: 1px solid;
 		border-radius: 5px;
 	}
 	
@@ -236,7 +274,7 @@ h3{
     	display: inline-block;
         padding:10px;
         height: auto;
-        width: 50%;
+        width: 60%;
     }
     .input-box{
         position:relative;
@@ -248,26 +286,28 @@ h3{
     .input-box > input{
         background:transparent;
         border:none;
-        border-bottom: solid 1px #ccc;
+        border-bottom: solid 1px white;
         padding:20px 0px 5px 0px;
-        font-size:14pt;
         width:100%;
         height: auto;
         font-family: 'SBAggroL';
+        font-size:14pt;
         text-align: center;
+        color: white;
+        caret-color: white;
     }
     input::placeholder{
         color:transparent;
     }
     input:placeholder-shown + label{
-        color:#aaa;
+        color: white;
         font-size:14pt;
         top:15px;
 		font-family: 'SBAggroL';
         text-align: left;
     }
     input:focus + label, label{
-        color:#777676;
+        color:white;
         font-size:10pt;
         pointer-events: none;
         position: absolute;
@@ -282,11 +322,11 @@ h3{
     }
 
     input:focus, input:not(:placeholder-shown){
-        border-bottom: solid 1px #777676;
+        border-bottom: solid 1px white;
         outline:none;
     }
     input[type=submit]{
-        background-color: #777676;
+        background-color: white;
         border:none;
         color:white;
         border-radius: 5px;
@@ -299,20 +339,24 @@ h3{
     }
     	
 	form #btn-submit{
-		font-size: 5vw;
+		background-color: transparent;
+		border: 1px solid white;
+		box-shadow: 2px 2px black;
+		margin-top: 3%;
+		max-width: 100%;
 		min-height: 40px;
-		color: black;
-		margin-top: 15%;
-		max-width: 70%;
 		font-family: 'SBAggroB';
+		font-size: 5vw;
 		text-align: center;
+		color: white;
 	}
 	
 	/* 회원가입 */
 	
 	#img-select{
-		width: auto;
+		width: 80%;
 		height: auto;
+		image-rendering: -webkit-optimize-contrast;
 	}
 
 	#add-text{
@@ -331,7 +375,7 @@ h3{
 		font-family: 'SBAggroL';
 		font-size: 12pt;
 		border-radius: 0.3em;
-    	box-shadow: 1px 1px 1px #777676;
+    	box-shadow: 1px 1px 1px black;
 	}
 	
 	#btn-search:active{
@@ -366,7 +410,7 @@ h3{
 
 	#map{
 		width: 100%; 
-		height: 80%;
+		height: 70%;
 	}
 
 	#map>div{
@@ -380,7 +424,15 @@ h3{
 	
 	#form-report{
 		width: 100%;
-		height: 100%
+		height: auto;
+		font-size: 20px;
+	}
+	
+	#loc{
+		background-color: transparent;
+		border: none;
+		font-family: 'SBAggroM';
+		font-size: 20px;
 	}
 	
 	#form-report>input{
@@ -397,13 +449,13 @@ h3{
 	#btn-report{
 		width:100%;
 		height: 40px;
-		background-color: red;
+		background-color: firebrick;
 		font-family: 'SBAggroM';
 		font-size: 25px;
 		color: white;
 		text-align: center;
 		margin-top: 5%;
-		box-shadow: 1px 1px 2px #777676;
+		box-shadow: 1px 1px 2px black;
 		border: none;
 		border-radius: 5px;
 	}
@@ -411,12 +463,12 @@ h3{
 	input#btn-report{
 		width:100%;
 		height: 40px;
-		background-color: red;
+		background-color: firebrick;
 		font-family: 'SBAggroM';
 		font-size: 25px;
 		text-align: center;
 		margin-top: 5%;
-		box-shadow: 1px 1px 5px #777676;
+		box-shadow: 1px 1px 5px black;
 	}
 	
 	/* 신고체크페이지 */
@@ -475,7 +527,7 @@ h3{
 	#report-textarea{
 		height: 200px;
 		font-family: 'SBAggroL';
-		font-size: 3.5vw;
+		font-size: 4.5vw;
 		text-align: left;
 		background-color: transparent;
 		border: none;
@@ -545,13 +597,13 @@ h3{
 	#btn-detail{
 		width:49%;
 		height: 40px;
-		background-color: red;
+		background-color: firebrick;
 		font-family: 'SBAggroM';
 		font-size: 25px;
 		color: white;
 		text-align: center;
 		margin-top: 5%;
-		box-shadow: 1px 1px 2px #777676;
+		box-shadow: 1px 1px 2px black;
 		border: none;
 		border-radius: 5px;
 	}
@@ -559,7 +611,7 @@ h3{
 	/* map 페이지 */
 	
 	#select-form{
-		height: 20%;
+		height: 15%;
 	}
 	
 	tr{
@@ -589,7 +641,7 @@ h3{
 	#symbol{
 		display: inline-block;
 		width : 100%;
-		height : 55%;
+		height : auto;
 	}
 	
 	#mainlogo{
@@ -607,15 +659,13 @@ h3{
 		font-size: 7vw;
 		width: auto;
 		height: auto;
-		color: #C8252B;
 		margin: 3%;
-		text-shadow: 1px 1px 5px #777676;
+		text-shadow: 3px 2px black;
 	}
 	
 	#btn-main{
 		text-align: right;
-		vertical-align: bottom;
-		height: 30%;
+		margin-top: 50%;
 	}
 	
 	#btn-submit-main{
@@ -649,7 +699,7 @@ h3{
 		height: 30%;
 		background-color: #F2F2F2;
 		border-radius: 0.3em;
-		box-shadow: 2px 2px 5px #777676;
+		box-shadow: 3px 2px black;
 		color: black;
 	}
 		
@@ -681,29 +731,29 @@ h3{
 	}
 	
 	#btn-report-list{
-		width:30%;
+		width:450px;
 		height: 40px;
 		background-color: #C8252B;
 		font-family: 'SBAggroM';
 		font-size: 25px;
 		color: white;
 		text-align: center;
-		margin-top: 5%;
-		box-shadow: 1px 1px 5px #777676;
-		border:none;
+		margin-top: 2%;
+		box-shadow: 3px 2px black;
+		border: 1px solid black;
 		border-radius: 5px;
 	}
 	
 	#btn-map{
 		width:30%;
 		height: 40px;
-		background-color: #777676;
+		background-color: black;
 		font-family: 'SBAggroM';
 		font-size: 25px;
 		color: white;
 		text-align: center;
 		margin-top: 5%;
-		box-shadow: 1px 1px 5px #777676;
+		box-shadow: 1px 1px 5px black;
 		border:none;
 		border-radius: 5px;
 	}
@@ -732,7 +782,7 @@ h3{
     .input-box > input{
         background:transparent;
         border:none;
-        border-bottom: solid 1px #ccc;
+        border-bottom: solid 1px white;
         padding:20px 0px 5px 0px;
         font-size:14pt;
         width:100%;
@@ -744,14 +794,14 @@ h3{
         color:transparent;
     }
     input:placeholder-shown + label{
-        color:#aaa;
+        color:white;
         font-size:14pt;
         top:15px;
         font-family: 'SBAggroL';
         text-align: left;
     }
     input:focus + label, label{
-        color:#777676;
+        color:black;
         font-size:10pt;
         pointer-events: none;
         position: absolute;
@@ -766,11 +816,11 @@ h3{
     }
 
     input:focus, input:not(:placeholder-shown){
-        border-bottom: solid 1px #777676;
+        border-bottom: solid 1px black;
         outline:none;
     }
     input[type=submit]{
-        background-color: #777676;
+        background-color: black;
         border:none;
         color:white;
         border-radius: 5px;
@@ -783,21 +833,24 @@ h3{
     }
     
 	form #btn-submit{
-		font-size: 40px;
-		min-width: 300px;
-		height: 60px;
-		color: black;
+		border: 1px solid white;
+		background-color: transparent;
+		color: white;
 		margin-top: 10%;
 		max-width: 40%;
+		min-width: 300px;
+		height: 60px;
 		font-family: 'SBAggroB';
+		font-size: 40px;
 		text-align: center;
 	}
 	
 	/* 회원가입 */
 	
 	#img-select{
-		width: auto;
+		width: 49%;
 		height: auto;
+		image-rendering: -webkit-optimize-contrast;
 	}
 		
 	#img-select:hover{
@@ -820,7 +873,7 @@ h3{
 		font-family: 'SBAggroL';
 		font-size: 15pt;
 		border-radius: 0.3em;
-    	box-shadow: 1px 1px 1px #777676;
+    	box-shadow: 1px 1px 1px black;
 	}
 	
 	#btn-search:active{
@@ -855,7 +908,7 @@ h3{
 
 	#map{
 		width: 100%; 
-		height: 80%;
+		height: 70%;
 	}
 
 	#map>div{
@@ -864,13 +917,21 @@ h3{
 	
 	#report-btn-form{
 		height:7%;
-		font-size: 2vw;
+		font-size: 30px;
 	}
 	
 	#form-report{
 		width: 100%;
 		height: 100%
 	}
+	
+	#loc{
+		background-color: transparent;
+		border: none;
+		font-family: 'SBAggroM';
+		font-size: 30px;
+	}
+	
 	
 	#form-report>input{
 		border: none;
@@ -885,14 +946,14 @@ h3{
 	}
 	
 	input#btn-report{
-		width:100%;
+		width:450px;
 		height: 40px;
-		background-color: red;
+		background-color: firebrick;
 		font-family: 'SBAggroM';
 		font-size: 25px;
 		text-align: center;
 		margin-top: 5%;
-		box-shadow: 1px 1px 5px #777676;
+		box-shadow: 3px 2px black;
 	}
 	
 	/* 신고체크페이지 */
@@ -1016,14 +1077,14 @@ h3{
 	#btn-report{
 		width:100%;
 		height: 40px;
-		background-color: red;
+		background-color: firebrick;
 		font-family: 'SBAggroM';
 		font-size: 25px;
 		color: white;
 		text-align: center;
 		margin-top: 5%;
-		box-shadow: 1px 1px 2px #777676;
-		border: none;
+		box-shadow: 3px 2px black;
+		border: 1px solid black;
 		border-radius: 5px;
 	}
 	
@@ -1032,13 +1093,13 @@ h3{
 	#btn-detail{
 		width:49%;
 		height: 40px;
-		background-color: red;
+		background-color: firebrick;
 		font-family: 'SBAggroM';
 		font-size: 25px;
 		color: white;
 		text-align: center;
 		margin-top: 5%;
-		box-shadow: 1px 1px 2px #777676;
+		box-shadow: 1px 1px 2px black;
 		border: none;
 		border-radius: 5px;
 	}
@@ -1046,7 +1107,7 @@ h3{
 	/* map 페이지 */
 	
 	#select-form{
-		height: 20%;
+		height: 12%;
 	}
 	
 	tr{

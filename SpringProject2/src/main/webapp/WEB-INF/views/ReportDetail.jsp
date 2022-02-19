@@ -8,21 +8,25 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/cssfile.css" type="text/css" media="screen" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <title>불이야-신고접수</title>
 </head>
 <body>
-<div class="top"></div>
+<div id="wrap">
+<div class="empty"></div>
+${mvo.m_id}
+<section style="height: auto;">
 <p class="return-text" onclick="location.href='ReportTaking.do'">< 뒤로가기</p>
-	<form id="form-report-info" action="" method="POST">
+	<form id="form-report-info" action="${cpath}/ShareMap.do?m_id=${mvo.m_id}" method="POST">
 		<h2>신고인 정보</h2>
 		<table id="tbl-report">
 			<tr>
 				<td id="tbl-title">이름</td>
-				<td id="tbl-content">${mvo.m_name}</td>
+				<td id="tbl-content">${mvo1.m_name}</td>
 			</tr>
 			<tr>
 				<td id="tbl-title">번호</td>
-				<td id="tbl-content">${mvo.m_phone}</td>
+				<td id="tbl-content">${mvo1.m_phone}</td>
 			</tr>
 		</table>
 
@@ -43,12 +47,15 @@
 
 			<tr align="center">
 				<td colspan="2">
-						<button id="btn-detail">전화하기</button>
-						<button type="submit" id="btn-detail" onclick="location.href ='${cpath}/ReportMap.do?m_id=${mvo.m_id}'">신고접수</button>
+						<button type="submit" id="btn-report">신고접수</button>
 				</td>
 			</tr>
 		</table>
 	</form>
-
+</section>
+<footer class="footer">
+	<img id="logo" onclick="location.href='${cpath}/Map.do'" src="resources/images/header.png">
+</footer>
+</div>
 </body>
 </html>
