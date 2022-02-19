@@ -9,46 +9,28 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/cssfile.css" type="text/css" media="screen" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <title>불이야-설정</title>
  <script type="text/javascript">
     
       
       $(document).ready(function(){
-
-    	  $("#slideU").click(function(){
-
-    	    $(".rfm").slideToggle();
-
-    	  });
-
-    	});
+    	  
+           })
       
-      /* loadtable();
-      //$(".cupdate").click(upClick);  // 태그자체에 스크립트함수를 사용하지 말고(유지보수시 번거로움)
-     });                                // 제이쿼리에 함수를 만들어놓자??? - 아래 upClick()
-     
-     $(function goForm(){
-         $("#slideU").("click",function(){
-       //     $(".rform").css("display","none");  //글쓰기화면의 rform div의 css를 바꿈
-              $(".rform").slideUp();
-         })
-          $("#slideD").on("click",function(){
-       //     $(".rform").css("display","block");  //글쓰기화면의 rform div의 css를 바꿈
-              $(".rform").slideDown();
-         }
-      } */
-     
-     
-   /*   function loadtable(){
-         $.ajax({
-            url : "${cpath}/UserInfoUpdateAjax.do",
-            type : "GET",
-            dataType : "json",
-            success : table,
-            error : function(){ alert("error"); }
-         })
-      } */
-     
+	function goForm(){
+          if($(".rform").css("display")=="block"){
+        //     $(".rform").css("display","none");  //글쓰기화면의 rform div의 css를 바꿈
+               $(".rform").slideUp();
+          }
+          else{
+        //     $(".rform").css("display","block");  //글쓰기화면의 rform div의 css를 바꿈
+               $(".rform").slideDown();
+          }
+       }
+
+      
+   
     /*  function table(data){
     	 
          var utable="<table class='utable'>";
@@ -88,41 +70,8 @@
       
          var newUpdate = "<button class='btn btn-success btn-sm' onClick='update("+m_id+")'>수정하기</button>";
            $("#u"+m_id).html(newUpdate);
-      }
+      }*/
      
-     function update(m_id){  //m_id, m_name, m_phone
-         var m_pw = $("#np"+m_id).val();
-         var m_name = $("#nn"+m_id).val();
-         var m_phone = $("#nh"+m_id).val();
-         
-         $.ajax({
-            url : "${cpath}/UserInfoUpdate.do",
-            type : "POST",
-            data : {"m_id" : m_id, "m_name" : m_name, "m_phone" : m_phone},
-            success : loadList,
-            error : function(){alert("error");}
-         });
-      } */
-     /* $(function(){
-         $('#userupdate').on('click',function(){
-        	 var m_pw = $("#p"+m_id).text();
-             var m_name = $("#n"+m_id).text();
-             var m_phone = $("#h"+m_id).text();
-             
-              var newPassword = "<input id='np"+m_id+"' type='text' value='"+password+"'>";
-             $("#p"+m_id).html(newPassword);
-             
-             var newName = "<input id='nn"+m_id+"' type='text value='"+name+"'>";
-             $("#n"+m_id).html(newName);
-             
-             var newPhone = "<input id='nh"+m_id+"' type='text value='"+phone+"'>";
-             $("#h"+m_id).html(newPhone);
-          
-             var newUpdate = "<button class='btn btn-success btn-sm' onClick='update("+m_id+")'>수정하기</button>";
-               $("#u"+m_id).html(newUpdate); 
-               
-            
-         }) */
 
      </script>
 </head>
@@ -202,41 +151,43 @@
 			  </tr>
 			</table> 
 			
-			<div class="rform" >	
 			 <button type="button" id="slideU" onClick='goForm()'>회원정보수정</button>
 		
+	<div class="rform" style="display : none" >	
 		<form id="frm" method="post">
-        <div>
-          <label for="m_id">아이디</label>
-          <div>
-            <input type="text" name="m_id"  value="${m_id}" readonly>
-          </div>
-        </div>
-        <div>
-          <label for="m_pw">비밀번호</label>
-          <div>
-            <input type="password" name="m_pw" placeholder="${m_pw}">
-          </div>
-           </div>
-        <div>
-          <label for="m_name">이름</label>
-          <div>
-            <input type="text" name="m_name" placeholder="${m_name}">
-          </div>
-        </div>
-        
-        <div>
-          <label for="m_phone">전화번호</label>
-          <div>
-            <input type="text" name="m_phone" placeholder="${m_phone}">
-          </div>
-        </div>
-       
-        <div>
-          <div>
-            <button type="button" id="slideD" onClick="goUpdate()">수정</button>
-          </div>
-        </div>
+			<table>
+				<tr>
+					<td>아이디</td>
+					<td>
+						<input type="text" name="m_id"  value="${m_id}" readonly>
+					</td>
+				</tr>
+				<tr>
+					<td>비밀번호</td>
+					<td>
+						<input type="password" name="m_pw">
+					</td>
+				</tr>
+				<tr>
+					<td>이름</td>
+					<td>
+						<input type="text" name="m_name" placeholder="${m_id}">
+					</td>
+				</tr>
+				<tr>
+					<td>전화번호</td>
+					<td>
+						<input type="text" name="m_phone" placeholder="${m_id}">
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<button type="button" id="slideD" onClick="goUpdate()">수정</button>
+					</td>
+					<td>
+					</td>
+				</tr>
+			</table>
       </form>
       </div>
 			
