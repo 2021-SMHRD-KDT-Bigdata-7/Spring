@@ -86,7 +86,7 @@ ${re_seq}
 		  
 		  <tr align="center">
 		    <td colspan="2">
-		      <input id="btn-report" type="submit" onClick="goShareMap()" value="신고하기" >
+		      <input id="btn-report" type="submit" value="신고하기" >
 		    </td>
 		  </tr>
 		  <tr>

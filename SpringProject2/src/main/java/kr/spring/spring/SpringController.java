@@ -153,7 +153,7 @@ public class SpringController {
 
 			service.ReportInsert(model);
 
-			return "ReportCheck";
+			return "redirect:/ShareMap.do";
 		}
 		
 	// Report(신고 페이지)에서 처음으로 버튼을 클릭 했을 때 좌표값 DB에서 지워야함
@@ -227,18 +227,12 @@ public class SpringController {
 	
 // ReportDetail에서 접수버튼 누르면 나오는 위치 공유 지도
 	@RequestMapping("/ShareMap.do")
-	public String ShareMap(@RequestParam String m_id, Model model) {
-		
+	public String ShareMap(@RequestParam String m_id, @RequestParam int re_seq, Model model) {
 //////확인용
+		System.out.println("ShareMap컨트롤러의 re_seq :"+re_seq);
 		System.out.println("ShareMap컨트롤러의 m_id : "+m_id);
 		
-		FireStation fsvo = service.Map(m_id);
-		
-//////확인용
-		System.out.println("ShareMap컨트롤러의 fsvo : "+fsvo);
-		
-		model.addAttribute("fsvo", fsvo);
-		
+		service.ShareMap(m_id, re_seq, model);
 //////확인용
 		System.out.println("ShareMap컨트롤러의 model : "+model);
 			

@@ -15,7 +15,7 @@
 ${mvo.m_id}
 <div class="top"></div>
 <p class="return-text" onclick="location.href='ReportTaking.do'">< 뒤로가기</p>
-	<form id="form-report-info" action="${cpath}/ShareMap.do?m_id=${mvo.m_id}" method="POST">
+	<form id="form-report-info" action="${cpath}/ShareMap.do?m_id=${mvo.m_id}&re_seq=${rvo.re_seq}" method="POST">
 		<h2>신고인 정보</h2>
 		<table id="tbl-report">
 			<tr>

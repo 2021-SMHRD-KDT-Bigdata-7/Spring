@@ -102,10 +102,19 @@ public class SpringService {
 		return fsvo;
 	}
 	
-	public FireStation ShareMap(String m_id) {
+	public Model ShareMap(String m_id, int re_seq, Model model) {
 		FireStation fsvo = mapper.Map(m_id);
+		Report rvo = mapper.ReportDetail(re_seq);
+		
 		System.out.println("ShareMap서비스 fsvo : "+fsvo);
-		return fsvo;
+		System.out.println("ShareMap서비스 rvo : "+rvo);
+		
+		model.addAttribute("fsvo", fsvo);
+		model.addAttribute("rvo", rvo);
+		
+		System.out.println("ShareMap서비스 model : "+model);
+
+		return model;
 	}
 	
 
