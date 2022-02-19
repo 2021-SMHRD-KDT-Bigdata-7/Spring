@@ -19,6 +19,12 @@
 	    select * from t_member where m_id=#{m_id} and m_pw=#{m_pw} 
 	</select>
 	
+<!-- 회원정보 수정 -->
+	<!-- <update id="UserInfoUpdate">
+	    update t_member set m_phone=#{m_phone}, m_pw=#{m_pw} where m_id=#{m_id}
+	</update> -->
+	
+	
 <!-- 신고페이지 -->
 	
 	<!-- 신고자 지도에서 좌표 insert -->

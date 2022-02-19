@@ -105,7 +105,14 @@ public class SpringController {
 		  session.invalidate(); 
 		  return "redirect:/Main.do";
 	  }
-
+// 회원정보수정
+		
+	  
+		/*
+		 * @RequestMapping("/UserInfoUpdateAjax.do") // 위에 boardUpdate는 contents와 title을
+		 * 변경하는것 public void UserInfoUpdateAjax(Member member) {
+		 * service.UserInfoUpdateAjax(member); }
+		 */
 //**********************************************************************신고페이지 메소드
 	 // ReportMap(신고 시 위치제공페이지)의 좌표 넣기 / re_seq빼내기
 	@RequestMapping(value = "/ReportlatInsert.do", method = RequestMethod.POST)

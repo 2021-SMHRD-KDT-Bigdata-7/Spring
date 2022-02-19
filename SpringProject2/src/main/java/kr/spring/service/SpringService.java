@@ -41,7 +41,12 @@ public class SpringService {
 		 
 	}
 	
-
+	
+	//회원정보수정
+	/*
+	 * public void UserInfoUpdateAjax(Member member) {
+	 * mapper.UserInfoUpdateAjax(member); }
+	 */
 	
 //**************************************************************신고  페이지
 	// ReportMap(사고위치제공페이지)에서 좌표 DB저장
@@ -104,6 +109,7 @@ public class SpringService {
 		System.out.println("Map서비스 fsvo : "+fsvo);
 		return fsvo;
 	}
+	
 	
 
 
