@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.spring.domain.FireStation;
 import kr.spring.domain.Member;
@@ -27,23 +28,22 @@ public class SpringService {
 		
 		mapper.JoinUser(model);
 	}
-	//회원가입-소방서
+	// 회원가입-소방서
 	public void JoinFire(ModelMap model) {
 		mapper.JoinFire(model);
 	}
-	//로그인
+	// 로그인
 	public Member Login(Member member) {
 		System.out.println("member" + member);
 		return mapper.Login(member);
 		 
 	}
-	
-	
-	//회원정보수정
-	/*
-	 * public void UserInfoUpdateAjax(Member member) {
-	 * mapper.UserInfoUpdateAjax(member); }
-	 */
+	// 회원정보수정
+	public void UserInfoUpdate(Model model) {
+		System.out.println("service" + model);
+		mapper.UserInfoUpdate(model); 
+		}
+
 	
 //**************************************************************신고  페이지
 	// ReportMap(사고위치제공페이지)에서 좌표 DB저장
@@ -113,6 +113,9 @@ public class SpringService {
 		System.out.println("ShareMap서비스 fsvo : "+fsvo);
 		return fsvo;
 	}
+	
+
+	
 
 	
 

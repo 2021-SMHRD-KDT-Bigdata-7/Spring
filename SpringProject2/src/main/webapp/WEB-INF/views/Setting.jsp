@@ -15,7 +15,7 @@
     
       
       $(document).ready(function(){
-    	  
+    	  //loadtable();
            })
       
 	function goForm(){
@@ -27,56 +27,12 @@
         //     $(".rform").css("display","block");  //글쓰기화면의 rform div의 css를 바꿈
                $(".rform").slideDown();
           }
-       }
-
-      
-   
-    /*  function table(data){
-    	 
-         var utable="<table class='utable'>";
-         
-         utable += "<tr>";
-         utable += "<td>아이디</td>";
-         utable += "<td>비밀번호</td>";
-         utable += "<td>이름</td>";
-         utable += "<td>전화번호</td>";
-         utable += "<tr>";
-         utable += "<td>"+${mvo.m_id}+"</td>";
-         utable += "<td>"+${mvo.m_pw}+"</td>";
-         utable += "<td>"+${mvo.m_name}+"</td>";
-         utable += "<td>"+${mvo.m_phone}+"</td>";
-         utable += "</tr>";
-         utable += "<tr>";
-         utable += "<td colspan="2">수정</td>";
-         utable += "<td></td>";
-         utable += "</tr>";
-         $(".utable").html(utable);
-     } */
-     
-    /* function goUpdate(idx){
-    	 var m_pw = $("#p"+m_id).text();
-         var m_name = $("#n"+m_id).text();
-         var m_phone = $("#h"+m_id).text();
-         
-         
-         var newPassword = "<input id='np"+m_id+"' type='text' class='form-control' value='"+password+"'>";
-         $("#p"+m_id).html(newPassword);
-         
-         var newName = "<input id='nn"+m_id+"' type='text class=form-control' value='"+name+"'>";
-         $("#n"+m_id).html(newName);
-         
-         var newPhone = "<input id='nh"+m_id+"' type='text class=form-control' value='"+phone+"'>";
-         $("#h"+m_id).html(newPhone);
-      
-         var newUpdate = "<button class='btn btn-success btn-sm' onClick='update("+m_id+")'>수정하기</button>";
-           $("#u"+m_id).html(newUpdate);
-      }*/
-     
-
+       };
+    
      </script>
 </head>
 
-<body>
+<body> 
 
 
 	<div id="setting-form">
@@ -105,31 +61,7 @@
 			<form action="${cpath}/Logout.do" method="GET" style="width: 100%; text-align: right;">
 				<a href="${cpath}/Logout.do">로그아웃</a>
 			</form>
-			<!-- <div>
-			<h2>차량등록</h2>
-			<form action="Car_Reg.do">
-				<table id="tbl-report">
-						<tr>
-							<td id="tbl-content">
-								<select class="select" name=vehicle_name>
-									<option value="선택">선택</option>
-									<option value="mini">소형 소방펌프차</option>
-									<option value="middle">중형 소방펌프차</option>
-									<option value="large">대형 소방펌프차</option>
-									<option value="18m">18m 굴절차</option>
-									<option value="27m">27m 굴절차</option>
-									<option value="35m">35m 굴절차</option>
-									<option value="61.5m">61.5m 굴절차</option>
-									<option value="32m">32m 고가사다리차</option>
-									<option value="46m">46m 고가사다리차</option>
-									<option value="52m">52m 고가사다리차</option>
-								</select>
-							</td>
-							<td id="tbl-content"><button type="submit" id="btn-select" >등록</button></td>
-						</tr>
-				</table>
-				</form>
-			</div> -->
+			
 		</c:when>
 		<c:otherwise>	
 			 
@@ -149,40 +81,37 @@
 			    <td id="tbl-title">전화번호</td>
 			    <td id="tbl-content">${mvo.m_phone}</td>
 			  </tr>
-			</table> 
+			  <tr>
+			  	<td colspan="2">
+			 		<button type="button" id="slideU" onClick='goForm()'>회원정보수정</button>
+			 	</td>
+			  </tr>
+			</table>  
 			
-			 <button type="button" id="slideU" onClick='goForm()'>회원정보수정</button>
-		
 	<div class="rform" style="display : none" >	
-		<form id="frm" method="post">
-			<table>
+		<form action="${cpath}/UserInfoUpdate.do?m_id=${mvo.m_id}" id="frm" method="post">
+			<table id="tbl-report">
 				<tr>
-					<td>아이디</td>
-					<td>
-						<input type="text" name="m_id"  value="${m_id}" readonly>
+					<td id="tbl-title">비밀번호</td>
+					<td id="tbl-content">
+						<input type="password" id="pw" name="m_pw" value="m_pw">
 					</td>
 				</tr>
 				<tr>
-					<td>비밀번호</td>
-					<td>
-						<input type="password" name="m_pw">
+					<td id="tbl-title">이름</td>
+					<td id="tbl-content">
+						<input type="text" id="name" name="m_name" value="m_name" placeholder=${mvo.m_name}>
 					</td>
 				</tr>
 				<tr>
-					<td>이름</td>
-					<td>
-						<input type="text" name="m_name" placeholder="${m_id}">
-					</td>
-				</tr>
-				<tr>
-					<td>전화번호</td>
-					<td>
-						<input type="text" name="m_phone" placeholder="${m_id}">
+					<td id="tbl-title">전화번호</td>
+					<td id="tbl-content">
+						<input type="text" id="phone" name="m_phone" value="m_phone" placeholder=${mvo.m_phone}>
 					</td>
 				</tr>
 				<tr>
 					<td colspan="2">
-						<button type="button" id="slideD" onClick="goUpdate()">수정</button>
+						<button type="submit" id="slideD">수정</button>
 					</td>
 					<td>
 					</td>

@@ -28,12 +28,10 @@ public interface SpringMapper {
 
 	public Member ReportSelectNP(int re_seq);
 	public FireStation Map(String m_id);
-	/* public Member UserInfoUpdate(String m_pw, String name, String m_phone); */
 	
 	
-	 @Update
-	 ("update Setting set m_pw=#{m_pw},m_name=#{m_name},m_phone=#{m_phone} where m_id=#{m_id}"
-	 ) public void UserInfoUpdateAjax(Member member);
-	 
+	
+	public void UserInfoUpdate(Model model);
+	
 
 }

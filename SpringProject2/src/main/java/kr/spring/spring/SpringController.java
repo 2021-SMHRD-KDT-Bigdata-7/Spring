@@ -106,14 +106,23 @@ public class SpringController {
 		  return "redirect:/Main.do";
 	  }
 // 회원정보수정
-		
-	  
-		/*
-		 * @RequestMapping("/UserInfoUpdateAjax.do") // 위에 boardUpdate는 contents와 title을
-		 * 변경하는것 public void UserInfoUpdateAjax(Member member) {
-		 * service.UserInfoUpdateAjax(member); }
-		 */
-//**********************************************************************신고페이지 메소드
+
+	  @RequestMapping("/UserInfoUpdate.do") 
+	   public String UserInfoUpdate(@RequestParam String m_id, @RequestParam String m_pw, @RequestParam String m_name, @RequestParam String m_phone, Model model) {
+		  System.out.println("controller" + m_id);
+		  System.out.println("controller" + m_pw);
+		  System.out.println("controller" + m_name);
+		  System.out.println("controller" + m_phone);
+		  
+		  model.addAttribute("m_id", m_id);
+		  model.addAttribute("m_pw", m_pw);
+		  model.addAttribute("m_name", m_name);
+		  model.addAttribute("m_phone", m_phone);
+		  service.UserInfoUpdate(model); 
+		  return "Setting";
+	   }
+		 
+	  //**********************************************************************신고페이지 메소드
 	 // ReportMap(신고 시 위치제공페이지)의 좌표 넣기 / re_seq빼내기
 	@RequestMapping(value = "/ReportlatInsert.do", method = RequestMethod.POST)
 	public String ReportlatInsert(@RequestParam double re_latitude, @RequestParam double re_longitude,
