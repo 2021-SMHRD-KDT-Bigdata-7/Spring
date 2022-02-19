@@ -13,6 +13,7 @@ import kr.spring.domain.Report;
 
 public interface SpringMapper {
 	
+//	public Member Main(String m_id);
 	public void JoinUser(ModelMap model);
 	public void JoinFire(ModelMap model);
 	public Member Login(Member member);
@@ -31,7 +32,7 @@ public interface SpringMapper {
 	
 	
 	
-	public void UserInfoUpdate(Model model);
+	public void UserInfoUpdate(ModelMap model);
 	
 
 }

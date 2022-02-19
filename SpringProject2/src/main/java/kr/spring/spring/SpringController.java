@@ -25,12 +25,22 @@ public class SpringController {
 
 	@Autowired
 	SpringService service;
-
+	
+	/*
+	@RequestMapping("/Main.do")
+	public String Main(@RequestParam String m_id) {
+		
+		Member member = service.Main(m_id);
+		System.out.println(member);
+		return "Main";
+	} 
+	 */
+	
 	@RequestMapping("/Main.do")
 	public String Main() {
 		return "Main";
 	}
-
+	
 	@RequestMapping("/ReportCheck.do") public String ReportCheck() { return "ReportCheck"; }
 	
 	@RequestMapping("/Login.do") public String Login() { return "Login"; }
@@ -108,16 +118,16 @@ public class SpringController {
 // 회원정보수정
 
 	  @RequestMapping("/UserInfoUpdate.do") 
-	   public String UserInfoUpdate(@RequestParam String m_id, @RequestParam String m_pw, @RequestParam String m_name, @RequestParam String m_phone, Model model) {
-		  System.out.println("controller" + m_id);
-		  System.out.println("controller" + m_pw);
-		  System.out.println("controller" + m_name);
-		  System.out.println("controller" + m_phone);
-		  
-		  model.addAttribute("m_id", m_id);
-		  model.addAttribute("m_pw", m_pw);
-		  model.addAttribute("m_name", m_name);
-		  model.addAttribute("m_phone", m_phone);
+	   public String UserInfoUpdate(@RequestParam Map<String, Object> map, ModelMap model) {
+		  model.addAllAttributes(map);
+			/*
+			 * System.out.println("controller" + m_id); System.out.println("controller" +
+			 * m_pw); System.out.println("controller" + m_name);
+			 * System.out.println("controller" + m_phone);
+			 * 
+			 * model.addAttribute("m_id", m_id); model.addAttribute("m_pw", m_pw);
+			 * model.addAttribute("m_name", m_name); model.addAttribute("m_phone", m_phone);
+			 */
 		  service.UserInfoUpdate(model); 
 		  return "Setting";
 	   }
@@ -169,7 +179,7 @@ public class SpringController {
 
 			service.ReportInsert(model);
 
-			return "redirect:/ShareMap.do";
+			return "ReportCheck";
 		}
 		
 	// Report(신고 페이지)에서 처음으로 버튼을 클릭 했을 때 좌표값 DB에서 지워야함

@@ -12,28 +12,18 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <title>불이야-설정</title>
  <script type="text/javascript">
-    
-      
-      $(document).ready(function(){
-    	  //loadtable();
-           })
-      
+ 
 	function goForm(){
           if($(".rform").css("display")=="block"){
-        //     $(".rform").css("display","none");  //글쓰기화면의 rform div의 css를 바꿈
                $(".rform").slideUp();
           }
           else{
-        //     $(".rform").css("display","block");  //글쓰기화면의 rform div의 css를 바꿈
                $(".rform").slideDown();
           }
        };
-    
      </script>
 </head>
-
 <body> 
-
 
 	<div id="setting-form">
 		
@@ -61,7 +51,6 @@
 			<form action="${cpath}/Logout.do" method="GET" style="width: 100%; text-align: right;">
 				<a href="${cpath}/Logout.do">로그아웃</a>
 			</form>
-			
 		</c:when>
 		<c:otherwise>	
 			 
@@ -81,32 +70,33 @@
 			    <td id="tbl-title">전화번호</td>
 			    <td id="tbl-content">${mvo.m_phone}</td>
 			  </tr>
-			  <tr>
-			  	<td colspan="2">
-			 		<button type="button" id="slideU" onClick='goForm()'>회원정보수정</button>
-			 	</td>
-			  </tr>
 			</table>  
-			
+			<table>			
+				  <tr>
+				  	<td>
+				 		<button type="button" id="slideU" onClick='goForm()'>회원정보수정</button>
+				 	</td>
+				  </tr>
+			  </table>
 	<div class="rform" style="display : none" >	
 		<form action="${cpath}/UserInfoUpdate.do?m_id=${mvo.m_id}" id="frm" method="post">
 			<table id="tbl-report">
 				<tr>
 					<td id="tbl-title">비밀번호</td>
 					<td id="tbl-content">
-						<input type="password" id="pw" name="m_pw" value="m_pw">
+						<input type="password" id="pw" name="m_pw">
 					</td>
 				</tr>
 				<tr>
 					<td id="tbl-title">이름</td>
 					<td id="tbl-content">
-						<input type="text" id="name" name="m_name" value="m_name" placeholder=${mvo.m_name}>
+						<input type="text" id="name" name="m_name">
 					</td>
 				</tr>
 				<tr>
 					<td id="tbl-title">전화번호</td>
 					<td id="tbl-content">
-						<input type="text" id="phone" name="m_phone" value="m_phone" placeholder=${mvo.m_phone}>
+						<input type="text" id="phone" name="m_phone">
 					</td>
 				</tr>
 				<tr>

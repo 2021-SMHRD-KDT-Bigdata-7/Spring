@@ -21,6 +21,13 @@ public class SpringService {
 	SpringMapper mapper;
 
 //**************************************************************로그인 및 회원가입
+	/*
+	public Member Main(String m_id) {
+		Member member = mapper.Main(m_id);
+		return member;
+	} 
+	*/
+	
 	//회원가입-일반사용자
 	public void JoinUser(ModelMap model) {
 //////////확인용	
@@ -39,7 +46,7 @@ public class SpringService {
 		 
 	}
 	// 회원정보수정
-	public void UserInfoUpdate(Model model) {
+	public void UserInfoUpdate(ModelMap model) {
 		System.out.println("service" + model);
 		mapper.UserInfoUpdate(model); 
 		}

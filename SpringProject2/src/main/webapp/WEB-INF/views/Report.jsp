@@ -17,7 +17,7 @@
 ${mvo.m_id}
 ${re_seq}
 	<div class="empty"></div>
-	<form id="form-report-info" action="${cpath}/ReportCheck.do" method="POST">
+	<form id="form-report-info" action="${cpath}/ReportInsert.do" method="POST">
 	<input type="hidden" name="re_seq" value="${re_seq}">
 		<h2>신고인 정보</h2>
 		<table id="tbl-report">
@@ -56,7 +56,7 @@ ${re_seq}
 		  <tr>
 		    <td id="tbl-title">내용</td>
 			<td id="tbl-content">
-	    	  <textarea id="report-textarea" name="re_content" rows="20" cols="50" placeholder="내용 입력"></textarea>
+	    	  <textarea id="report-textarea" name="re_content" value="re_content" rows="20" cols="50" placeholder="내용 입력"></textarea>
 			</td>
 		  </tr>
 		  <tr>
