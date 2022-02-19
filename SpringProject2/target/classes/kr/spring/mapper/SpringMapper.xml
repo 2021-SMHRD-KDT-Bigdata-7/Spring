@@ -55,6 +55,7 @@
 	</select>
 	
 	<!-- 신고내용 클릭 시 세부내용 -->
+	<!-- 접수하기 버튼 클릭 시 신고내용정보 가져오기 -->
 	<select id="ReportDetail" resultType="kr.spring.domain.Report">
 	    select * from t_report where re_seq = #{re_seq}
 	</select>
@@ -65,6 +66,7 @@
 	</select>
 	
 	<!-- 소방메인페이지에서 지도보기 클릭 시 소방서 정보 가져오기 -->
+	<!-- 접수하기 버튼 클릭 시 소방서 정보 가져오기 -->
 	<select id="Map" resultType="kr.spring.domain.FireStation" parameterType="String">
 		select * from t_fire_station where m_id = #{m_id}
 	</select>

@@ -88,14 +88,14 @@ ${re_seq}
 		  
 		  <tr align="center">
 		    <td colspan="2">
-		      <input id="btn-report" type="submit" onClick="goShareMap()" value="신고하기" >
+		      <input id="btn-report" type="submit" value="신고하기" >
 		    </td>
 		  </tr>
 		</table>
 	</form>
 </section>
 <footer class="footer">
-	<img id="logo" onclick="location.href='${cpath}/Main.do'" src="resources/images/header.png">
+	<img id="logo" onclick="location.href='${cpath}/ReportlatDelete.do?re_seq=${re_seq}'" src="resources/images/header.png">
 </footer>	
 </div>
 </body>
