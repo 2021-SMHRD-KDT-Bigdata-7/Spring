@@ -41,12 +41,41 @@
 		};
 		var map = new kakao.maps.Map(container, options);
 		
+		map.setMapTypeId(kakao.maps.MapTypeId.HYBRID); 
+
 		var U = new kakao.maps.LatLng(lat_U, lon_U),
 	  		F = new kakao.maps.LatLng(lat_F, lon_F);
 
 	//위성지도로 변환
-//		map.setMapTypeId(kakao.maps.MapTypeId.HYBRID); 
 	
+	 // 마커위치
+	    var markerPosition_U  = new kakao.maps.LatLng(lat_U, lon_U);  //신고위치
+	    var markerPosition_F  = new kakao.maps.LatLng(lat_F, lon_F);  //소방서위치
+	 
+/*     //마커 이미지 - 신고지점
+		var imageSrc_U = "resources/images/user_select.png",   
+		    imageSize_U = new kakao.maps.Size(40, 40);
+		var markerImage_U = new kakao.maps.MarkerImage(imageSrc_U, imageSize_U); */
+		
+    //마커 이미지 - 소방서
+		var imageSrc_F = "resources/images/logo.png",   
+		    imageSize_F = new kakao.maps.Size(50, 40);
+		var markerImage_F = new kakao.maps.MarkerImage(imageSrc_F, imageSize_F);
+		
+    // 마커생성
+	    var marker_U = new kakao.maps.Marker({
+	        position: markerPosition_U
+//          image: markerImage_U 
+	    });
+	    var marker_F = new kakao.maps.Marker({
+	        position: markerPosition_F,
+	        image: markerImage_F
+	    });
+
+    // 마커표시
+	    marker_U.setMap(map);
+	    marker_F.setMap(map);
+	    
 	// 지도 범위를 마커가 다 보이게 설정하기
 	// 지도범위를 재설정할 변수
 		var bounds = new kakao.maps.LatLngBounds(U,F);  
@@ -54,21 +83,6 @@
 	// bounds를 지도에 설정
 	    map.setBounds(bounds);
 
-	 // 마커위치
-	    var markerPosition_U  = new kakao.maps.LatLng(lat_U, lon_U);  //신고위치
-	    var markerPosition_F  = new kakao.maps.LatLng(lat_F, lon_F);  //소방서위치
-
-    // 마커생성
-	    var marker_U = new kakao.maps.Marker({
-	        position: markerPosition_U
-	    });
-	    var marker_F = new kakao.maps.Marker({
-	        position: markerPosition_F
-	    });
-
-    // 마커표시
-	    marker_U.setMap(map);
-	    marker_F.setMap(map);
 	
 	// 소방차량 위치 실시간으로 나타내기
 	// geolocation
@@ -105,13 +119,19 @@
 	
 	
 	function displayMarker(locPosition){
-
+		//마커 이미지 - 출동차량
+		var imageSrc = "resources/images/firecar.png",   
+		    imageSize = new kakao.maps.Size(40, 40);
+		    
+		var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
+		
 		var nwp_marker = new kakao.maps.Marker({  
 		    map: map, 
-		    position: locPosition
+		    position: locPosition,
+		    image: markerImage
 		}); 
 	        nwp_marker.setMap(map);
-	};
+	}; 
 	
 	
  	</script>

@@ -95,7 +95,7 @@ ${re_seq}
 	</form>
 </section>
 <footer class="footer">
-	<img id="logo" onclick="location.href='${cpath}/Main.do'" src="resources/images/header.png">
+	<img id="logo" onclick="location.href='${cpath}/ReportlatDelete.do?re_seq=${re_seq}'" src="resources/images/header.png">
 </footer>	
 </div>
 </body>
