@@ -2,6 +2,8 @@ package kr.spring.mapper;
 
 
 import java.util.List;
+
+import org.apache.ibatis.annotations.Update;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 
@@ -26,5 +28,10 @@ public interface SpringMapper {
 
 	public Member ReportSelectNP(int re_seq);
 	public FireStation Map(String m_id);
+	
+	
+	
+	public void UserInfoUpdate(Model model);
+	
 
 }

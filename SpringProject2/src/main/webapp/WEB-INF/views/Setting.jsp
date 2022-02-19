@@ -9,10 +9,32 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/cssfile.css" type="text/css" media="screen" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <title>불이야-설정</title>
+ <script type="text/javascript">
+    
+      
+      $(document).ready(function(){
+    	  //loadtable();
+           })
+      
+	function goForm(){
+          if($(".rform").css("display")=="block"){
+        //     $(".rform").css("display","none");  //글쓰기화면의 rform div의 css를 바꿈
+               $(".rform").slideUp();
+          }
+          else{
+        //     $(".rform").css("display","block");  //글쓰기화면의 rform div의 css를 바꿈
+               $(".rform").slideDown();
+          }
+       };
+    
+     </script>
 </head>
 
-<body>
+<body> 
+
+
 	<div id="setting-form">
 		
 		<!-- 소방 접속  -->
@@ -21,7 +43,7 @@
 		<c:choose>
 		<c:when test="${mvo.m_type eq 'F'}">
 			<h2>로그인 정보</h2>
-				<table id="tbl-report">
+				 <table id="tbl-report">
 				  <tr>
 				    <td id="tbl-title">아이디</td>
 				    <td id="tbl-content">${mvo.m_id}</td>
@@ -30,60 +52,74 @@
 				    <td id="tbl-title">센터명</td>
 				    <td id="tbl-content">${mvo.m_name}</td>
 				  </tr>
-				  <tr>
-				    <td id="tbl-title">번호</td>
-				    <td id="tbl-content">${mvo.m_phone}</td>
-				  </tr>
-				<%-- </c:forEach> --%>
-				</table>
+				  <%-- <tr>
+				    <td id="tbl-title">주소</td>
+				    <td id="tbl-content">${}</td>
+				  </tr> --%>
+				</table> 
+			
 			<form action="${cpath}/Logout.do" method="GET" style="width: 100%; text-align: right;">
 				<a href="${cpath}/Logout.do">로그아웃</a>
 			</form>
-			<!-- <div>
-			<h2>차량등록</h2>
-			<form action="Car_Reg.do">
-				<table id="tbl-report">
-						<tr>
-							<td id="tbl-content">
-								<select class="select" name=vehicle_name>
-									<option value="선택">선택</option>
-									<option value="mini">소형 소방펌프차</option>
-									<option value="middle">중형 소방펌프차</option>
-									<option value="large">대형 소방펌프차</option>
-									<option value="18m">18m 굴절차</option>
-									<option value="27m">27m 굴절차</option>
-									<option value="35m">35m 굴절차</option>
-									<option value="61.5m">61.5m 굴절차</option>
-									<option value="32m">32m 고가사다리차</option>
-									<option value="46m">46m 고가사다리차</option>
-									<option value="52m">52m 고가사다리차</option>
-								</select>
-							</td>
-							<td id="tbl-content"><button type="submit" id="btn-select" >등록</button></td>
-						</tr>
-				</table>
-				</form>
-			</div> -->
+			
 		</c:when>
-		<c:otherwise>		 
+		<c:otherwise>	
+			 
 		<%-- 일반 접속 --%> 
 		<h2>로그인 정보</h2>
-			<table id="tbl-report">
-			<%-- <c:forEach var="mvo" items="${mlist}"> --%>
+		
+		<table id="tbl-report">
 			  <tr>
 			    <td id="tbl-title">아이디</td>
 			    <td id="tbl-content">${mvo.m_id}</td>
-			  </tr>
+			  </tr> 
 			  <tr>
 			    <td id="tbl-title">이름</td>
 			    <td id="tbl-content">${mvo.m_name}</td>
 			  </tr>
 			  <tr>
-			    <td id="tbl-title">번호</td>
+			    <td id="tbl-title">전화번호</td>
 			    <td id="tbl-content">${mvo.m_phone}</td>
 			  </tr>
-			<%-- </c:forEach> --%>
+			  <tr>
+			  	<td colspan="2">
+			 		<button type="button" id="slideU" onClick='goForm()'>회원정보수정</button>
+			 	</td>
+			  </tr>
+			</table>  
+			
+	<div class="rform" style="display : none" >	
+		<form action="${cpath}/UserInfoUpdate.do?m_id=${mvo.m_id}" id="frm" method="post">
+			<table id="tbl-report">
+				<tr>
+					<td id="tbl-title">비밀번호</td>
+					<td id="tbl-content">
+						<input type="password" id="pw" name="m_pw" value="m_pw">
+					</td>
+				</tr>
+				<tr>
+					<td id="tbl-title">이름</td>
+					<td id="tbl-content">
+						<input type="text" id="name" name="m_name" value="m_name" placeholder=${mvo.m_name}>
+					</td>
+				</tr>
+				<tr>
+					<td id="tbl-title">전화번호</td>
+					<td id="tbl-content">
+						<input type="text" id="phone" name="m_phone" value="m_phone" placeholder=${mvo.m_phone}>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<button type="submit" id="slideD">수정</button>
+					</td>
+					<td>
+					</td>
+				</tr>
 			</table>
+      </form>
+      </div>
+			
 
 			<%-- <form action="${cpath}/Logout.do" method="post" style="width: 100%; text-align: right;">
 				<button onclick = "location.href ='Logout.do'">로그아웃</button> --%>
