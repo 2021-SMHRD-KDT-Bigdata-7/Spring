@@ -10,11 +10,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>불이야-회원가입</title>
 </head>
-<body>
-
-
-	
-	<div class="top"></div>
+<body id="background">
+<div id="wrap" style="height: auto;">
+<section>
+	<div class="empty"></div>
 	<header> <h2 class="title">Join Us</h2> </header> 
 	
 	<form action="" id="agree">
@@ -26,7 +25,7 @@
                             <input type="checkbox" name="chk" id="chk"> 
                         </li>
                     </ul>
-                    <textarea name="" id="">
+                    <textarea name="" id="" readonly="readonly">
 제 1 조 (목적)
 이 약관은 불이야(이하 "사이트"라 합니다)에서 제공하는 인터넷서비스(이하 "서비스"라 합니다)의 이용 조건 및 절차에 관한 기본적인 사항을 규정함을 목적으로 합니다.
 
@@ -75,7 +74,7 @@
                             <input type="checkbox" name="chk" id="chk">
                         </li>
                     </ul>
-                    <textarea name="" id=""> 개인정보 수집 및 이용에 대한 안내
+                    <textarea name="" id="" readonly="readonly"> 개인정보 수집 및 이용에 대한 안내
  1. 개인정보 수집 및 이용 목적
   -  급박한 위험으로부터 생명, 신체를 보호
  2. 수집하는 개인정보 항목
@@ -93,7 +92,7 @@
                         </li>
                     </ul>
  
-                    <textarea name="" id=""> 위치정보 이용약관에 대한 안내
+                    <textarea name="" id="" readonly="readonly"> 위치정보 이용약관에 대한 안내
  1. 위치정보 수집 및 이용 목적
   -  급박한 위험으로부터 생명, 신체를 보호
  2. 수집하는 개인정보 항목
@@ -104,8 +103,8 @@
 </textarea>
                 </li>
             </ul>
-		${m_type}
         </form>
+		${m_type}
 		 <form action="JoinAll.do" method="POST"> 
   		 <c:choose>
   		 <c:when test="${m_type eq 'U'}">
@@ -141,35 +140,12 @@
 				<input type="submit" id="btn-submit" value="가입완료">
 			</div>
 		</form>
-		
-<!-- 출처: https://ddorang-d.tistory.com/9 [도라미도라미] -->
-	
-	<!-- 스크립트 -->
-	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-	<script>
-		window.onload = function(){
-		    document.getElementById("add1").addEventListener("click", function(){
-		        //카카오 지도 발생
-		        new daum.Postcode({
-		            oncomplete: function(data) {
-		                document.getElementById("add1").value = data.zonecode;
-		                document.getElementById("add2").value = data.address;
-		                document.querySelector("input[name=add3]").focus();
-		            }
-		        }).open();
-		    });
-		}
-	</script>
-	<script>
-	    function chk() {
-	        var f = document.agree;
-	        if(f.chk.checked!==true) {
-	            alert('필수항목에 체크해 주세요.');
-	        } else {
-	            alert('통과');
-	            f.submit();
-	        }
-	    }
-	</script>
+</section>
+<footer class="footer">
+<div style="display: contents;">
+	<img id="logo" onclick="location.href='${cpath}/Main.do'" src="resources/images/footer.png">
+</div>
+</footer>
+</div>	
 </body>
 </html>

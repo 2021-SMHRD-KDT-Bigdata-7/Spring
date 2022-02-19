@@ -12,8 +12,10 @@
 <title>불이야-신고접수</title>
 </head>
 <body>
+<div id="wrap">
+<div class="empty"></div>
 ${mvo.m_id}
-<div class="top"></div>
+<section style="height: auto;">
 <p class="return-text" onclick="location.href='ReportTaking.do'">< 뒤로가기</p>
 	<form id="form-report-info" action="${cpath}/ShareMap.do?m_id=${mvo.m_id}&re_seq=${rvo.re_seq}" method="POST">
 		<h2>신고인 정보</h2>
@@ -45,11 +47,15 @@ ${mvo.m_id}
 
 			<tr align="center">
 				<td colspan="2">
-						<button id="btn-detail">전화하기</button>
-						<button type="submit" id="btn-detail">신고접수</button>
+						<button type="submit" id="btn-report">신고접수</button>
 				</td>
 			</tr>
 		</table>
 	</form>
+</section>
+<footer class="footer">
+	<img id="logo" onclick="location.href='${cpath}/Map.do'" src="resources/images/header.png">
+</footer>
+</div>
 </body>
 </html>
