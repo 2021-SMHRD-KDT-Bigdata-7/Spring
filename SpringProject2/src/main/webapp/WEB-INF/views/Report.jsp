@@ -10,32 +10,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <title>불이야-신고</title>
-	<script type="text/javascript">
-	console.log(${re_latitude});
-	console.log(${re_longitude});
-		function goShareMap(){
-			$.ajax({
-				url : "/ShareMap.do",
-				type : "get",
-				data : {"re_latitude" : ${re_latitude},
-					"re_longitude" : ${re_longitude}},
-				success : function (data) {
-					console.log(${re_latitude});
-					console.log(${re_longitude});
-		            alert("데이터 전송이 성공적으로 끝났을 때 실행");
-		        }
-			});
-		};
-	</script>
 </head>
-	
 <body>
 <div id="wrap">
 <section>
 ${mvo.m_id}
 ${re_seq}
 	<div class="empty"></div>
-	<form id="form-report-info" action="${cpath}/ReportInsert.do" method="POST">
+	<form id="form-report-info" action="${cpath}/ReportCheck.do" method="POST">
 	<input type="hidden" name="re_seq" value="${re_seq}">
 		<h2>신고인 정보</h2>
 		<table id="tbl-report">
