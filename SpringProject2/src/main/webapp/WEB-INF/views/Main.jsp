@@ -38,11 +38,6 @@ ${mvo.m_type}
 		<input type="button" id="btn-submit" value="회원가입" readonly="readonly" onclick="location.href='JoinSelect.do'">
 	</div>
 </form>
-		<!-- 로그인 전 main -->
-		<!-- <div id="btn-submit-main">
-			<button onclick="location.href='Login.do'" id="btn-submit">로그인</button>
-			<div id="join"><p id="join-text" onclick="location.href='JoinSelect.do'">회원가입</p></div>
-		</div> -->
 		</div>
 	  </c:when>
 	  <%-- 모든 사용자 로그인 시 적용되는 화면 --%>
