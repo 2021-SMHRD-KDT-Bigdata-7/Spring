@@ -24,7 +24,6 @@
      </script>
 </head>
 <body> 
-
 	<div id="setting-form">
 		
 		<!-- 소방 접속  -->
@@ -128,8 +127,8 @@
 					<td id="tbl-content"><input type="radio" name="radio" id="radio"></td>
 				</tr>
 				<tr>
-					<td>
-						<button>확인</button>
+					<td colspan="2">
+						<button id="btn-chk">확인</button>
 					</td>
 				</tr>
 			</table>
@@ -143,6 +142,5 @@
 	<form action="${cpath}/Logout.do" method="GET" style="margin-top:5%;">
 				<a href="${cpath}/Logout.do">로그아웃</a>
 	</form>
- 		
 </body>
 </html>

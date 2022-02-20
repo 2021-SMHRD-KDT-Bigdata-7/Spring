@@ -42,8 +42,6 @@ public class SpringController {
 	}
 	
 	@RequestMapping("/ReportCheck.do") public String ReportCheck() { return "ReportCheck"; }
-	
-	@RequestMapping("/Login.do") public String Login() { return "Login"; }
 	  
 	@RequestMapping("/Join.do") 
 	public String Join(@RequestParam String m_type, Model model) { 
@@ -99,14 +97,22 @@ public class SpringController {
 	
 	//로그인
 	 @RequestMapping(value = "/Login.do", method = RequestMethod.POST)
-	  public String Login(Member member, HttpServletRequest request)  { 
+	  public String Login(@RequestParam Map<String, Object> map, ModelMap model, HttpServletRequest request)  { 
 			
-		Member mvo = service.Login(member);
+		model.addAllAttributes(map);
+		System.out.println("컨트롤러 modlemap "+map);
+		Member mvo = service.Login(model);
 		HttpSession session = request.getSession();
 		session.setAttribute("mvo", mvo);
 		System.out.println("컨트롤러 세션 "+session);
+		System.out.println("컨트롤러 세션타입 :  "+mvo.getM_type());
 		
-		return "redirect:/Main.do";
+		if(mvo.getM_type().equals("U")) {
+			return "redirect:/Main.do";
+		}
+		else{
+			return "redirect:/Map.do";
+		}
 	  }
 
 	  // 로그아웃

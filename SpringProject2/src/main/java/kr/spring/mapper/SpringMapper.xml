@@ -57,7 +57,7 @@
 
 	<!-- 신고내용 가져오기  -->
 	<select id="ReportTaking" resultType="kr.spring.domain.Report">
-	    select * from t_report
+	    select * from t_report order by re_seq desc
 	</select>
 	
 	<!-- 신고내용 클릭 시 세부내용 -->

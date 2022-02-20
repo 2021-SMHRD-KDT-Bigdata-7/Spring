@@ -40,10 +40,12 @@ public class SpringService {
 		mapper.JoinFire(model);
 	}
 	// 로그인
-	public Member Login(Member member) {
+	public Member Login(ModelMap model) {
+		Member member = new Member();
+		member = mapper.Login(model);
 		System.out.println("member" + member);
-		return mapper.Login(member);
-		 
+		
+		return member;
 	}
 	// 회원정보수정
 	public void UserInfoUpdate(ModelMap model) {
