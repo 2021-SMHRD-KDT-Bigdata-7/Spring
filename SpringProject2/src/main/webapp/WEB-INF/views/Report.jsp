@@ -36,8 +36,8 @@ ${re_seq}
 		  <tr>
 		    <td id="tbl-title">유형 </td>
 			<td id="tbl-content">
-			  <select class="select" name="re_type">
-				  <option selected disabled>선택해주세요.</option>
+			  <select class="select" name="re_type", id="re_type">
+				  <option selected disabled value="null">선택해주세요.</option>
 				  <option value="화재">화재</option>
 				  <option value="구조">구조</option>
 				  <option value="긴급">긴급</option>
@@ -70,7 +70,7 @@ ${re_seq}
 		  
 		  <tr align="center">
 		    <td colspan="2">
-		      <input id="btn-report" type="submit" value="신고하기" >
+		      <input id="btn-report" type="submit" value="신고하기">
 		    </td>
 		  </tr>
 		</table>

@@ -48,10 +48,16 @@ public class SpringService {
 		return member;
 	}
 	// 회원정보수정
-	public void UserInfoUpdate(ModelMap model) {
-		System.out.println("service" + model);
-		mapper.UserInfoUpdate(model); 
-		}
+	public void UserInfoUpdate(ModelMap modelmap) {
+		System.out.println("service" + modelmap);
+		mapper.UserInfoUpdate(modelmap); 
+	}
+	
+	public Member UserInfoSelect(String m_id) {
+		Member member = new Member();
+		member = mapper.UserInfoSelect(m_id);
+		return member;
+	}
 
 	
 //**************************************************************신고  페이지
