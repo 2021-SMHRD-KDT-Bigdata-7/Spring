@@ -32,12 +32,17 @@
 			<td>
 			<select class="select" name="car_type">
 				  <option selected disabled>차량을 선택해주세요.</option>
-				  <option value="">차량1</option>
-				  <option value="">차량2</option>
-				  <option value="">차량3</option>
-				  <option value="">차량4</option>
-				  <option value="">차량5</option>
-				  <option value="">차량6</option>
+				  <option value="mini">소형 소방펌프차</option>
+				  <option value="middle">중형 소방펌프차</option>
+				  <option value="large">대형 소방펌프차</option>
+				  <option value="18m">18m 굴절차</option>
+				  <option value="27m">27m 굴절차</option>
+				  <option value="35m">35m 굴절차</option>
+				  <option value="61.5m">61.5m 고가사다리차</option>
+				  <option value="32m">32m 고가사다리차</option>
+				  <option value="46m">46m 고가사다리차</option>
+				  <option value="52m">52m 고가사다리차</option>
+				  <option value="ambulance">구급차</option>
 			</select>
 			</td>
 		</tr>
