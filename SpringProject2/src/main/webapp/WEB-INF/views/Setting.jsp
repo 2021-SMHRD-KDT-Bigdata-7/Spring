@@ -104,6 +104,7 @@
 						<button type="submit" id="slideD">수정</button>
 					</td>
 					<td>
+					
 					</td>
 				</tr>
 			</table>
