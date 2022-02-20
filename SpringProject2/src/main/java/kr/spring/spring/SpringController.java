@@ -25,12 +25,22 @@ public class SpringController {
 
 	@Autowired
 	SpringService service;
-
+	
+	/*
+	@RequestMapping("/Main.do")
+	public String Main(@RequestParam String m_id) {
+		
+		Member member = service.Main(m_id);
+		System.out.println(member);
+		return "Main";
+	} 
+	 */
+	
 	@RequestMapping("/Main.do")
 	public String Main() {
 		return "Main";
 	}
-
+	
 	@RequestMapping("/ReportCheck.do") public String ReportCheck() { return "ReportCheck"; }
 	
 	@RequestMapping("/Login.do") public String Login() { return "Login"; }
@@ -105,8 +115,24 @@ public class SpringController {
 		  session.invalidate(); 
 		  return "redirect:/Main.do";
 	  }
+// 회원정보수정
 
-//**********************************************************************신고페이지 메소드
+	  @RequestMapping("/UserInfoUpdate.do") 
+	   public String UserInfoUpdate(@RequestParam Map<String, Object> map, ModelMap model) {
+		  model.addAllAttributes(map);
+			/*
+			 * System.out.println("controller" + m_id); System.out.println("controller" +
+			 * m_pw); System.out.println("controller" + m_name);
+			 * System.out.println("controller" + m_phone);
+			 * 
+			 * model.addAttribute("m_id", m_id); model.addAttribute("m_pw", m_pw);
+			 * model.addAttribute("m_name", m_name); model.addAttribute("m_phone", m_phone);
+			 */
+		  service.UserInfoUpdate(model); 
+		  return "Setting";
+	   }
+		 
+	  //**********************************************************************신고페이지 메소드
 	 // ReportMap(신고 시 위치제공페이지)의 좌표 넣기 / re_seq빼내기
 	@RequestMapping(value = "/ReportlatInsert.do", method = RequestMethod.POST)
 	public String ReportlatInsert(@RequestParam double re_latitude, @RequestParam double re_longitude,
@@ -227,18 +253,12 @@ public class SpringController {
 	
 // ReportDetail에서 접수버튼 누르면 나오는 위치 공유 지도
 	@RequestMapping("/ShareMap.do")
-	public String ShareMap(@RequestParam String m_id, Model model) {
-		
+	public String ShareMap(@RequestParam String m_id, @RequestParam int re_seq, Model model) {
 //////확인용
+		System.out.println("ShareMap컨트롤러의 re_seq :"+re_seq);
 		System.out.println("ShareMap컨트롤러의 m_id : "+m_id);
 		
-		FireStation fsvo = service.Map(m_id);
-		
-//////확인용
-		System.out.println("ShareMap컨트롤러의 fsvo : "+fsvo);
-		
-		model.addAttribute("fsvo", fsvo);
-		
+		service.ShareMap(m_id, re_seq, model);
 //////확인용
 		System.out.println("ShareMap컨트롤러의 model : "+model);
 			

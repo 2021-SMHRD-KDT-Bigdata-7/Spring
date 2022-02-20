@@ -2,6 +2,8 @@ package kr.spring.mapper;
 
 
 import java.util.List;
+
+import org.apache.ibatis.annotations.Update;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 
@@ -11,6 +13,7 @@ import kr.spring.domain.Report;
 
 public interface SpringMapper {
 	
+//	public Member Main(String m_id);
 	public void JoinUser(ModelMap model);
 	public void JoinFire(ModelMap model);
 	public Member Login(Member member);
@@ -26,5 +29,10 @@ public interface SpringMapper {
 
 	public Member ReportSelectNP(int re_seq);
 	public FireStation Map(String m_id);
+	
+	
+	
+	public void UserInfoUpdate(ModelMap model);
+	
 
 }

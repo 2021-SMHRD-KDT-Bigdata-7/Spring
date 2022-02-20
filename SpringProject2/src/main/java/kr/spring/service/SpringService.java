@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.spring.domain.FireStation;
 import kr.spring.domain.Member;
@@ -20,6 +21,13 @@ public class SpringService {
 	SpringMapper mapper;
 
 //**************************************************************로그인 및 회원가입
+	/*
+	public Member Main(String m_id) {
+		Member member = mapper.Main(m_id);
+		return member;
+	} 
+	*/
+	
 	//회원가입-일반사용자
 	public void JoinUser(ModelMap model) {
 //////////확인용	
@@ -27,17 +35,21 @@ public class SpringService {
 		
 		mapper.JoinUser(model);
 	}
-	//회원가입-소방서
+	// 회원가입-소방서
 	public void JoinFire(ModelMap model) {
 		mapper.JoinFire(model);
 	}
-	//로그인
+	// 로그인
 	public Member Login(Member member) {
 		System.out.println("member" + member);
 		return mapper.Login(member);
 		 
 	}
-	
+	// 회원정보수정
+	public void UserInfoUpdate(ModelMap model) {
+		System.out.println("service" + model);
+		mapper.UserInfoUpdate(model); 
+		}
 
 	
 //**************************************************************신고  페이지
@@ -102,11 +114,26 @@ public class SpringService {
 		return fsvo;
 	}
 	
-	public FireStation ShareMap(String m_id) {
-		FireStation fsvo = mapper.Map(m_id);
-		System.out.println("ShareMap서비스 fsvo : "+fsvo);
-		return fsvo;
-	}
+
+	public Model ShareMap(String m_id, int re_seq, Model model) {
+	      FireStation fsvo = mapper.Map(m_id);
+	      Report rvo = mapper.ReportDetail(re_seq);
+	      
+	      System.out.println("ShareMap서비스 fsvo : "+fsvo);
+	      System.out.println("ShareMap서비스 rvo : "+rvo);
+	      
+	      model.addAttribute("fsvo", fsvo);
+	      model.addAttribute("rvo", rvo);
+	      
+	      System.out.println("ShareMap서비스 model : "+model);
+
+	      return model;
+	   }
+	   
+	
+
+	
+
 	
 
 
