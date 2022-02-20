@@ -127,6 +127,11 @@
 					<td id="tbl-content">알림 수신 여부</td>
 					<td id="tbl-content"><input type="radio" name="radio" id="radio"></td>
 				</tr>
+				<tr>
+					<td>
+						<button>확인</button>
+					</td>
+				</tr>
 			</table>
 		</div>
 			<h3 style="margin-top: 5%;">
