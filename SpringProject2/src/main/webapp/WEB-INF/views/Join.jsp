@@ -8,6 +8,34 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/cssfile.css" type="text/css" media="screen" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+ 
+	function detail1(){
+          if($("#terms1").css("display")=="block"){
+               $("#terms1").slideUp();
+          }
+          else{
+               $("#terms1").slideDown();
+          }
+       };
+    function detail2(){
+           if($("#terms2").css("display")=="block"){
+                $("#terms2").slideUp();
+           }
+           else{
+                $("#terms2").slideDown();
+           }
+        };
+    function detail3(){
+            if($("#terms3").css("display")=="block"){
+                 $("#terms3").slideUp();
+            }
+            else{
+                 $("#terms3").slideDown();
+            }
+         };
+</script>
 <title>불이야-회원가입</title>
 </head>
 <body id="background">
@@ -24,8 +52,10 @@
                         <li class="checkBtn">
                             <input type="checkbox" name="chk" id="chk"> 
                         </li>
+                        <li><button type="button" onClick='detail1()'>상세보기</button></li>
                     </ul>
-                    <textarea name="" id="" readonly="readonly">
+                    <div id="terms1" style="display : none" >
+                    	<textarea name="" readonly="readonly">
 제 1 조 (목적)
 이 약관은 불이야(이하 "사이트"라 합니다)에서 제공하는 인터넷서비스(이하 "서비스"라 합니다)의 이용 조건 및 절차에 관한 기본적인 사항을 규정함을 목적으로 합니다.
 
@@ -65,7 +95,8 @@
 
 제 7 조 (이용자정보의 변경)
 회원은 이용 신청시에 기재했던 회원정보가 변경되었을 경우에는, 온라인으로 수정하여야 하며 변경하지 않음으로 인하여 발생되는 모든 문제의 책임은 회원에게 있습니다.
-</textarea>
+						</textarea>
+					</div>
                 </li>
                 <li class="checkBox check03">
                     <ul class="clearfix">
@@ -73,8 +104,10 @@
                         <li class="checkBtn">
                             <input type="checkbox" name="chk" id="chk">
                         </li>
+                        <li><button type="button" onClick='detail2()'>상세보기</button></li>
                     </ul>
-                    <textarea name="" id="" readonly="readonly"> 개인정보 수집 및 이용에 대한 안내
+                    <div id="terms2" style="display : none" >
+                    	<textarea name="" readonly="readonly"> 개인정보 수집 및 이용에 대한 안내
  1. 개인정보 수집 및 이용 목적
   -  급박한 위험으로부터 생명, 신체를 보호
  2. 수집하는 개인정보 항목
@@ -82,7 +115,8 @@
  3. 개인정보 보유기간
   - 보존기간 : 5년
  * 위 사항에 대하여 동의를 거부할 권리가 있으며, 동의 거부시 서비스 이용에 제약이 있습니다. 
-                    </textarea>
+                   		</textarea>
+                    </div>
                 </li>
                 <li class="checkBox check03">
                     <ul class="clearfix">
@@ -90,9 +124,10 @@
                         <li class="checkBtn">
                             <input type="checkbox" name="chk" id="chk">
                         </li>
+                        <li><button type="button" onClick='detail3()'>상세보기</button></li>
                     </ul>
- 
-                    <textarea name="" id="" readonly="readonly"> 위치정보 이용약관에 대한 안내
+ 					<div id="terms3" style="display : none" >
+                    	<textarea name="" id="" readonly="readonly"> 위치정보 이용약관에 대한 안내
  1. 위치정보 수집 및 이용 목적
   -  급박한 위험으로부터 생명, 신체를 보호
  2. 수집하는 개인정보 항목
@@ -100,7 +135,8 @@
  3. 개인정보 보유기간
   - 보존기간 : 5년
  * 위 사항에 대하여 동의를 거부할 권리가 있으며, 동의 거부시 서비스 이용에 제약이 있습니다. 
-</textarea>
+						</textarea>
+					</div>
                 </li>
             </ul>
         </form>
