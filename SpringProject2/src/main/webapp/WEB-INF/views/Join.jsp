@@ -11,6 +11,14 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
  
+	function detail0(){
+          if($("#terms0").css("display")=="block"){
+               $("#terms0").slideUp();
+          }
+          else{
+               $("#terms0").slideDown();
+          }
+       };
 	function detail1(){
           if($("#terms1").css("display")=="block"){
                $("#terms1").slideUp();
@@ -41,20 +49,60 @@
 <body id="background">
 <div id="wrap" style="height: auto;">
 <section>
-	<div class="empty"></div>
-	<header> <h2 class="title">Join Us</h2> </header> 
-	
-	<form action="" id="agree">
-            <ul class="agree_box">
-                <li class="checkBox check02">
-                    <ul class="clearfix">
-                        <li>이용약관 동의(필수)</li>
-                        <li class="checkBtn">
-                            <input type="checkbox" name="chk" id="chk"> 
-                        </li>
-                        <li><button type="button" onClick='detail1()'>상세보기</button></li>
-                    </ul>
-                    <div id="terms1" style="display : none" >
+	<div style="height: 50px"></div>
+	<header> <h2 class="title">Join Us</h2> </header>
+	<div style="height: 50px"></div>
+		 <form action="JoinAll.do" method="POST"> 
+  		 <c:choose>
+  		 <c:when test="${m_type eq 'U'}">
+  		 <%-- 일반회원 회원가입 --%>
+			 <div class="input-box"> 
+				 <input type="hidden" name="m_type" value="${m_type}"> 
+				 <input id="m_name" type="text" name="m_name" placeholder="이름"> 
+				 <label for="m_name">이름</label> 
+			 </div>
+		 </c:when>
+		 <c:otherwise>
+		<%-- 소방서 회원가입 --%>
+			 <div class="input-box"> 
+			 	<input type="hidden" name="m_type" value="${m_type}"> 
+			 	<input id="m_name" type="text" name="m_name" placeholder="센터명"> 
+			 	<label for="m_name">센터명</label> 
+			 </div>
+		 </c:otherwise>
+	 	 </c:choose>
+			<div class="input-box"> 
+				<input id="m_id" type="text" name="m_id" placeholder="아이디"> 
+				<label for="m_id">아이디</label> 
+			</div>
+			<div class="input-box"> 
+				<input id="m_pw" type="password" name="m_pw" placeholder="비밀번호"> 
+				<label for="m_pw">비밀번호</label> 
+			</div> 
+			<div class="input-box"> 
+				<input id="m_phone" type="tel" name="m_phone" placeholder="전화번호" maxlength="11"> 
+				<label for="m_phone">전화번호</label> 
+			</div> 
+			
+			<div id="btn-login-main">
+				<input type="submit" id="btn-submit" value="가입완료">
+			</div>
+		</form>
+		
+<div style="height: 50px"></div>	
+<button id="Allagree" onclick="detail0()"> ✔ 회원가입 시 불이야 이용약관, 개인정보 수집 및 이용, 위치정보 이용약관에 모두 동의하는 것으로 간주됩니다. (자세히 보기)</button>
+<div id="terms0" style="display : none" >
+<form action="" id="agree">
+           <ul class="agree_box">
+               <li class="checkBox check02">
+                   <ul class="clearfix">
+                     <li>이용약관 동의(필수)</li>
+                       <li class="checkBtn">
+                           <input type="checkbox" name="chk" id="chk" checked> 
+                       </li>
+                       <li><button id="terms" type="button" onClick='detail1()'>상세보기</button></li>
+</ul>
+<div id="terms1" style="display : none" >
                     	<textarea name="" readonly="readonly">
 제 1 조 (목적)
 이 약관은 불이야(이하 "사이트"라 합니다)에서 제공하는 인터넷서비스(이하 "서비스"라 합니다)의 이용 조건 및 절차에 관한 기본적인 사항을 규정함을 목적으로 합니다.
@@ -102,80 +150,46 @@
                     <ul class="clearfix">
                         <li>개인정보 수집 및 이용에 대한 안내(필수)</li>
                         <li class="checkBtn">
-                            <input type="checkbox" name="chk" id="chk">
+                            <input type="checkbox" name="chk" id="chk" checked>
                         </li>
-                        <li><button type="button" onClick='detail2()'>상세보기</button></li>
-                    </ul>
-                    <div id="terms2" style="display : none" >
-                    	<textarea name="" readonly="readonly"> 개인정보 수집 및 이용에 대한 안내
- 1. 개인정보 수집 및 이용 목적
-  -  급박한 위험으로부터 생명, 신체를 보호
- 2. 수집하는 개인정보 항목
-  - 성명, 전화번호, 신고사항
- 3. 개인정보 보유기간
-  - 보존기간 : 5년
- * 위 사항에 대하여 동의를 거부할 권리가 있으며, 동의 거부시 서비스 이용에 제약이 있습니다. 
-                   		</textarea>
-                    </div>
-                </li>
-                <li class="checkBox check03">
-                    <ul class="clearfix">
-                        <li>위치정보 이용약관 동의(필수)</li>
-                        <li class="checkBtn">
-                            <input type="checkbox" name="chk" id="chk">
-                        </li>
-                        <li><button type="button" onClick='detail3()'>상세보기</button></li>
-                    </ul>
- 					<div id="terms3" style="display : none" >
-                    	<textarea name="" id="" readonly="readonly"> 위치정보 이용약관에 대한 안내
- 1. 위치정보 수집 및 이용 목적
-  -  급박한 위험으로부터 생명, 신체를 보호
- 2. 수집하는 개인정보 항목
-  - 위치
- 3. 개인정보 보유기간
-  - 보존기간 : 5년
- * 위 사항에 대하여 동의를 거부할 권리가 있으며, 동의 거부시 서비스 이용에 제약이 있습니다. 
-						</textarea>
-					</div>
-                </li>
-            </ul>
-        </form>
-		${m_type}
-		 <form action="JoinAll.do" method="POST"> 
-  		 <c:choose>
-  		 <c:when test="${m_type eq 'U'}">
-  		 <%-- 일반회원 회원가입 --%>
-			 <div class="input-box"> 
-				 <input type="hidden" name="m_type" value="${m_type}"> 
-				 <input id="m_name" type="text" name="m_name" placeholder="이름"> 
-				 <label for="m_name">이름</label> 
-			 </div>
-		 </c:when>
-		 <c:otherwise>
-		<%-- 소방서 회원가입 --%>
-			 <div class="input-box"> 
-			 	<input type="hidden" name="m_type" value="${m_type}"> 
-			 	<input id="m_name" type="text" name="m_name" placeholder="센터명"> 
-			 	<label for="m_name">센터명</label> 
-			 </div>
-		 </c:otherwise>
-	 	 </c:choose>
-			<div class="input-box"> 
-				<input id="m_id" type="text" name="m_id" placeholder="아이디"> 
-				<label for="m_id">아이디</label> 
-			</div>
-			<div class="input-box"> 
-				<input id="m_pw" type="password" name="m_pw" placeholder="비밀번호"> 
-				<label for="m_pw">비밀번호</label> 
-			</div> 
-			<div class="input-box"> 
-				<input id="m_phone" type="tel" name="m_phone" placeholder="전화번호" maxlength="11"> 
-				<label for="m_phone">전화번호</label> 
-			</div> 
-			<div id="btn-login-main">
-				<input type="submit" id="btn-submit" value="가입완료">
-			</div>
-		</form>
+                        <li><button id="terms" type="button" onClick='detail2()'>상세보기</button></li>
+</ul>
+<div id="terms2" style="display : none" >
+                   	<textarea name="" readonly="readonly"> 개인정보 수집 및 이용에 대한 안내
+1. 개인정보 수집 및 이용 목적
+ -  급박한 위험으로부터 생명, 신체를 보호
+2. 수집하는 개인정보 항목
+ - 성명, 전화번호, 신고사항
+3. 개인정보 보유기간
+ - 보존기간 : 5년
+* 위 사항에 대하여 동의를 거부할 권리가 있으며, 동의 거부시 서비스 이용에 제약이 있습니다. 
+                  		</textarea>
+                   </div>
+               </li>
+               <li class="checkBox check03">
+                   <ul class="clearfix">
+                       <li>위치정보 이용약관 동의(필수)</li>
+                       <li class="checkBtn">
+                           <input type="checkbox" name="chk" id="chk" checked>
+                       </li>
+                       <li><button id="terms" type="button" onClick='detail3()'>상세보기</button></li>
+              </ul>
+<div id="terms3" style="display : none" >
+                   	<textarea name="" id="" readonly="readonly"> 위치정보 이용약관에 대한 안내
+1. 위치정보 수집 및 이용 목적
+ -  급박한 위험으로부터 생명, 신체를 보호
+2. 수집하는 개인정보 항목
+ - 위치
+3. 개인정보 보유기간
+ - 보존기간 : 5년
+* 위 사항에 대하여 동의를 거부할 권리가 있으며, 동의 거부시 서비스 이용에 제약이 있습니다. 
+					</textarea>
+				</div>
+               </li>
+           </ul>
+       </form>
+        </div>
+
 </section>
 <footer class="footer">
 <div style="display: contents;">
