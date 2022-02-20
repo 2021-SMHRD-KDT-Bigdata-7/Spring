@@ -38,14 +38,10 @@ ${mvo.m_type}
 		<input type="button" id="btn-submit" value="회원가입" readonly="readonly" onclick="location.href='JoinSelect.do'">
 	</div>
 </form>
-		</div>
 	  </c:when>
-	  <%-- 모든 사용자 로그인 시 적용되는 화면 --%>
+	  <%-- 일반사용자 로그인 후--%>
 	  <c:otherwise>
 		<div id = "background">
-		<%-- 일반 사용자 로그인 후 --%>
-			<c:choose>
-			  <c:when test="${m_type eq 'U'}">
 				<div class="empty">
 					<a href="${cpath}/Setting.do">
 					  <img id="setting" src="resources/images/setting2.png">
@@ -61,27 +57,6 @@ ${mvo.m_type}
 							<img id="report" src="resources/images/report.png">  
 						</a>
 				</div> 
-			  </c:when>
-		<%-- 소방서 사용자 로그인 후 --%>
-			  <c:otherwise>
-				<div class="empty">
-					<a href="${cpath}/Setting.do">
-					  <img id="setting" src="resources/images/setting2.png">
-					</a>
-				</div>
-				<div class="empty"></div><div class="empty"></div><div class="empty"></div><div class="empty"></div>
-				<div id="symbol">
-					<img id="mainlogo" src="resources/images/logo-white.png">
-					<div id="title"><p id="title-text">불이야</p></div>
-				</div>
-				<div id="btn-main">
-				<div style="height: auto;">
-					  	<button id="btn-map" onclick="location.href='${cpath}/Map.do'">지도보기</button>
-					  	<button id="btn-report-list" onclick="location.href='${cpath}/ReportTaking.do'">신고현황</button>
-				</div>
-				</div> 
-			  </c:otherwise>
-			</c:choose>
 		</div>
 	  </c:otherwise>
 	</c:choose>

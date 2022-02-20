@@ -16,7 +16,7 @@ public interface SpringMapper {
 //	public Member Main(String m_id);
 	public void JoinUser(ModelMap model);
 	public void JoinFire(ModelMap model);
-	public Member Login(Member member);
+	public Member Login(ModelMap model);
 	
 	public void ReportlatInsert(Model model);
 	public int ReportSelectSeq(String m_id);
