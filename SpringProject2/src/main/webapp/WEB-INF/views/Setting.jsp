@@ -77,30 +77,30 @@
 				 		<button type="button" id="slideU" onClick='goForm()'>회원정보수정</button>
 				 	</td>
 				  </tr>
-			  </table>
-	<div class="rform" style="display : none" >	
+			</table>
+	<div class="rform" style="display : none" >
 		<form action="${cpath}/UserInfoUpdate.do?m_id=${mvo.m_id}" id="frm" method="post">
-			<table id="tbl-report">
+			<table>
 				<tr>
-					<td id="tbl-title">비밀번호</td>
-					<td id="tbl-content">
+					<td id="cng-title">비밀번호</td>
+					<td>
 						<input type="password" id="pw" name="m_pw">
 					</td>
 				</tr>
 				<tr>
-					<td id="tbl-title">이름</td>
-					<td id="tbl-content">
+					<td id="cng-title">이름</td>
+					<td>
 						<input type="text" id="name" name="m_name">
 					</td>
 				</tr>
 				<tr>
-					<td id="tbl-title">전화번호</td>
-					<td id="tbl-content">
+					<td id="cng-title">전화번호</td>
+					<td>
 						<input type="text" id="phone" name="m_phone">
 					</td>
 				</tr>
 				<tr>
-					<td colspan="2">
+					<td colspan="2" style="text-align: right">
 						<button type="submit" id="slideD">수정</button>
 					</td>
 					<td>
@@ -114,10 +114,6 @@
 			<%-- <form action="${cpath}/Logout.do" method="post" style="width: 100%; text-align: right;">
 				<button onclick = "location.href ='Logout.do'">로그아웃</button> --%>
 
-			<form action="${cpath}/Logout.do" method="GET" style="width: 100%; text-align: right;">
-				<a href="${cpath}/Logout.do">로그아웃</a>
-			</form>
- 		
 				<div style="text-align: right;">
 				</div>
 			<h3 style="margin-top: 5%;">
@@ -138,6 +134,9 @@
 		</c:otherwise>
 		</c:choose>
 	</div>
-
+	<form action="${cpath}/Logout.do" method="GET" style="margin-top:5%;">
+				<a href="${cpath}/Logout.do">로그아웃</a>
+	</form>
+ 		
 </body>
 </html>
