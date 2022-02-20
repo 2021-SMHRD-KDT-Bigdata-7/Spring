@@ -17,6 +17,8 @@ public interface SpringMapper {
 	public void JoinUser(ModelMap model);
 	public void JoinFire(ModelMap model);
 	public Member Login(ModelMap model);
+	public void UserInfoUpdate(ModelMap modelmap);
+	public Member UserInfoSelect(String m_id);
 	
 	public void ReportlatInsert(Model model);
 	public int ReportSelectSeq(String m_id);
@@ -30,9 +32,6 @@ public interface SpringMapper {
 	public Member ReportSelectNP(int re_seq);
 	public FireStation Map(String m_id);
 	
-	
-	
-	public void UserInfoUpdate(ModelMap model);
 	
 
 }

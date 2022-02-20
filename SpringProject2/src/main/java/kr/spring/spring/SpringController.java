@@ -121,20 +121,24 @@ public class SpringController {
 		  session.invalidate(); 
 		  return "redirect:/Main.do";
 	  }
-// 회원정보수정
-
+	  
+	  // 회원정보수정
 	  @RequestMapping("/UserInfoUpdate.do") 
-	   public String UserInfoUpdate(@RequestParam Map<String, Object> map, ModelMap model) {
-		  model.addAllAttributes(map);
-			/*
-			 * System.out.println("controller" + m_id); System.out.println("controller" +
-			 * m_pw); System.out.println("controller" + m_name);
-			 * System.out.println("controller" + m_phone);
-			 * 
-			 * model.addAttribute("m_id", m_id); model.addAttribute("m_pw", m_pw);
-			 * model.addAttribute("m_name", m_name); model.addAttribute("m_phone", m_phone);
-			 */
-		  service.UserInfoUpdate(model); 
+	   public String UserInfoUpdate(@RequestParam Map<String, Object> map, ModelMap modelmap, HttpSession session, Model model, HttpServletRequest request) {
+		  session.invalidate();
+		  modelmap.addAllAttributes(map);
+		  String m_id = (String) map.get("m_id");
+		  service.UserInfoUpdate(modelmap);
+
+		  Member mvo = new Member();
+		  mvo = service.UserInfoSelect(m_id);
+		  System.out.println("UserInfoUpdate : "+mvo);
+		  
+		  session = request.getSession();
+		  if(session != null) {
+			  session.setAttribute("mvo", mvo);
+			  System.out.println(mvo.getM_pw());
+		  }
 		  return "Setting";
 	   }
 		 
@@ -174,18 +178,20 @@ public class SpringController {
 			
 			Member mvo = (Member) session.getAttribute("mvo");
 			String m_id = mvo.getM_id();
+			System.out.println("re_type : "+re_type);
 			
-			model.addAttribute("re_type", re_type);
-			model.addAttribute("re_content", re_content);
-			model.addAttribute("m_id", m_id);
-			model.addAttribute("re_seq", re_seq);
+				model.addAttribute("re_type", re_type);
+				model.addAttribute("re_content", re_content);
+				model.addAttribute("m_id", m_id);
+				model.addAttribute("re_seq", re_seq);
 
 //////////확인용   
-			System.out.println("신고내용 " + model);
-
-			service.ReportInsert(model);
-
-			return "ReportCheck";
+				System.out.println("신고내용 " + model);
+	
+				service.ReportInsert(model);
+	
+				return "ReportCheck";
+			
 		}
 		
 	// Report(신고 페이지)에서 처음으로 버튼을 클릭 했을 때 좌표값 DB에서 지워야함
