@@ -165,33 +165,45 @@ public class SpringController {
 		System.out.println("latinsert컨트롤" + model);
 
 		service.ReportlatInsert(model);
-		int re_seq = service.ReportSelectSeq(m_id);
-		System.out.println(re_seq);
-		model.addAttribute("re_seq", re_seq);
+		Report report = new Report();
+		report = service.ReportSelect(m_id);
+		model.addAttribute("report", report);
+		System.out.println(report);
 		System.out.println("latinsert컨트롤2" + model);
 		return "Report";
 	}
 	
 	// Report(신고페이지)의 내용 insert 메소드
 		@RequestMapping(value = "/ReportInsert.do", method = RequestMethod.POST)
-		public String ReportInsert(@RequestParam String re_type, @RequestParam String re_content, @RequestParam String re_seq, Model model, HttpSession session) {
+		public String ReportInsert(@RequestParam String re_loc, @RequestParam String re_type, @RequestParam String re_content, @RequestParam int re_seq, Model model, HttpSession session) {
 			
 			Member mvo = (Member) session.getAttribute("mvo");
 			String m_id = mvo.getM_id();
-			System.out.println("re_type : "+re_type);
+			
+			System.out.println(re_type);
+			System.out.println(re_content);
+			System.out.println(m_id);
+			System.out.println(re_seq);
+			
+			if(!re_type.equals("null")){
 			
 				model.addAttribute("re_type", re_type);
 				model.addAttribute("re_content", re_content);
 				model.addAttribute("m_id", m_id);
 				model.addAttribute("re_seq", re_seq);
-
 //////////확인용   
 				System.out.println("신고내용 " + model);
-	
 				service.ReportInsert(model);
-	
 				return "ReportCheck";
-			
+			}
+			else {
+				Report report = new Report();
+				report = service.ReportSelect(m_id);
+				model.addAttribute("report", report);
+				System.out.println(report);
+				System.out.println("ReportInsert컨트롤 : " + model);
+				return "Report";
+			}
 		}
 		
 	// Report(신고 페이지)에서 처음으로 버튼을 클릭 했을 때 좌표값 DB에서 지워야함
@@ -276,6 +288,12 @@ public class SpringController {
 			
 		return "ShareMap";
 	}
-	
+
+
+//*****************************************************************알림
+	@RequestMapping("/Notice.do")
+	public String Notice() {
+		return "Notice";
+	}
 }
 	

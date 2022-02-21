@@ -73,12 +73,13 @@ public class SpringService {
 	public void ReportInsert(Model model) {
 		mapper.ReportInsert(model);
 //////////확인용   		
-		System.out.println("ReportInsert서비스"+model);
+		System.out.println("ReportInsert서비스 : "+model);
 	}
 	
-	public int ReportSelectSeq(String m_id) {
-		int re_seq = mapper.ReportSelectSeq(m_id);
-		return re_seq;
+	public Report ReportSelect(String m_id) {
+		Report report = new Report();
+		report = mapper.ReportSelect(m_id);
+		return report;
 	}
 	
 	// Report(신고페이지)에서 처음으로 버튼 클릭 시
@@ -86,6 +87,7 @@ public class SpringService {
 		System.out.println("ReportlatDelete서비스 re_seq값 : " + re_seq);
 		mapper.ReportlatDelete(re_seq);
 	}
+	
 	
 //**************************************************************신고접수 페이지
 	//ReportTaking(신고접수)화면 목록 가져오기
@@ -137,6 +139,7 @@ public class SpringService {
 
 	      return model;
 	   }
+	
 	   
 	
 

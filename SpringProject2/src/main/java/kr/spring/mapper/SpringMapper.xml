@@ -43,12 +43,12 @@
 	</insert>
 
 	<!-- 신고내용적는 페이지에서 처음으로 눌렀을 때 해당 좌표 삭제를 위한 시퀀스 select -->
-	<select id="ReportSelectSeq"  resultType="Integer" parameterType="String">
-	    SELECT re_seq FROM t_report WHERE re_seq = (SELECT max(re_seq) FROM t_report) and m_id = #{m_id}
+	<select id="ReportSelect" resultType="kr.spring.domain.Report" parameterType="String">
+	    SELECT * FROM t_report WHERE re_seq = (SELECT max(re_seq) FROM t_report) and m_id = #{m_id}
 	</select>
 	
 	<!-- 신고내용 insert -->
-	<update id="ReportInsert" parameterType="String">
+	<update id="ReportInsert">
 	    update t_report set re_type = #{re_type}, re_content = #{re_content} where re_seq = #{re_seq}
 	</update>
 	

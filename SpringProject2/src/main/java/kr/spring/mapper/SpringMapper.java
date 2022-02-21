@@ -21,7 +21,7 @@ public interface SpringMapper {
 	public Member UserInfoSelect(String m_id);
 	
 	public void ReportlatInsert(Model model);
-	public int ReportSelectSeq(String m_id);
+	public Report ReportSelect(String m_id);
 	public void ReportInsert(Model model);
 	public void ReportlatDelete(String re_seq);
 	

@@ -15,10 +15,11 @@
 <div id="wrap">
 <section>
 ${mvo.m_id}
-${re_seq}
+${report.re_seq}
 	<div class="empty"></div>
-	<form id="form-report-info" action="${cpath}/ReportInsert.do" method="POST">
-		<input type="hidden" name="re_seq" value="${re_seq}">
+	<form id="form-report-info" action="${cpath}/ReportInsert.do?" method="POST">
+	<input type="hidden" name="re_seq" value="${report.re_seq}">
+	<input type="hidden" name="re_loc" value="${re_loc}">
 		<h2>신고인 정보</h2>
 		<table id="tbl-report">
 		  <tr>
@@ -36,8 +37,8 @@ ${re_seq}
 		  <tr>
 		    <td id="tbl-title">유형 </td>
 			<td id="tbl-content">
-			  <select class="select" name="re_type", id="re_type">
-				  <option selected disabled value="null">선택해주세요.</option>
+			  <select class="select" name="re_type">
+				  <option value="null">선택해주세요.</option>
 				  <option value="화재">화재</option>
 				  <option value="구조">구조</option>
 				  <option value="긴급">긴급</option>
@@ -50,7 +51,7 @@ ${re_seq}
 		  <tr>
 		    <td id="tbl-title">장소</td>
 		    <td id="tbl-content">
-		      ${re_loc}
+		      ${report.re_loc}
 		    </td>
 		  </tr>
 		  <tr>
@@ -77,7 +78,7 @@ ${re_seq}
 	</form>
 </section>
 <footer class="footer">
-	<img id="logo" onclick="location.href='${cpath}/ReportlatDelete.do?re_seq=${re_seq}'" src="resources/images/header.png">
+	<img id="logo" onclick="location.href='${cpath}/ReportlatDelete.do?re_seq=${report.re_seq}'" src="resources/images/header.png">
 </footer>	
 </div>
 </body>
