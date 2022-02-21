@@ -131,20 +131,14 @@ html, body{
 		text-shadow: 1px 1px 2px black;
 	}
 	
-	#setting{
-		width : inherit;
-		max-width: 13%;
+	#setting, #notice{
+		width : 50px;
 		height: auto;
-		margin: 10%;
-		margin-top: 15%;
 	}
 	
-	#setting:hover{
-		width : inherit;
-		max-width: 14%;
+	#setting:hover, #notice:hover{
+		width : 45px;
 		height: auto;
-		margin: 9.5%;
-		margin-top: 14.5%;
 		cursor: pointer;
 	}
 	
@@ -686,18 +680,14 @@ html, body{
 /* 웹 화면 css */
 
 @media (min-width: 768px){
-	#setting{
-		width : inherit;
-		max-width: 5%;
+	#setting, #notice{
+		width : 5%;
 		height: auto;
-		margin: 2%;
 	}
 	
-	#setting:hover{
-		width : inherit;
-		max-width: 6%;
+	#setting:hover, #notice:hover{
+		width : 4.5%;
 		height: auto;
-		margin: 1.5%;
 		cursor: pointer;
 	}
 	
