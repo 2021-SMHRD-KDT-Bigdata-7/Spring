@@ -12,7 +12,7 @@
 <title>불이야</title>
 	<script>
 		function popup_ShareMap() {
-			var url = "${cpath}/ShareMap";
+			var url = "${cpath}/ShareMap.do";
 			var name =  "ShareMap";
 			window.open(url, name,'height=' + screen.height + ',width=' + screen.width + 'fullscreen=yes');
 		}	

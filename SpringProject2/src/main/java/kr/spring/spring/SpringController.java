@@ -25,17 +25,7 @@ public class SpringController {
 
 	@Autowired
 	SpringService service;
-	
-	/*
-	@RequestMapping("/Main.do")
-	public String Main(@RequestParam String m_id) {
-		
-		Member member = service.Main(m_id);
-		System.out.println(member);
-		return "Main";
-	} 
-	 */
-	
+
 	@RequestMapping("/Main.do")
 	public String Main() {
 		return "Main";
@@ -289,10 +279,11 @@ public class SpringController {
 		return "ShareMap";
 	}
 
-
 //*****************************************************************알림
 	@RequestMapping("/Notice.do")
-	public String Notice() {
+	public String Notice(Model model) {
+		List<Report> list = service.ReportTaking();
+		System.out.println("Notice의 rlist : "+ list.get(0).getRe_latitude());
 		return "Notice";
 	}
 }

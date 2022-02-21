@@ -43,6 +43,9 @@ ${mvo.m_type}
 	  <c:otherwise>
 		<div id = "background">
 				<div class="empty">
+					<a href="${cpath}/Notice.do">
+					  <img src="resources/images/ALLIM.jpg">
+					</a>
 					<a href="${cpath}/Setting.do">
 					  <img id="setting" src="resources/images/setting2.png">
 					</a>
