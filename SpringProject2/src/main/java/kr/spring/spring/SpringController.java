@@ -93,17 +93,25 @@ public class SpringController {
 		model.addAllAttributes(map);
 		System.out.println("컨트롤러 modlemap "+map);
 		Member mvo = service.Login(model);
-		HttpSession session = request.getSession();
-		session.setAttribute("mvo", mvo);
-		System.out.println("컨트롤러 세션 "+session);
-		System.out.println("컨트롤러 세션타입 :  "+mvo.getM_type());
-		
-		if(mvo.getM_type().equals("U")) {
+		if(mvo!=null) {
+			HttpSession session = request.getSession();
+			session.setAttribute("mvo", mvo);
+			System.out.println("컨트롤러 세션 "+session);
+			System.out.println("컨트롤러 세션타입 :  "+mvo.getM_type());
+
+			if(mvo.getM_type().equals("U")) {
+				return "redirect:/Main.do";
+			}
+			else{
+				return "redirect:/Map.do";
+			}
+		}else {
 			return "redirect:/Main.do";
 		}
-		else{
-			return "redirect:/Map.do";
-		}
+		
+		
+			
+		
 	  }
 
 	  // 로그아웃
