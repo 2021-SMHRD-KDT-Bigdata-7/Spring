@@ -16,7 +16,7 @@
 <div class="empty"></div><div class="empty"></div><div class="empty"></div>
 	<header> <h2 class="title">Login</h2> </header> 
 <div class="empty"></div>
-	<form action="Login.do" method="POST"> 
+	<form action="${cpath}Login.do" method="POST"> 
 		<div class="input-box"> 
 			<input id="m_id" type="text" name="m_id" placeholder="아이디"> 
 			<label for="m_id">아이디</label> 

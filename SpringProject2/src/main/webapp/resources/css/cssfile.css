@@ -131,20 +131,14 @@ html, body{
 		text-shadow: 1px 1px 2px black;
 	}
 	
-	#setting{
-		width : inherit;
-		max-width: 13%;
+	#setting, #notice{
+		width : 50px;
 		height: auto;
-		margin: 10%;
-		margin-top: 15%;
 	}
 	
-	#setting:hover{
-		width : inherit;
-		max-width: 14%;
+	#setting:hover, #notice:hover{
+		width : 45px;
 		height: auto;
-		margin: 9.5%;
-		margin-top: 14.5%;
 		cursor: pointer;
 	}
 	
@@ -596,7 +590,7 @@ html, body{
 	#btn-chk{
 		width: 30%;
 		height: 35px;
-		margin-right: 4%;
+		margin-top: 3.5%;
 	    border: 1px solid;
 		border-radius: 0.5em;
 		background-color: lightgray;
@@ -611,6 +605,11 @@ html, body{
 		border: 1px solid;
 		border-radius: 0.5em;
 		background-color: #F2F2F2;
+	}
+	
+	#nform{
+		width: 100%;
+		padding: 0;
 	}
 	
 	#cng-title{
@@ -686,18 +685,14 @@ html, body{
 /* 웹 화면 css */
 
 @media (min-width: 768px){
-	#setting{
-		width : inherit;
-		max-width: 5%;
+	#setting, #notice{
+		width : 5%;
 		height: auto;
-		margin: 2%;
 	}
 	
-	#setting:hover{
-		width : inherit;
-		max-width: 6%;
+	#setting:hover, #notice:hover{
+		width : 4.5%;
 		height: auto;
-		margin: 1.5%;
 		cursor: pointer;
 	}
 	
@@ -1104,7 +1099,7 @@ html, body{
 	}
 	
 	#setting-form{
-		width: 90%;
+		width: 70%;
 		height: auto;
 		margin-top: 10%;
 	}
@@ -1114,7 +1109,7 @@ html, body{
 		height: 35px;
 	    border: 1px solid;
 		border-radius: 0.5em;
-		background-color: white;
+		background-color: lightgray;
 		box-shadow: 3px 2px;
 		font-size: 16px;
 		font-family: 'SBAggroM';
@@ -1127,6 +1122,18 @@ html, body{
 	    border: 1px solid;
 		border-radius: 0.5em;
 		background-color: white;
+		box-shadow: 3px 2px;
+		font-size: 16px;
+		font-family: 'SBAggroM';
+	}
+	
+	#btn-chk{
+		width: 30%;
+		height: 35px;
+		margin-top: 2%;
+	    border: 1px solid;
+		border-radius: 0.5em;
+		background-color: lightgray;
 		box-shadow: 3px 2px;
 		font-size: 16px;
 		font-family: 'SBAggroM';
@@ -1161,9 +1168,23 @@ html, body{
 		background-color: transparent;
 	}
 	
+	#nform{
+		width: 100%;
+		padding: 0;
+		margin-top: 1%;
+	}
+
 	input#radio{
 		width: 30px;
 		vertical-align: middle;
+	}
+	
+	#btn-select{
+		height: 30px;
+		font-family: 'SBAggroL';
+		font-size: 20px;
+		border: none;
+		background-color: transparent;
 	}
 	
 	/* 신고 목록 페이지 */

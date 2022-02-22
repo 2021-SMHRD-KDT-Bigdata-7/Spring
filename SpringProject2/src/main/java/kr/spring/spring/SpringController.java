@@ -13,7 +13,6 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.spring.domain.FireStation;
 import kr.spring.domain.Member;
@@ -92,17 +91,25 @@ public class SpringController {
 		model.addAllAttributes(map);
 		System.out.println("컨트롤러 modlemap "+map);
 		Member mvo = service.Login(model);
-		HttpSession session = request.getSession();
-		session.setAttribute("mvo", mvo);
-		System.out.println("컨트롤러 세션 "+session);
-		System.out.println("컨트롤러 세션타입 :  "+mvo.getM_type());
-		
-		if(mvo.getM_type().equals("U")) {
+		if(mvo!=null) {
+			HttpSession session = request.getSession();
+			session.setAttribute("mvo", mvo);
+			System.out.println("컨트롤러 세션 "+session);
+			System.out.println("컨트롤러 세션타입 :  "+mvo.getM_type());
+
+			if(mvo.getM_type().equals("U")) {
+				return "redirect:/Main.do";
+			}
+			else{
+				return "redirect:/Map.do";
+			}
+		}else {
 			return "redirect:/Main.do";
 		}
-		else{
-			return "redirect:/Map.do";
-		}
+		
+		
+			
+		
 	  }
 
 	  // 로그아웃
@@ -308,5 +315,6 @@ public class SpringController {
 		System.out.println("Notice의 rlist : "+ list.get(0).getRe_latitude());
 		return "Notice";
 	}
+
 }
 	

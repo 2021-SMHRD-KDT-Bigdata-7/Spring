@@ -9,6 +9,20 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/cssfile.css" type="text/css" media="screen" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- <script type="text/javascript" charset="utf-8" src="/resources/js/test.js"></script> -->
+
+<script>
+	$(document).ready(function ale(e) {
+
+		$("#btn-report").click(function() {
+			if ($("#select option:selected").val() == "null") {
+				alert("신고유형을 선택해주세요!");
+			}
+		});
+	});
+</script>
+
 <title>불이야-신고</title>
 </head>
 <body>
@@ -37,7 +51,7 @@ ${report.re_seq}
 		  <tr>
 		    <td id="tbl-title">유형 </td>
 			<td id="tbl-content">
-			  <select class="select" name="re_type">
+			  <select class="select" id="select" name="re_type">
 				  <option value="null">선택해주세요.</option>
 				  <option value="화재">화재</option>
 				  <option value="구조">구조</option>
@@ -46,6 +60,7 @@ ${report.re_seq}
 				  <option value="재해">재해</option>
 				  <option value="화재">기타</option>
 			  </select>
+		
 			</td>
 		  </tr>
 		  <tr>

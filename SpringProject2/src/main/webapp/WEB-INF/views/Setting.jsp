@@ -121,17 +121,25 @@
 			</h3>
 		<div>
 		<h2>알림설정</h2>
-			<table id="tbl-report">
+		<form id="nform" action="Notice" method="POST">
+			<table id="tbl-report" style="background-color: #f2f2f2;">
 				<tr>
-					<td id="tbl-content">알림 수신 여부</td>
-					<td id="tbl-content"><input type="radio" name="radio" id="radio"></td>
-				</tr>
-				<tr>
-					<td colspan="2">
-						<button id="btn-chk">확인</button>
+					<td id="tbl-content">
+						알림 받기
 					</td>
-				</tr>
+					<td id="tbl-content">
+						<input type="radio" name="radio" id="radio" value="O" checked="checked">
+					</td>
+				<tr>
+					<td id="tbl-content">
+						알림 끄기
+					</td>
+					<td id="tbl-content">
+						<input type="radio" name="radio" id="radio" value="X">
+					</td>
 			</table>
+						<button type="submit" id="btn-chk">확인</button>
+		</form>
 		</div>
 			<h3 style="margin-top: 5%;">
 				알림을 설정하면 현재 위치 기준으로<br>긴급상황 알림을 받을 수 있습니다. 
