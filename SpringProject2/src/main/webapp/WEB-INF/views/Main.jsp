@@ -12,8 +12,8 @@
 <title>불이야</title>
 </head>
 <body id="background">
-${mvo.m_id}
-${mvo.m_type}
+<%-- ${mvo.m_id}
+${mvo.m_type} --%>
 <c:set var="m_id" value="${mvo.m_id}"/>
 <c:set var="m_type" value="${mvo.m_type}"/>
 	<c:choose>
@@ -43,12 +43,14 @@ ${mvo.m_type}
 	  <c:otherwise>
 		<div id = "background">
 				<div class="empty">
+				<div style="text-align: right; padding-right: 5%; padding-top: 10%;">
 					<a href="${cpath}/Notice.do">
-					  <img src="resources/images/ALLIM.jpg">
+					  <img id="notice" src="resources/images/bell.png">
 					</a>
 					<a href="${cpath}/Setting.do">
 					  <img id="setting" src="resources/images/setting2.png">
 					</a>
+				</div>
 				</div>
 				<div class="empty"></div><div class="empty"></div><div class="empty"></div><div class="empty"></div>
 				<div id="symbol">
