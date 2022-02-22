@@ -25,15 +25,28 @@
 	 ${rvo.re_longitude}
 	 <br>
 	 ${rvo.re_seq}
+	 
+	 <form action="${cpath}/SelectFS.do" id="live_form" method="POST">
+	 	<input type="text" name="re_seq" value="${rvo.re_seq}">
+	 </form>
+	 
 	<script>
+	//live_lat live_lon을 들고오기 위해 계속 SelectFS.do를 갱신
+	function set(){
+		document.getElementById("live_form").submit();
+	};
+	setInterval(set,10000);
 	//신고 좌표
 		var lat_U = ${rvo.re_latitude};
 		var lon_U = ${rvo.re_longitude};
 	//접수자 좌표(소방서)
 		var lat_F = ${fsvo.fs_latitude};
 		var lon_F = ${fsvo.fs_longitude};
-	
-	//초기 지도 설정
+	//출동차량 좌표
+		var lat_C = ${rvo.live_lat};
+		var lon_C = ${rvo.live_lon};
+
+		//초기 지도 설정
 		var container = document.getElementById('map');
 		
 		var options = {
@@ -45,14 +58,16 @@
 		map.setMapTypeId(kakao.maps.MapTypeId.HYBRID); 
 
 		var U = new kakao.maps.LatLng(lat_U, lon_U),
-	  		F = new kakao.maps.LatLng(lat_F, lon_F);
+	  		F = new kakao.maps.LatLng(lat_F, lon_F),
+	  		C = new kakao.maps.LatLng(lat_C, lon_C);
 
 	//위성지도로 변환
 	
 	 // 마커위치
 	    var markerPosition_U  = new kakao.maps.LatLng(lat_U, lon_U);  //신고위치
 	    var markerPosition_F  = new kakao.maps.LatLng(lat_F, lon_F);  //소방서위치
-	 
+	 	var markerPosition_C  = new kakao.maps.LatLng(lat_C, lon_C);  //출동차량위치
+	    
 /*     //마커 이미지 - 신고지점
 		var imageSrc_U = "resources/images/user_select.png",   
 		    imageSize_U = new kakao.maps.Size(40, 40);
@@ -63,6 +78,11 @@
 		    imageSize_F = new kakao.maps.Size(50, 40);
 		var markerImage_F = new kakao.maps.MarkerImage(imageSrc_F, imageSize_F);
 		
+	//마커 이미지 - 출동차량
+		var imageSrc_C = "resources/images/firecar.png",   
+		    imageSize_C = new kakao.maps.Size(40, 40);
+		var markerImage_C = new kakao.maps.MarkerImage(imageSrc_C, imageSize_C);
+		
     // 마커생성
 	    var marker_U = new kakao.maps.Marker({
 	        position: markerPosition_U
@@ -72,10 +92,15 @@
 	        position: markerPosition_F,
 	        image: markerImage_F
 	    });
+	    var marker_C = new kakao.maps.Marker({
+	        position: markerPosition_C,
+	        image: markerImage_C
+	    });
 
     // 마커표시
 	    marker_U.setMap(map);
 	    marker_F.setMap(map);
+	    marker_C.setMap(map);
 	    
 	// 지도 범위를 마커가 다 보이게 설정하기
 	// 지도범위를 재설정할 변수
@@ -84,9 +109,6 @@
 	// bounds를 지도에 설정
 	    map.setBounds(bounds);
 	
-	// 소방차량 위치 실시간으로 나타내기
-		
-
  	</script>
 
 

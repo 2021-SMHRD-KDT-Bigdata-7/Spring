@@ -98,7 +98,7 @@ public class SpringController {
 			System.out.println("컨트롤러 세션타입 :  "+mvo.getM_type());
 
 			if(mvo.getM_type().equals("U")) {
-				return "redirect:/Main.do";
+				return "Main";
 			}
 			else{
 				return "redirect:/Map.do";
@@ -106,8 +106,6 @@ public class SpringController {
 		}else {
 			return "redirect:/Main.do";
 		}
-		
-		
 			
 		
 	  }
@@ -307,15 +305,6 @@ public class SpringController {
 		return "forward:/ShareMap.do";
 	}
 	
-	
-//*****************************************************************알림
-	@RequestMapping("/Notice.do")
-	public String Notice(Model model) {
-		List<Report> list = service.ReportTaking();
-		System.out.println("Notice의 rlist : "+ list.get(0).getRe_latitude());
-		return "Notice";
-	}
-
 	// 신고완료 후 신고자 지도 공유 화면
 	@RequestMapping("/SelectFS.do")
 	public String SelectFS(@RequestParam int re_seq, Model model) {
@@ -338,5 +327,14 @@ public class SpringController {
 		
 		return "ShareMap2";
 	}
+	
+//*****************************************************************알림
+	@RequestMapping("/Notice.do")
+	public String Notice(Model model) {
+		List<Report> list = service.ReportTaking();
+		System.out.println("Notice의 rlist : "+ list.get(0).getRe_latitude());
+		return "Notice";
+	}
+
 }
 	
