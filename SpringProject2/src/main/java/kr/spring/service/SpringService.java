@@ -123,7 +123,6 @@ public class SpringService {
 		System.out.println("Map서비스 fsvo : "+fsvo);
 		return fsvo;
 	}
-	
 
 	public Model ShareMap(String m_id, int re_seq, Model model) {
 	      FireStation fsvo = mapper.Map(m_id);
@@ -140,6 +139,11 @@ public class SpringService {
 	      return model;
 	   }
 	
+	public String UpdateMap(Model model) {
+		mapper.UpdateMap(model);
+		System.out.println("UpdateMap:"+model);
+		return "ShareMap";
+	}
 	   
 	
 

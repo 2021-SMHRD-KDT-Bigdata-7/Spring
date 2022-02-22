@@ -227,8 +227,9 @@ public class SpringController {
 	public String ReportDetail(@RequestParam int re_seq, Model model){
 		
 		Report rvo = service.ReportDetail(re_seq);
+			
 		Member mvo1 = service.ReportSelectNP(re_seq);
-
+		
 		model.addAttribute("rvo",rvo);
 		model.addAttribute("mvo1",mvo1);
 		
@@ -238,9 +239,9 @@ public class SpringController {
 		System.out.println("ReportDetail컨트롤러 "+ model);
 		System.out.println("ReportDetail의 re_sqe : "+ re_seq);
 		
-		return "ReportDetail";
-		
-	}
+			return "ReportDetail";
+		}
+
 //*****************************************************************지도
 
 	// 접수자 메인에서 지도보기 클릭 시
@@ -268,17 +269,38 @@ public class SpringController {
 // ReportDetail에서 접수버튼 누르면 나오는 위치 공유 지도
 	@RequestMapping("/ShareMap.do")
 	public String ShareMap(@RequestParam String m_id, @RequestParam int re_seq, Model model) {
-//////확인용
-		System.out.println("ShareMap컨트롤러의 re_seq :"+re_seq);
-		System.out.println("ShareMap컨트롤러의 m_id : "+m_id);
-		
+		System.out.println("ShareMap컨트롤러의 re_seq :"+re_seq); //////확인용
+		System.out.println("ShareMap컨트롤러의 m_id : "+m_id); //////확인용
+		// 소방서 좌표 가져오기
+		FireStation fsvo = service.Map(m_id);
+		model.addAttribute("fsvo", fsvo);
+		System.out.println(fsvo); //////확인용
+		// 공유 페이지 만들기
 		service.ShareMap(m_id, re_seq, model);
 //////확인용
 		System.out.println("ShareMap컨트롤러의 model : "+model);
 			
 		return "ShareMap";
 	}
+	
+	@RequestMapping("/UpdateMap.do")
+	public String UpdateMap(@RequestParam String m_id, @RequestParam int re_seq, @RequestParam double live_lat, @RequestParam double live_lon, Model model) {
+		model.addAttribute("live_lat",live_lat);
+		model.addAttribute("live_lon",live_lon);
+		model.addAttribute("re_seq",re_seq);
+		// 소방서 정보 가져오기
+		FireStation fsvo = service.Map(m_id);
+		model.addAttribute("fs_seq",fsvo.getFs_seq()); // fsvo에서 fs_seq를 가져옴
+		
+		System.out.println("m_id : "+m_id);  //////확인용
+		System.out.println("fsvo.getFs_seq()) : "+fsvo.getFs_seq());  //////확인용
+		System.out.println("UpdateMap model : "+model);  //////확인용
+		service.UpdateMap(model); // live_lat,lon/fs_seq를 업데이트
 
+		return "forward:/ShareMap.do";
+	}
+	
+	
 //*****************************************************************알림
 	@RequestMapping("/Notice.do")
 	public String Notice(Model model) {

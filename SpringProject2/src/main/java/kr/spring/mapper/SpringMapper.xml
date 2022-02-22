@@ -81,4 +81,8 @@
 		select * from t_fire_station where m_id = #{m_id}
 	</select>
 	
+	<update id="UpdateMap">
+		update t_report set live_lat = #{live_lat}, live_lon = #{live_lon}, fs_seq = #{fs_seq} where re_seq = #{re_seq} 
+	</update>
+	
 </mapper>

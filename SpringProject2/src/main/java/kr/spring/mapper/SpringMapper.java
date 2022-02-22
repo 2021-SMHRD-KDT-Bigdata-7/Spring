@@ -31,6 +31,7 @@ public interface SpringMapper {
 
 	public Member ReportSelectNP(int re_seq);
 	public FireStation Map(String m_id);
+	public void UpdateMap(Model model);
 	
 	
 

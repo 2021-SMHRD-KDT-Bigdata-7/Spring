@@ -18,6 +18,8 @@ ${mvo.m_id}
 <section style="height: auto;">
 <p class="return-text" onclick="location.href='ReportTaking.do'">< 뒤로가기</p>
 	<form id="form-report-info" action="${cpath}/ShareMap.do?m_id=${mvo.m_id}&re_seq=${rvo.re_seq}" method="POST">
+		<input type="hidden" name=live_lat value=${rvo.re_latitude}>
+		<input type="hidden" name=live_lon value=${rvo.re_longitude}>
 		<h2>신고인 정보</h2>
 		<table id="tbl-report">
 			<tr>
@@ -47,7 +49,7 @@ ${mvo.m_id}
 
 			<tr align="center">
 				<td colspan="2">
-						<button type="submit" id="btn-report">신고접수</button>
+					<button type="submit" id="btn-report">신고접수</button>
 				</td>
 			</tr>
 		</table>

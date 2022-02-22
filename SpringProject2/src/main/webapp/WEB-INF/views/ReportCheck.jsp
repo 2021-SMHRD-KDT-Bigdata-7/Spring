@@ -10,22 +10,18 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/cssfile.css" type="text/css" media="screen" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>불이야</title>
-	<script>
-		function popup_ShareMap() {
-			var url = "${cpath}/ShareMap.do";
-			var name =  "ShareMap";
-			window.open(url, name,'height=' + screen.height + ',width=' + screen.width + 'fullscreen=yes');
-		}	
-	</script>
 </head>
 <body>
+${re_seq}
 	<div style="height: 30%"></div>
 	<div id="symbol">
 		<div>
+		  <form action="${cpath}/ShareMap.do">
 			<img id="img-car" src="resources/images/firecar.png">
-			<h1 class="blink">신고 접수 중입니다.</h1>
-			<!-- <h1>신고가 접수되었습니다.</h1> -->
-			<button onClick="popup_ShareMap();"></button>
+			<h1 class="blink">신고가 접수되었습니다.</h1>
+			<input type="text" name="re_seq" value="${re_seq}">
+			<button type="submit">보러가기</button>
+		  </form>
 		</div>
 	</div>
 </body>
