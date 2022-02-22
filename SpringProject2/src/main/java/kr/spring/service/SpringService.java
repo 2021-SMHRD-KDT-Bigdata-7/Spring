@@ -137,21 +137,19 @@ public class SpringService {
 	      System.out.println("ShareMap서비스 model : "+model);
 
 	      return model;
-	   }
+	}
 	
 	public String UpdateMap(Model model) {
 		mapper.UpdateMap(model);
 		System.out.println("UpdateMap:"+model);
 		return "ShareMap";
 	}
-	   
 	
-
-	
-
-	
-
-
-
+	public FireStation SelectFS(int re_seq) { 
+		System.out.println("SelectFS re_seq : " + re_seq);
+		FireStation fsvo = mapper.SelectFS(re_seq);
+			
+		return fsvo;
+	}
 	
 }

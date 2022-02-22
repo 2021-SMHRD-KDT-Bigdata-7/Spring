@@ -16,7 +16,7 @@ ${re_seq}
 	<div style="height: 30%"></div>
 	<div id="symbol">
 		<div>
-		  <form action="${cpath}/ShareMap.do">
+		  <form action="${cpath}/SelectFS.do">
 			<img id="img-car" src="resources/images/firecar.png">
 			<h1 class="blink">신고가 접수되었습니다.</h1>
 			<input type="text" name="re_seq" value="${re_seq}">

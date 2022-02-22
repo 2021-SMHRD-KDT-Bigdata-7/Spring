@@ -281,7 +281,7 @@ public class SpringController {
 		// 소방서 좌표 가져오기
 		FireStation fsvo = service.Map(m_id);
 		model.addAttribute("fsvo", fsvo);
-		System.out.println(fsvo); //////확인용
+		System.out.println("ShareMap : "+fsvo); //////확인용
 		// 공유 페이지 만들기
 		service.ShareMap(m_id, re_seq, model);
 //////확인용
@@ -289,19 +289,19 @@ public class SpringController {
 			
 		return "ShareMap";
 	}
-	
+// 
 	@RequestMapping("/UpdateMap.do")
-	public String UpdateMap(@RequestParam String m_id, @RequestParam int re_seq, @RequestParam double live_lat, @RequestParam double live_lon, Model model) {
+	public String UpdateMap(@RequestParam String m_id, @RequestParam String live_lat, @RequestParam String live_lon, @RequestParam int re_seq, Model model) {
 		model.addAttribute("live_lat",live_lat);
-		model.addAttribute("live_lon",live_lon);
+		model.addAttribute("live_lon",live_lon); 
 		model.addAttribute("re_seq",re_seq);
 		// 소방서 정보 가져오기
 		FireStation fsvo = service.Map(m_id);
 		model.addAttribute("fs_seq",fsvo.getFs_seq()); // fsvo에서 fs_seq를 가져옴
 		
-		System.out.println("m_id : "+m_id);  //////확인용
-		System.out.println("fsvo.getFs_seq()) : "+fsvo.getFs_seq());  //////확인용
-		System.out.println("UpdateMap model : "+model);  //////확인용
+		System.out.println("UpdateMap m_id : "+m_id);  //////확인용
+		System.out.println("UpdateMap fsvo.getFs_seq()) : "+fsvo.getFs_seq());  //////확인용
+		System.out.println("UpdateMap UpdateMap model : "+model);  //////확인용
 		service.UpdateMap(model); // live_lat,lon/fs_seq를 업데이트
 
 		return "forward:/ShareMap.do";
@@ -316,5 +316,27 @@ public class SpringController {
 		return "Notice";
 	}
 
+	// 신고완료 후 신고자 지도 공유 화면
+	@RequestMapping("/SelectFS.do")
+	public String SelectFS(@RequestParam int re_seq, Model model) {
+		
+		System.out.println("re_seq "+re_seq);                          /////확인용
+		// re_seq를 통해 rvo를 가져옴 
+		Report rvo = service.ReportDetail(re_seq);
+		model.addAttribute("rvo", rvo);
+		System.out.println("SelectFS의 rvo : "+ rvo);                  /////확인용
+		
+		// re_seq를 통해 fsvo를 가져옴
+		FireStation fsvo = service.SelectFS(re_seq);
+		model.addAttribute("fsvo", fsvo);
+		System.out.println("SelectFS.do의 fsvo : "+ fsvo);              /////확인용
+		
+		// model객체에 소방서id를 담아서 forward 
+		model.addAttribute("m_id", fsvo.getM_id());
+		System.out.println("SelectFS.do의 id : "+ fsvo.getM_id());      /////확인용
+		System.out.println("SelectFS.do의 model : "+ model);            /////확인용
+		
+		return "ShareMap2";
+	}
 }
 	

@@ -25,17 +25,6 @@
 	 ${rvo.re_longitude}
 	 <br>
 	 ${rvo.re_seq}
- 	<div>
-		<form id="live_form" action="${cpath}/UpdateMap.do?m_id=${mvo.m_id}&re_seq=${rvo.re_seq}" method="POST">
-		  <input type="text" name="live_lat" id="live_lat">
-		  <input type="text" name="live_lon" id="live_lon">
-<%-- 		  <input type="text" name="fs_latitude" value="${fsvo.fs_latitude}">
-		  <input type="text" name="fs_longitude" value="${fsvo.fs_longitude}">
-		  <input type="text" name="rvo.re_latitude" value="${rvo.re_latitude}">
-		  <input type="text" name="rvo.re_longitude" value="${rvo.re_longitude}"> --%>
-		</form>
-	</div>
-	 
 	<script>
 	//신고 좌표
 		var lat_U = ${rvo.re_latitude};
@@ -96,48 +85,7 @@
 	    map.setBounds(bounds);
 	
 	// 소방차량 위치 실시간으로 나타내기
-	// geolocation
-		//페이지 시작 시 현재 위치
-		navigator.geolocation.getCurrentPosition(function(position) {
-				 	var lat = position.coords.latitude; // 위도
-			        var	lon = position.coords.longitude; // 경도
-			        console.log(lat,lon);
-			        
-			     // 마커표시해줄 좌표
-				    var locPosition = new kakao.maps.LatLng(lat, lon);
-			     
-			        displayMarker(locPosition);
-					
 		
-		/////////// 차량 실시간 위치 DB에 넣게 하기 함수  
-			    	var live_lat = document.getElementById("live_lat");
-			        var live_lon = document.getElementById("live_lon");
-			        console.log(typeof live_lat.value); //string
-			        live_lat.value = lat;
-			        live_lon.value = lon;
-			        console.log(live_lat.value);
-			        console.log(live_lon.value);
-			        
-		});
-		function set(){
-			document.getElementById("live_form").submit();
-		};
-		setInterval(set,10000);
-	
-		function displayMarker(locPosition){
-			//마커 이미지 - 출동차량
-			var imageSrc = "resources/images/firecar.png",   
-			    imageSize = new kakao.maps.Size(40, 40);
-			    
-			var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
-			
-			var nwp_marker = new kakao.maps.Marker({  
-			    map: map, 
-			    position: locPosition,
-			    image: markerImage
-			}); 
-		        nwp_marker.setMap(map);
-		}; 
 
  	</script>
 
