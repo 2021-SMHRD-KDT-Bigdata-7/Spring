@@ -121,23 +121,24 @@
 			</h3>
 		<div>
 		<h2>알림설정</h2>
-		<form action="Notice" method="POST">
-			<table id="tbl-report">
+		<form id="nform" action="Notice" method="POST">
+			<table id="tbl-report" style="background-color: #f2f2f2;">
 				<tr>
-					<td id="tbl-content">알림 수신 여부</td>
 					<td id="tbl-content">
-						<input type="radio" name="radio" id="radio" value="O" checked="checked">수신
+						알림 받기
 					</td>
 					<td id="tbl-content">
-						<input type="radio" name="radio" id="radio" value="X">수신하지 않음
+						<input type="radio" name="radio" id="radio" value="O" checked="checked">
 					</td>
-				</tr>
 				<tr>
-					<td colspan="2">
-						<button type="submit" id="btn-chk">확인</button>
+					<td id="tbl-content">
+						알림 끄기
 					</td>
-				</tr>
+					<td id="tbl-content">
+						<input type="radio" name="radio" id="radio" value="X">
+					</td>
 			</table>
+						<button type="submit" id="btn-chk">확인</button>
 		</form>
 		</div>
 			<h3 style="margin-top: 5%;">
