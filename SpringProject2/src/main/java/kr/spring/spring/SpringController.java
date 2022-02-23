@@ -107,7 +107,6 @@ public class SpringController {
 			return "redirect:/Main.do";
 		}
 			
-		
 	  }
 
 	  // 로그아웃
