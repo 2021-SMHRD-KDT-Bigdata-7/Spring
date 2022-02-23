@@ -18,6 +18,6 @@ public class Report {
 	private int fs_seq;
 	private double live_lat;
 	private double live_lon;
-	
+	private String clear_yn;
 	
 }

@@ -31,7 +31,7 @@
 ${mvo.m_id}
 ${report.re_seq}
 	<div class="empty"></div>
-	<form id="form-report-info" action="${cpath}/ReportInsert.do?" method="POST">
+	<form id="form-report-info" action="${cpath}/ReportInsert.do" method="POST">
 	<input type="hidden" name="re_seq" value="${report.re_seq}">
 	<input type="hidden" name="re_loc" value="${re_loc}">
 		<h2>신고인 정보</h2>

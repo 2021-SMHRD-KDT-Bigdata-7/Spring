@@ -61,7 +61,7 @@
 
 	<!-- 신고내용 가져오기  -->
 	<select id="ReportTaking" resultType="kr.spring.domain.Report">
-	    select * from t_report order by re_seq desc
+	    select * from t_report where re_type is not null and clear_yn = 'N' order by re_seq desc
 	</select>
 	
 	<!-- 신고내용 클릭 시 세부내용 -->
@@ -83,6 +83,10 @@
 	
 	<update id="UpdateMap">
 		update t_report set live_lat = #{live_lat}, live_lon = #{live_lon}, fs_seq = #{fs_seq} where re_seq = #{re_seq} 
+	</update>
+	
+	<update id="UpdateClear">
+		update t_report set clear_yn = 'Y' where re_seq = #{re_seq} 
 	</update>
 	
 	<!-- ReportCheck페이지에서 ShareMap으로 가기위해 소방서정보 들고오기  -->

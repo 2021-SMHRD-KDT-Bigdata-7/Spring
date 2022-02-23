@@ -1,5 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" language="java" %>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+    
     <c:set var="cpath" value="${pageContext.request.contextPath}"/>   
 <!DOCTYPE html>
 <html>
@@ -39,6 +41,14 @@
 </head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <body>
+
+	<c:if test="${!empty list}">
+    	<c:forEach var="i" begin="0" end="${fn:length(list)-1}">
+    		[${list[i].re_latitude},
+    		${list[i].re_longitude}], <br>
+    	</c:forEach>
+	</c:if>
+	
     <div class="map_wrap">
     <div class="header"><img id="logo" onclick="location.href='${cpath}/Main.do'" src="resources/images/header.png"></div>
         <div id="map" style="width:100%;height:752px;position:relative;overflow:hidden;"></div>
@@ -46,7 +56,6 @@
             <span class="title">지도중심기준 행정동 주소정보</span>
             <span id="centerAddr"></span> -->
         </div>
-       
            
         <div id="position"></div>   
         <div id="drawingMap"></div>
@@ -111,13 +120,22 @@
 //     var kkk =[];
 //     kkk.unshift([lat9, lon9]);
 //     console.log(kkk[0][0]);
-    var kkk = [
-    // [35.10786310217308,126.87974978652008,'광주송하우편취급국'],
-    // [35.10713885766415,126.87661382221772,'압하마을회관'],
-    // [35.10318305645031,126.86916147614886,'빛여울초등학교'],
-    [35.10279891807466,126.88127081478315,'광주인성고']
+   
+   
+// 신고 지점 저장 
+// 오류 뜨는거 놔두면 없어짐
+	var kkk = [
+		<c:if test="${!empty list}">
+	    	<c:forEach var="i" begin="0" end="${fn:length(list)-1}">
+	    		[${list[i].re_latitude},
+	    		${list[i].re_longitude}], 
+	    	</c:forEach>
+		</c:if>
     ]
-    // console.log(kkk.length);
+    console.log(kkk.length);
+    
+    
+    
     // * 현재 위치를 알려주는 geolocation * 
     // HTML5의 geolocation으로 사용할 수 있는지 확인합니다 
     if (navigator.geolocation) {
@@ -179,15 +197,7 @@
         
          }); 
 
-
-
-
-
-         
-         
-    
          var geocoder = new kakao.maps.services.Geocoder();
-   
 
     // }
     var marker1;

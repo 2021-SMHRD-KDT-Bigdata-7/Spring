@@ -15,7 +15,6 @@
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=104f90e3976f1820f120da408f94509c&libraries=services"></script>
 <script type="text/javascript"
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=104f90e3976f1820f120da408f94509c&libraries=LIBRARY"></script>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=104f90e3976f1820f120da408f94509"></script>
 
 </head>
 <body style="background-color: #F2F2F2">
@@ -46,7 +45,7 @@
 	</div>
 	<div id="map"></div>
     <div id="select-form" style="padding-top: 5%;">
-    <button id="btn-report-list">처리완료</button>
+    <button id="btn-report-list" onclick="location.href='${cpath}/UpdateClear.do?re_seq=${re_seq}'">처리완료</button>
     </div>
     <div class="custom_typecontrol radius_border" style="display:none;">
         <span id="btnRoadmap" class="selected_btn" onclick="setMapType('roadmap')">지도</span>
@@ -107,13 +106,6 @@
 	    marker_U.setMap(map);
 	    marker_F.setMap(map);
 	    
-	// 지도 범위를 마커가 다 보이게 설정하기
-	// 지도범위를 재설정할 변수
-		var bounds = new kakao.maps.LatLngBounds(U,F);  
-	
-	// bounds를 지도에 설정
-	    map.setBounds(bounds);
-	
 	// 소방차량 위치 실시간으로 나타내기
 	// geolocation
 		//페이지 시작 시 현재 위치
@@ -126,7 +118,6 @@
 				    var locPosition = new kakao.maps.LatLng(lat, lon);
 			     
 			        displayMarker(locPosition);
-					
 		
 		/////////// 차량 실시간 위치 DB에 넣게 하기 함수  
 			    	var live_lat = document.getElementById("live_lat");
@@ -137,7 +128,36 @@
 			        console.log(live_lat.value);
 			        console.log(live_lon.value);
 			        
+			     // 지도 범위를 마커가 다 보이게 설정하기
+			     
+			     	var C = new kakao.maps.LatLng(lat, lon);
+			    	// 지도범위를 재설정할 변수
+			    	var bounds = new kakao.maps.LatLngBounds(U,C);  
+			    	
+			    	// bounds를 지도에 설정
+			    	map.setBounds(bounds);
+			        
 		});
+		
+	    /* var na =navigator.geolocation.watchPosition(success);
+
+        function success(position) {
+                    var lat = position.coords.latitude; // 위도
+                    var lon = position.coords.longitude; // 경도
+                    console.log(lat,lon)
+                    var locPosition = new kakao.maps.LatLng(lat, lon); // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
+
+                displayMarker(locPosition);
+        
+          /////////// 차량 실시간 위치 DB에 넣게 하기 함수  
+			    	var live_lat = document.getElementById("live_lat");
+			        var live_lon = document.getElementById("live_lon");
+			        console.log(typeof live_lat.value); //string
+			        live_lat.value = lat;
+			        live_lon.value = lon;
+			        console.log(live_lat.value);
+			        console.log(live_lon.value);
+        }; */
 		function set(){
 			document.getElementById("live_form").submit();
 		};
@@ -174,7 +194,5 @@
 		}
 
  	</script>
-
-
 </body>
 </html>

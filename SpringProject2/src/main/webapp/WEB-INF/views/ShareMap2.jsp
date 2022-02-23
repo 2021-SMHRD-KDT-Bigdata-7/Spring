@@ -29,7 +29,6 @@
 	 
 	<script>
 	//live_lat live_lon을 들고오기 위해 계속 SelectFS.do를 갱신
-	function set(){
 		
 		//출동차량 좌표
 		var lat_C = ${rvo.live_lat};
@@ -45,10 +44,6 @@
 	    });
 		
 	    marker_C.setMap(map);
-	    
-		document.getElementById("live_form").submit();
-		
-	};
 	
 	//신고 좌표
 		var lat_U = ${rvo.re_latitude};
@@ -56,8 +51,6 @@
 	//접수자 좌표(소방서)
 		var lat_F = ${fsvo.fs_latitude};
 		var lon_F = ${fsvo.fs_longitude};
-	
-		
 		
 		console.log(lat_C, lon_C);                              /////확인용
 		
@@ -108,7 +101,6 @@
 	    marker_U.setMap(map);
 	    marker_F.setMap(map);
 	    
-	    
 	    var lat_C = ${rvo.live_lat};
 		var lon_C = ${rvo.live_lon};
 		
@@ -126,13 +118,18 @@
 	    
 	// 지도 범위를 마커가 다 보이게 설정하기
 	// 지도범위를 재설정할 변수
-		var bounds = new kakao.maps.LatLngBounds(U,F);  
+		var bounds = new kakao.maps.LatLngBounds(U,C);  
 	
 	// bounds를 지도에 설정
 	    map.setBounds(bounds);
 	   
 	
 	setInterval(set,5000);
+	
+	if(lat_C == lat_U || lon_C == lon_U){
+		
+	}
+	
 	
 	// 지도타입 함수
 	function setMapType(maptype) { 
@@ -148,6 +145,28 @@
 	        roadmapControl.className = 'btn';
 	    }
 	}
+	
+	// 출동차량 좌표 계속 찍히게 새로고침에 들어가는 함수
+	function set(){
+		
+		//출동차량 좌표
+		lat_C = ${rvo.live_lat};
+		lon_C = ${rvo.live_lon};
+		
+		C = new kakao.maps.LatLng(lat_C, lon_C);
+		
+		markerPosition_C  = new kakao.maps.LatLng(lat_C, lon_C);  //출동차량위치
+		
+		marker_C = new kakao.maps.Marker({
+	        position: markerPosition_C,
+	        image: markerImage_C
+	    });
+		
+	    marker_C.setMap(map);
+	    
+		document.getElementById("live_form").submit();
+		
+	};
  	</script>
 
 

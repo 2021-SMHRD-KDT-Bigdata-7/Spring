@@ -218,7 +218,6 @@ public class SpringController {
 		List<Report> rlist = service.ReportTaking();
 //////확인용
 		System.out.println("ReportTaking컨트롤러 서비스에서 받아온거  "+rlist);
-		
 		model.addAttribute("rlist", rlist);
 //////확인용
 		System.out.println("ReportTaking컨트롤러 model에 넣은거 "+rlist);
@@ -327,12 +326,22 @@ public class SpringController {
 		return "ShareMap2";
 	}
 	
+	@RequestMapping("/UpdateClear.do")
+	public String UpdateClear(@RequestParam int re_seq) {
+		service.UpdateClear(re_seq);
+		System.out.println("UpdateClear콘트롤러의 re_seq : " + re_seq);
+		return "redirect:/ReportTaking.do";
+	}
+	
+	
 //*****************************************************************알림
 	@RequestMapping("/Notice.do")
 	public String Notice(Model model) {
 		List<Report> list = service.ReportTaking();
-		System.out.println("Notice의 rlist : "+ list.get(0).getRe_latitude());
-		return "Notice";
+		model.addAttribute("list", list);
+		System.out.println("Notice의  list : "+ list);
+		System.out.println("Notice의  list_model : "+ model);
+		return"Notice";
 	}
 
 }

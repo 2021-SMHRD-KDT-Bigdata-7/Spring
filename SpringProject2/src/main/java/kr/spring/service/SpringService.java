@@ -145,11 +145,15 @@ public class SpringService {
 		return "ShareMap";
 	}
 	
+	public void UpdateClear(int re_seq) {
+		System.out.println("UpdateClear서비스의 re_seq : "+re_seq);
+		mapper.UpdateClear(re_seq);
+	}
+	
 	public FireStation SelectFS(int re_seq) { 
 		System.out.println("SelectFS re_seq : " + re_seq);
 		FireStation fsvo = mapper.SelectFS(re_seq);
 			
 		return fsvo;
 	}
-	
 }
