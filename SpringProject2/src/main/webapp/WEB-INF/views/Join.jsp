@@ -53,24 +53,21 @@
 	<header> <h2 class="title">Join Us</h2> </header>
 	<div style="height: 50px"></div>
 		 <form action="JoinAll.do" method="POST"> 
-  		 <c:choose>
-  		 <c:when test="${m_type eq 'U'}">
+  		 
   		 <%-- 일반회원 회원가입 --%>
 			 <div class="input-box"> 
 				 <input type="hidden" name="m_type" value="${m_type}"> 
 				 <input id="m_name" type="text" name="m_name" placeholder="이름"> 
 				 <label for="m_name">이름</label> 
 			 </div>
-		 </c:when>
-		 <c:otherwise>
-		<%-- 소방서 회원가입 --%>
+		
+		 <%-- 소방서 회원가입 
 			 <div class="input-box"> 
 			 	<input type="hidden" name="m_type" value="${m_type}"> 
 			 	<input id="m_name" type="text" name="m_name" placeholder="센터명"> 
 			 	<label for="m_name">센터명</label> 
-			 </div>
-		 </c:otherwise>
-	 	 </c:choose>
+			 </div> --%>
+		
 			<div class="input-box"> 
 				<input id="m_id" type="text" name="m_id" placeholder="아이디"> 
 				<label for="m_id">아이디</label> 

@@ -35,7 +35,7 @@ ${mvo.m_type} --%>
 	</div> 
 	<div id="btn-login-main">
 		<input type="submit" id="btn-submit" value="로그인">
-		<input type="button" id="btn-submit" value="회원가입" readonly="readonly" onclick="location.href='JoinSelect.do'">
+		<input type="button" id="btn-submit" value="회원가입" readonly="readonly" onclick="location.href='Join.do'">
 	</div>
 </form>
 	  </c:when>
