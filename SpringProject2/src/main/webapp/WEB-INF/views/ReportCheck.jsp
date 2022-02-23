@@ -16,11 +16,11 @@ ${re_seq}
 	<div style="height: 30%"></div>
 	<div id="symbol">
 		<div>
-		  <form action="${cpath}/SelectFS.do">
+		  <form action="${cpath}/SelectFS.do" style="width:90%;">
 			<img id="img-car" src="resources/images/firecar.png">
-			<h1 class="blink">신고가 접수되었습니다.</h1>
-			<input type="text" name="re_seq" value="${re_seq}">
-			<button type="submit">보러가기</button>
+			<h1>신고가 접수되었습니다.</h1>
+			<%-- <input type="text" name="re_seq" value="${re_seq}"> --%>
+			<button id="show" type="submit">보러가기</button>
 		  </form>
 		</div>
 	</div>

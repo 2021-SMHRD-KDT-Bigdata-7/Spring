@@ -19,12 +19,40 @@
 
 </head>
 <body style="background-color: #F2F2F2">
+<div id="select-form">
+	<table>
+		<tr>
+			<td style="font-family: 'SBAggroL'">차량을 선택하면 진입불가지역을 확인할 수 있습니다.</td>
+		</tr>
+		<tr>
+			<td>
+			<select class="select" name="car_type">
+				  <option selected disabled>차량을 선택해주세요.</option>
+				  <option value="mini">소형 소방펌프차</option>
+				  <option value="middle">중형 소방펌프차</option>
+				  <option value="large">대형 소방펌프차</option>
+				  <option value="18m">18m 굴절차</option>
+				  <option value="27m">27m 굴절차</option>
+				  <option value="35m">35m 굴절차</option>
+				  <option value="61.5m">61.5m 고가사다리차</option>
+				  <option value="32m">32m 고가사다리차</option>
+				  <option value="46m">46m 고가사다리차</option>
+				  <option value="52m">52m 고가사다리차</option>
+				  <option value="ambulance">구급차</option>
+			</select>
+			</td>
+		</tr>
+	</table>
+	</div>
 	<div id="map"></div>
-    <div class="custom_typecontrol radius_border">
+    <div id="select-form" style="padding-top: 5%;">
+    <button id="btn-report-list">처리완료</button>
+    </div>
+    <div class="custom_typecontrol radius_border" style="display:none;">
         <span id="btnRoadmap" class="selected_btn" onclick="setMapType('roadmap')">지도</span>
         <span id="btnSkyview" class="btn" onclick="setMapType('skyview')">스카이뷰</span>
     </div>
-	<form id="live_form" action="${cpath}/UpdateMap.do?m_id=${mvo.m_id}&re_seq=${rvo.re_seq}" method="POST">
+	<form id="live_form" action="${cpath}/UpdateMap.do?m_id=${mvo.m_id}&re_seq=${rvo.re_seq}" method="POST" style="display:none;">
 	  <input type="text" name="live_lat" id="live_lat">
 	  <input type="text" name="live_lon" id="live_lon">
 	</form>

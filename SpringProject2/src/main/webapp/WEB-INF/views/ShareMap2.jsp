@@ -17,13 +17,13 @@
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=104f90e3976f1820f120da408f94509c&libraries=LIBRARY"></script>
 </head>
 <body style="background-color: #F2F2F2">
-	<div id="map"></div>
-    <div class="custom_typecontrol radius_border">
+	<div id="map" style="height:100%"></div>
+    <div class="custom_typecontrol radius_border" style="display:none;">
         <span id="btnRoadmap" class="selected_btn" onclick="setMapType('roadmap')">지도</span>
         <span id="btnSkyview" class="btn" onclick="setMapType('skyview')">스카이뷰</span>
     </div>
     
-	 <form action="${cpath}/SelectFS.do" id="live_form" method="POST">
+	 <form action="${cpath}/SelectFS.do" id="live_form" method="POST" style="display:none;">
 	 	<input type="text" name="re_seq" value="${rvo.re_seq}">
 	 </form>
 	 

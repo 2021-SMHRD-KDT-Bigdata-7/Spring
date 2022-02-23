@@ -40,7 +40,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <body>
     <div class="map_wrap">
-    <div class="header"><img id="logo" onclick="location.href='${cpath}/Map.do'" src="resources/images/header.png"></div>
+    <div class="header"><img id="logo" onclick="location.href='${cpath}/Main.do'" src="resources/images/header.png"></div>
         <div id="map" style="width:100%;height:752px;position:relative;overflow:hidden;"></div>
         <!-- <div class="hAddr">
             <span class="title">지도중심기준 행정동 주소정보</span>
