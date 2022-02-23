@@ -81,4 +81,14 @@
 		select * from t_fire_station where m_id = #{m_id}
 	</select>
 	
+	<update id="UpdateMap">
+		update t_report set live_lat = #{live_lat}, live_lon = #{live_lon}, fs_seq = #{fs_seq} where re_seq = #{re_seq} 
+	</update>
+	
+	<!-- ReportCheck페이지에서 ShareMap으로 가기위해 소방서정보 들고오기  -->
+	<select id="SelectFS" resultType="kr.spring.domain.FireStation" parameterType="Integer">
+		select * from t_fire_station where fs_seq = (select fs_seq from t_report where re_seq = #{re_seq})
+	</select>
+	
+	
 </mapper>

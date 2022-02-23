@@ -16,6 +16,8 @@ public class Report {
 	private double re_latitude;
 	private double re_longitude;
 	private int fs_seq;
+	private double live_lat;
+	private double live_lon;
 	
 	
 }

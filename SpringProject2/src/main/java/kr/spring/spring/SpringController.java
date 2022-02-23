@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +13,6 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.spring.domain.FireStation;
 import kr.spring.domain.Member;
@@ -100,7 +98,7 @@ public class SpringController {
 			System.out.println("컨트롤러 세션타입 :  "+mvo.getM_type());
 
 			if(mvo.getM_type().equals("U")) {
-				return "redirect:/Main.do";
+				return "Main";
 			}
 			else{
 				return "redirect:/Map.do";
@@ -108,8 +106,6 @@ public class SpringController {
 		}else {
 			return "redirect:/Main.do";
 		}
-		
-		
 			
 		
 	  }
@@ -236,8 +232,9 @@ public class SpringController {
 	public String ReportDetail(@RequestParam int re_seq, Model model){
 		
 		Report rvo = service.ReportDetail(re_seq);
+			
 		Member mvo1 = service.ReportSelectNP(re_seq);
-
+		
 		model.addAttribute("rvo",rvo);
 		model.addAttribute("mvo1",mvo1);
 		
@@ -247,9 +244,9 @@ public class SpringController {
 		System.out.println("ReportDetail컨트롤러 "+ model);
 		System.out.println("ReportDetail의 re_sqe : "+ re_seq);
 		
-		return "ReportDetail";
-		
-	}
+			return "ReportDetail";
+		}
+
 //*****************************************************************지도
 
 	// 접수자 메인에서 지도보기 클릭 시
@@ -277,17 +274,60 @@ public class SpringController {
 // ReportDetail에서 접수버튼 누르면 나오는 위치 공유 지도
 	@RequestMapping("/ShareMap.do")
 	public String ShareMap(@RequestParam String m_id, @RequestParam int re_seq, Model model) {
-//////확인용
-		System.out.println("ShareMap컨트롤러의 re_seq :"+re_seq);
-		System.out.println("ShareMap컨트롤러의 m_id : "+m_id);
-		
+		System.out.println("ShareMap컨트롤러의 re_seq :"+re_seq); //////확인용
+		System.out.println("ShareMap컨트롤러의 m_id : "+m_id); //////확인용
+		// 소방서 좌표 가져오기
+		FireStation fsvo = service.Map(m_id);
+		model.addAttribute("fsvo", fsvo);
+		System.out.println("ShareMap : "+fsvo); //////확인용
+		// 공유 페이지 만들기
 		service.ShareMap(m_id, re_seq, model);
 //////확인용
 		System.out.println("ShareMap컨트롤러의 model : "+model);
 			
 		return "ShareMap";
 	}
+// 
+	@RequestMapping("/UpdateMap.do")
+	public String UpdateMap(@RequestParam String m_id, @RequestParam String live_lat, @RequestParam String live_lon, @RequestParam int re_seq, Model model) {
+		model.addAttribute("live_lat",live_lat);
+		model.addAttribute("live_lon",live_lon); 
+		model.addAttribute("re_seq",re_seq);
+		// 소방서 정보 가져오기
+		FireStation fsvo = service.Map(m_id);
+		model.addAttribute("fs_seq",fsvo.getFs_seq()); // fsvo에서 fs_seq를 가져옴
+		
+		System.out.println("UpdateMap m_id : "+m_id);  //////확인용
+		System.out.println("UpdateMap fsvo.getFs_seq()) : "+fsvo.getFs_seq());  //////확인용
+		System.out.println("UpdateMap UpdateMap model : "+model);  //////확인용
+		service.UpdateMap(model); // live_lat,lon/fs_seq를 업데이트
 
+		return "forward:/ShareMap.do";
+	}
+	
+	// 신고완료 후 신고자 지도 공유 화면
+	@RequestMapping("/SelectFS.do")
+	public String SelectFS(@RequestParam int re_seq, Model model) {
+		
+		System.out.println("re_seq "+re_seq);                          /////확인용
+		// re_seq를 통해 rvo를 가져옴 
+		Report rvo = service.ReportDetail(re_seq);
+		model.addAttribute("rvo", rvo);
+		System.out.println("SelectFS의 rvo : "+ rvo);                  /////확인용
+		
+		// re_seq를 통해 fsvo를 가져옴
+		FireStation fsvo = service.SelectFS(re_seq);
+		model.addAttribute("fsvo", fsvo);
+		System.out.println("SelectFS.do의 fsvo : "+ fsvo);              /////확인용
+		
+		// model객체에 소방서id를 담아서 forward 
+		model.addAttribute("m_id", fsvo.getM_id());
+		System.out.println("SelectFS.do의 id : "+ fsvo.getM_id());      /////확인용
+		System.out.println("SelectFS.do의 model : "+ model);            /////확인용
+		
+		return "ShareMap2";
+	}
+	
 //*****************************************************************알림
 	@RequestMapping("/Notice.do")
 	public String Notice(Model model) {
