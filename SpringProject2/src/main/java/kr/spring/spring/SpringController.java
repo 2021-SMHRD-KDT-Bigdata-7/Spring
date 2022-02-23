@@ -35,11 +35,10 @@ public class SpringController {
 	@RequestMapping("/ReportCheck.do") public String ReportCheck() { return "ReportCheck"; }
 	  
 	@RequestMapping("/Join.do") 
-	public String Join(@RequestParam String m_type, Model model) { 
-		model.addAttribute("m_type",m_type);
+	public String Join(Model model) { 
+		model.addAttribute(model);
 ////////확인용
-		System.out.println("JoinSelect의 m_type : "+m_type);
-		System.out.println("JoinSelect의 m_type : "+m_type.getClass());
+		System.out.println("Join: "+model);
 		return "Join"; 
 	}
 	@RequestMapping("/UserSetting.do") public String UserSetting() { return "UserSetting"; }
@@ -69,7 +68,7 @@ public class SpringController {
 //**************************************************************로그인 및 회원가입 메소드
 	
 	 //회원가입-일반/소방 
-	 @RequestMapping("/JoinAll.do") 
+	 /*@RequestMapping("/JoinAll.do") 
 	 public String JoinAll(@RequestParam Map<String, Object> map, ModelMap model) {
 //////////확인용   
 		 model.addAllAttributes(map);
@@ -84,7 +83,7 @@ public class SpringController {
 				return "Main";
 			}
 
-		}
+		}*/
 	
 	//로그인
 	 @RequestMapping(value = "/Login.do", method = RequestMethod.POST)
