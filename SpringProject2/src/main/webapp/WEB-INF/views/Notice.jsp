@@ -96,9 +96,9 @@
         <!-- alert 모달을 쓸 페이지에 추가 end-->
     </div>
     
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0de10dc4e85562d90ee728b39421ac4b&libraries=services"></script>
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0de10dc4e85562d90ee728b39421ac4b&libraries=drawing"></script>
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0de10dc4e85562d90ee728b39421ac4b"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=104f90e3976f1820f120da408f94509c&libraries=services"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=104f90e3976f1820f120da408f94509c&libraries=drawing"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=104f90e3976f1820f120da408f94509c"></script>
     
 <script>
     var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
