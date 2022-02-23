@@ -1,39 +1,47 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" language="java" %>
-
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    <c:set var="cpath" value="${pageContext.request.contextPath}"/>   
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
+<meta charset="utf-8">
+<link rel="stylesheet" href="${cPath}/resources/css/cssfile.css" type="text/css" media="screen" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
     <title>불이야</title>
     <style>
-        * {padding: 0;margin: 0;}
-    body, html {height: 100%;}
-    .modal .btn{cursor: pointer;border: 1px solid #999999;text-align: center;border-radius: 5px;outline: none;font-weight: 500;}
+     * {padding: 0;margin: 0;}
+     @font-face {font-family: 'SBAggroM';src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroM.woff') format('woff');font-weight: normal;font-style: normal;}
+	 @font-face {font-family: 'SBAggroL';src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroL.woff') format('woff');font-weight: normal;font-style: normal;}
+    body, html, p {font-family: 'SBAggroL';}
+    .modal .btn{cursor: pointer;border: 1px solid black;text-align: center;border-radius: 5px;outline: none;font-size: 20px;font-family: 'SBAggroL';box-shadow:1px 1px black}
     .dimLayer{display: block;width: 100%;background-color: rgba(0, 0, 0, 0.3);position: fixed;left: 0;top: 0px;margin: 0;padding: 0;z-index: 9998;}
-    .modal{width: 600px;height: 252px;border-radius: 10px;padding: 80px 24px;box-sizing: border-box;text-align: center;}
-    .modal-section{background: #ffffff;box-sizing: border-box;display: none;position: absolute;top: 50%;left: 50%;-webkit-transform: translate(-50%, -50%);-ms-transform: translate(-50%, -50%);-moz-transform: translate(-50%, -50%);-o-transform: translate(-50%, -50%);transform: translate(-50%, -50%);display: none;z-index: 9999;}
-    .menu_msg{font-size: 21px;font-weight: 500;}
+    .modal{width: 370px;height: 252px;border-radius: 10px;padding: 80px 24px;box-sizing: border-box;text-align: center;}
+    .modal-section{background: #ffffff;box-sizing: border-box;border:2px solid;display: none;position: absolute;top: 50%;left: 50%;-webkit-transform: translate(-50%, -50%);-ms-transform: translate(-50%, -50%);-moz-transform: translate(-50%, -50%);-o-transform: translate(-50%, -50%);transform: translate(-50%, -50%);display: none;z-index: 9999;}
+    .menu_msg{font-size: 23px;font-weight: 500;}
     .enroll_box p{padding-bottom: 56px;}
-    .gray_btn {width: 90px;background: #ffffff;color: #999999;height: 36px;line-height: 36px;transition: 0.5s;font-size: 17px;}
-    .pink_btn {width: 90px;background: #ed197a;color: #fff;height: 36px;line-height: 36px;transition: 0.5s;font-size: 17px;border: none;}
+    .gray_btn {width: 90px;background: #ffffff;color: #black;height: 36px;line-height: 36px;transition: 0.5s;font-size: 17px;}
+    .pink_btn {width: 90px;background: firebrick;color: #fff;height: 36px;line-height: 36px;transition: 0.5s;font-size: 17px;border: none;}
 
-        .map_wrap {position:relative;width:100%;height:350px;}
-        .title {font-weight:bold;display:block;}
+        .map_wrap {position:relative;width:100%;height:100%;}
+        .title {font-weight:bold;display:block; font-family: 'SBAggroM';}
         .hAddr {position:absolute;left:10px;top:10px;border-radius: 2px;background:#fff;background:rgba(255,255,255,0.8);z-index:1;padding:5px;}
         #centerAddr {display:block;margin-top:2px;font-weight: normal;}
         .bAddr {padding:5px;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
         .modes {position: absolute;top: 10px;left: 10px;z-index: 1;}
         .getdata{position: absolute;top: 370px;left: 10px;z-index: 1;}
         .confirm{position: absolute;top: 370px;left: 10px;z-index: 1;}
-        #map, #drawingMap {width: 100%;height: 350px;}
+        #map, #drawingMap {width: 100%;height: 100%;}
         #drawingMap {margin-top: 10px;}
+        .return-text{height:auto;font-family: 'SBAggroM';font-size: 4vw;color:black;text-align: left;text-indent: 10px;}
+        .header{text-align: right; background-color: #f2f2f2; height: 10%;}
+        #logo{width: 170px;height: auto;image-rendering: -webkit-optimize-contrast;margin-top:5%;}
     </style>
 </head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
 <body>
     <div class="map_wrap">
-        <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
+    <div class="header"><img id="logo" onclick="location.href='${cpath}/Map.do'" src="resources/images/header.png"></div>
+        <div id="map" style="width:100%;height:752px;position:relative;overflow:hidden;"></div>
         <!-- <div class="hAddr">
             <span class="title">지도중심기준 행정동 주소정보</span>
             <span id="centerAddr"></span> -->
@@ -78,6 +86,7 @@
         </section>
         <!-- alert 모달을 쓸 페이지에 추가 end-->
     </div>
+    
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0de10dc4e85562d90ee728b39421ac4b&libraries=services"></script>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0de10dc4e85562d90ee728b39421ac4b&libraries=drawing"></script>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0de10dc4e85562d90ee728b39421ac4b"></script>
@@ -251,7 +260,7 @@
             poly.setMap(map);
             markerarr.unshift(marker1);
             polyarr.unshift(poly);
-            var contenttest = "주변에 화재가 발생하였습니다!! 해당 위치를 확인하시겠습니까?";
+            var contenttest = '주변에 화재가 발생하였습니다! 해당 위치를 확인하시겠습니까?';
    
         action_popup.confirm(contenttest, function (res) {
             if (res) {
