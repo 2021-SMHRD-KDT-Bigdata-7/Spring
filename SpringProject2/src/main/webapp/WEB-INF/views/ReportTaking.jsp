@@ -17,7 +17,7 @@
 <section>
 <p class="return-text" onclick="location.href='Map.do'">< 뒤로가기</p>
 <div id="setting-form">
-<h1 style="text-align: left;">신고 내역</h1>
+<h1 style="text-align: left; margin-bottom: 5%;">신고 내역</h1>
   <table id="tbl-report">
 	<c:forEach var="rvo" items="${rlist}">
 	  <tr onclick="location.href='${cpath}/ReportDetail.do?re_seq=${rvo.re_seq}'">

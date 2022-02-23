@@ -12,13 +12,13 @@
 <title>불이야</title>
 </head>
 <body>
-${re_seq}
+<%-- ${re_seq} --%>
 	<div style="height: 30%"></div>
 	<div id="symbol">
 		<div>
 		  <form action="${cpath}/SelectFS.do?re_seq" style="width:90%;">
 			<img id="img-car" src="resources/images/firecar.png">
-			<h1>신고가 접수되었습니다.</h1>
+			<h1 class="blink">신고가 접수되었습니다.</h1>
 			<input type="hidden" name="re_seq" value="${re_seq}">
 			<button id="show" type="submit">보러가기</button>
 		  </form>

@@ -41,13 +41,13 @@
 </head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <body>
-
+<%-- 
 	<c:if test="${!empty list}">
     	<c:forEach var="i" begin="0" end="${fn:length(list)-1}">
     		[${list[i].re_latitude},
     		${list[i].re_longitude}], <br>
     	</c:forEach>
-	</c:if>
+	</c:if> --%>
 	
     <div class="map_wrap">
     <div class="header"><img id="logo" onclick="location.href='${cpath}/Main.do'" src="resources/images/header.png"></div>
@@ -60,13 +60,13 @@
         <div id="position"></div>   
         <div id="drawingMap"></div>
   
-    <p><em>지도 중심좌표가 변경되면 지도 정보가 표출됩니다</em></p>
+    <!-- <p><em>지도 중심좌표가 변경되면 지도 정보가 표출됩니다</em></p>
     <p id="result"></p>
-    <p id="result2"></p>
-    <div id="confirm">
+    <p id="result2"></p> -->
+    <div id="confirm" style="display: none;">
     <input type ="button" value ="알림창 test" onClick="confirmtest()">
     </div>
-    <div class="wrap">
+    <div class="wrap" style="display: none;">
         <section>
             <button type="button" id="confirm">컨펌창</button>
            

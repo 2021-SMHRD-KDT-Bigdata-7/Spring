@@ -14,7 +14,7 @@
 <body>
 <div id="wrap">
 <div class="empty"></div>
-${mvo.m_id}
+<%-- ${mvo.m_id} --%>
 <section style="height: auto;">
 <p class="return-text" onclick="location.href='ReportTaking.do'">< 뒤로가기</p>
 	<form id="form-report-info" action="${cpath}/ShareMap.do?m_id=${mvo.m_id}&re_seq=${rvo.re_seq}" method="POST">
