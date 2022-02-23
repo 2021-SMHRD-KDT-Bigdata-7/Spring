@@ -24,7 +24,7 @@ ${mvo.m_type} --%>
 			<div id="title"><p id="title-text">불이야</p></div>
 		</div>
 	  <div class="empty"></div>
-<form action="Login.do" method="POST"> 
+<form action="${cpath}/Login.do" method="POST"> 
 	<div class="input-box"> 
 		<input id="m_id" type="text" name="m_id" placeholder="아이디"> 
 		<label for="m_id">아이디</label> 
