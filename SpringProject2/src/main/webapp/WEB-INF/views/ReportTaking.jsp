@@ -15,7 +15,7 @@
 <div class="empty"></div>
 <div id="wrap" style="height: auto;">
 <section>
-<p class="return-text" onclick="location.href='Main.do'">< 뒤로가기</p>
+<p class="return-text" onclick="location.href='Map.do'">< 뒤로가기</p>
 <div id="setting-form">
 <h1 style="text-align: left;">신고 내역</h1>
   <table id="tbl-report">
