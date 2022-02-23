@@ -13,6 +13,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.spring.domain.FireStation;
 import kr.spring.domain.Member;
@@ -85,7 +86,7 @@ public class SpringController {
 	
 	//로그인
 	 @RequestMapping(value = "/Login.do", method = RequestMethod.POST)
-	  public String Login(@RequestParam Map<String, Object> map, ModelMap model, HttpServletRequest request)  { 
+	  public String Login(@RequestParam Map<String, Object> map, ModelMap model, HttpServletRequest request, RedirectAttributes redirectAttributes)  { 
 			
 		model.addAllAttributes(map);
 		System.out.println("컨트롤러 modlemap "+map);
@@ -95,7 +96,7 @@ public class SpringController {
 			session.setAttribute("mvo", mvo);
 			System.out.println("컨트롤러 세션 "+session);
 			System.out.println("컨트롤러 세션타입 :  "+mvo.getM_type());
-
+			redirectAttributes.addFlashAttribute("mvo",mvo);
 			if(mvo.getM_type().equals("U")) {
 				return "Main";
 			}

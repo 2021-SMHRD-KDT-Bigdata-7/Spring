@@ -18,14 +18,11 @@
 </head>
 <body style="background-color: #F2F2F2">
 	<div id="map"></div>
-	 ${fsvo.fs_latitude}
-	 ${fsvo.fs_longitude}
-	 <br>
-	 ${rvo.re_latitude}
-	 ${rvo.re_longitude}
-	 <br>
-	 ${rvo.re_seq}
-	 
+    <div class="custom_typecontrol radius_border">
+        <span id="btnRoadmap" class="selected_btn" onclick="setMapType('roadmap')">지도</span>
+        <span id="btnSkyview" class="btn" onclick="setMapType('skyview')">스카이뷰</span>
+    </div>
+    
 	 <form action="${cpath}/SelectFS.do" id="live_form" method="POST">
 	 	<input type="text" name="re_seq" value="${rvo.re_seq}">
 	 </form>
@@ -72,9 +69,6 @@
 			level : 3
 		};
 		var map = new kakao.maps.Map(container, options);
-		
-	//위성지도로 변환
-		map.setMapTypeId(kakao.maps.MapTypeId.HYBRID); 
 
 		var U = new kakao.maps.LatLng(lat_U, lon_U),
 	  		F = new kakao.maps.LatLng(lat_F, lon_F);
@@ -138,7 +132,22 @@
 	    map.setBounds(bounds);
 	   
 	
-	setInterval(set,10000);
+	setInterval(set,5000);
+	
+	// 지도타입 함수
+	function setMapType(maptype) { 
+	    var roadmapControl = document.getElementById('btnRoadmap');
+	    var skyviewControl = document.getElementById('btnSkyview'); 
+	    if (maptype === 'roadmap') {
+	        map.setMapTypeId(kakao.maps.MapTypeId.ROADMAP);    
+	        roadmapControl.className = 'selected_btn';
+	        skyviewControl.className = 'btn';
+	    } else {
+	        map.setMapTypeId(kakao.maps.MapTypeId.HYBRID);    
+	        skyviewControl.className = 'selected_btn';
+	        roadmapControl.className = 'btn';
+	    }
+	}
  	</script>
 
 

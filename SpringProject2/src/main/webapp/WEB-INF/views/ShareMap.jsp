@@ -15,26 +15,19 @@
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=104f90e3976f1820f120da408f94509c&libraries=services"></script>
 <script type="text/javascript"
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=104f90e3976f1820f120da408f94509c&libraries=LIBRARY"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=104f90e3976f1820f120da408f94509"></script>
+
 </head>
 <body style="background-color: #F2F2F2">
 	<div id="map"></div>
-	 ${fsvo.fs_latitude}
-	 ${fsvo.fs_longitude}
-	 <br>
-	 ${rvo.re_latitude}
-	 ${rvo.re_longitude}
-	 <br>
-	 ${rvo.re_seq}
- 	<div>
-		<form id="live_form" action="${cpath}/UpdateMap.do?m_id=${mvo.m_id}&re_seq=${rvo.re_seq}" method="POST">
-		  <input type="text" name="live_lat" id="live_lat">
-		  <input type="text" name="live_lon" id="live_lon">
-<%-- 		  <input type="text" name="fs_latitude" value="${fsvo.fs_latitude}">
-		  <input type="text" name="fs_longitude" value="${fsvo.fs_longitude}">
-		  <input type="text" name="rvo.re_latitude" value="${rvo.re_latitude}">
-		  <input type="text" name="rvo.re_longitude" value="${rvo.re_longitude}"> --%>
-		</form>
-	</div>
+    <div class="custom_typecontrol radius_border">
+        <span id="btnRoadmap" class="selected_btn" onclick="setMapType('roadmap')">지도</span>
+        <span id="btnSkyview" class="btn" onclick="setMapType('skyview')">스카이뷰</span>
+    </div>
+	<form id="live_form" action="${cpath}/UpdateMap.do?m_id=${mvo.m_id}&re_seq=${rvo.re_seq}" method="POST">
+	  <input type="text" name="live_lat" id="live_lat">
+	  <input type="text" name="live_lon" id="live_lon">
+	</form>
 	 
 	<script>
 	//신고 좌표
@@ -53,13 +46,11 @@
 		};
 		var map = new kakao.maps.Map(container, options);
 		
-		map.setMapTypeId(kakao.maps.MapTypeId.HYBRID); 
 
 		var U = new kakao.maps.LatLng(lat_U, lon_U),
 	  		F = new kakao.maps.LatLng(lat_F, lon_F);
 
-	//위성지도로 변환
-	
+		
 	 // 마커위치
 	    var markerPosition_U  = new kakao.maps.LatLng(lat_U, lon_U);  //신고위치
 	    var markerPosition_F  = new kakao.maps.LatLng(lat_F, lon_F);  //소방서위치
@@ -122,7 +113,7 @@
 		function set(){
 			document.getElementById("live_form").submit();
 		};
-		setInterval(set,10000);
+		setInterval(set,5000);
 	
 		function displayMarker(locPosition){
 			//마커 이미지 - 출동차량
@@ -138,6 +129,21 @@
 			}); 
 		        nwp_marker.setMap(map);
 		}; 
+		
+		// 지도타입 함수
+		function setMapType(maptype) { 
+		    var roadmapControl = document.getElementById('btnRoadmap');
+		    var skyviewControl = document.getElementById('btnSkyview'); 
+		    if (maptype === 'roadmap') {
+		        map.setMapTypeId(kakao.maps.MapTypeId.ROADMAP);    
+		        roadmapControl.className = 'selected_btn';
+		        skyviewControl.className = 'btn';
+		    } else {
+		        map.setMapTypeId(kakao.maps.MapTypeId.HYBRID);    
+		        skyviewControl.className = 'selected_btn';
+		        roadmapControl.className = 'btn';
+		    }
+		}
 
  	</script>
 
