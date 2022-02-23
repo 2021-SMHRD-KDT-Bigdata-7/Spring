@@ -43,7 +43,7 @@ public class SpringController {
 	 
 	@RequestMapping("/JoinSelect.do") public String JoinSelect() { return "JoinSelect"; }
 	
-	// 설정버튼 누르면 로그인세션과 함께 설정페이지로 이동
+	// 설정버튼 누르면 로그인세션과 함께 설정페이지로 이동 
 	@RequestMapping("/Setting.do") 
 	public String Setting(HttpSession session, Member member) { 
 		
