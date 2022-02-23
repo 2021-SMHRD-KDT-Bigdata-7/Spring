@@ -17,6 +17,7 @@
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=104f90e3976f1820f120da408f94509c&libraries=LIBRARY"></script>
 </head>
 <body style="background-color: #F2F2F2">
+${mvo.m_id}
 	<div class="empty">
 	<form action="${cpath}/Logout.do" method="GET" style="width: 100%; text-align: right;">
 		<a href="${cpath}/Logout.do" style="font-size: 13px;">로그아웃</a>
