@@ -190,7 +190,6 @@
         var live_lon = document.getElementById("live_lon");
 		function success(position) {
 					var nwp_marker = new kakao.maps.Marker({  
-					    map: map, 
 					}); 
 					nwp_marker.setMap(null);
                     var lat = position.coords.latitude; // 위도
