@@ -169,7 +169,7 @@
 		
 	   	var live_lat = document.getElementById("live_lat");
         var live_lon = document.getElementById("live_lon");
-        nwp_marker.setMap(null);
+    
 		function success(position) {
                     var lat = position.coords.latitude; // 위도
                     var lon = position.coords.longitude; // 경도
@@ -218,6 +218,7 @@
         };  
         
         function displayMarker(locPosition){
+            nwp_marker.setMap(null); 
 			//마커 이미지 - 출동차량
 			var imageSrc = "resources/images/firecar.png",   
 			    imageSize = new kakao.maps.Size(40, 40);
