@@ -175,9 +175,6 @@
                     var lon = position.coords.longitude; // 경도
                     console.log(lat,lon)
                     var locPosition = new kakao.maps.LatLng(lat, lon); // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
-
-                	displayMarker(locPosition);
-        
           /////////// 차량 실시간 위치 DB에 넣게 하기 함수  
 			        console.log(typeof live_lat.value); //string
 			        live_lat.value = lat;
@@ -206,8 +203,24 @@
 					    	        	alert("실패");
 					    	        }
 					        });
+					    	  nwp_marker.setMap(null);
+					    	  displayMarker(locPosition);
         }; 
         
+        function displayMarker(locPosition){
+			//마커 이미지 - 출동차량
+			var imageSrc = "resources/images/firecar.png",   
+			    imageSize = new kakao.maps.Size(40, 40);
+			    
+			var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
+			
+			var nwp_marker = new kakao.maps.Marker({  
+			    map: map, 
+			    position: locPosition,
+			    image: markerImage
+			}); 
+		        nwp_marker.setMap(map);
+		}; 
      // 선을 구성하는 좌표 배열
     function car_info(carvalue) {
        if(carvalue == "mini") {
@@ -371,20 +384,6 @@
 	            alert("There was an error submitting comment");
 	        }
 	     });  */
-		function displayMarker(locPosition){
-			//마커 이미지 - 출동차량
-			var imageSrc = "resources/images/firecar.png",   
-			    imageSize = new kakao.maps.Size(40, 40);
-			    
-			var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
-			
-			var nwp_marker = new kakao.maps.Marker({  
-			    map: map, 
-			    position: locPosition,
-			    image: markerImage
-			}); 
-		        nwp_marker.setMap(map);
-		}; 
 		
 		// 지도타입 함수
 		function setMapType(maptype) { 
