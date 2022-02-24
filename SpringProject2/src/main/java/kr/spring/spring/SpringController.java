@@ -288,6 +288,11 @@ public class SpringController {
 // 
 	@RequestMapping("/UpdateMap.do")
 	public String UpdateMap(@RequestParam String m_id, @RequestParam String live_lat, @RequestParam String live_lon, @RequestParam int re_seq, Model model) {
+		System.out.println("UpdateMap lat : "+live_lat);
+		System.out.println("UpdateMap lon : " +live_lon);
+		System.out.println("UpdateMap m_id : "+m_id);  //////확인용
+		System.out.println("UpdateMap re_seq : "+re_seq);  //////확인용
+		
 		model.addAttribute("live_lat",live_lat);
 		model.addAttribute("live_lon",live_lon); 
 		model.addAttribute("re_seq",re_seq);
@@ -295,7 +300,6 @@ public class SpringController {
 		FireStation fsvo = service.Map(m_id);
 		model.addAttribute("fs_seq",fsvo.getFs_seq()); // fsvo에서 fs_seq를 가져옴
 		
-		System.out.println("UpdateMap m_id : "+m_id);  //////확인용
 		System.out.println("UpdateMap fsvo.getFs_seq()) : "+fsvo.getFs_seq());  //////확인용
 		System.out.println("UpdateMap UpdateMap model : "+model);  //////확인용
 		service.UpdateMap(model); // live_lat,lon/fs_seq를 업데이트

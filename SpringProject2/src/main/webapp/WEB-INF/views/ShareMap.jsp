@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/cssfile.css" type="text/css" media="screen" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>신고위치</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript"
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=104f90e3976f1820f120da408f94509c&libraries=services"></script>
 <script type="text/javascript"
@@ -25,7 +26,7 @@
 		</tr>
 		<tr>
 			<td>
-			<select class="select" name="car_type">
+			<select class="select" name="car_type" onchange = "car_info(this.value)">
 				  <option selected disabled>차량을 선택해주세요.</option>
 				  <option value="mini">소형 소방펌프차</option>
 				  <option value="middle">중형 소방펌프차</option>
@@ -43,7 +44,7 @@
 		</tr>
 	</table>
 	</div>
-	<div id="map"></div>
+	
     <div id="select-form" style="padding-top: 5%;">
     <button id="btn-report-list" onclick="location.href='${cpath}/UpdateClear.do?re_seq=${re_seq}'">처리완료</button>
     </div>
@@ -51,11 +52,23 @@
         <span id="btnRoadmap" class="selected_btn" onclick="setMapType('roadmap')">지도</span>
         <span id="btnSkyview" class="btn" onclick="setMapType('skyview')">스카이뷰</span>
     </div>
-	<form id="live_form" action="${cpath}/UpdateMap.do?m_id=${mvo.m_id}&re_seq=${rvo.re_seq}" method="POST" style="display:none;">
+    
+    
+ 	<form id="live_form" action="${cpath}/UpdateMap.do?m_id=${mvo.m_id}&re_seq=${rvo.re_seq}" method="POST" style="display:none;">
 	  <input type="text" name="live_lat" id="live_lat">
 	  <input type="text" name="live_lon" id="live_lon">
-	</form>
-	 
+	  <input type="text" name="m_id" value="${mvo.m_id}" id="m_id">
+	  <input type="text" name="re_seq" value="${rvo.re_seq}" id="re_seq">
+	</form> 
+	
+	<%-- <form>
+	  <input type="text" name="live_lat" id="live_lat">
+	  <input type="text" name="live_lon" id="live_lon">
+	  <input type="text" name="m_id" value="${mvo.m_id}" id="m_id">
+	  <input type="text" name="re_seq" value="${rvo.re_seq}" id="re_seq">
+	</form> --%>
+	
+	<div id="map">
 	<script>
 	//신고 좌표
 		var lat_U = ${rvo.re_latitude};
@@ -72,7 +85,7 @@
 			level : 3
 		};
 		var map = new kakao.maps.Map(container, options);
-		
+//		map.setMapTypeId(kakao.maps.MapTypeId.HYBRID); 
 
 		var U = new kakao.maps.LatLng(lat_U, lon_U),
 	  		F = new kakao.maps.LatLng(lat_F, lon_F);
@@ -108,8 +121,11 @@
 	    
 	// 소방차량 위치 실시간으로 나타내기
 	// geolocation
+	
+// 1. currentposition 사용
 		//페이지 시작 시 현재 위치
-		navigator.geolocation.getCurrentPosition(function(position) {
+		
+	 	/* navigator.geolocation.getCurrentPosition(function(position) {
 				 	var lat = position.coords.latitude; // 위도
 			        var	lon = position.coords.longitude; // 경도
 			        console.log(lat,lon);
@@ -136,33 +152,225 @@
 			    	
 			    	// bounds를 지도에 설정
 			    	map.setBounds(bounds);
-			        
-		});
-		
-	    /* var na =navigator.geolocation.watchPosition(success);
+			    	
+		}); 
 
-        function success(position) {
+		// body 폼태그 submit
+		function set(){
+			document.getElementById("live_form").submit();
+		};
+		
+		// 차량 좌표 업데이트 
+		setInterval(UpdateMapAjax,5000);  */
+		
+// 2. watchposition 사용
+		
+	    var na =navigator.geolocation.watchPosition(success);
+
+	   	var live_lat = document.getElementById("live_lat");
+        var live_lon = document.getElementById("live_lon");
+        
+		function success(position) {
                     var lat = position.coords.latitude; // 위도
                     var lon = position.coords.longitude; // 경도
                     console.log(lat,lon)
                     var locPosition = new kakao.maps.LatLng(lat, lon); // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
 
-                displayMarker(locPosition);
+                	displayMarker(locPosition);
         
           /////////// 차량 실시간 위치 DB에 넣게 하기 함수  
-			    	var live_lat = document.getElementById("live_lat");
-			        var live_lon = document.getElementById("live_lon");
 			        console.log(typeof live_lat.value); //string
 			        live_lat.value = lat;
 			        live_lon.value = lon;
 			        console.log(live_lat.value);
 			        console.log(live_lon.value);
-        }; */
-		function set(){
-			document.getElementById("live_form").submit();
-		};
-		setInterval(set,5000);
-	
+					
+			     // 지도 범위를 마커가 다 보이게 설정하기
+			     	var C = new kakao.maps.LatLng(lat, lon);
+			    	// 지도범위를 재설정할 변수
+			    	var bounds = new kakao.maps.LatLngBounds(U,C);  
+			    	
+			    	// bounds를 지도에 설정
+			    	map.setBounds(bounds);
+			    	
+			        var m_id = document.getElementById("m_id");
+			    	var re_seq = document.getElementById("re_seq");
+			    	
+					    	  $.ajax({
+					    	        url:"${cpath}/UpdateMap.do",
+					    	        type:'POST',
+					    	        data: $('#live_form').serialize(),
+					    	        success:function(response){
+					    	        },
+					    	        error:function(){
+					    	        	alert("실패");
+					    	        }
+					        });
+        }; 
+        
+     // 선을 구성하는 좌표 배열
+    function car_info(carvalue) {
+       if(carvalue == "mini") {
+          var linePath = [
+                new kakao.maps.LatLng(35.10923498284929, 126.87798281355532),
+                new kakao.maps.LatLng(35.10963871462896, 126.87937756212976) ];
+          // 지도에 표시할 선을 생성
+          var polyline = new kakao.maps.Polyline({
+             path : linePath, // 선을 구성하는 좌표배열 입니다
+             strokeWeight : 5, // 선의 두께 입니다
+             strokeColor : '#FF0000', // 선의 색깔입니다
+             strokeOpacity : 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+             strokeStyle : 'solid' // 선의 스타일입니다
+          });
+          polyline.setMap(map);
+          
+          var linePath2 = [
+                new kakao.maps.LatLng(35.11105860935427, 126.8807302094148),
+                new kakao.maps.LatLng(35.10933162094814, 126.88189402665219) ];
+          // 지도에 표시할 선을 생성
+          var polyline = new kakao.maps.Polyline({
+             path : linePath2, // 선을 구성하는 좌표배열 입니다
+             strokeWeight : 5, // 선의 두께 입니다
+             strokeColor : '#FF0000', // 선의 색깔입니다
+             strokeOpacity : 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+             strokeStyle : 'solid' // 선의 스타일입니다
+          });
+          polyline.setMap(map);
+          
+          var linePath3 = [
+                new kakao.maps.LatLng(35.113678243398425, 126.89740498579245),
+                new kakao.maps.LatLng(35.113512558023686, 126.89836030147717) ];
+          // 지도에 표시할 선을 생성
+          var polyline = new kakao.maps.Polyline({
+             path : linePath3, // 선을 구성하는 좌표배열 입니다
+             strokeWeight : 5, // 선의 두께 입니다
+             strokeColor : '#FF0000', // 선의 색깔입니다
+             strokeOpacity : 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+             strokeStyle : 'solid' // 선의 스타일입니다
+          });
+          polyline.setMap(map);
+          
+          var linePath4 = [
+                new kakao.maps.LatLng(35.109306910378216, 126.8970137194306),
+                new kakao.maps.LatLng(35.10942499625702, 126.89762269356645) ];
+          // 지도에 표시할 선을 생성
+          var polyline = new kakao.maps.Polyline({
+             path : linePath4, // 선을 구성하는 좌표배열 입니다
+             strokeWeight : 5, // 선의 두께 입니다
+             strokeColor : '#FF0000', // 선의 색깔입니다
+             strokeOpacity : 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+             strokeStyle : 'solid' // 선의 스타일입니다
+          });
+          polyline.setMap(map);
+       }
+       // 지도에 선을 표시
+       else if(carvalue == "large") {
+          var linePath = [
+                  new kakao.maps.LatLng(35.10923498284929, 126.87798281355532),
+                  new kakao.maps.LatLng(35.10963871462896, 126.87937756212976) ];
+            // 지도에 표시할 선을 생성
+            var polyline = new kakao.maps.Polyline({
+               path : linePath, // 선을 구성하는 좌표배열 입니다
+               strokeWeight : 5, // 선의 두께 입니다
+               strokeColor : '#FF0000', // 선의 색깔입니다
+               strokeOpacity : 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+               strokeStyle : 'solid' // 선의 스타일입니다
+            });
+            polyline.setMap(map);
+            
+            var linePath2 = [
+                  new kakao.maps.LatLng(35.11105860935427, 126.8807302094148),
+                  new kakao.maps.LatLng(35.10933162094814, 126.88189402665219) ];
+            // 지도에 표시할 선을 생성
+            var polyline = new kakao.maps.Polyline({
+               path : linePath2, // 선을 구성하는 좌표배열 입니다
+               strokeWeight : 5, // 선의 두께 입니다
+               strokeColor : '#FF0000', // 선의 색깔입니다
+               strokeOpacity : 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+               strokeStyle : 'solid' // 선의 스타일입니다
+            });
+            polyline.setMap(map);
+            
+            var linePath3 = [
+                  new kakao.maps.LatLng(35.113678243398425, 126.89740498579245),
+                  new kakao.maps.LatLng(35.113512558023686, 126.89836030147717) ];
+            // 지도에 표시할 선을 생성
+            var polyline = new kakao.maps.Polyline({
+               path : linePath3, // 선을 구성하는 좌표배열 입니다
+               strokeWeight : 5, // 선의 두께 입니다
+               strokeColor : '#FF0000', // 선의 색깔입니다
+               strokeOpacity : 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+               strokeStyle : 'solid' // 선의 스타일입니다
+            });
+            polyline.setMap(map);
+            
+            var linePath4 = [
+                new kakao.maps.LatLng(35.11761684154239, 126.89655234132918),
+                new kakao.maps.LatLng(35.117920910284646, 126.89724649986778) ];
+            // 지도에 표시할 선을 생성
+            var polyline = new kakao.maps.Polyline({
+               path : linePath4, // 선을 구성하는 좌표배열 입니다
+               strokeWeight : 5, // 선의 두께 입니다
+               strokeColor : '#FF0000', // 선의 색깔입니다
+               strokeOpacity : 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+               strokeStyle : 'solid' // 선의 스타일입니다
+            });
+            polyline.setMap(map);
+            
+           var linePath5 = [
+                new kakao.maps.LatLng(35.109306910378216, 126.8970137194306),
+                new kakao.maps.LatLng(35.10942499625702, 126.89762269356645) ];
+       // 지도에 표시할 선을 생성
+           var polyline = new kakao.maps.Polyline({
+             path : linePath5, // 선을 구성하는 좌표배열 입니다
+             strokeWeight : 5, // 선의 두께 입니다
+             strokeColor : '#FF0000', // 선의 색깔입니다
+             strokeOpacity : 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+             strokeStyle : 'solid' // 선의 스타일입니다
+          });
+          polyline.setMap(map);
+          
+          var linePath6 = [
+               new kakao.maps.LatLng(35.10876059513533, 126.88487788068146),
+               new kakao.maps.LatLng(35.10915778908654, 126.88607653695574) ];
+      // 지도에 표시할 선을 생성
+          var polyline = new kakao.maps.Polyline({
+             path : linePath6, // 선을 구성하는 좌표배열 입니다
+             strokeWeight : 5, // 선의 두께 입니다
+             strokeColor : '#FF0000', // 선의 색깔입니다
+             strokeOpacity : 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+             strokeStyle : 'solid' // 선의 스타일입니다
+          });
+          polyline.setMap(map);
+          
+          var linePath7 = [
+               new kakao.maps.LatLng(35.114208449312784, 126.89675024489236),
+               new kakao.maps.LatLng(35.11387954359591, 126.89668955343541) ];
+      // 지도에 표시할 선을 생성
+          var polyline = new kakao.maps.Polyline({
+             path : linePath7, // 선을 구성하는 좌표배열 입니다
+             strokeWeight : 5, // 선의 두께 입니다
+             strokeColor : '#FF0000', // 선의 색깔입니다
+             strokeOpacity : 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+             strokeStyle : 'solid' // 선의 스타일입니다
+          });
+          polyline.setMap(map);
+            
+       }
+    }
+
+/*          $.ajax({
+	         type: 'POST',    
+	         url: "test.php",   //전송할 url
+	         data: $('#tt').serialize(),    //form id를 입력하자
+	         success: function(response) {   //성공했을시의 동작.
+	             
+	         },
+	        error: function() {    //오류났을때 동작
+
+	            alert("There was an error submitting comment");
+	        }
+	     });  */
 		function displayMarker(locPosition){
 			//마커 이미지 - 출동차량
 			var imageSrc = "resources/images/firecar.png",   
@@ -192,7 +400,29 @@
 		        roadmapControl.className = 'btn';
 		    }
 		}
+		
+		
+		  function reset() {
+			  var live_lat = document.getElementById("live_lat");
+		      var live_lon = document.getElementById("live_lon");
+		      //초기 지도
+		      var container = document.getElementById('map');
+		      var lat = ${fsvo.fs_latitude}
+		      var lon = ${fsvo.fs_longitude}
+		      var options = {
+		         center : new kakao.maps.LatLng(live_lat, live_lon),
+		         level : 3
+		      };
+		      map = new kakao.maps.Map(container, options);
+		   
+		      var makerPosition = new kakao.maps.LatLng(lat, lon)
 
+		      var marker = new kakao.maps.Marker({
+		         map : map,
+		         position : makerPosition
+		      }); 
+		   }
  	</script>
+ 	</div>
 </body>
 </html>
