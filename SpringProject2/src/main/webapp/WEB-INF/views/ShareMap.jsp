@@ -132,9 +132,8 @@
 			        
 			     // 마커표시해줄 좌표
 				    var locPosition = new kakao.maps.LatLng(lat, lon);
-			     
 			        displayMarker(locPosition);
-		
+					
 		/////////// 차량 실시간 위치 DB에 넣게 하기 함수  
 			    	var live_lat = document.getElementById("live_lat");
 			        var live_lon = document.getElementById("live_lon");
@@ -233,12 +232,13 @@
 			    
 			var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
 			
-			var nwp_marker = new kakao.maps.Marker({  
+			nwp_marker = new kakao.maps.Marker({  
 			    map: map, 
 			    position: locPosition,
 			    image: markerImage
 			}); 
 		        nwp_marker.setMap(map);
+		        setInterval(nwp_marker.setMap(map), 5000);
 		};
      // 선을 구성하는 좌표 배열
     function car_info(carvalue) {
