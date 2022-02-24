@@ -232,7 +232,7 @@
 			    	        }
 			        });
 				    
-				    marker.setPosition(locPosition);
+		    	  	nwp_marker.setPosition(locPosition);
 				    
 //					 displayMarker(locPosition)
 
