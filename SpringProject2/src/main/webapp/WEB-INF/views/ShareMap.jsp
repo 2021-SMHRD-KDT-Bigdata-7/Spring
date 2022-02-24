@@ -124,8 +124,8 @@
 	
 // 1. currentposition 사용
 		//페이지 시작 시 현재 위치
-		setInterval(
-	 	navigator.geolocation.getCurrentPosition(function(position) {
+		
+	 	/* navigator.geolocation.getCurrentPosition(function(position) {
 				 	var lat = position.coords.latitude; // 위도
 			        var	lon = position.coords.longitude; // 경도
 			        console.log(lat,lon);
@@ -150,25 +150,10 @@
 			    	// 지도범위를 재설정할 변수
 			    	var bounds = new kakao.maps.LatLngBounds(U,C);  
 			    	
-			    	
-			    	var m_id = document.getElementById("m_id");
-			    	var re_seq = document.getElementById("re_seq");
-			    	
-					    	  $.ajax({
-					    	        url:"${cpath}/UpdateMap.do",
-					    	        type:'POST',
-					    	        data: $('#live_form').serialize(),
-					    	        success:function(response){
-					    	        },
-					    	        error:function(){
-					    	        	alert("실패");
-					    	        }
-					        });
-					    	  
 			    	// bounds를 지도에 설정
 			    	map.setBounds(bounds);
 			    	
-		}),5000); 
+		}); 
 
 		// body 폼태그 submit
 		function set(){
@@ -176,11 +161,11 @@
 		};
 		
 		// 차량 좌표 업데이트 
-//		setInterval(set,5000); 
+		setInterval(UpdateMapAjax,5000); */
 		
 // 2. watchposition 사용
 		
-	    /* var na =navigator.geolocation.watchPosition(success);
+	    var na =navigator.geolocation.watchPosition(success);
 
 	   	var live_lat = document.getElementById("live_lat");
         var live_lon = document.getElementById("live_lon");
@@ -231,7 +216,7 @@
 					   
 					    	 
         }; 
- */        
+        
         function displayMarker(locPosition){
 			//마커 이미지 - 출동차량
 			var imageSrc = "resources/images/firecar.png",   
