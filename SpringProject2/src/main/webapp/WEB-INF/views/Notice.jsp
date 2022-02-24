@@ -42,12 +42,12 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <body>
  
-	<%-- <c:if test="${!empty list}">
+	<c:if test="${!empty list}">
     	<c:forEach var="i" begin="0" end="${fn:length(list)-1}">
     		[${list[i].re_latitude},
     		${list[i].re_longitude}], <br>
     	</c:forEach>
-	</c:if> --%> 
+	</c:if>
 	
     <div class="map_wrap">
     <div class="header"><img id="logo" onclick="location.href='${cpath}/Main.do'" src="resources/images/header.png"></div>
@@ -104,7 +104,7 @@
     var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
         mapOption = { 
             center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-            level: 6 // 지도의 확대 레벨
+            level: 4 // 지도의 확대 레벨
         };
 
     var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
@@ -133,8 +133,6 @@
 		</c:if>
     ]
     console.log(kkk.length);
-    
-    
     
     // * 현재 위치를 알려주는 geolocation * 
     // HTML5의 geolocation으로 사용할 수 있는지 확인합니다 
@@ -227,14 +225,13 @@
         
         circle.setPosition(map.getCenter()); 
         circle.setMap(map);
-
       
         for (var i = 0; i < kkk.length; i++) {
         var marker1;
               // 지도에 마커를 생성하고 표시한다
             marker1 = new kakao.maps.Marker({
             position: new kakao.maps.LatLng(kkk[i][0], kkk[i][1]), // 마커의 좌표
-            // map: map // 마커를 표시할 지도 객체
+            map: map // 마커를 표시할 지도 객체
             });
         var linePath =  [
             new kakao.maps.LatLng(latlng.getLat(),latlng.getLng()),
@@ -249,43 +246,41 @@
             strokeStyle: 'solid' // 선의 스타일입니다 
         });
        
-      
-    //    
           dist = poly.getLength(); // m 단위로 리턴
         // console.log(radius);
         if (dist <= radius) {
             // markerarr.unshift(marker1);
             // marker1.setMap(map);
-           for(var k = kkk.length-1; k<markerarr.length;k++){
+            for(var k = kkk.length-1; k<markerarr.length;k++){
             markerarr[k].setMap(null);
               polyarr[k].setMap(null);
-
               
             }
-            
+            console.log
             markerarr.splice(kkk.length-1,markerarr.length);
             polyarr.splice(kkk.length-1,markerarr.length);
-           
 
             marker1.setMap(map);
-            poly.setMap(map);
+ //           poly.setMap(map);
             markerarr.unshift(marker1);
             polyarr.unshift(poly);
+            
+            
+			// marker1의 좌표값을 분해
+   			var m_postion = marker1.getPosition();
+			console.log(m_postion.getLat());
+			console.log(m_postion.getLng());
+			var m_Lat = m_postion.getLat();
+			var m_Lng = m_postion.getLng();
+			console.log(m_Lng);
             var contenttest = '주변에 사고가 발생하였습니다! 해당 위치를 확인하시겠습니까?';
-   
-        action_popup.confirm(contenttest, function (res) {
-            if (res) {
-            	location.href = "${cpath}/ReportTaking.do";
-//               action_popup.alert("확인창을 눌렀습니다.");
-            }
-        });
-            // for(var m=0;  m<kkk.length-1; m++){
-            // if(markerarr[m]!=markerarr[m+1]){
-            //     confirmtest();
-            // }
-           // }
-        } else {
-            console.log(markerarr.length);
+   			action_popup.confirm(contenttest, function (res) {
+	            if (res) {
+	            	location.href = "${cpath}/NoticeMap.do?m_Lat="+m_Lat+"&m_Lng="+m_Lng;
+	            }
+        	});
+        	} else {
+          		console.log(markerarr.length);
            
             //  marker1.setMap(null);
             // poly.setMap(null);

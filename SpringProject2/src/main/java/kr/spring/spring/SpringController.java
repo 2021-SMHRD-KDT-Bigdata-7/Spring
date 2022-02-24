@@ -336,6 +336,15 @@ public class SpringController {
 		System.out.println("Notice의  list_model : "+ model);
 		return"Notice";
 	}
-
+	
+	@RequestMapping("/NoticeMap.do")
+	public String NoticeMap(@RequestParam String m_Lat, @RequestParam String m_Lng, Model model) {
+		System.out.println(m_Lat);
+		System.out.println(m_Lng);
+		model.addAttribute("m_Lat", m_Lat);
+		model.addAttribute("m_Lng", m_Lng);
+		
+		return "NoticeMap";
+	}
 }
 	
