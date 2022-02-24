@@ -42,12 +42,12 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <body>
  
-	<c:if test="${!empty list}">
+	<%-- <c:if test="${!empty list}">
     	<c:forEach var="i" begin="0" end="${fn:length(list)-1}">
     		[${list[i].re_latitude},
     		${list[i].re_longitude}], <br>
     	</c:forEach>
-	</c:if>
+	</c:if> --%>
 	
     <div class="map_wrap">
     <div class="header"><img id="logo" onclick="location.href='${cpath}/Main.do'" src="resources/images/header.png"></div>
