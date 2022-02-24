@@ -238,7 +238,7 @@
 			    image: markerImage
 			}); 
 		        nwp_marker.setMap(map);
-		        setInterval(nwp_marker.setMap(map), 5000);
+		        setInterval(nwp_marker.setMap(null), 5000);
 		};
      // 선을 구성하는 좌표 배열
     function car_info(carvalue) {
