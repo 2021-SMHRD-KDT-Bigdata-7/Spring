@@ -68,7 +68,7 @@
 	  <input type="text" name="re_seq" value="${rvo.re_seq}" id="re_seq">
 	</form> --%>
 	
-	<div id="map">
+	<div id="map"></div>
 	<script>
 	//신고 좌표
 		var lat_U = ${rvo.re_latitude};
@@ -124,8 +124,8 @@
 	
 // 1. currentposition 사용
 		//페이지 시작 시 현재 위치
-		
-	 	/* navigator.geolocation.getCurrentPosition(function(position) {
+		function geo(){
+	 		var geo = navigator.geolocation.getCurrentPosition(function(position) {
 				 	var lat = position.coords.latitude; // 위도
 			        var	lon = position.coords.longitude; // 경도
 			        console.log(lat,lon);
@@ -149,12 +149,31 @@
 			     	var C = new kakao.maps.LatLng(lat, lon);
 			    	// 지도범위를 재설정할 변수
 			    	var bounds = new kakao.maps.LatLngBounds(U,C);  
-			    	
+			
 			    	// bounds를 지도에 설정
 			    	map.setBounds(bounds);
 			    	
+			    	 var m_id = document.getElementById("m_id");
+				    	var re_seq = document.getElementById("re_seq");
+				    	
+						    	  $.ajax({
+						    	        url:"${cpath}/UpdateMap.do",
+						    	        type:'POST',
+						    	        data: $('#live_form').serialize(),
+						    	        success:function(response){
+						    	        },
+						    	        error:function(){
+						    	        	alert("실패");
+						    	        }
+						        });
+			    	
 		}); 
+	};
+	
+	geo();
 
+	setInterval(geo(), 5000); 
+/*
 		// body 폼태그 submit
 		function set(){
 			document.getElementById("live_form").submit();
@@ -165,11 +184,10 @@
 		
 // 2. watchposition 사용
 		
-	    var na =navigator.geolocation.watchPosition(success);
+	   /*  var na =navigator.geolocation.watchPosition(success);
 		
 	   	var live_lat = document.getElementById("live_lat");
         var live_lon = document.getElementById("live_lon");
-    
 		function success(position) {
                     var lat = position.coords.latitude; // 위도
                     var lon = position.coords.longitude; // 경도
@@ -182,16 +200,6 @@
 			        console.log(live_lat.value);
 			        console.log(live_lon.value);
 			        
-			        var imageSrc = "resources/images/firecar.png",   
-				    imageSize = new kakao.maps.Size(40, 40);
-					var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
-					var nwp_marker = new kakao.maps.Marker({  
-					    map: map, 
-					    position: locPosition,
-					    image: markerImage
-					}); 
-					
-			        nwp_marker.setMap(map);
 			     // 지도 범위를 마커가 다 보이게 설정하기
 			     	var C = new kakao.maps.LatLng(lat, lon);
 			    	// 지도범위를 재설정할 변수
@@ -213,12 +221,12 @@
 					    	        	alert("실패");
 					    	        }
 					        });
-					   
+					 displayMarker(locPosition)
+
 					    	 
-        };  
+        };   */
         
         function displayMarker(locPosition){
-            nwp_marker.setMap(null); 
 			//마커 이미지 - 출동차량
 			var imageSrc = "resources/images/firecar.png",   
 			    imageSize = new kakao.maps.Size(40, 40);
@@ -433,6 +441,5 @@
 		      }); 
 		   }
  	</script>
- 	</div>
 </body>
 </html>
