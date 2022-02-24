@@ -26,7 +26,7 @@
    		$("#btn-chk").click(function() {
    			
    				alert("알림이 설정되었습니다.");
-   			
+   			 
    		});
    	});
      </script>
