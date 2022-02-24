@@ -21,6 +21,14 @@
                $(".rform").slideDown();
           }
        };
+      $(document).ready(function ale(e) {
+
+   		$("#btn-chk").click(function() {
+   			
+   				alert("알림이 설정되었습니다.");
+   			
+   		});
+   	});
      </script>
 </head>
 <body> 
@@ -138,7 +146,8 @@
 						<input type="radio" name="radio" id="radio" value="X">
 					</td>
 			</table>
-						<button type="submit" id="btn-chk">확인</button>
+			
+						<button type="button" id="btn-chk">확인</button>
 		</form>
 		</div>
 			<h3 style="margin-top: 5%;">
