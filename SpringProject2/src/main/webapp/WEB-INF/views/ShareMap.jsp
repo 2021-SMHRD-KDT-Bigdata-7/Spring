@@ -188,10 +188,20 @@
 		
 	   	var live_lat = document.getElementById("live_lat");
         var live_lon = document.getElementById("live_lon");
+        
+        var imageSrc = "resources/images/firecar.png",   
+	    imageSize = new kakao.maps.Size(40, 40);
+	    
+		var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
+		
+		var nwp_marker = new kakao.maps.Marker({  
+			    map: map, 
+			    position: markerPosition_F,
+			    image: markerImage
+		}); 
+    	nwp_marker.setMap(map);
+    	
 		function success(position) {
-					var nwp_marker = new kakao.maps.Marker({  
-					}); 
-					nwp_marker.setMap(null);
                     var lat = position.coords.latitude; // 위도
                     var lon = position.coords.longitude; // 경도
                     console.log(lat,lon)
@@ -221,18 +231,8 @@
 			    	        	alert("실패");
 			    	        }
 			        });
-					    	  
-			    	var imageSrc = "resources/images/firecar.png",   
-					    imageSize = new kakao.maps.Size(40, 40);
-					    
-					var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
-					
-					var nwp_marker = new kakao.maps.Marker({  
-						    map: map, 
-						    position: locPosition,
-						    image: markerImage
-					}); 
-				    nwp_marker.setMap(map);
+				    
+				    marker.setPosition(locPosition);
 				    
 //					 displayMarker(locPosition)
 
@@ -253,11 +253,6 @@
 			}); 
 		        nwp_marker.setMap(map);
 		        
-		        function deletemarker(){
-		        	nwp_marker.setMap(null);
-		        };
-		        
-		        setInterval(deletemarker, 5000);
 		};
      // 선을 구성하는 좌표 배열
     function car_info(carvalue) {
