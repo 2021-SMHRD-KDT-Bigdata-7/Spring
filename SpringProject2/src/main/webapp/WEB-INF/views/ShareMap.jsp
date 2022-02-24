@@ -172,7 +172,7 @@
 	
 	geo();
 
-	setInterval(geo(), 5000); 
+	setInterval(geo, 5000); 
 /*
 		// body 폼태그 submit
 		function set(){
@@ -184,7 +184,7 @@
 		
 // 2. watchposition 사용
 		
-	   /*  var na =navigator.geolocation.watchPosition(success);
+	   /* var na =navigator.geolocation.watchPosition(success);
 		
 	   	var live_lat = document.getElementById("live_lat");
         var live_lon = document.getElementById("live_lon");
@@ -224,8 +224,8 @@
 					 displayMarker(locPosition)
 
 					    	 
-        };   */
-        
+        };   
+        */
         function displayMarker(locPosition){
 			//마커 이미지 - 출동차량
 			var imageSrc = "resources/images/firecar.png",   
@@ -239,7 +239,7 @@
 			    image: markerImage
 			}); 
 		        nwp_marker.setMap(map);
-		}; 
+		};
      // 선을 구성하는 좌표 배열
     function car_info(carvalue) {
        if(carvalue == "mini") {
