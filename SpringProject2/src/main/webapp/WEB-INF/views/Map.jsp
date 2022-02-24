@@ -61,11 +61,10 @@
       }); 
    }
       // 선을 구성하는 좌표 배열
-   
-      
 	
 
    function car_info(carvalue) {
+    	  reset();
       if(carvalue == "mini") {
          var linePath = [
                new kakao.maps.LatLng(35.10923498284929, 126.87798281355532),
