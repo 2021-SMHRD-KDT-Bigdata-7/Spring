@@ -171,11 +171,13 @@
         var live_lon = document.getElementById("live_lon");
         
 		function success(position) {
+					nwp_marker.setMap(null);
                     var lat = position.coords.latitude; // 위도
                     var lon = position.coords.longitude; // 경도
                     console.log(lat,lon)
                     var locPosition = new kakao.maps.LatLng(lat, lon); // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
-          /////////// 차량 실시간 위치 DB에 넣게 하기 함수  
+                    displayMarker(locPosition);
+                    /////////// 차량 실시간 위치 DB에 넣게 하기 함수  
 			        console.log(typeof live_lat.value); //string
 			        live_lat.value = lat;
 			        live_lon.value = lon;
@@ -203,8 +205,8 @@
 					    	        	alert("실패");
 					    	        }
 					        });
-					    	  nwp_marker.setMap(null);
-					    	  displayMarker(locPosition);
+					   
+					    	 
         }; 
         
         function displayMarker(locPosition){
