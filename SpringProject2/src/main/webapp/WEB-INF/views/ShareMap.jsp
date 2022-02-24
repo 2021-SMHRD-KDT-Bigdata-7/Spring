@@ -165,7 +165,7 @@
 		
 // 2. watchposition 사용
 		
-	    var na =navigator.geolocation.watchPosition(success);
+	   /*  var na =navigator.geolocation.watchPosition(success);
 
 	   	var live_lat = document.getElementById("live_lat");
         var live_lon = document.getElementById("live_lon");
@@ -215,7 +215,62 @@
 					        });
 					   
 					    	 
-        }; 
+        };  */
+
+    	//초기 변수
+    		var maker = null;
+    	//페이지 시작 시 현재 위치
+    		navigator.geolocation.getCurrentPosition(function(position) {
+    			var lat_C = position.coords.latitude; // 위도
+    			var lon_C = position.coords.longitude; // 경도
+    			
+		     	var C = new kakao.maps.LatLng(lat_C, lon_C);
+		    	// 지도범위를 재설정할 변수
+		    	var bounds = new kakao.maps.LatLngBounds(U,C);  
+		    	
+		    	// bounds를 지도에 설정
+		    	map.setBounds(bounds);
+    	//현재 위치 마커
+    			var locPosition = new kakao.maps.LatLng(lat_C, lon_C)
+    			
+    			var imageSrc_C = "resources/images/firecar.png",   
+			    imageSize_C = new kakao.maps.Size(40, 40);
+			    
+				var markerImage_C = new kakao.maps.MarkerImage(imageSrc_C, imageSize_C);
+    			marker_C = new kakao.maps.Marker({
+    				map : map,
+    				position : locPosition,
+    				image: markerImage_C
+    			});
+    			marker_C.setMap(map);
+    	//현재 위치로 지도 이동
+    			map.setCenter(new kakao.maps.LatLng(lat, lon));
+    	//지도를 움직이면 위도 경도 주소 변경
+    			kakao.maps.event.addListener(map, 'center_changed', function() {
+    						marker_C.setMap(null);  // 이전 마커 삭제
+    						latlng = map.getCenter();  // 지도 중심 좌표 저장
+    						
+    ////////////////////////확인용
+    						console.log(latlng);
+    						
+    						// 지도 중심으로 마커 재설정
+    						markerPosition_C = new kakao.maps.LatLng(latlng.getLat(), latlng.getLng());
+    						
+    ////////////////////////확인용	
+    						console.log(latlng.getLat());
+    						console.log(latlng.getLng());
+
+    						marker_C = new kakao.maps.Marker({
+    							map : map,
+    							position : markerPosition_C,
+    		    				image: markerImage_C
+    						});
+
+    						marker_C.setMap(map);
+
+    					});
+    		});
+
         
         function displayMarker(locPosition){
 			//마커 이미지 - 출동차량
