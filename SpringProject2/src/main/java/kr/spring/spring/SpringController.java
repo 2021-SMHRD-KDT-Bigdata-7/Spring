@@ -34,16 +34,11 @@ public class SpringController {
 	@RequestMapping("/ReportCheck.do") public String ReportCheck() { return "ReportCheck"; }
 	  
 	@RequestMapping("/Join.do") 
-	public String Join(Model model) { 
-		model.addAttribute(model);
-////////확인용
-		System.out.println("Join: "+model);
+	public String Join() { 
 		return "Join"; 
 	}
 	@RequestMapping("/UserSetting.do") public String UserSetting() { return "UserSetting"; }
 	 
-	@RequestMapping("/JoinSelect.do") public String JoinSelect() { return "JoinSelect"; }
-	
 	// 설정버튼 누르면 로그인세션과 함께 설정페이지로 이동 
 	@RequestMapping("/Setting.do") 
 	public String Setting(HttpSession session, Member member) { 
@@ -67,22 +62,16 @@ public class SpringController {
 //**************************************************************로그인 및 회원가입 메소드
 	
 	 //회원가입-일반/소방 
-	 /*@RequestMapping("/JoinAll.do") 
+	 @RequestMapping("/JoinAll.do") 
 	 public String JoinAll(@RequestParam Map<String, Object> map, ModelMap model) {
 //////////확인용   
 		 model.addAllAttributes(map);
+		 service.JoinAll(model);
 		 System.out.println("JoinAll : "+model);
 		 System.out.println("JoinAll : "+model.get("m_type"));
 
-			if (model.get("m_type").equals("U")) {
-				service.JoinUser(model);
-				return "Main";
-			} else {
-				service.JoinFire(model);
-				return "Main";
-			}
-
-		}*/
+		 return "redirect:/Main.do";
+		}
 	
 	//로그인
 	 @RequestMapping(value = "/Login.do", method = RequestMethod.POST)

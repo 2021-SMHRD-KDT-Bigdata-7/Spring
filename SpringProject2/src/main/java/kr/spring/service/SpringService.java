@@ -27,17 +27,8 @@ public class SpringService {
 		return member;
 	} 
 	*/
-	
-	//회원가입-일반사용자
-	public void JoinUser(ModelMap model) {
-//////////확인용	
-		System.out.println("JoinUser serv "+model);
-		
-		mapper.JoinUser(model);
-	}
-	// 회원가입-소방서
-	public void JoinFire(ModelMap model) {
-		mapper.JoinFire(model);
+	public void JoinAll(ModelMap map) {
+		mapper.JoinAll(map);
 	}
 	// 로그인
 	public Member Login(ModelMap model) {
@@ -156,4 +147,5 @@ public class SpringService {
 			
 		return fsvo;
 	}
+	
 }

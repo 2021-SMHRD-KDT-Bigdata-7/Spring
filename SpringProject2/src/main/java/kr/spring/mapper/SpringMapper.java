@@ -12,8 +12,7 @@ import kr.spring.domain.Report;
 public interface SpringMapper {
 	
 //	public Member Main(String m_id);
-	public void JoinUser(ModelMap model);
-	public void JoinFire(ModelMap model);
+	public void JoinAll(ModelMap map);
 	public Member Login(ModelMap model);
 	public void UserInfoUpdate(ModelMap modelmap);
 	public Member UserInfoSelect(String m_id);

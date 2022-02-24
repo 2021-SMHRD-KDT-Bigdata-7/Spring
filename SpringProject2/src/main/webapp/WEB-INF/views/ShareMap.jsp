@@ -81,7 +81,7 @@
 		var container = document.getElementById('map');
 		
 		var options = {
-			center : new kakao.maps.LatLng(lat_U, lon_U),
+			center : new kakao.maps.LatLng(33.450701, 126.570667),
 			level : 3
 		};
 		var map = new kakao.maps.Map(container, options);
@@ -219,19 +219,21 @@
 
     	//초기 변수
     		var maker = null;
+	        var lat = null;
+			var lon = null;
     	//페이지 시작 시 현재 위치
     		navigator.geolocation.getCurrentPosition(function(position) {
-    			var lat_C = position.coords.latitude; // 위도
-    			var lon_C = position.coords.longitude; // 경도
+    			lat = position.coords.latitude; // 위도
+    			lon = position.coords.longitude; // 경도
     			
-		     	var C = new kakao.maps.LatLng(lat_C, lon_C);
+		     	var C = new kakao.maps.LatLng(lat, lon);
 		    	// 지도범위를 재설정할 변수
 		    	var bounds = new kakao.maps.LatLngBounds(U,C);  
 		    	
 		    	// bounds를 지도에 설정
 		    	map.setBounds(bounds);
     	//현재 위치 마커
-    			var locPosition = new kakao.maps.LatLng(lat_C, lon_C)
+    			var locPosition = new kakao.maps.LatLng(lat, lon);
     			
     			var imageSrc_C = "resources/images/firecar.png",   
 			    imageSize_C = new kakao.maps.Size(40, 40);
@@ -249,6 +251,7 @@
     			kakao.maps.event.addListener(map, 'center_changed', function() {
     						marker_C.setMap(null);  // 이전 마커 삭제
     						latlng = map.getCenter();  // 지도 중심 좌표 저장
+    						
     						
     ////////////////////////확인용
     						console.log(latlng);

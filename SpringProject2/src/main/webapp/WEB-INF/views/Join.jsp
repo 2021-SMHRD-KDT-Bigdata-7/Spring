@@ -52,7 +52,7 @@
 	<div style="height: 50px"></div>
 	<header> <h2 class="title">Join Us</h2> </header>
 	<div style="height: 50px"></div>
-		 <form action="JoinAll.do" method="POST"> 
+		 <form action="${cpath}/JoinAll.do" method="POST"> 
   		 
   		 <%-- 일반회원 회원가입 --%>
 			 <div class="input-box"> 
