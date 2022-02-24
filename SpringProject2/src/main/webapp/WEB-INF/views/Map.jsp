@@ -31,7 +31,7 @@
       var map = new kakao.maps.Map(container, options);
       //초기 변수
       //위성지도로 변환
-      map.setMapTypeId(kakao.maps.MapTypeId.HYBRID); 
+//      map.setMapTypeId(kakao.maps.MapTypeId.HYBRID); 
       
       var makerPosition = new kakao.maps.LatLng(lat, lon)
       
@@ -51,7 +51,7 @@
       map = new kakao.maps.Map(container, options);
    //초기 변수
    //위성지도로 변환
-     map.setMapTypeId(kakao.maps.MapTypeId.HYBRID); 
+//     map.setMapTypeId(kakao.maps.MapTypeId.HYBRID); 
    
       var makerPosition = new kakao.maps.LatLng(lat, lon)
 
@@ -261,7 +261,7 @@
       var map = new kakao.maps.Map(container, options);
    //초기 변수
    //위성지도로 변환1
-      map.setMapTypeId(kakao.maps.MapTypeId.HYBRID); 
+//      map.setMapTypeId(kakao.maps.MapTypeId.HYBRID); 
       
       var makerPosition = new kakao.maps.LatLng(lat, lon)
       

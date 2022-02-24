@@ -60,7 +60,7 @@
 		var lat = null;
 		var lon = null;
 	//위성지도로 변환
-		map.setMapTypeId(kakao.maps.MapTypeId.HYBRID); 
+//		map.setMapTypeId(kakao.maps.MapTypeId.HYBRID); 
 	//페이지 시작 시 현재 위치
 		navigator.geolocation.getCurrentPosition(function(position) {
 			lat = position.coords.latitude; // 위도
