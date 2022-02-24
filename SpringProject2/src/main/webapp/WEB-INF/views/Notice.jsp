@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<link rel="stylesheet" href="${cPath}/resources/css/cssfile.css" type="text/css" media="screen" />
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>불이야</title>
     <style>
@@ -41,13 +41,13 @@
 </head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <body>
-<%-- 
-	<c:if test="${!empty list}">
+ 
+	<%-- <c:if test="${!empty list}">
     	<c:forEach var="i" begin="0" end="${fn:length(list)-1}">
     		[${list[i].re_latitude},
     		${list[i].re_longitude}], <br>
     	</c:forEach>
-	</c:if> --%>
+	</c:if> --%> 
 	
     <div class="map_wrap">
     <div class="header"><img id="logo" onclick="location.href='${cpath}/Main.do'" src="resources/images/header.png"></div>
@@ -60,17 +60,17 @@
         <div id="position"></div>   
         <div id="drawingMap"></div>
   
-    <!-- <p><em>지도 중심좌표가 변경되면 지도 정보가 표출됩니다</em></p>
-    <p id="result"></p>
-    <p id="result2"></p> -->
+    <!-- <p><em>지도 중심좌표가 변경되면 지도 정보가 표출됩니다</em></p>-->
+    <p id="result"></p> 
+    <p id="result2"></p> 
     <div id="confirm" style="display: none;">
     <input type ="button" value ="알림창 test" onClick="confirmtest()">
     </div>
-    <div class="wrap" style="display: none;">
-        <section>
+    <div class="wrap">
+       <!--  <section>
             <button type="button" id="confirm">컨펌창</button>
            
-        </section>
+        </section> -->
         
         <!-- confirm 모달을 쓸 페이지에 추가 start-->
         <section class="modal modal-section type-confirm">
@@ -141,7 +141,8 @@
     if (navigator.geolocation) {
         
         // GeoLocation을 이용해서 접속 위치를 얻어옵니다
-        navigator.geolocation.getCurrentPosition(function(position) {
+        navigator.geolocation.watchPosition(success);
+        function success(position) {
             
              lat = position.coords.latitude, // 위도
              lon = position.coords.longitude; // 경도
@@ -152,7 +153,7 @@
             // 마커와 인포윈도우를 표시합니다
             displayMarker(locPosition);
                 
-        });
+        };
         
     } else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
         
@@ -179,11 +180,11 @@
 
         // // 인포윈도우를 생성합니다
         
-         var infowindow = new kakao.maps.InfoWindow({
+       /*   var infowindow = new kakao.maps.InfoWindow({
              zindex:1,              // 주소를 표시할 인포윈도우입니다
              content : iwContent,
              removable : iwRemoveable
-         });
+         }); */
 
          var circle = new kakao.maps.Circle({
         center :  new kakao.maps.LatLng(lat,lon),  // 원의 중심좌표 입니다 
@@ -216,8 +217,8 @@
         // 지도의 중심좌표를 얻어옵니다 
         var latlng = map.getCenter(); 
 
-        var message = '<p>지도 레벨은 ' + level + ' 이고</p>';
-        message += '<p>중심 좌표는 위도 ' + latlng.getLat() + ', 경도 ' + latlng.getLng() + '입니다</p>';
+        /* var message = '<p>지도 레벨은 ' + level + ' 이고</p>';
+        message += '<p>중심 좌표는 위도 ' + latlng.getLat() + ', 경도 ' + latlng.getLng() + '입니다</p>'; */
         
       
         // 마커의 위치를 지도중심으로 설정합니다 
@@ -270,11 +271,12 @@
             poly.setMap(map);
             markerarr.unshift(marker1);
             polyarr.unshift(poly);
-            var contenttest = '주변에 화재가 발생하였습니다! 해당 위치를 확인하시겠습니까?';
+            var contenttest = '주변에 사고가 발생하였습니다! 해당 위치를 확인하시겠습니까?';
    
         action_popup.confirm(contenttest, function (res) {
             if (res) {
-                action_popup.alert("확인창을 눌렀습니다.");
+            	location.href = "${cpath}/ReportTaking.do";
+//               action_popup.alert("확인창을 눌렀습니다.");
             }
         });
             // for(var m=0;  m<kkk.length-1; m++){
@@ -329,15 +331,15 @@
                             '</p>';
 
             // content = '<div style="padding:5px;">'+result[0].address.address_name+'</div>';
-             infowindow.setContent(content);
+ //            infowindow.setContent(content);
             }
         };
 
          
-         infowindow.open(map, marker);
+//         infowindow.open(map, marker);
         
-         infowindow.setPosition(map.getCenter()); 
-         infowindow.setMap(map);
+//         infowindow.setPosition(map.getCenter()); 
+//        infowindow.setMap(map);
          geocoder.coord2Address(latlng.getLng(), latlng.getLat(), callback);
 
         
@@ -352,16 +354,12 @@
 
         // geocoder.coord2Address(latlng.getLng(), latlng.getLat(), callback);
 
-        var resultDiv = document.getElementById('result');
-        resultDiv.innerHTML = message;
-
+       /*  var resultDiv = document.getElementById('result');
+        resultDiv.innerHTML = message; */
+ 
 
     });
     
-    
-
-      
-
    
     var watchId; 
          function PositionStart() { 
@@ -478,7 +476,7 @@ var action_popup = {
             dimLayer != null ? dimLayer.remove() : "";
         }, this.timer);
     }
-}
+ };
 </script>
 </body>
 </html>
