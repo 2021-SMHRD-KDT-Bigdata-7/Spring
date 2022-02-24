@@ -171,19 +171,27 @@
         var live_lon = document.getElementById("live_lon");
         
 		function success(position) {
-					nwp_marker.setMap(null);
                     var lat = position.coords.latitude; // 위도
                     var lon = position.coords.longitude; // 경도
                     console.log(lat,lon)
                     var locPosition = new kakao.maps.LatLng(lat, lon); // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
-                    displayMarker(locPosition);
                     /////////// 차량 실시간 위치 DB에 넣게 하기 함수  
 			        console.log(typeof live_lat.value); //string
 			        live_lat.value = lat;
 			        live_lon.value = lon;
 			        console.log(live_lat.value);
 			        console.log(live_lon.value);
+			        
+			        var imageSrc = "resources/images/firecar.png",   
+				    imageSize = new kakao.maps.Size(40, 40);
+					var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
+					var nwp_marker = new kakao.maps.Marker({  
+					    map: map, 
+					    position: locPosition,
+					    image: markerImage
+					}); 
 					
+			        nwp_marker.setMap(map);
 			     // 지도 범위를 마커가 다 보이게 설정하기
 			     	var C = new kakao.maps.LatLng(lat, lon);
 			    	// 지도범위를 재설정할 변수
