@@ -44,9 +44,8 @@
 		</tr>
 	</table>
 	</div>
-	
     <div id="select-form" style="padding-top: 5%;">
-    <button id="btn-report-list" onclick="location.href='${cpath}/UpdateClear.do?re_seq=${re_seq}'">처리완료</button>
+    <button id="btn-report-list" onclick="location.href='${cpath}/UpdateClear.do?re_seq=${rvo.re_seq}'">처리완료</button>
     </div>
     <div class="custom_typecontrol radius_border" style="display:none;">
         <span id="btnRoadmap" class="selected_btn" onclick="setMapType('roadmap')">지도</span>
@@ -54,7 +53,7 @@
     </div>
     
     
- 	<form id="live_form" action="${cpath}/UpdateMap.do?m_id=${mvo.m_id}&re_seq=${rvo.re_seq}" method="POST" style="display:none;">
+ 	<form id="live_form" action="${cpath}/UpdateMap.do" method="POST" style="display:none;">
 	  <input type="text" name="live_lat" id="live_lat">
 	  <input type="text" name="live_lon" id="live_lon">
 	  <input type="text" name="m_id" value="${mvo.m_id}" id="m_id">

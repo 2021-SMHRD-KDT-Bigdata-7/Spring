@@ -80,7 +80,7 @@
 		update t_report set live_lat = #{live_lat}, live_lon = #{live_lon}, fs_seq = #{fs_seq} where re_seq = #{re_seq} 
 	</update>
 	
-	<update id="UpdateClear">
+	<update id="UpdateClear" parameterType="Integer">
 		update t_report set clear_yn = 'Y' where re_seq = #{re_seq} 
 	</update>
 	
