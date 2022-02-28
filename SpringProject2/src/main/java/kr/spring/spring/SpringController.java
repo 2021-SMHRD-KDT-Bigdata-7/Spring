@@ -302,6 +302,7 @@ public class SpringController {
 	@RequestMapping("/SelectFS.do")
 	public String SelectFS(@RequestParam int re_seq, Model model) {
 		
+		
 		System.out.println("re_seq "+re_seq);                          /////확인용
 		// re_seq를 통해 rvo를 가져옴 
 		Report rvo = service.ReportDetail(re_seq);
@@ -309,10 +310,10 @@ public class SpringController {
 		System.out.println("SelectFS의 rvo : "+ rvo);                  /////확인용
 		
 		// re_seq를 통해 fsvo를 가져옴
+		
 		FireStation fsvo = service.SelectFS(re_seq);
 		model.addAttribute("fsvo", fsvo);
 		System.out.println("SelectFS.do의 fsvo : "+ fsvo);              /////확인용
-		
 		// model객체에 소방서id를 담아서 forward 
 		model.addAttribute("m_id", fsvo.getM_id());
 		System.out.println("SelectFS.do의 id : "+ fsvo.getM_id());      /////확인용

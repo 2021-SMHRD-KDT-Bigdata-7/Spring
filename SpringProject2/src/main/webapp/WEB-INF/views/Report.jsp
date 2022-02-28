@@ -45,7 +45,6 @@ ${report.re_seq} --%>
 		    <td id="tbl-content">${mvo.m_phone}</td>
 		  </tr>
 		</table>
-
 		<h2>신고내용</h2>
 		<table id="tbl-report">
 		  <tr>
@@ -60,7 +59,6 @@ ${report.re_seq} --%>
 				  <option value="재해">재해</option>
 				  <option value="화재">기타</option>
 			  </select>
-		
 			</td>
 		  </tr>
 		  <tr>
@@ -76,14 +74,13 @@ ${report.re_seq} --%>
 			</td>
 		  </tr>
 		  <tr>
-		    <td id="tbl-title">파일첨부</td><!-- (컬럼이 없음) -->
+		    <td id="tbl-title">파일첨부</td>
 			<td id="tbl-content">
 				<div style="display: table-cell">
 				  <input id="report-input" type="file">
 				</div>		  
 			</td>
 		  </tr>
-		  
 		  <tr align="center">
 		    <td colspan="2">
 		      <input id="btn-report" type="submit" value="신고하기">

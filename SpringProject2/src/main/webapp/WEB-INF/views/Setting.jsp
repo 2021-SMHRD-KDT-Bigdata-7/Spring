@@ -35,7 +35,6 @@
 	<div id="setting-form">
 		
 		<!-- 소방 접속  -->
-		 세션 확인용 ${mvo.m_type}
 		 <p class="return-text" onclick="location.href='Main.do'">< 뒤로가기</p>
 		<c:choose>
 		<c:when test="${mvo.m_type eq 'F'}">
